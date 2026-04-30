@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Deekay Consulting — Cinematic Noir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --black: #0A0908;
+  --black-2: #131110;
+  --ash: #1F1C19;
+  --bone: #E8E2D6;
+  --cream: #F2EDE2;
+  --gold: #C8A567;
+  --dust: rgba(232, 226, 214, 0.5);
+  --serif: "Cormorant Garamond", "Times New Roman", serif;
+  --sans: "Inter", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+*,*::before,*::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  background: var(--black);
+  color: var(--bone);
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--gold); color: var(--black); }
+
+/* ---------- Top bar (cinematic letterbox cue) ---------- */
+.letterbox { position: fixed; left: 0; right: 0; height: 36px; background: #000; z-index: 60; pointer-events: none; }
+.letterbox--top { top: 0; border-bottom: 1px solid rgba(232,226,214,0.06); }
+.letterbox--bottom { bottom: 0; border-top: 1px solid rgba(232,226,214,0.06); }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: fixed; top: 36px; left: 0; right: 0;
+  z-index: 50;
+  padding: 22px 40px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--dust);
+  mix-blend-mode: difference;
+}
+.nav__brand { color: var(--cream); font-weight: 500; letter-spacing: 0.32em; }
+.nav__brand i { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: 0.08em; text-transform: lowercase; color: var(--gold); margin-left: 6px; font-size: 13px; }
+.nav__links { display: flex; gap: 32px; }
+.nav__links a { transition: color .3s ease; }
+.nav__links a:hover { color: var(--cream); }
+.nav__time { color: var(--gold); }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 720px;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero__bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 90% 60% at 50% 40%, #2A2520 0%, #0F0D0B 55%, #050403 100%);
+}
+/* Misty texture layers */
+.hero__bg::before {
+  content: ""; position: absolute; inset: 0;
+  background-image:
+    radial-gradient(circle at 28% 38%, rgba(200,165,103,0.18), transparent 35%),
+    radial-gradient(circle at 70% 60%, rgba(232,226,214,0.06), transparent 40%);
+  filter: blur(10px);
+}
+/* Volumetric "smoke" using multiple radial gradients */
+.hero__smoke {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 40% 30% at 20% 70%, rgba(255,240,210,0.08), transparent 60%),
+    radial-gradient(ellipse 35% 25% at 80% 30%, rgba(200,165,103,0.10), transparent 60%),
+    radial-gradient(ellipse 50% 35% at 50% 90%, rgba(0,0,0,0.7), transparent 60%);
+  animation: drift 24s ease-in-out infinite alternate;
+}
+@keyframes drift {
+  0% { transform: translate(0,0) scale(1); }
+  100% { transform: translate(-3%, 2%) scale(1.05); }
+}
+/* Subject silhouette — abstract figure as if shot in fog */
+.hero__subject {
+  position: absolute;
+  left: 50%; top: 56%;
+  transform: translate(-50%, -50%);
+  width: min(560px, 60vw);
+  aspect-ratio: 3/4;
+  filter: drop-shadow(0 60px 80px rgba(0,0,0,0.6));
+}
+.hero__subject svg { width: 100%; height: 100%; display: block; }
+/* Vignette */
+.hero__vignette {
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 90% 70% at 50% 50%, transparent 30%, rgba(0,0,0,0.55) 75%, rgba(0,0,0,0.95) 100%);
+  pointer-events: none;
+}
+/* Grain */
+.hero__grain {
+  position: absolute; inset: 0;
+  opacity: 0.5;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.95' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+
+/* Hero copy — sits at bottom like film credits */
+.hero__copy {
+  position: absolute;
+  left: 0; right: 0; bottom: 70px;
+  padding: 0 56px;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 60px;
+}
+.hero__credits {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--dust);
+  line-height: 2;
+}
+.hero__credits .row { display: grid; grid-template-columns: 110px 1fr; gap: 24px; }
+.hero__credits .label { color: var(--gold); }
+.hero__title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(72px, 11vw, 184px);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  text-align: right;
+  margin: 0;
+}
+.hero__title em { font-style: italic; color: var(--gold); }
+
+/* Center caption (like film slate) */
+.hero__caption {
+  position: absolute;
+  left: 50%; top: 14%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--dust);
+  z-index: 2;
+}
+.hero__caption .scene { color: var(--gold); margin-bottom: 6px; display: block; }
+.hero__caption hr { width: 80px; margin: 12px auto; border: 0; border-top: 1px solid var(--gold); opacity: 0.4; }
+
+/* Bottom marquee */
+.marquee {
+  border-top: 1px solid rgba(232,226,214,0.08);
+  border-bottom: 1px solid rgba(232,226,214,0.08);
+  padding: 18px 0;
+  overflow: hidden;
+  background: var(--black-2);
+}
+.marquee__track {
+  display: flex;
+  gap: 60px;
+  animation: scroll 40s linear infinite;
+  white-space: nowrap;
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 28px;
+  color: var(--cream);
+}
+.marquee__track span { color: var(--gold); }
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ---------- Section ---------- */
+.section { padding: 140px 56px; position: relative; }
+.section__head {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  margin-bottom: 120px;
+  align-items: end;
+  border-bottom: 1px solid rgba(232,226,214,0.1);
+  padding-bottom: 60px;
+}
+.section__num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  color: var(--gold);
+  text-transform: uppercase;
+}
+.section__num::before { content: "—— "; }
+.section__title {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(48px, 7vw, 112px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin: 24px 0 0;
+}
+.section__title em { font-style: italic; color: var(--gold); }
+.section__lead {
+  font-family: var(--serif);
+  font-size: 22px;
+  line-height: 1.4;
+  font-style: italic;
+  color: var(--bone);
+  font-weight: 300;
+}
+
+/* ---------- Services ---------- */
+.scenes { display: grid; gap: 0; }
+.scene-row {
+  display: grid;
+  grid-template-columns: 80px 1fr 1fr 1fr;
+  gap: 60px;
+  padding: 56px 0;
+  border-top: 1px solid rgba(232,226,214,0.08);
+  align-items: start;
+  transition: background .5s ease;
+}
+.scene-row:hover { background: rgba(200,165,103,0.03); }
+.scene-row:last-child { border-bottom: 1px solid rgba(232,226,214,0.08); }
+.scene-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+  padding-top: 6px;
+}
+.scene-title {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.05;
+  color: var(--cream);
+  margin: 0;
+}
+.scene-text {
+  font-size: 15px;
+  color: var(--bone);
+  line-height: 1.65;
+  max-width: 38ch;
+  opacity: 0.78;
+}
+.scene-tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--dust);
+  text-align: right;
+  padding-top: 14px;
+}
+
+/* ---------- Realisations ---------- */
+.realisation {
+  background: var(--black-2);
+  margin: 0 -56px;
+  padding: 160px 56px;
+  border-top: 1px solid rgba(232,226,214,0.06);
+  border-bottom: 1px solid rgba(232,226,214,0.06);
+  text-align: center;
+  position: relative;
+}
+.realisation::before, .realisation::after {
+  content: "";
+  position: absolute; left: 50%; transform: translateX(-50%);
+  width: 1px; height: 40px;
+  background: var(--gold);
+}
+.realisation::before { top: 0; }
+.realisation::after { bottom: 0; }
+.realisation .pill {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  color: var(--gold);
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: 1px solid rgba(200,165,103,0.4);
+  border-radius: 999px;
+  margin-bottom: 32px;
+}
+.realisation h2 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(60px, 9vw, 140px);
+  font-style: italic;
+  color: var(--cream);
+  margin: 0;
+  line-height: 0.95;
+}
+.realisation p {
+  margin-top: 28px;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-style: italic;
+  color: var(--dust);
+  max-width: 540px;
+  margin-left: auto; margin-right: auto;
+}
+
+/* ---------- CTA ---------- */
+.cta {
+  text-align: center;
+  padding: 180px 56px 200px;
+  position: relative;
+}
+.cta__small {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.36em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 32px;
+}
+.cta h2 {
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: clamp(56px, 8vw, 128px);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--cream);
+  margin: 0;
+}
+.cta h2 em { font-style: italic; color: var(--gold); }
+.cta p {
+  margin-top: 32px;
+  font-family: var(--serif);
+  font-size: 22px;
+  font-style: italic;
+  color: var(--bone);
+  opacity: 0.75;
+}
+.cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 48px;
+  padding: 22px 36px 22px 40px;
+  border: 1px solid var(--gold);
+  border-radius: 0;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--cream);
+  position: relative;
+  overflow: hidden;
+  transition: color .4s ease;
+}
+.cta__btn::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .5s cubic-bezier(.7,0,.2,1);
+  z-index: -1;
+}
+.cta__btn:hover { color: var(--black); }
+.cta__btn:hover::before { transform: scaleX(1); }
+
+/* ---------- Footer ---------- */
+.footer {
+  border-top: 1px solid rgba(232,226,214,0.1);
+  padding: 60px 56px 90px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--dust);
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.footer .end { text-align: right; }
+.footer .center { color: var(--gold); }
+
+/* ---------- Reveal ---------- */
+.fade { opacity: 0; transform: translateY(20px); transition: opacity 1s ease, transform 1s ease; }
+.fade.in { opacity: 1; transform: none; }
+.fade[data-d="1"] { transition-delay: .15s; }
+.fade[data-d="2"] { transition-delay: .3s; }
+.fade[data-d="3"] { transition-delay: .45s; }
+
+@media (max-width: 880px) {
+  .nav { padding: 16px 24px; }
+  .nav__links { display: none; }
+  .hero__copy { grid-template-columns: 1fr; gap: 32px; padding: 0 24px; bottom: 80px; }
+  .hero__title { text-align: left; }
+  .section { padding: 100px 24px; }
+  .section__head { grid-template-columns: 1fr; gap: 32px; margin-bottom: 60px; }
+  .scene-row { grid-template-columns: 1fr; gap: 16px; padding: 40px 0; }
+  .scene-tag { text-align: left; }
+  .realisation { margin: 0 -24px; padding: 100px 24px; }
+  .footer { grid-template-columns: 1fr; gap: 16px; }
+  .footer .end { text-align: left; }
+}
+</style>
+</head>
+<body>
+
+<div class="letterbox letterbox--top"></div>
+<div class="letterbox letterbox--bottom"></div>
+
+<header class="nav">
+  <div class="nav__brand">DEEKAY <i>consulting</i></div>
+  <nav class="nav__links">
+    <a href="#scenes">Services</a>
+    <a href="#realisations">Réalisations</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="nav__time">REC · 02:14</div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__smoke"></div>
+
+  <!-- Abstract subject — silhouetted figure / object in fog (pure SVG) -->
+  <div class="hero__subject" aria-hidden="true">
+    <svg viewBox="0 0 600 800" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="figGlow" cx="50%" cy="40%" r="55%">
+          <stop offset="0%" stop-color="#F2EDE2" stop-opacity="0.85"/>
+          <stop offset="40%" stop-color="#C8A567" stop-opacity="0.4"/>
+          <stop offset="100%" stop-color="#0A0908" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="figBody" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1A1714"/>
+          <stop offset="60%" stop-color="#0E0C0A"/>
+          <stop offset="100%" stop-color="#050403"/>
+        </linearGradient>
+        <radialGradient id="rim" cx="30%" cy="20%" r="60%">
+          <stop offset="0%" stop-color="#E8E2D6" stop-opacity="0.6"/>
+          <stop offset="100%" stop-color="#E8E2D6" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <ellipse cx="300" cy="320" rx="280" ry="220" fill="url(#figGlow)" opacity="0.55"/>
+      <!-- Abstract column / monolith -->
+      <path d="M 240 150 Q 240 100 300 90 Q 360 100 360 150 L 380 720 Q 380 760 300 770 Q 220 760 220 720 Z"
+            fill="url(#figBody)"/>
+      <path d="M 240 150 Q 240 100 300 90 Q 360 100 360 150 L 380 720 Q 380 760 300 770 Q 220 760 220 720 Z"
+            fill="url(#rim)"/>
+      <!-- Top sphere (head/orb) -->
+      <circle cx="300" cy="160" r="62" fill="url(#figBody)"/>
+      <circle cx="285" cy="142" r="20" fill="#E8E2D6" opacity="0.35"/>
+      <!-- Highlight strip -->
+      <path d="M 250 170 L 252 720" stroke="#E8E2D6" stroke-opacity="0.18" stroke-width="2"/>
+    </svg>
+  </div>
+
+  <div class="hero__vignette"></div>
+  <div class="hero__grain"></div>
+
+  <div class="hero__caption fade">
+    <span class="scene">Scène I · Ouverture</span>
+    Deekay Consulting — Paris<br/>
+    <hr/>
+    Conseil no-code · 2026
+  </div>
+
+  <div class="hero__copy">
+    <div class="hero__credits fade">
+      <div class="row"><span class="label">Réalisation</span><span>Deekay</span></div>
+      <div class="row"><span class="label">Genre</span><span>Conseil no-code</span></div>
+      <div class="row"><span class="label">Pour</span><span>Solopreneurs · Créateurs</span></div>
+      <div class="row"><span class="label">Durée</span><span>30 min · échange initial</span></div>
+    </div>
+    <h1 class="hero__title fade" data-d="1">
+      Transformez<br/>
+      la complexité<br/>
+      en <em>clarté.</em>
+    </h1>
+  </div>
+</section>
+
+<!-- Marquee -->
+<div class="marquee">
+  <div class="marquee__track">
+    <span>★</span> Audit <span>★</span> Workspace <span>★</span> Data <span>★</span> Automatisation <span>★</span> IA <span>★</span> Formation <span>★</span> Audit <span>★</span> Workspace <span>★</span> Data <span>★</span> Automatisation <span>★</span> IA <span>★</span> Formation <span>★</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="section" id="scenes">
+  <div class="section__head">
+    <div>
+      <span class="section__num fade">Acte I · Méthode</span>
+      <h2 class="section__title fade" data-d="1">Six <em>scènes</em>,<br/>une histoire.</h2>
+    </div>
+    <p class="section__lead fade" data-d="2">
+      De l'audit à la formation, un accompagnement sur mesure pour structurer
+      et automatiser votre activité — chapitre après chapitre.
+    </p>
+  </div>
+
+  <div class="scenes">
+    <div class="scene-row fade">
+      <div class="scene-num">SCÈNE 01</div>
+      <h3 class="scene-title">Audit</h3>
+      <p class="scene-text">Workflows, équipe, UX, site, activité, projet. J'analyse l'existant et identifie les axes d'amélioration concrets.</p>
+      <div class="scene-tag">Diagnostic · 2 sem.</div>
+    </div>
+    <div class="scene-row fade">
+      <div class="scene-num">SCÈNE 02</div>
+      <h3 class="scene-title">Workspace<br/>sur mesure</h3>
+      <p class="scene-text">Un espace de travail structuré pour votre activité. Gestion de projets, CRM, documentation — tout est centralisé.</p>
+      <div class="scene-tag">Notion · ClickUp</div>
+    </div>
+    <div class="scene-row fade">
+      <div class="scene-num">SCÈNE 03</div>
+      <h3 class="scene-title">Data &amp; bases<br/>de données</h3>
+      <p class="scene-text">Modélisation, nettoyage, enrichissement. Je structure vos données pour qu'elles deviennent un vrai levier de décision.</p>
+      <div class="scene-tag">Airtable · Notion</div>
+    </div>
+    <div class="scene-row fade">
+      <div class="scene-num">SCÈNE 04</div>
+      <h3 class="scene-title">Automatisation</h3>
+      <p class="scene-text">Connectez vos outils et éliminez les tâches répétitives. Avec Make, je crée des flux qui travaillent pour vous.</p>
+      <div class="scene-tag">Make · n8n</div>
+    </div>
+    <div class="scene-row fade">
+      <div class="scene-num">SCÈNE 05</div>
+      <h3 class="scene-title">IA &amp; Prompt<br/>Engineering</h3>
+      <p class="scene-text">Tirez parti de l'IA sans vous perdre dans la technique. J'intègre les bons outils dans vos process et vous apprends à les piloter.</p>
+      <div class="scene-tag">Claude · GPT</div>
+    </div>
+    <div class="scene-row fade">
+      <div class="scene-num">SCÈNE 06</div>
+      <h3 class="scene-title">Formation</h3>
+      <p class="scene-text">Notion, automatisation, IA, data. Je vous transmets les méthodes et les réflexes pour gagner en autonomie.</p>
+      <div class="scene-tag">Sur mesure · 1-1</div>
+    </div>
+  </div>
+</section>
+
+<!-- REALISATIONS -->
+<section class="realisation" id="realisations">
+  <span class="pill">★ Soon ★</span>
+  <h2 class="fade"><em>Réalisations</em></h2>
+  <p class="fade" data-d="1">Le générique se prépare.<br/>Nos premiers projets entrent bientôt en scène.</p>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="cta__small fade">— Acte final —</div>
+  <h2 class="fade" data-d="1">Prêt à transformer<br/>votre <em>organisation ?</em></h2>
+  <p class="fade" data-d="2">Un échange de 30 minutes suffit pour y voir plus clair.</p>
+  <a href="#" class="cta__btn fade" data-d="3">Évaluer mon projet  →</a>
+</section>
+
+<footer class="footer">
+  <div>© 2026 — Deekay Consulting</div>
+  <div class="center">★ Fin ★</div>
+  <div class="end">Mentions · Confidentialité</div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((es) => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade').forEach(el => io.observe(el));
+
+// Live "REC" timecode
+const time = document.querySelector('.nav__time');
+let s = 0;
+setInterval(() => {
+  s++;
+  const m = String(Math.floor(s/60)).padStart(2,'0');
+  const sec = String(s%60).padStart(2,'0');
+  if (time) time.textContent = `REC · ${m}:${sec}`;
+}, 1000);
+</script>
+</body>
+</html>

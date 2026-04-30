@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Deekay Consulting — Swiss Editorial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Neue+Haas+Grotesk+Display+Pro&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper: #FAFAF7;
+  --ink: #0A0A0A;
+  --grey-1: #E8E8E4;
+  --grey-2: #B8B8B2;
+  --grey-3: #6E6E68;
+  --red: #D6361B;
+  --sans: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+*,*::before,*::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--sans);
+  background: var(--paper);
+  color: var(--ink);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "ss01", "cv11";
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--ink); color: var(--paper); }
+
+/* ---------- Grid scaffold (visible faintly) ---------- */
+.grid-overlay {
+  position: fixed; inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background-image: linear-gradient(to right, rgba(10,10,10,0.04) 1px, transparent 1px);
+  background-size: calc((100vw - 80px) / 12) 100%;
+  background-position: 40px 0;
+  display: none;
+}
+@media (min-width: 1100px) { .grid-overlay { display: block; } }
+
+/* ---------- Container — 12-col Swiss grid ---------- */
+.wrap {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.row12 {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+}
+
+/* ---------- Top bar ---------- */
+.topbar {
+  border-bottom: 1px solid var(--ink);
+  padding: 12px 40px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.topbar .center { text-align: center; }
+.topbar .right { text-align: right; }
+.topbar a { margin-right: 18px; color: var(--grey-3); }
+.topbar a:hover { color: var(--ink); }
+
+/* ---------- Masthead ---------- */
+.mast {
+  border-bottom: 3px solid var(--ink);
+  padding: 20px 40px 18px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: end;
+}
+.mast .meta {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--grey-3);
+}
+.mast .meta b { color: var(--ink); }
+.mast h1 {
+  margin: 0;
+  text-align: center;
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.mast h1 i {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--red);
+}
+.mast .right { text-align: right; }
+
+/* Sub-mast — section nav */
+.subnav {
+  border-bottom: 1px solid var(--ink);
+  padding: 10px 40px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.subnav nav { display: flex; gap: 28px; }
+.subnav nav a:hover { color: var(--red); }
+.subnav .right { color: var(--grey-3); }
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 80px 40px 100px;
+  border-bottom: 1px solid var(--ink);
+  position: relative;
+}
+.hero__num {
+  grid-column: 1 / 3;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.hero__num span { color: var(--red); }
+.hero__h {
+  grid-column: 1 / 13;
+  font-size: clamp(64px, 12vw, 220px);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.88;
+  margin: 24px 0 0;
+}
+.hero__h em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--red);
+}
+.hero__h .small {
+  display: inline-block;
+  font-size: 0.34em;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  vertical-align: top;
+  transform: translateY(0.4em);
+  color: var(--grey-3);
+  margin-left: 12px;
+}
+.hero__bottom {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  align-items: end;
+}
+.hero__lede {
+  grid-column: 1 / 6;
+  font-size: 22px;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+}
+.hero__lede::first-letter {
+  font-size: 3em;
+  font-weight: 700;
+  float: left;
+  line-height: 0.85;
+  margin: 6px 10px 0 0;
+  color: var(--red);
+}
+.hero__cta {
+  grid-column: 7 / 11;
+  border-top: 1px solid var(--ink);
+  padding-top: 16px;
+}
+.hero__cta a {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--grey-2);
+  transition: color .25s ease, border-color .25s ease;
+}
+.hero__cta a:hover { color: var(--red); border-bottom-color: var(--red); }
+.hero__cta a .arrow { font-family: var(--mono); }
+.hero__index {
+  grid-column: 11 / 13;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-align: right;
+  color: var(--grey-3);
+  line-height: 1.8;
+}
+.hero__index b { color: var(--ink); display: block; font-size: 28px; letter-spacing: -0.02em; font-weight: 700; font-family: var(--sans); text-transform: none; }
+
+/* Decorative geometric mark — pure shapes, Swiss style */
+.hero__mark {
+  position: absolute;
+  right: 40px; top: 80px;
+  width: 220px; height: 220px;
+  pointer-events: none;
+}
+.hero__mark svg { width: 100%; height: 100%; }
+
+/* ---------- Section base ---------- */
+.section {
+  padding: 100px 40px;
+  border-bottom: 1px solid var(--ink);
+}
+.section__head {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  align-items: end;
+  margin-bottom: 64px;
+}
+.kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.kicker .num { color: var(--red); margin-right: 12px; }
+.section__title {
+  grid-column: 1 / 9;
+  font-size: clamp(48px, 7vw, 120px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  margin: 16px 0 0;
+}
+.section__title em { font-style: italic; font-weight: 400; color: var(--red); }
+.section__sub {
+  grid-column: 9 / 13;
+  font-size: 15px;
+  line-height: 1.5;
+  border-left: 1px solid var(--ink);
+  padding: 4px 0 4px 20px;
+  align-self: end;
+}
+
+/* ---------- Services ---------- */
+.svc-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 0;
+  border-top: 1px solid var(--ink);
+}
+.svc {
+  grid-column: span 4;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 32px 28px 36px;
+  position: relative;
+  transition: background .3s ease;
+}
+.svc:nth-child(3n) { border-right: 0; }
+.svc:hover { background: var(--ink); color: var(--paper); }
+.svc:hover .svc__num { color: var(--red); }
+.svc:hover .svc__rule { background: var(--paper); }
+
+.svc__top {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.svc__num { font-size: 13px; color: var(--ink); transition: color .3s ease; }
+.svc__tag { color: var(--grey-3); }
+.svc__rule {
+  height: 1px;
+  background: var(--ink);
+  margin: 16px 0 24px;
+  transition: background .3s ease;
+}
+.svc__title {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.0;
+  margin: 0 0 18px;
+}
+.svc__title em { font-style: italic; font-weight: 400; }
+.svc__text {
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0 0 56px;
+  max-width: 36ch;
+}
+.svc__more {
+  position: absolute;
+  bottom: 28px; left: 28px;
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.svc__more::after { content: " →"; }
+
+@media (max-width: 980px) {
+  .svc { grid-column: span 6; }
+  .svc:nth-child(3n) { border-right: 1px solid var(--ink); }
+  .svc:nth-child(2n) { border-right: 0; }
+}
+@media (max-width: 600px) {
+  .svc { grid-column: 1 / -1; border-right: 0 !important; }
+}
+
+/* ---------- Réalisations (Swiss "issue à venir") ---------- */
+.coming {
+  padding: 100px 40px 120px;
+  border-bottom: 1px solid var(--ink);
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+.coming__label {
+  grid-column: 1 / 4;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.coming__label .pill {
+  display: inline-block;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  padding: 4px 10px;
+  margin-left: 8px;
+}
+.coming__title {
+  grid-column: 1 / 10;
+  font-size: clamp(60px, 10vw, 200px);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  margin: 28px 0 0;
+}
+.coming__title em { font-style: italic; font-weight: 400; color: var(--red); }
+.coming__cards {
+  grid-column: 1 / 13;
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.coming__card {
+  border: 1px solid var(--ink);
+  aspect-ratio: 4/3;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+  background: repeating-linear-gradient(45deg, transparent 0 12px, rgba(10,10,10,0.03) 12px 24px);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--grey-3);
+}
+.coming__card .b { color: var(--ink); }
+@media (max-width: 720px) { .coming__cards { grid-template-columns: 1fr 1fr; } .coming__cards .coming__card:nth-child(3) { display: none; } }
+
+/* ---------- CTA ---------- */
+.cta {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 120px 40px;
+  border-bottom: 1px solid var(--ink);
+}
+.cta .row12 { align-items: end; }
+.cta__num { grid-column: 1 / 4; font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--grey-2); }
+.cta__num span { color: var(--red); }
+.cta__h {
+  grid-column: 1 / 10;
+  font-size: clamp(56px, 9vw, 160px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  margin: 16px 0 0;
+}
+.cta__h em { font-style: italic; font-weight: 400; color: var(--red); }
+.cta__sub { grid-column: 1 / 7; margin-top: 32px; font-size: 19px; line-height: 1.4; color: var(--grey-2); }
+.cta__btn {
+  grid-column: 9 / 13;
+  border: 1px solid var(--paper);
+  padding: 22px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-top: 32px;
+  transition: background .25s ease, color .25s ease;
+}
+.cta__btn:hover { background: var(--red); border-color: var(--red); }
+
+/* ---------- Footer ---------- */
+.foot {
+  padding: 56px 40px 40px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.foot__brand { grid-column: 1 / 5; }
+.foot__brand .big { font-family: var(--sans); font-size: 36px; font-weight: 700; letter-spacing: -0.03em; text-transform: none; }
+.foot__brand .big i { color: var(--red); font-style: italic; font-weight: 400; }
+.foot__brand p { margin: 12px 0 0; color: var(--grey-3); font-family: var(--sans); font-size: 13px; letter-spacing: 0; text-transform: none; line-height: 1.5; max-width: 32ch; }
+.foot__col { grid-column: span 2; }
+.foot__col h5 { margin: 0 0 14px; color: var(--grey-3); font-weight: 500; }
+.foot__col a { display: block; line-height: 2.2; }
+.foot__col a:hover { color: var(--red); }
+.foot__bottom {
+  grid-column: 1 / 13;
+  margin-top: 60px;
+  padding-top: 18px;
+  border-top: 1px solid var(--ink);
+  display: flex; justify-content: space-between;
+  color: var(--grey-3);
+}
+@media (max-width: 720px) {
+  .foot__brand, .foot__col { grid-column: 1 / -1; }
+  .foot__bottom { flex-direction: column; gap: 8px; }
+  .mast { grid-template-columns: 1fr; gap: 12px; }
+  .mast .right, .mast .center { text-align: left; }
+  .hero__bottom > * { grid-column: 1 / -1 !important; }
+  .section__title, .section__sub { grid-column: 1 / -1; }
+  .coming__label, .coming__title { grid-column: 1 / -1; }
+  .cta__num, .cta__h, .cta__sub, .cta__btn { grid-column: 1 / -1; }
+}
+
+/* ---------- Reveal ---------- */
+.fade { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
+.fade.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<div class="grid-overlay" aria-hidden="true"></div>
+
+<div class="topbar">
+  <div class="left">Édition № 04 · Avril 2026</div>
+  <div class="center">DEEKAY · CONSEIL NO-CODE</div>
+  <div class="right"><a href="#">FR</a><a href="#">EN</a></div>
+</div>
+
+<header class="mast">
+  <div class="meta">
+    Vol. <b>I</b> · No. <b>01</b><br/>
+    Paris · France
+  </div>
+  <h1>Deekay <i>consulting</i></h1>
+  <div class="meta right">
+    Hebdomadaire <b>indépendant</b><br/>
+    Solopreneurs · Créateurs
+  </div>
+</header>
+
+<div class="subnav">
+  <nav>
+    <a href="#">Accueil</a>
+    <a href="#services">Services</a>
+    <a href="#realisations">Réalisations</a>
+    <a href="#">Blog</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="right">25 · 04 · 2026</div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero__mark" aria-hidden="true">
+    <svg viewBox="0 0 220 220">
+      <circle cx="110" cy="110" r="100" fill="none" stroke="#0A0A0A" stroke-width="1"/>
+      <circle cx="110" cy="110" r="64" fill="#D6361B"/>
+      <line x1="10" y1="110" x2="210" y2="110" stroke="#0A0A0A" stroke-width="1"/>
+      <line x1="110" y1="10" x2="110" y2="210" stroke="#0A0A0A" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <div class="row12">
+    <div class="hero__num">№ 01 · <span>Édito</span></div>
+  </div>
+
+  <h2 class="hero__h">
+    Transformez<br/>
+    la complexité<br/>
+    en <em>clarté</em>.<span class="small">— et si vos outils<br/>travaillaient enfin pour vous ?</span>
+  </h2>
+
+  <div class="hero__bottom">
+    <p class="hero__lede fade">
+      Conseil no-code pour solopreneurs et créateurs. De l'audit à la formation,
+      un accompagnement sur mesure pour structurer et automatiser votre activité —
+      sans compromis sur la rigueur.
+    </p>
+
+    <div class="hero__cta fade">
+      <a href="#contact">Évaluer mon projet <span class="arrow">→</span></a>
+      <a href="#services">Découvrir les services <span class="arrow">↓</span></a>
+    </div>
+
+    <div class="hero__index fade">
+      Pages<br/>
+      <b>06</b>
+      Services
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="section__head">
+    <div class="section__title">
+      <div class="kicker fade"><span class="num">№ 02</span>Méthode</div>
+      <div class="fade" data-d="1">Nos <em>services</em>.</div>
+    </div>
+    <p class="section__sub fade" data-d="2">
+      De l'audit à la formation, un accompagnement sur mesure pour structurer
+      et automatiser votre activité.
+    </p>
+  </div>
+
+  <div class="svc-grid">
+    <article class="svc fade">
+      <div class="svc__top"><span class="svc__num">01</span><span class="svc__tag">Diagnostic</span></div>
+      <div class="svc__rule"></div>
+      <h3 class="svc__title">Audit</h3>
+      <p class="svc__text">Workflows, équipe, UX, site, activité, projet. J'analyse l'existant et identifie les axes d'amélioration concrets.</p>
+      <div class="svc__more">Lire</div>
+    </article>
+    <article class="svc fade">
+      <div class="svc__top"><span class="svc__num">02</span><span class="svc__tag">Structure</span></div>
+      <div class="svc__rule"></div>
+      <h3 class="svc__title">Workspace<br/><em>sur mesure</em></h3>
+      <p class="svc__text">Un espace de travail structuré pour votre activité. Gestion de projets, CRM, documentation — tout est centralisé.</p>
+      <div class="svc__more">Lire</div>
+    </article>
+    <article class="svc fade">
+      <div class="svc__top"><span class="svc__num">03</span><span class="svc__tag">Modélisation</span></div>
+      <div class="svc__rule"></div>
+      <h3 class="svc__title">Data &amp;<br/>bases</h3>
+      <p class="svc__text">Modélisation, nettoyage, enrichissement. Je structure vos données pour qu'elles deviennent un vrai levier de décision.</p>
+      <div class="svc__more">Lire</div>
+    </article>
+    <article class="svc fade">
+      <div class="svc__top"><span class="svc__num">04</span><span class="svc__tag">Make · n8n</span></div>
+      <div class="svc__rule"></div>
+      <h3 class="svc__title">Automatisation</h3>
+      <p class="svc__text">Connectez vos outils et éliminez les tâches répétitives. Avec Make, je crée des flux qui travaillent pour vous.</p>
+      <div class="svc__more">Lire</div>
+    </article>
+    <article class="svc fade">
+      <div class="svc__top"><span class="svc__num">05</span><span class="svc__tag">Intelligence</span></div>
+      <div class="svc__rule"></div>
+      <h3 class="svc__title">IA &amp; Prompt<br/><em>Engineering</em></h3>
+      <p class="svc__text">Tirez parti de l'IA sans vous perdre dans la technique. J'intègre les bons outils et vous apprends à les piloter.</p>
+      <div class="svc__more">Lire</div>
+    </article>
+    <article class="svc fade">
+      <div class="svc__top"><span class="svc__num">06</span><span class="svc__tag">Transmission</span></div>
+      <div class="svc__rule"></div>
+      <h3 class="svc__title">Formation</h3>
+      <p class="svc__text">Notion, automatisation, IA, data. Je vous transmets les méthodes et les réflexes pour gagner en autonomie.</p>
+      <div class="svc__more">Lire</div>
+    </article>
+  </div>
+</section>
+
+<!-- RÉALISATIONS -->
+<section class="coming" id="realisations">
+  <div class="coming__label">№ 03 · Édition spéciale<span class="pill">Soon</span></div>
+  <h2 class="coming__title fade"><em>Réalisations</em><br/>à paraître.</h2>
+  <div class="coming__cards fade" data-d="1">
+    <div class="coming__card">
+      <div>Dossier <span class="b">№ 01</span></div>
+      <div>À paraître</div>
+    </div>
+    <div class="coming__card">
+      <div>Dossier <span class="b">№ 02</span></div>
+      <div>À paraître</div>
+    </div>
+    <div class="coming__card">
+      <div>Dossier <span class="b">№ 03</span></div>
+      <div>À paraître</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <div class="row12">
+    <div class="cta__num">№ 04 · <span>Contact</span></div>
+  </div>
+  <h2 class="cta__h">Prêt à transformer<br/>votre <em>organisation ?</em></h2>
+  <div class="row12">
+    <p class="cta__sub">Un échange de 30 minutes suffit pour y voir plus clair. Sans engagement, sans préparation nécessaire.</p>
+    <a class="cta__btn" href="#">Évaluer mon projet <span>→</span></a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="foot__brand">
+    <div class="big">Deekay <i>consulting</i></div>
+    <p>Le conseil no-code qui transforme la complexité en clarté.</p>
+  </div>
+  <div class="foot__col">
+    <h5>Navigation</h5>
+    <a href="#">Accueil</a>
+    <a href="#services">Services</a>
+    <a href="#realisations">Réalisations</a>
+    <a href="#">Blog</a>
+  </div>
+  <div class="foot__col">
+    <h5>Contact</h5>
+    <a href="#">hello@deekay.fr</a>
+    <a href="#">LinkedIn</a>
+    <a href="#">Calendly</a>
+  </div>
+  <div class="foot__col">
+    <h5>Légal</h5>
+    <a href="#">Mentions</a>
+    <a href="#">Confidentialité</a>
+  </div>
+  <div class="foot__bottom">
+    <span>© 2026 Deekay Consulting</span>
+    <span>Imprimé à Paris · 75</span>
+  </div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((es) => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

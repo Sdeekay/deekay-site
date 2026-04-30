@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="Deekay Consulting — Conseil no-code pour solopreneurs et créateurs. Audit, automatisation, IA, formation. Transformez la complexité en clarté." />
+  <title>Deekay Consulting — Transformez la complexité en clarté</title>
+
+  <!-- Favicon: DK monogram on rounded light blue tile -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23A8C5DA'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter, sans-serif' font-weight='800' font-size='26' fill='%231B2A4A' letter-spacing='-1'>DK</text></svg>" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css?v=2" />
+  <link rel="stylesheet" href="tweaks.css" />
+  <style>
+    /* Hard guarantee: hero contents must center even if cached CSS lacks justify-items */
+    .hero__inner { justify-items: center !important; place-items: center; }
+  </style>
+</head>
+<body>
+
+  <!-- =========================================================
+       NAVIGATION
+       ========================================================= -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="logo" href="#" aria-label="Deekay Consulting accueil">
+        <span class="logo__mark">DK</span>
+        Deekay
+        <span class="logo__sub">consulting</span>
+      </a>
+
+      <nav>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="#accueil">Accueil</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#realisations">Réalisations</a></li>
+          <li><a href="#blog">Blog</a></li>
+          <li><a href="#parcours">Parcours</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li class="nav__lang" aria-label="Langue">
+            <span class="lang-active">FR</span>
+            <span class="lang-sep">|</span>
+            <span class="lang-inactive" aria-disabled="true">EN</span>
+          </li>
+        </ul>
+      </nav>
+
+      <a href="#contact" class="nav__cta">
+        Évaluer mon projet
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+
+      <button class="nav__burger" aria-label="Ouvrir le menu" aria-controls="navLinks">
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- =========================================================
+       HERO
+       ========================================================= -->
+  <section class="hero" id="accueil">
+    <div class="hero__grain" aria-hidden="true"></div>
+
+    <div class="container hero__inner">
+      <span class="hero__eyebrow reveal">
+        <span class="dot" aria-hidden="true"></span>
+        Organisation · Analyse · Automatisation · IA
+      </span>
+
+      <!-- ====== Orb (dual-state: chaos → clarity, scroll-driven) ====== -->
+      <div class="orb reveal" data-delay="1" id="heroOrb" aria-hidden="true" style="transform: translate(var(--orb-x, 0), var(--orb-y, 0));">
+        <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <!-- Outer atmospheric glow -->
+            <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%"   stop-color="#A8C5DA" stop-opacity="0.55" />
+              <stop offset="40%"  stop-color="#A8C5DA" stop-opacity="0.18" />
+              <stop offset="100%" stop-color="#A8C5DA" stop-opacity="0" />
+            </radialGradient>
+
+            <!-- Pearlescent sphere body (clarity) -->
+            <radialGradient id="sphere" cx="38%" cy="32%" r="78%">
+              <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="1" />
+              <stop offset="22%"  stop-color="#EAF1F7" stop-opacity="1" />
+              <stop offset="55%"  stop-color="#A8C5DA" stop-opacity="1" />
+              <stop offset="85%"  stop-color="#3E5A82" stop-opacity="1" />
+              <stop offset="100%" stop-color="#1B2A4A" stop-opacity="1" />
+            </radialGradient>
+
+            <!-- Chaotic sphere body (cooler, fragmented) -->
+            <radialGradient id="sphereChaos" cx="32%" cy="28%" r="82%">
+              <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="1" />
+              <stop offset="18%"  stop-color="#D6E4EE" stop-opacity="1" />
+              <stop offset="42%"  stop-color="#A8C5DA" stop-opacity="1" />
+              <stop offset="68%"  stop-color="#34466A" stop-opacity="1" />
+              <stop offset="100%" stop-color="#111E35" stop-opacity="1" />
+            </radialGradient>
+
+            <!-- Iridescent rim -->
+            <radialGradient id="rim" cx="50%" cy="50%" r="50%">
+              <stop offset="78%" stop-color="#FFFFFF" stop-opacity="0" />
+              <stop offset="92%" stop-color="#FFFFFF" stop-opacity="0.45" />
+              <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+            </radialGradient>
+
+            <!-- Top highlight -->
+            <radialGradient id="highlight" cx="40%" cy="22%" r="22%">
+              <stop offset="0%"  stop-color="#FFFFFF" stop-opacity="0.95" />
+              <stop offset="60%" stop-color="#FFFFFF" stop-opacity="0.18" />
+              <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+            </radialGradient>
+
+            <!-- Stripe gradient (pearlescent bands across sphere) -->
+            <linearGradient id="band" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%"   stop-color="#FFFFFF" stop-opacity="0" />
+              <stop offset="50%"  stop-color="#FFFFFF" stop-opacity="0.55" />
+              <stop offset="100%" stop-color="#FFFFFF" stop-opacity="0" />
+            </linearGradient>
+
+            <!-- Mask: clip stripes to sphere -->
+            <clipPath id="sphereClip">
+              <circle cx="300" cy="300" r="180" />
+            </clipPath>
+
+            <!-- Turbulence: surface chaos -->
+            <filter id="chaosDistort" x="-20%" y="-20%" width="140%" height="140%">
+              <feTurbulence type="fractalNoise" baseFrequency="0.018" numOctaves="2" seed="3" result="noise"/>
+              <feDisplacementMap in="SourceGraphic" in2="noise" scale="14"/>
+            </filter>
+
+            <!-- Soft blur for ambient particles -->
+            <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur stdDeviation="1.6" />
+            </filter>
+          </defs>
+
+          <!-- Atmospheric glow halo -->
+          <circle cx="300" cy="300" r="280" fill="url(#glow)" />
+          <circle cx="300" cy="300" r="220" fill="url(#glow)" opacity="0.7" />
+
+          <!-- ROTOR: contains sphere body + bands, rotates with scroll -->
+          <g class="orb__rotor">
+
+            <!-- ===== CHAOS STATE ===== -->
+            <g class="orb__chaos">
+              <g class="orb__shimmer">
+                <!-- Distorted sphere body -->
+                <circle cx="300" cy="300" r="180" fill="url(#sphereChaos)" filter="url(#chaosDistort)" />
+
+                <!-- Broken/scattered bands -->
+                <g clip-path="url(#sphereClip)" opacity="0.7">
+                  <path d="M 130 230 Q 200 218 270 240 T 410 232 L 460 248" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="1.2" fill="none" />
+                  <path d="M 145 268 Q 220 282 290 262 T 420 280" stroke="#FFFFFF" stroke-opacity="0.45" stroke-width="1" fill="none" />
+                  <path d="M 130 312 Q 210 296 280 318 T 440 308" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="0.9" fill="none" />
+                  <path d="M 150 348 Q 220 366 300 340 T 450 356" stroke="#FFFFFF" stroke-opacity="0.5" stroke-width="1.1" fill="none" />
+                  <path d="M 140 388 Q 230 372 310 392 T 460 380" stroke="#FFFFFF" stroke-opacity="0.4" stroke-width="0.8" fill="none" />
+                </g>
+
+                <!-- Multiple scattered specular highlights -->
+                <ellipse cx="232" cy="208" rx="28" ry="14" fill="#FFFFFF" opacity="0.55" />
+                <ellipse cx="270" cy="190" rx="14" ry="6" fill="#FFFFFF" opacity="0.7" />
+                <ellipse cx="200" cy="230" rx="10" ry="5" fill="#FFFFFF" opacity="0.45" />
+                <ellipse cx="320" cy="170" rx="8" ry="4" fill="#FFFFFF" opacity="0.5" />
+                <ellipse cx="380" cy="220" rx="6" ry="3" fill="#FFFFFF" opacity="0.4" />
+                <ellipse cx="350" cy="380" rx="9" ry="4" fill="#A8C5DA" opacity="0.45" />
+              </g>
+            </g>
+
+            <!-- ===== CLARITY STATE ===== -->
+            <g class="orb__clarity">
+              <!-- Smooth sphere body -->
+              <circle cx="300" cy="300" r="180" fill="url(#sphere)" />
+
+              <!-- Pearlescent horizontal bands inside the sphere -->
+              <g clip-path="url(#sphereClip)" opacity="0.55">
+                <ellipse cx="300" cy="240" rx="180" ry="6"  fill="url(#band)" />
+                <ellipse cx="300" cy="270" rx="180" ry="4"  fill="url(#band)" opacity="0.7"/>
+                <ellipse cx="300" cy="300" rx="180" ry="3"  fill="url(#band)" opacity="0.55"/>
+                <ellipse cx="300" cy="330" rx="180" ry="5"  fill="url(#band)" opacity="0.6"/>
+                <ellipse cx="300" cy="360" rx="180" ry="4"  fill="url(#band)" opacity="0.45"/>
+              </g>
+
+              <!-- Iridescent rim -->
+              <circle cx="300" cy="300" r="180" fill="url(#rim)" />
+
+              <!-- Specular top highlight (single, centered) -->
+              <ellipse cx="248" cy="220" rx="78" ry="46" fill="url(#highlight)" />
+              <ellipse cx="240" cy="208" rx="22" ry="9"  fill="#FFFFFF" opacity="0.9" />
+
+              <!-- Subtle bottom rim light -->
+              <path d="M 145 340 A 180 180 0 0 0 455 340"
+                    fill="none" stroke="#A8C5DA" stroke-opacity="0.45" stroke-width="1.4" />
+            </g>
+
+          </g>
+
+          <!-- Floating particles (mist droplets) -->
+          <g fill="#FFFFFF" opacity="0.85" filter="url(#softBlur)">
+            <circle cx="120" cy="180" r="3.5" opacity="0.7"/>
+            <circle cx="98"  cy="210" r="2.2" opacity="0.55"/>
+            <circle cx="150" cy="140" r="2.6" opacity="0.6"/>
+            <circle cx="468" cy="430" r="2.4" opacity="0.55"/>
+            <circle cx="500" cy="395" r="3.0" opacity="0.6"/>
+            <circle cx="430" cy="475" r="1.8" opacity="0.5"/>
+            <circle cx="172" cy="490" r="2.0" opacity="0.45"/>
+          </g>
+        </svg>
+        <div class="orb__reflection" aria-hidden="true"></div>
+      </div>
+
+      <div class="reveal" data-delay="2">
+        <h1>
+          Transformez la complexité en
+          <em>clarté.</em>
+        </h1>
+        <p class="hero__sub">
+          Et si vos outils travaillaient enfin pour vous, et non l'inverse ?
+        </p>
+      </div>
+
+      <div class="hero__ctas reveal" data-delay="3">
+        <a class="btn btn--primary" href="#contact">
+          Évaluer mon projet
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="#services">
+          Découvrir les services <span class="arrow" aria-hidden="true">↓</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       SERVICES
+       ========================================================= -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="section__head">
+        <span class="section__eyebrow reveal">Méthode &amp; expertise</span>
+        <h2 class="section__title reveal" data-delay="1">
+          Nos <em>services.</em>
+        </h2>
+        <p class="section__sub reveal" data-delay="2">
+          De l'audit à la formation, un accompagnement sur mesure pour structurer
+          et automatiser votre activité.
+        </p>
+      </div>
+
+      <div class="services__grid">
+
+        <!-- 01 Audit -->
+        <article class="card reveal" data-delay="1">
+          <div class="card__top">
+            <span class="card__num">01</span>
+            <span class="card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="11" cy="11" r="6"/><path d="M20 20l-4.3-4.3"/>
+              </svg>
+            </span>
+          </div>
+          <h3>Audit</h3>
+          <p>Workflows, équipe, UX, site, activité, projet. J'analyse l'existant et identifie les axes d'amélioration concrets.</p>
+        </article>
+
+        <!-- 02 Workspace -->
+        <article class="card reveal" data-delay="2">
+          <div class="card__top">
+            <span class="card__num">02</span>
+            <span class="card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="4" width="18" height="16" rx="2"/>
+                <path d="M3 9h18M9 9v11"/>
+              </svg>
+            </span>
+          </div>
+          <h3>Workspace sur mesure</h3>
+          <p>Un espace de travail structuré pour votre activité. Gestion de projets, CRM, documentation — tout est centralisé.</p>
+        </article>
+
+        <!-- 03 Data -->
+        <article class="card reveal" data-delay="3">
+          <div class="card__top">
+            <span class="card__num">03</span>
+            <span class="card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <ellipse cx="12" cy="5" rx="8" ry="3"/>
+                <path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/>
+                <path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>
+              </svg>
+            </span>
+          </div>
+          <h3>Data &amp; bases de données</h3>
+          <p>Modélisation, nettoyage, enrichissement. Je structure vos données pour qu'elles deviennent un vrai levier de décision.</p>
+        </article>
+
+        <!-- 04 Automatisation -->
+        <article class="card reveal" data-delay="1">
+          <div class="card__top">
+            <span class="card__num">04</span>
+            <span class="card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <circle cx="6" cy="7" r="2.2"/>
+                <circle cx="18" cy="7" r="2.2"/>
+                <circle cx="12" cy="17" r="2.2"/>
+                <path d="M8 7h8M7.5 9l3.5 6M16.5 9l-3.5 6"/>
+              </svg>
+            </span>
+          </div>
+          <h3>Automatisation</h3>
+          <p>Connectez vos outils et éliminez les tâches répétitives. Avec Make, je crée des flux qui travaillent pour vous.</p>
+        </article>
+
+        <!-- 05 IA -->
+        <article class="card reveal" data-delay="2">
+          <div class="card__top">
+            <span class="card__num">05</span>
+            <span class="card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/>
+                <circle cx="12" cy="12" r="4"/>
+              </svg>
+            </span>
+          </div>
+          <h3>IA &amp; Prompt Engineering</h3>
+          <p>Tirez parti de l'IA sans vous perdre dans la technique. J'intègre les bons outils dans vos process et vous apprends à les piloter avec précision.</p>
+        </article>
+
+        <!-- 06 Formation -->
+        <article class="card reveal" data-delay="3">
+          <div class="card__top">
+            <span class="card__num">06</span>
+            <span class="card__icon">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M2 8l10-4 10 4-10 4-10-4z"/>
+                <path d="M6 10v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/>
+                <path d="M22 8v6"/>
+              </svg>
+            </span>
+          </div>
+          <h3>Formation</h3>
+          <p>Notion, automatisation, IA, data. Je vous transmets les méthodes et les réflexes pour gagner en autonomie.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       RÉALISATIONS — état vide élégant
+       ========================================================= -->
+  <section class="section section--light" id="realisations">
+    <div class="coming__orb-bg" aria-hidden="true"></div>
+    <div class="container">
+      <div class="coming">
+        <span class="coming__pill reveal">
+          <span class="dot" aria-hidden="true"></span>
+          À venir
+        </span>
+        <h2 class="coming__title reveal" data-delay="1">
+          <em>Réalisations</em>
+        </h2>
+        <p class="coming__text reveal" data-delay="2">
+          Nos premiers projets arrivent bientôt. <br/>
+          Études de cas, workspaces et automatisations mis en lumière.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       PARCOURS — Qui suis-je
+       ========================================================= -->
+  <section class="parcours" id="parcours">
+    <div class="container">
+      <div class="parcours__inner">
+        <span class="parcours__pill reveal">Qui suis-je ?</span>
+        <div class="parcours__photo reveal" data-delay="1" aria-label="Photo placeholder">DK</div>
+        <h2 class="parcours__title reveal" data-delay="2" style="text-align: center; font-family: Times">
+          Architecte de l'<em>organisation.</em><br/>
+          J'aime construire des systèmes utiles, efficaces et agréables à utiliser.
+        </h2>
+        <p class="parcours__text reveal" data-delay="3" style="text-align: justify;">
+          J'ai toujours eu une façon particulière de voir les problèmes : je perçois les connexions, je hiérarchise l'essentiel, et je construis des solutions simples là où les autres voient du chaos. Avec un Master en Management de la Digitalisation, de l'IA et du Big Data, j'ai transformé cette façon de penser en métier.
+          <br/><br/>
+          Deekay Consulting, c'est cette conviction mise en pratique : vos outils doivent être utiles, efficaces, et agréables à utiliser. Pas seulement fonctionnels.
+        </p>
+
+        <h3 class="parcours__timeline-title reveal" style="font-family: Times;">D'analyste à <em>entrepreneur</em></h3>
+
+        <div class="timeline reveal" data-delay="1">
+          <div class="timeline__step">
+            <span class="timeline__dot"></span>
+            <h4>Master Management</h4>
+            <p>Digitalisation, IA &amp; Big Data</p>
+          </div>
+          <div class="timeline__step">
+            <span class="timeline__dot"></span>
+            <h4>Business Data Analyst</h4>
+            <p>Paris &middot; 1 an</p>
+          </div>
+          <div class="timeline__step">
+            <span class="timeline__dot"></span>
+            <h4>Freelance No-Code</h4>
+            <p>Coaching &middot; Notion</p>
+          </div>
+          <div class="timeline__step">
+            <span class="timeline__dot"></span>
+            <h4>Deekay Consulting</h4>
+            <p>Fondé en 2025</p>
+          </div>
+        </div>
+
+        <a class="parcours__cta reveal" href="contact.html">
+          Évaluer mon projet
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FINAL CTA
+       ========================================================= -->
+  <section class="cta-banner" id="contact">
+    <div class="container cta-banner__inner">
+      <h2 class="reveal">
+        Prêt à transformer votre <em>organisation</em> ?
+      </h2>
+      <p class="reveal" data-delay="1">
+        Un échange de 30&nbsp;minutes suffit pour y voir plus clair.
+      </p>
+      <a class="btn btn--primary reveal" data-delay="2" href="contact.html">
+        Évaluer mon projet
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       FOOTER — refonte 3 colonnes
+       ========================================================= -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col footer__col--brand">
+          <a class="logo" href="#">
+            <span class="logo__mark">DK</span>
+            Deekay
+            <span class="logo__sub">consulting</span>
+          </a>
+          <p class="footer__tag" style="color: rgb(255, 255, 255)">Transformez la complexité en clarté.</p>
+          <a class="footer__email" href="mailto:contact.deekayconsulting@gmail.com">contact.deekayconsulting@gmail.com</a>
+        </div>
+        <div class="footer__col">
+          <h4>Navigation</h4>
+          <ul>
+            <li style="text-align: left"><a href="#accueil">Accueil</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#realisations">Réalisations</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#parcours">Parcours</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Retrouvez-moi</h4>
+          <ul class="footer__socials">
+            <li>
+              <a href="#" aria-label="LinkedIn" title="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 13v4"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" aria-label="TikTok" title="TikTok">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.4 2.4 2.4 4.2 5 4.4"/></svg>
+              </a>
+            </li>
+          </ul>
+          <p class="footer__handle">
+</p>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <span>© 2026 Deekay Consulting · Tous droits réservés</span>
+        <span class="legal">
+          <a href="#">Mentions légales</a>
+          <a href="#">Politique de confidentialité</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mini-orbe persistante -->
+  <div class="mini-orb" id="miniOrb" aria-hidden="true"></div>
+
+  <template id="__bundler_thumbnail" data-bg-color="#1B2A4A">
+    <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <radialGradient id="tsphere" cx="42%" cy="36%" r="60%">
+          <stop offset="0%" stop-color="#FFFFFF"/>
+          <stop offset="22%" stop-color="#EAF1F7"/>
+          <stop offset="55%" stop-color="#A8C5DA"/>
+          <stop offset="85%" stop-color="#3E5A82"/>
+          <stop offset="100%" stop-color="#1B2A4A"/>
+        </radialGradient>
+        <radialGradient id="tglow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="#A8C5DA" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#A8C5DA" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect width="1200" height="800" fill="#1B2A4A"/>
+      <circle cx="600" cy="400" r="280" fill="url(#tglow)"/>
+      <circle cx="600" cy="400" r="180" fill="url(#tsphere)"/>
+      <ellipse cx="552" cy="340" rx="48" ry="22" fill="#FFFFFF" opacity="0.65"/>
+      <text x="600" y="700" text-anchor="middle" fill="#A8C5DA" font-family="serif" font-style="italic" font-size="32" letter-spacing="4">Deekay Consulting</text>
+    </svg>
+  </template>
+
+  <script src="main.js"></script>
+  <script src="tweaks.js"></script>
+</body>
+</html>

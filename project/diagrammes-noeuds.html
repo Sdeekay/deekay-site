@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Deekay Consulting — Diagrammes &amp; nœuds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0E1115;
+  --bg-2: #161A20;
+  --line: #232932;
+  --line-bright: #2F3744;
+  --node: #1A1F27;
+  --ink: #E7ECF3;
+  --dim: #8C95A4;
+  --accent: #6FE7C0;
+  --accent-2: #7AB8FF;
+  --accent-3: #F6C26B;
+  --warn: #FF8E72;
+  --sans: "Inter", system-ui, sans-serif;
+  --serif: "Instrument Serif", Georgia, serif;
+  --mono: "JetBrains Mono", ui-monospace, monospace;
+}
+*,*::before,*::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color: inherit; text-decoration: none; }
+::selection { background: var(--accent); color: var(--bg); }
+
+/* Dotted grid background */
+body::before {
+  content: "";
+  position: fixed; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, #000 30%, transparent 90%);
+}
+
+.wrap { max-width: 1320px; margin: 0 auto; padding: 0 32px; position: relative; z-index: 1; }
+
+/* ---------- Nav ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 40;
+  background: rgba(14,17,21,0.7);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+.nav__inner {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 32px;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+.nav__brand { display: flex; align-items: center; gap: 10px; font-weight: 600; }
+.nav__brand .dot { width: 10px; height: 10px; border-radius: 2px; background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+.nav__brand i { color: var(--dim); font-style: italic; font-family: var(--serif); font-size: 16px; }
+.nav__links { display: flex; gap: 24px; }
+.nav__links a { color: var(--dim); transition: color .2s; }
+.nav__links a:hover { color: var(--ink); }
+.nav__cta {
+  border: 1px solid var(--line-bright);
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: var(--node);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.nav__cta::before { content: "▶"; color: var(--accent); font-size: 9px; }
+.nav__cta:hover { border-color: var(--accent); }
+
+/* ---------- Hero ---------- */
+.hero {
+  padding: 80px 0 60px;
+  position: relative;
+}
+.hero__inner {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.hero__tag {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--dim);
+  border: 1px solid var(--line);
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--bg-2);
+}
+.hero__tag .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); animation: blink 2s infinite; }
+@keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
+
+.hero h1 {
+  margin: 24px 0 0;
+  font-size: clamp(48px, 6vw, 84px);
+  font-weight: 800;
+  line-height: 1.0;
+  letter-spacing: -0.035em;
+}
+.hero h1 em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.hero p { margin: 24px 0 0; max-width: 50ch; color: var(--dim); font-size: 18px; }
+.hero__ctas { margin-top: 36px; display: flex; gap: 14px; flex-wrap: wrap; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  padding: 14px 22px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  font-family: var(--mono);
+  transition: transform .2s, box-shadow .2s, background .2s;
+}
+.btn--p { background: var(--accent); color: var(--bg); }
+.btn--p:hover { transform: translateY(-2px); box-shadow: 0 12px 24px -8px rgba(111,231,192,0.4); }
+.btn--g { background: var(--node); border: 1px solid var(--line-bright); color: var(--ink); }
+.btn--g:hover { border-color: var(--dim); }
+
+/* ----- Hero diagram (live workflow) ----- */
+.diagram {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 24px;
+  overflow: hidden;
+}
+.diagram__head {
+  position: absolute; top: 14px; left: 16px; right: 16px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: var(--mono); font-size: 11px; color: var(--dim);
+  z-index: 2;
+}
+.diagram__head .dots { display: flex; gap: 5px; }
+.diagram__head .dots span { width: 9px; height: 9px; border-radius: 50%; }
+.diagram__head .dots span:nth-child(1) { background: #FF7064; }
+.diagram__head .dots span:nth-child(2) { background: #FCC04A; }
+.diagram__head .dots span:nth-child(3) { background: var(--accent); }
+.diagram svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+
+/* Node card on top of svg */
+.node {
+  position: absolute;
+  background: var(--node);
+  border: 1px solid var(--line-bright);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--ink);
+  display: flex; align-items: center; gap: 8px;
+  white-space: nowrap;
+  z-index: 2;
+  box-shadow: 0 8px 24px -10px rgba(0,0,0,0.5);
+}
+.node .ic {
+  width: 20px; height: 20px;
+  border-radius: 5px;
+  display: grid; place-items: center;
+  font-weight: 700;
+  font-size: 10px;
+  color: var(--bg);
+}
+.node .lbl { color: var(--dim); font-size: 10px; display: block; margin-top: 1px; }
+.node .lbl strong { color: var(--ink); font-weight: 500; }
+.node--in { top: 18%; left: 4%; }
+.node--in .ic { background: var(--accent-2); }
+.node--proc { top: 46%; left: 38%; }
+.node--proc .ic { background: var(--accent-3); }
+.node--ai { top: 22%; left: 64%; }
+.node--ai .ic { background: var(--accent); }
+.node--out { top: 72%; left: 58%; }
+.node--out .ic { background: var(--warn); }
+.node--db { top: 70%; left: 8%; }
+.node--db .ic { background: var(--ink); color: var(--bg); }
+
+/* Animated wires */
+.wire {
+  fill: none;
+  stroke: var(--line-bright);
+  stroke-width: 1.5;
+}
+.wire--live {
+  stroke: var(--accent);
+  stroke-dasharray: 4 6;
+  animation: dash 1.5s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(111,231,192,0.6));
+}
+@keyframes dash { to { stroke-dashoffset: -20; } }
+
+/* Packet pulse along wire */
+.pulse {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 8px var(--accent));
+}
+
+/* ---------- Section ---------- */
+.section { padding: 120px 0; position: relative; }
+.section__head { display: grid; gap: 14px; margin-bottom: 64px; max-width: 720px; }
+.kicker {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.kicker::before { content: "//"; color: var(--dim); }
+.section__title { font-size: clamp(36px, 4.6vw, 60px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.05; margin: 0; }
+.section__title em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); }
+.section__sub { color: var(--dim); font-size: 17px; max-width: 56ch; }
+
+/* ---------- Services as nodes ---------- */
+.svcs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  position: relative;
+}
+@media (max-width: 940px) { .svcs { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .svcs { grid-template-columns: 1fr; } }
+
+.svc-card {
+  position: relative;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--bg-2);
+  padding: 24px;
+  transition: border-color .25s, transform .25s;
+  overflow: hidden;
+}
+.svc-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+.svc-card::before {
+  content: "";
+  position: absolute; top: -1px; left: 24px; right: 24px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0; transition: opacity .25s;
+}
+.svc-card:hover::before { opacity: 1; }
+
+.svc-card__head {
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: var(--mono); font-size: 11px;
+  color: var(--dim);
+  margin-bottom: 32px;
+}
+.svc-card__id { color: var(--accent); }
+.svc-card__pin {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--line-bright);
+  box-shadow: 0 0 0 4px var(--bg-2), 0 0 0 5px var(--line);
+}
+.svc-card:hover .svc-card__pin { background: var(--accent); }
+
+.svc-card__icon {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: var(--node);
+  border: 1px solid var(--line-bright);
+  display: grid; place-items: center;
+  margin-bottom: 18px;
+}
+.svc-card__icon svg { width: 18px; height: 18px; stroke: var(--accent); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+
+.svc-card h3 { margin: 0 0 8px; font-size: 22px; font-weight: 700; letter-spacing: -0.01em; }
+.svc-card p { margin: 0; color: var(--dim); font-size: 14px; line-height: 1.55; }
+
+.svc-card__io {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px dashed var(--line-bright);
+  display: flex; justify-content: space-between;
+  font-family: var(--mono); font-size: 10px; color: var(--dim);
+}
+.svc-card__io b { color: var(--ink); font-weight: 500; }
+
+/* ---------- Réalisations terminal ---------- */
+.terminal {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #0A0D11;
+  overflow: hidden;
+}
+.terminal__bar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono); font-size: 11px; color: var(--dim);
+}
+.terminal__bar .dots { display: flex; gap: 5px; margin-right: 12px; }
+.terminal__bar .dots span { width: 9px; height: 9px; border-radius: 50%; }
+.terminal__bar .dots span:nth-child(1) { background: #FF7064; }
+.terminal__bar .dots span:nth-child(2) { background: #FCC04A; }
+.terminal__bar .dots span:nth-child(3) { background: var(--accent); }
+.terminal__body {
+  padding: 32px 28px 36px;
+  font-family: var(--mono);
+  font-size: 14px;
+  color: var(--ink);
+  line-height: 1.8;
+}
+.term-line .prompt { color: var(--accent); margin-right: 10px; }
+.term-line .out { color: var(--dim); display: block; padding: 2px 0 8px 20px; }
+.term-line .ok { color: var(--accent); }
+.term-line .pending { color: var(--accent-3); }
+.cursor::after { content: "▍"; color: var(--accent); animation: cur 1s steps(2) infinite; margin-left: 4px; }
+@keyframes cur { 50% { opacity: 0; } }
+
+.coming-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 24px; }
+@media (max-width: 720px) { .coming-grid { grid-template-columns: 1fr 1fr; } .coming-grid > div:nth-child(3) { display: none; } }
+.coming-grid > div {
+  border: 1px dashed var(--line-bright);
+  border-radius: 8px;
+  aspect-ratio: 4/3;
+  display: grid; place-items: center;
+  font-family: var(--mono); font-size: 11px;
+  color: var(--dim);
+  background: rgba(255,255,255,0.01);
+}
+
+/* ---------- CTA ---------- */
+.cta {
+  position: relative;
+  padding: 100px 32px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(111,231,192,0.06), transparent 60%),
+    var(--bg-2);
+  text-align: center;
+  overflow: hidden;
+}
+.cta::before, .cta::after {
+  content: "";
+  position: absolute; left: 0; right: 0; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.4;
+}
+.cta::before { top: 30%; }
+.cta::after { bottom: 30%; }
+.cta h2 { font-size: clamp(36px, 5vw, 64px); font-weight: 800; letter-spacing: -0.03em; margin: 0; }
+.cta h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--accent); }
+.cta p { color: var(--dim); margin: 18px auto 0; max-width: 540px; font-size: 17px; }
+.cta .btn { margin-top: 32px; }
+
+/* ---------- Footer ---------- */
+.footer {
+  padding: 48px 0;
+  font-family: var(--mono); font-size: 12px; color: var(--dim);
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 32px;
+  align-items: end;
+}
+.footer .left { display: flex; align-items: center; gap: 10px; }
+.footer .left .dot { width: 8px; height: 8px; background: var(--accent); border-radius: 2px; }
+.footer .center { text-align: center; }
+.footer .right { text-align: right; }
+.footer a:hover { color: var(--ink); }
+
+@media (max-width: 880px) {
+  .hero__inner { grid-template-columns: 1fr; }
+  .nav__links { display: none; }
+  .footer { grid-template-columns: 1fr; text-align: left; }
+  .footer .center, .footer .right { text-align: left; }
+}
+
+.fade { opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s ease; }
+.fade.in { opacity: 1; transform: none; }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#"><span class="dot"></span> deekay <i>·consulting</i></a>
+    <nav class="nav__links">
+      <a href="#services">services</a>
+      <a href="#realisations">réalisations</a>
+      <a href="#">blog</a>
+      <a href="#contact">contact</a>
+    </nav>
+    <a href="#contact" class="nav__cta">run.évaluer()</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero__inner">
+    <div>
+      <span class="hero__tag fade"><span class="dot"></span>workflow.live · 06 nœuds connectés</span>
+      <h1 class="fade" data-d="1">Transformez la complexité en <em>clarté.</em></h1>
+      <p class="fade" data-d="2">Et si vos outils travaillaient enfin pour vous, et non l'inverse&nbsp;? Deekay relie vos applications, automatise vos process, et structure vos données — pour que tout coule de source.</p>
+      <div class="hero__ctas fade" data-d="3">
+        <a class="btn btn--p" href="#contact">▶ Évaluer mon projet</a>
+        <a class="btn btn--g" href="#services">↓ Découvrir les services</a>
+      </div>
+    </div>
+
+    <div class="diagram fade" data-d="2" aria-hidden="true">
+      <div class="diagram__head">
+        <span>workflow.deekay.fr</span>
+        <div class="dots"><span></span><span></span><span></span></div>
+      </div>
+
+      <svg viewBox="0 0 600 480" preserveAspectRatio="none">
+        <!-- Curves between nodes -->
+        <path class="wire wire--live" d="M 100 130 Q 200 130 260 230"/>
+        <path class="wire wire--live" d="M 380 230 Q 440 180 460 150" style="animation-delay: -0.4s"/>
+        <path class="wire wire--live" d="M 380 250 Q 420 320 430 380" style="animation-delay: -0.8s"/>
+        <path class="wire" d="M 260 250 Q 200 330 140 360"/>
+        <path class="wire" d="M 460 170 Q 470 280 460 380"/>
+
+        <!-- Pulses -->
+        <circle class="pulse" r="3.5">
+          <animateMotion dur="3s" repeatCount="indefinite" path="M 100 130 Q 200 130 260 230"/>
+        </circle>
+        <circle class="pulse" r="3.5">
+          <animateMotion dur="3s" repeatCount="indefinite" begin="-1s" path="M 380 230 Q 440 180 460 150"/>
+        </circle>
+        <circle class="pulse" r="3.5">
+          <animateMotion dur="3s" repeatCount="indefinite" begin="-2s" path="M 380 250 Q 420 320 430 380"/>
+        </circle>
+      </svg>
+
+      <div class="node node--in">
+        <span class="ic">F</span>
+        <div>Form input <span class="lbl"><strong>27</strong> entrées</span></div>
+      </div>
+      <div class="node node--proc">
+        <span class="ic">M</span>
+        <div>Make · Router <span class="lbl">3 branches</span></div>
+      </div>
+      <div class="node node--ai">
+        <span class="ic">A</span>
+        <div>Claude · Enrich <span class="lbl">prompt v3</span></div>
+      </div>
+      <div class="node node--out">
+        <span class="ic">N</span>
+        <div>Notion · CRM <span class="lbl">deal créé</span></div>
+      </div>
+      <div class="node node--db">
+        <span class="ic">D</span>
+        <div>Airtable <span class="lbl">log</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+  <div class="wrap">
+    <div class="section__head">
+      <span class="kicker fade">méthode · 06 modules</span>
+      <h2 class="section__title fade" data-d="1">Six nœuds, un seul <em>flux.</em></h2>
+      <p class="section__sub fade" data-d="2">De l'audit à la formation, un accompagnement sur mesure pour structurer et automatiser votre activité. Chaque service est un module — connectables, modulaires, mesurables.</p>
+    </div>
+
+    <div class="svcs">
+      <article class="svc-card fade">
+        <div class="svc-card__head"><span class="svc-card__id">node_01</span><span class="svc-card__pin"></span></div>
+        <div class="svc-card__icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.3-4.3"/></svg></div>
+        <h3>Audit</h3>
+        <p>Workflows, équipe, UX, site, activité, projet. J'analyse l'existant et identifie les axes d'amélioration concrets.</p>
+        <div class="svc-card__io"><span>in: <b>existant</b></span><span>out: <b>diagnostic</b></span></div>
+      </article>
+      <article class="svc-card fade">
+        <div class="svc-card__head"><span class="svc-card__id">node_02</span><span class="svc-card__pin"></span></div>
+        <div class="svc-card__icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg></div>
+        <h3>Workspace sur mesure</h3>
+        <p>Un espace de travail structuré pour votre activité. Gestion de projets, CRM, documentation — tout est centralisé.</p>
+        <div class="svc-card__io"><span>in: <b>besoins</b></span><span>out: <b>workspace</b></span></div>
+      </article>
+      <article class="svc-card fade">
+        <div class="svc-card__head"><span class="svc-card__id">node_03</span><span class="svc-card__pin"></span></div>
+        <div class="svc-card__icon"><svg viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg></div>
+        <h3>Data &amp; bases</h3>
+        <p>Modélisation, nettoyage, enrichissement. Je structure vos données pour qu'elles deviennent un vrai levier de décision.</p>
+        <div class="svc-card__io"><span>in: <b>raw_data</b></span><span>out: <b>schema</b></span></div>
+      </article>
+      <article class="svc-card fade">
+        <div class="svc-card__head"><span class="svc-card__id">node_04</span><span class="svc-card__pin"></span></div>
+        <div class="svc-card__icon"><svg viewBox="0 0 24 24"><circle cx="6" cy="7" r="2.2"/><circle cx="18" cy="7" r="2.2"/><circle cx="12" cy="17" r="2.2"/><path d="M8 7h8M7.5 9l3.5 6M16.5 9l-3.5 6"/></svg></div>
+        <h3>Automatisation</h3>
+        <p>Connectez vos outils et éliminez les tâches répétitives. Avec Make, je crée des flux qui travaillent pour vous.</p>
+        <div class="svc-card__io"><span>in: <b>trigger</b></span><span>out: <b>action</b></span></div>
+      </article>
+      <article class="svc-card fade">
+        <div class="svc-card__head"><span class="svc-card__id">node_05</span><span class="svc-card__pin"></span></div>
+        <div class="svc-card__icon"><svg viewBox="0 0 24 24"><path d="M12 3v2M12 19v2M3 12h2M19 12h2"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <h3>IA &amp; Prompt Engineering</h3>
+        <p>Tirez parti de l'IA sans vous perdre dans la technique. J'intègre les bons outils et vous apprends à les piloter.</p>
+        <div class="svc-card__io"><span>in: <b>contexte</b></span><span>out: <b>prompt</b></span></div>
+      </article>
+      <article class="svc-card fade">
+        <div class="svc-card__head"><span class="svc-card__id">node_06</span><span class="svc-card__pin"></span></div>
+        <div class="svc-card__icon"><svg viewBox="0 0 24 24"><path d="M2 8l10-4 10 4-10 4-10-4z"/><path d="M6 10v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/></svg></div>
+        <h3>Formation</h3>
+        <p>Notion, automatisation, IA, data. Je vous transmets les méthodes et les réflexes pour gagner en autonomie.</p>
+        <div class="svc-card__io"><span>in: <b>équipe</b></span><span>out: <b>autonomie</b></span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- RÉALISATIONS -->
+<section class="section" id="realisations" style="padding-top: 0;">
+  <div class="wrap">
+    <div class="section__head">
+      <span class="kicker fade">réalisations</span>
+      <h2 class="section__title fade" data-d="1">Premiers projets <em>en cours.</em></h2>
+    </div>
+
+    <div class="terminal fade" data-d="2">
+      <div class="terminal__bar">
+        <div class="dots"><span></span><span></span><span></span></div>
+        deekay@portfolio:~ — bash — 80×24
+      </div>
+      <div class="terminal__body">
+        <div class="term-line"><span class="prompt">$</span> ls ./realisations</div>
+        <div class="term-line"><span class="out">total <span class="pending">3</span> · status <span class="pending">[building...]</span></span></div>
+
+        <div class="term-line"><span class="prompt">$</span> cat .status</div>
+        <div class="term-line"><span class="out">› Études de cas <span class="ok">[en rédaction]</span></span></div>
+        <div class="term-line"><span class="out">› Workspaces clients <span class="ok">[anonymisation en cours]</span></span></div>
+        <div class="term-line"><span class="out">› Automatisations Make <span class="ok">[captures à valider]</span></span></div>
+
+        <div class="term-line"><span class="prompt">$</span> deploy --target portfolio --eta soon<span class="cursor"></span></div>
+      </div>
+    </div>
+
+    <div class="coming-grid">
+      <div>node_a · à venir</div>
+      <div>node_b · à venir</div>
+      <div>node_c · à venir</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <span class="kicker fade" style="justify-content:center;">contact · échange initial</span>
+  <h2 class="fade" data-d="1" style="margin-top:14px;">Prêt à connecter votre <em>organisation</em>&nbsp;?</h2>
+  <p class="fade" data-d="2">Un échange de 30 minutes suffit pour mapper vos flux et identifier le premier nœud à activer.</p>
+  <a href="#" class="btn btn--p fade" data-d="3">▶ Évaluer mon projet</a>
+</section>
+
+<footer class="footer wrap">
+  <div class="left"><span class="dot"></span> deekay · consulting · paris</div>
+  <div class="center">© 2026 — uptime <span style="color:var(--accent)">99.9%</span></div>
+  <div class="right"><a href="#">mentions</a> · <a href="#">confidentialité</a></div>
+</footer>
+
+<script>
+const io = new IntersectionObserver((es) => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.fade').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Deekay — 4 directions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0E1115;
+  --ink: #EEF2F8;
+  --dim: #8FA0BC;
+  --line: rgba(255,255,255,0.08);
+  --accent: #B8D7EA;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Inter", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+header {
+  padding: 56px 40px 28px;
+  border-bottom: 1px solid var(--line);
+  display: grid; gap: 12px;
+}
+.kicker { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); }
+h1 { margin: 0; font-size: clamp(36px, 5vw, 60px); font-weight: 800; letter-spacing: -0.03em; line-height: 1; }
+h1 em { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; color: var(--accent); }
+header p { margin: 0; color: var(--dim); max-width: 60ch; font-size: 16px; line-height: 1.55; }
+
+.grid {
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+@media (max-width: 880px) { .grid { grid-template-columns: 1fr; } }
+
+.card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.02);
+  overflow: hidden;
+  display: grid; grid-template-rows: auto 1fr auto;
+  transition: transform .25s, border-color .25s, background .25s;
+}
+.card:hover { transform: translateY(-4px); border-color: var(--accent); }
+.card iframe {
+  width: 100%;
+  height: 380px;
+  border: 0;
+  background: var(--bg);
+  pointer-events: none;
+  border-bottom: 1px solid var(--line);
+}
+.card__body { padding: 22px 24px 6px; }
+.card__num { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.18em; color: var(--accent); }
+.card__title { margin: 8px 0 6px; font-size: 26px; font-weight: 700; letter-spacing: -0.02em; }
+.card__title em { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; color: var(--accent); }
+.card__desc { color: var(--dim); font-size: 14px; line-height: 1.55; margin: 0; }
+.card__foot {
+  padding: 16px 24px 22px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: "JetBrains Mono", monospace; font-size: 11px;
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--dim);
+}
+.card__open { color: var(--accent); }
+.card__open:hover { color: var(--ink); }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="kicker">Deekay Consulting · 4 directions</span>
+  <h1>Quatre <em>univers</em> pour une même promesse.</h1>
+  <p>Cliquez sur une carte pour ouvrir la version pleine taille. La version originale (Dark Navy Glassmorphism) reste disponible sur <a href="index.html" style="color:var(--accent)">index.html</a>.</p>
+</header>
+
+<div class="grid">
+
+  <a class="card" href="cinematic-noir.html">
+    <iframe src="cinematic-noir.html" loading="lazy" scrolling="no"></iframe>
+    <div class="card__body">
+      <span class="card__num">— 04 · Cinematic Noir</span>
+      <h3 class="card__title">Cinematic <em>Noir</em></h3>
+      <p class="card__desc">Letterbox cinéma, vignettage, générique de film, typographie serif italique. Ambiance lente et contemplative, comme un long métrage d'auteur.</p>
+    </div>
+    <div class="card__foot"><span>noir · serif · doré</span><span class="card__open">Ouvrir →</span></div>
+  </a>
+
+  <a class="card" href="swiss-editorial.html">
+    <iframe src="swiss-editorial.html" loading="lazy" scrolling="no"></iframe>
+    <div class="card__body">
+      <span class="card__num">— 05 · Swiss Editorial</span>
+      <h3 class="card__title">Swiss <em>Editorial</em></h3>
+      <p class="card__desc">Grille 12 colonnes rigoureuse, masthead de journal, accent rouge, numérotation. Esprit imprimé, typographie disciplinée, blancs généreux.</p>
+    </div>
+    <div class="card__foot"><span>papier · grille · accent rouge</span><span class="card__open">Ouvrir →</span></div>
+  </a>
+
+  <a class="card" href="diagrammes-noeuds.html">
+    <iframe src="diagrammes-noeuds.html" loading="lazy" scrolling="no"></iframe>
+    <div class="card__body">
+      <span class="card__num">— 16 · Diagrammes &amp; nœuds</span>
+      <h3 class="card__title">Nodes <em>&amp; flows</em></h3>
+      <p class="card__desc">Le site démontre ce qu'il vend. Workflow live animé, services en nœuds connectés, terminal pour les réalisations. Néon mint sur fond sombre.</p>
+    </div>
+    <div class="card__foot"><span>workflow · terminal · mint</span><span class="card__open">Ouvrir →</span></div>
+  </a>
+
+  <a class="card" href="scroll-driven-3d.html">
+    <iframe src="scroll-driven-3d.html" loading="lazy" scrolling="no"></iframe>
+    <div class="card__body">
+      <span class="card__num">— 22 · Scroll-driven 3D</span>
+      <h3 class="card__title">Scroll-driven <em>3D</em></h3>
+      <p class="card__desc">Orbe pinned au centre, six scènes qui scrollent par-dessus. L'objet se transforme, dérive, dévoile ses orbites — narration visuelle continue.</p>
+    </div>
+    <div class="card__foot"><span>scènes I → VI · pinned object</span><span class="card__open">Ouvrir →</span></div>
+  </a>
+
+</div>
+
+</body>
+</html>
