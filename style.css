@@ -94,7 +94,7 @@ p { margin: 0; text-wrap: pretty; }
    ============================================================ */
 .logo {
   display: inline-flex;
-  align-items: baseline;
+  align-items: center;
   gap: 6px;
   font-family: var(--font-sans);
   font-weight: 800;
@@ -103,18 +103,10 @@ p { margin: 0; text-wrap: pretty; }
   text-transform: uppercase;
   color: var(--white);
 }
-.logo .logo__mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px; height: 28px;
-  border-radius: 8px;
-  background: linear-gradient(135deg, var(--accent), #d8e7f1);
-  color: var(--navy);
-  font-size: 12px;
-  letter-spacing: 0;
-  font-weight: 800;
-  margin-right: 6px;
+.logo__mark-img {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
 }
 .logo__sub {
   font-family: var(--font-serif);
@@ -583,14 +575,21 @@ p { margin: 0; text-wrap: pretty; }
   color: rgba(245, 245, 242, 0.7);
   line-height: 1.65;
   border-left: 1px solid rgba(168, 197, 218, 0.2);
+  text-align: center;
 }
 .parcours__convictions blockquote:first-child { border-left: none; }
+.parcours__timeline-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 .parcours__timeline-title {
   font-size: clamp(15px, 1.3vw, 21px);
   font-weight: 700;
   color: var(--white);
   letter-spacing: -0.01em;
   margin-top: 4px;
+  text-align: center;
 }
 .parcours__timeline-title em {
   font-family: var(--font-serif);
@@ -600,12 +599,13 @@ p { margin: 0; text-wrap: pretty; }
 }
 
 /* Photo column */
-.parcours__photo-col { position: sticky; top: 100px; }
+.parcours__photo-col { }
 .parcours__photo-wrap {
   background: rgba(168, 197, 218, 0.08);
   border-radius: 12px;
   overflow: hidden;
   aspect-ratio: 3 / 4;
+  max-height: 480px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -620,6 +620,8 @@ p { margin: 0; text-wrap: pretty; }
   row-gap: 22px;
   position: relative;
   margin-top: 24px;
+  width: 100%;
+  max-width: 340px;
 }
 .timeline::before {
   content: "";
@@ -687,7 +689,7 @@ p { margin: 0; text-wrap: pretty; }
 
 @media (max-width: 860px) {
   .parcours__cols { grid-template-columns: 1fr; }
-  .parcours__photo-col { order: -1; position: static; }
+  .parcours__photo-col { order: -1; }
   .parcours__photo-wrap { aspect-ratio: 4 / 3; max-height: 300px; }
   .parcours__convictions { grid-template-columns: 1fr; }
   .parcours__convictions blockquote {
@@ -1094,9 +1096,9 @@ p { margin: 0; text-wrap: pretty; }
 }
 .footer__grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.4fr 1fr auto;
   gap: 48px;
-  align-items: start;
+  align-items: center;
 }
 .footer__tag {
   margin-top: 16px;
@@ -1138,8 +1140,8 @@ p { margin: 0; text-wrap: pretty; }
   transform: translateY(-2px);
 }
 .footer__socials svg {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   stroke: currentColor;
   fill: none;
   stroke-width: 1.5;
@@ -1151,14 +1153,8 @@ p { margin: 0; text-wrap: pretty; }
   font-size: 13px;
   color: rgba(245,245,242,0.55);
 }
-.footer h4 {
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(245, 245, 242, 0.45);
-  margin-bottom: 18px;
-}
+.footer__col--nav { display: flex; justify-content: center; }
+.footer__col--socials { display: flex; justify-content: flex-end; }
 .footer ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; text-align: center; }
 .footer ul a {
   font-size: 14px;

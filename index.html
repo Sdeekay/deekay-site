@@ -15,9 +15,7 @@
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="icon" type="image/png" href="Favicon provisoir.png" />
-  <link rel="icon" href="assets/Favicon_provisoir.png" type="image/png" />
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23A8C5DA'/><text x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Inter,sans-serif' font-weight='800' font-size='26' fill='%231B2A4A'>DK</text></svg>" />
+  <link rel="icon" type="image/svg+xml" href="DEEKAY.svg" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,8 +30,7 @@
   <header class="nav" id="nav">
     <div class="container nav__inner">
       <a class="logo" href="index.html" aria-label="Deekay Consulting — accueil">
-        <!-- Remplacer par : <img src="assets/Logo_provisoir.png" alt="Deekay Consulting" class="logo__img"> -->
-        <span class="logo__mark">DK</span>
+        <img src="DEEKAY.svg" class="logo__mark-img" width="28" height="28" alt="" aria-hidden="true">
         Deekay<span class="logo__sub">consulting</span>
       </a>
       <nav>
@@ -257,38 +254,40 @@
             <blockquote>«&nbsp;Je ne livre pas des outils. Je livre de l'autonomie.&nbsp;»</blockquote>
             <blockquote>«&nbsp;La complexité n'est pas un problème à tolérer. C'est un problème à résoudre.&nbsp;»</blockquote>
           </div>
-          <h3 class="parcours__timeline-title">D'analyste à <em>entrepreneur</em></h3>
-          <div class="timeline">
-            <div class="timeline__step">
-              <span class="timeline__date">2023</span>
-              <span class="timeline__dot"></span>
-              <div class="timeline__content">
-                <h4>Master en Management</h4>
-                <p>Digitalisation, IA &amp; Big Data</p>
+          <div class="parcours__timeline-block">
+            <h3 class="parcours__timeline-title">D'analyste à <em>entrepreneur</em></h3>
+            <div class="timeline">
+              <div class="timeline__step">
+                <span class="timeline__date">2023</span>
+                <span class="timeline__dot"></span>
+                <div class="timeline__content">
+                  <h4>Master en Management</h4>
+                  <p>Digitalisation, IA &amp; Big Data</p>
+                </div>
               </div>
-            </div>
-            <div class="timeline__step">
-              <span class="timeline__date">2024</span>
-              <span class="timeline__dot"></span>
-              <div class="timeline__content">
-                <h4>Business Data Analyst</h4>
-                <p>Au sein d'une start-up parisienne</p>
+              <div class="timeline__step">
+                <span class="timeline__date">2024</span>
+                <span class="timeline__dot"></span>
+                <div class="timeline__content">
+                  <h4>Business Data Analyst</h4>
+                  <p>Au sein d'une start-up parisienne</p>
+                </div>
               </div>
-            </div>
-            <div class="timeline__step">
-              <span class="timeline__date"></span>
-              <span class="timeline__dot"></span>
-              <div class="timeline__content">
-                <h4>Freelance No-Code</h4>
-                <p>Premiers workspaces · Formation Notion</p>
+              <div class="timeline__step">
+                <span class="timeline__date"></span>
+                <span class="timeline__dot"></span>
+                <div class="timeline__content">
+                  <h4>Freelance No-Code</h4>
+                  <p>Premiers workspaces · Formation Notion</p>
+                </div>
               </div>
-            </div>
-            <div class="timeline__step">
-              <span class="timeline__date">2025</span>
-              <span class="timeline__dot"></span>
-              <div class="timeline__content">
-                <h4>Deekay Consulting</h4>
-                <p>Conseil · No-Code · IA</p>
+              <div class="timeline__step">
+                <span class="timeline__date">2025</span>
+                <span class="timeline__dot"></span>
+                <div class="timeline__content">
+                  <h4>Deekay Consulting</h4>
+                  <p>Conseil · No-Code · IA</p>
+                </div>
               </div>
             </div>
           </div>
@@ -298,6 +297,7 @@
           <div class="parcours__photo-wrap">
             <img src="assets/images/ppshawn.jpeg" alt="Shawn Diakite — Deekay Consulting" class="parcours__photo-img">
           </div>
+          <!-- Espace réservé pour les badges de certification futurs -->
         </div>
 
       </div>
@@ -374,14 +374,13 @@
       <div class="footer__grid">
         <div class="footer__col footer__col--brand">
           <a class="logo" href="index.html">
-            <span class="logo__mark">DK</span>
+            <img src="DEEKAY.svg" class="logo__mark-img" width="28" height="28" alt="" aria-hidden="true">
             Deekay<span class="logo__sub">consulting</span>
           </a>
           <p class="footer__tag"><em>Transformez la complexité en clarté.</em></p>
           <a class="footer__email" href="mailto:shawn@deekayconsulting.com">shawn@deekayconsulting.com</a>
         </div>
-        <div class="footer__col">
-          <h4>Navigation</h4>
+        <div class="footer__col footer__col--nav">
           <ul>
             <li><a href="#accueil">Accueil</a></li>
             <li><a href="#services">Services</a></li>
@@ -391,8 +390,7 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-        <div class="footer__col">
-          <h4>Retrouvez-moi</h4>
+        <div class="footer__col footer__col--socials">
           <ul class="footer__socials">
             <li>
               <a href="https://www.linkedin.com/in/shawn-diakite-3a503a163" aria-label="LinkedIn" target="_blank" rel="noopener">
