@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Blog — No-code, IA &amp; Organisation | Deekay Consulting</title>
+  <meta name="description" content="Tips, méthodes et retours d'expérience sur le no-code, l'automatisation, l'IA et l'organisation. Par Shawn Diakite, consultant Deekay Consulting." />
+  <link rel="canonical" href="https://deekayconsulting.com/blog.html" />
+  <link rel="icon" href="assets/Favicon_provisoir.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="tweaks.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="logo" href="index.html" aria-label="Deekay Consulting — accueil">
+        <span class="logo__mark">DK</span>
+        Deekay<span class="logo__sub">consulting</span>
+      </a>
+      <nav>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="realisations.html">Réalisations</a></li>
+          <li><a href="blog.html" aria-current="page">Blog</a></li>
+          <li><a href="index.html#parcours">Parcours</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="nav__lang">
+            <span class="lang-active">FR</span>
+            <span class="lang-sep">|</span>
+            <span class="lang-inactive">EN</span>
+          </li>
+        </ul>
+      </nav>
+      <a href="contact.html" class="nav__cta">
+        Évaluer mon projet
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <button class="nav__burger" aria-label="Ouvrir le menu" aria-controls="navLinks"><span></span></button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="blog-header">
+    <div class="hero__grain" aria-hidden="true"></div>
+    <div class="container blog-header__inner">
+      <span class="hero__eyebrow reveal"><span class="dot" aria-hidden="true"></span>Ressources &amp; réflexions</span>
+      <h1 class="reveal" data-delay="1">Le <em>blog.</em></h1>
+      <p class="blog-header__sub reveal" data-delay="2">
+        No-code, automatisation, IA et organisation.<br/>
+        Tips, méthodes et retours d'expérience pour ceux qui veulent reprendre le contrôle de leur activité.
+      </p>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-band" aria-hidden="true">
+    <div class="marquee-track" id="marqueeTrack">
+      <!-- Les pills sont injectées en JS pour éviter la duplication manuelle -->
+    </div>
+  </div>
+
+  <!-- FILTRES TAGS -->
+  <div class="blog-filters">
+    <div class="container">
+      <div class="blog-filters__inner" id="tagFilters" role="list" aria-label="Filtres par catégorie"></div>
+    </div>
+  </div>
+
+  <!-- LISTE ARTICLES -->
+  <div class="blog-list">
+    <div class="container">
+      <ul class="article-list" id="articleList" aria-live="polite" aria-label="Liste des articles"></ul>
+      <div class="blog-empty" id="blogEmpty">
+        <div class="blog-empty__icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        </div>
+        <h3>Les premiers articles arrivent bientôt.</h3>
+        <p>No-code, IA, organisation — du concret pour structurer et automatiser ton activité.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col footer__col--brand">
+          <a class="logo" href="index.html"><span class="logo__mark">DK</span>Deekay<span class="logo__sub">consulting</span></a>
+          <p class="footer__tag"><em>Transformez la complexité en clarté.</em></p>
+          <a class="footer__email" href="mailto:shawn@deekayconsulting.com">shawn@deekayconsulting.com</a>
+        </div>
+        <div class="footer__col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="realisations.html">Réalisations</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#parcours">Parcours</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Retrouvez-moi</h4>
+          <ul class="footer__socials">
+            <li>
+              <a href="https://www.linkedin.com/in/shawn-diakite-3a503a163" aria-label="LinkedIn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 13v4"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://tiktok.com/@deekayconsulting" aria-label="TikTok" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.4 2.4 2.4 4.2 5 4.4"/></svg>
+              </a>
+            </li>
+          </ul>
+          <p class="footer__handle">@deekayconsulting</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Deekay Consulting · Tous droits réservés</span>
+        <span class="legal"><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="tweaks.js"></script>
+  <script>
+  (function () {
+    var TAGS = [
+      'Tous', 'Automatisation', 'Notion', 'Data',
+      'Intelligence Artificielle', 'No-Code', 'Organisation',
+      'Audit', 'Conseils', 'Lecture', 'Développement personnel'
+    ];
+
+    // Articles — tableau vide au lancement, à remplir en phase 2
+    // Format : { id, titre, extrait, tags: [], date, lecture, slug }
+    var articles = [];
+
+    var activeTag = 'Tous';
+
+    /* ---- Marquee ---- */
+    var track = document.getElementById('marqueeTrack');
+    var pills = TAGS.filter(function (t) { return t !== 'Tous'; });
+    // Double the pills for seamless infinite loop
+    var allPills = pills.concat(pills);
+    track.innerHTML = allPills.map(function (t) {
+      return '<span class="marquee-pill">' + t + '</span>';
+    }).join('');
+
+    /* ---- Tag filters ---- */
+    var filterContainer = document.getElementById('tagFilters');
+    TAGS.forEach(function (tag) {
+      var btn = document.createElement('button');
+      btn.className = 'tag-pill' + (tag === 'Tous' ? ' active' : '');
+      btn.textContent = tag;
+      btn.setAttribute('role', 'listitem');
+      btn.addEventListener('click', function () {
+        activeTag = tag;
+        filterContainer.querySelectorAll('.tag-pill').forEach(function (p) {
+          p.classList.toggle('active', p.textContent === tag);
+        });
+        renderArticles();
+      });
+      filterContainer.appendChild(btn);
+    });
+
+    /* ---- Render ---- */
+    function renderArticles() {
+      var list = document.getElementById('articleList');
+      var empty = document.getElementById('blogEmpty');
+      var filtered = activeTag === 'Tous'
+        ? articles
+        : articles.filter(function (a) { return a.tags.indexOf(activeTag) !== -1; });
+
+      if (filtered.length === 0) {
+        list.innerHTML = '';
+        empty.style.display = 'grid';
+        return;
+      }
+      empty.style.display = 'none';
+      list.innerHTML = filtered.map(function (a, i) {
+        var num = String(i + 1).padStart(2, '0');
+        var tagsHtml = a.tags.map(function (t) {
+          return '<span class="article-card__tag">' + t + '</span>';
+        }).join('');
+        return [
+          '<li>',
+          '  <a class="article-card" href="' + (a.slug || '#') + '">',
+          '    <div class="article-card__num">' + num + '</div>',
+          '    <div>',
+          '      <div class="article-card__tags">' + tagsHtml + '</div>',
+          '      <p class="article-card__title">' + a.titre + '</p>',
+          '      <p class="article-card__excerpt">' + a.extrait + '</p>',
+          '      <p class="article-card__meta">' + a.date + ' · ' + a.lecture + ' min de lecture</p>',
+          '    </div>',
+          '    <span class="article-arrow" aria-hidden="true">→</span>',
+          '  </a>',
+          '</li>'
+        ].join('');
+      }).join('');
+    }
+
+    renderArticles();
+  })();
+  </script>
+</body>
+</html>

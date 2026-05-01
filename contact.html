@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Contact — Deekay Consulting</title>
+  <meta name="description" content="Décrivez votre projet à Shawn Diakite, consultant en organisation &amp; transformation digitale. Réponse sous 48h." />
+  <link rel="canonical" href="https://deekayconsulting.com/contact.html" />
+  <link rel="icon" href="assets/Favicon_provisoir.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="tweaks.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="logo" href="index.html" aria-label="Deekay Consulting — accueil">
+        <span class="logo__mark">DK</span>
+        Deekay<span class="logo__sub">consulting</span>
+      </a>
+      <nav>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="realisations.html">Réalisations</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#parcours">Parcours</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+          <li class="nav__lang">
+            <span class="lang-active">FR</span>
+            <span class="lang-sep">|</span>
+            <span class="lang-inactive">EN</span>
+          </li>
+        </ul>
+      </nav>
+      <a href="contact.html" class="nav__cta">
+        Évaluer mon projet
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <button class="nav__burger" aria-label="Ouvrir le menu" aria-controls="navLinks"><span></span></button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="hero__grain" aria-hidden="true"></div>
+    <div class="container page-hero__inner">
+      <span class="hero__eyebrow reveal"><span class="dot" aria-hidden="true"></span>Contact</span>
+      <h1 class="reveal" data-delay="1">Parlons de votre <em>projet.</em></h1>
+      <p class="hero__sub reveal" data-delay="2">Remplissez le formulaire et je reviens vers vous sous 48h.</p>
+    </div>
+  </section>
+
+  <!-- CONTENT -->
+  <section class="section" id="form-top" style="background: var(--off-white);">
+    <div class="container">
+      <div class="contact-layout">
+
+        <!-- FORMULAIRE -->
+        <div>
+          <div id="formWrap">
+            <!-- Stepper -->
+            <div class="stepper" aria-label="Progression du formulaire">
+              <div class="stepper__item">
+                <div class="stepper__circle active" id="sc0"><span class="step-num">1</span></div>
+                <div class="stepper__line" id="sl0"></div>
+              </div>
+              <div class="stepper__item">
+                <div class="stepper__circle" id="sc1"><span class="step-num">2</span></div>
+                <div class="stepper__line" id="sl1"></div>
+              </div>
+              <div class="stepper__item">
+                <div class="stepper__circle" id="sc2"><span class="step-num">3</span></div>
+                <div class="stepper__line" id="sl2"></div>
+              </div>
+              <div class="stepper__item">
+                <div class="stepper__circle" id="sc3"><span class="step-num">4</span></div>
+              </div>
+            </div>
+
+            <!-- ÉTAPE 1 -->
+            <div class="form-step active" id="step-0">
+              <h2 class="form-step__title">Qui êtes-vous ?</h2>
+              <div class="form-note">
+                3 minutes suffisent. La seule question qui demande un peu de réflexion : décrire votre projet. Prenez votre temps sur celle-là.
+              </div>
+
+              <div class="select-cards" data-field-group="profil">
+                <button type="button" class="select-card" data-field="profil" data-value="independant" data-other="profilAutreWrap">
+                  Indépendant / Freelance
+                </button>
+                <button type="button" class="select-card" data-field="profil" data-value="startup" data-other="profilAutreWrap">
+                  Start-up
+                </button>
+                <button type="button" class="select-card" data-field="profil" data-value="tpe-pme" data-other="profilAutreWrap">
+                  TPE / PME
+                </button>
+                <button type="button" class="select-card" data-field="profil" data-value="autre" data-other="profilAutreWrap">
+                  Autre
+                </button>
+              </div>
+              <div class="other-input" id="profilAutreWrap">
+                <div class="form-group">
+                  <label for="profilAutre">Précisez <span class="req">*</span></label>
+                  <input type="text" id="profilAutre" placeholder="Votre situation..." autocomplete="off" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="besoin">Votre besoin en quelques mots <span class="req">*</span></label>
+                <textarea id="besoin" placeholder="Décrivez votre projet ou votre problématique..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="entreprise">Nom de l'entreprise</label>
+                <input type="text" id="entreprise" placeholder="Votre entreprise (optionnel)" autocomplete="organization" />
+              </div>
+            </div>
+
+            <!-- ÉTAPE 2 -->
+            <div class="form-step" id="step-1">
+              <h2 class="form-step__title">Quel est votre budget ?</h2>
+              <p class="form-step__sub">Cela m'aide à adapter ma proposition.</p>
+
+              <div class="select-cards" data-field-group="budget">
+                <button type="button" class="select-card" data-field="budget" data-value="moins-1000">
+                  Moins de 1&nbsp;000&nbsp;€
+                </button>
+                <button type="button" class="select-card" data-field="budget" data-value="1000-2000">
+                  Entre 1&nbsp;000&nbsp;€ et 2&nbsp;000&nbsp;€
+                </button>
+                <button type="button" class="select-card" data-field="budget" data-value="2000-5000">
+                  Entre 2&nbsp;000&nbsp;€ et 5&nbsp;000&nbsp;€
+                </button>
+                <button type="button" class="select-card" data-field="budget" data-value="plus-5000">
+                  Plus de 5&nbsp;000&nbsp;€
+                </button>
+              </div>
+
+              <button type="button" class="skip-link" id="skipBudget">
+                Je ne souhaite pas répondre →
+              </button>
+            </div>
+
+            <!-- ÉTAPE 3 -->
+            <div class="form-step" id="step-2">
+              <h2 class="form-step__title">Comment avez-vous entendu parler de moi ?</h2>
+
+              <div class="select-cards" data-field-group="source">
+                <button type="button" class="select-card" data-field="source" data-value="tiktok" data-other="sourceAutreWrap">
+                  TikTok
+                </button>
+                <button type="button" class="select-card" data-field="source" data-value="bouche-a-oreille" data-other="sourceAutreWrap">
+                  Bouche à oreille
+                </button>
+                <button type="button" class="select-card" data-field="source" data-value="recherche-web" data-other="sourceAutreWrap">
+                  Recherche web
+                </button>
+                <button type="button" class="select-card" data-field="source" data-value="autre" data-other="sourceAutreWrap">
+                  Autre
+                </button>
+              </div>
+              <div class="other-input" id="sourceAutreWrap">
+                <div class="form-group">
+                  <label for="sourceAutre">Précisez <span class="req">*</span></label>
+                  <input type="text" id="sourceAutre" placeholder="Comment m'avez-vous trouvé ?" autocomplete="off" />
+                </div>
+              </div>
+            </div>
+
+            <!-- ÉTAPE 4 -->
+            <div class="form-step" id="step-3">
+              <h2 class="form-step__title">Comment vous contacter ?</h2>
+              <p class="form-step__sub">Pour que je puisse revenir vers vous.</p>
+
+              <div class="form-group-row">
+                <div class="form-group">
+                  <label for="nom">Nom <span class="req">*</span></label>
+                  <input type="text" id="nom" placeholder="Votre nom" autocomplete="family-name" />
+                </div>
+                <div class="form-group">
+                  <label for="prenom">Prénom <span class="req">*</span></label>
+                  <input type="text" id="prenom" placeholder="Votre prénom" autocomplete="given-name" />
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email <span class="req">*</span></label>
+                <input type="email" id="email" placeholder="votre@email.com" autocomplete="email" />
+              </div>
+              <p class="form-mention">Vérifiez bien votre email, sinon je ne pourrai pas vous recontacter.</p>
+
+              <div class="form-group">
+                <label for="tel">Téléphone</label>
+                <input type="tel" id="tel" placeholder="Ex : 06 xx xx xx xx" autocomplete="tel" />
+              </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="form-nav">
+              <button type="button" class="btn-prev" id="btnPrev" disabled>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Retour
+              </button>
+              <button type="button" class="btn-action" id="btnNext" disabled>
+                Continuer
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <!-- SUCCESS -->
+          <div class="form-success" id="formSuccess">
+            <div class="success-check">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h2>C'est noté, <span id="successName">vous</span>&nbsp;!</h2>
+            <p>Je reviens vers toi sous 48h pour qu'on voit ensemble comment avancer.</p>
+          </div>
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside class="contact-sidebar reveal" data-delay="2">
+          <div class="contact-sidebar__photo">DK</div>
+          <div>
+            <p class="contact-sidebar__name">Shawn Diakite</p>
+            <p class="contact-sidebar__role">Consultant en organisation &amp; transformation digitale</p>
+          </div>
+          <div class="contact-sidebar__divider"></div>
+          <div class="contact-sidebar__links">
+            <a class="contact-sidebar__link" href="mailto:shawn@deekayconsulting.com">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              shawn@deekayconsulting.com
+            </a>
+            <a class="contact-sidebar__link" href="https://www.linkedin.com/in/shawn-diakite-3a503a163" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 13v4"/></svg>
+              LinkedIn
+            </a>
+            <a class="contact-sidebar__link" href="https://tiktok.com/@deekayconsulting" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.4 2.4 2.4 4.2 5 4.4"/></svg>
+              @deekayconsulting
+            </a>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col footer__col--brand">
+          <a class="logo" href="index.html"><span class="logo__mark">DK</span>Deekay<span class="logo__sub">consulting</span></a>
+          <p class="footer__tag"><em>Transformez la complexité en clarté.</em></p>
+          <a class="footer__email" href="mailto:shawn@deekayconsulting.com">shawn@deekayconsulting.com</a>
+        </div>
+        <div class="footer__col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="realisations.html">Réalisations</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#parcours">Parcours</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Retrouvez-moi</h4>
+          <ul class="footer__socials">
+            <li>
+              <a href="https://www.linkedin.com/in/shawn-diakite-3a503a163" aria-label="LinkedIn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 13v4"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://tiktok.com/@deekayconsulting" aria-label="TikTok" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.4 2.4 2.4 4.2 5 4.4"/></svg>
+              </a>
+            </li>
+          </ul>
+          <p class="footer__handle">@deekayconsulting</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Deekay Consulting · Tous droits réservés</span>
+        <span class="legal"><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="tweaks.js"></script>
+  <script>
+  (function () {
+    var steps = [
+      document.getElementById('step-0'),
+      document.getElementById('step-1'),
+      document.getElementById('step-2'),
+      document.getElementById('step-3')
+    ];
+    var circles = [
+      document.getElementById('sc0'),
+      document.getElementById('sc1'),
+      document.getElementById('sc2'),
+      document.getElementById('sc3')
+    ];
+    var lines = [
+      document.getElementById('sl0'),
+      document.getElementById('sl1'),
+      document.getElementById('sl2')
+    ];
+    var btnPrev = document.getElementById('btnPrev');
+    var btnNext = document.getElementById('btnNext');
+    var formWrap = document.getElementById('formWrap');
+    var formSuccess = document.getElementById('formSuccess');
+    var successName = document.getElementById('successName');
+    var skipBudget = document.getElementById('skipBudget');
+
+    var current = 0;
+    var data = {
+      profil: null, profilAutre: '',
+      besoin: '', entreprise: '',
+      budget: null, budgetSkipped: false,
+      source: null, sourceAutre: '',
+      nom: '', prenom: '', email: '', tel: ''
+    };
+
+    function goTo(n) {
+      steps[current].classList.remove('active');
+      steps[n].classList.add('active');
+      current = n;
+      renderStepper();
+      updateNav();
+      var top = document.getElementById('form-top');
+      if (top) window.scrollTo({ top: top.getBoundingClientRect().top + window.scrollY - 90, behavior: 'smooth' });
+    }
+
+    function renderStepper() {
+      circles.forEach(function (c, i) {
+        c.classList.remove('active', 'done');
+        if (i < current) {
+          c.classList.add('done');
+          c.innerHTML = '✓';
+        } else {
+          c.innerHTML = '<span class="step-num">' + (i + 1) + '</span>';
+          if (i === current) c.classList.add('active');
+        }
+      });
+      lines.forEach(function (l, i) {
+        l.classList.toggle('done', i < current);
+      });
+    }
+
+    function isValid() {
+      switch (current) {
+        case 0:
+          var profilOk = data.profil && (data.profil !== 'autre' || data.profilAutre.trim());
+          return profilOk && data.besoin.trim().length > 0;
+        case 1:
+          return data.budget !== null || data.budgetSkipped;
+        case 2:
+          return data.source && (data.source !== 'autre' || data.sourceAutre.trim());
+        case 3:
+          return data.nom.trim() && data.prenom.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email);
+        default: return false;
+      }
+    }
+
+    function updateNav() {
+      btnPrev.disabled = current === 0;
+      var isLast = current === 3;
+      btnNext.innerHTML = isLast
+        ? 'Envoyer <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>'
+        : 'Continuer <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>';
+      btnNext.disabled = !isValid();
+    }
+
+    // Select cards
+    document.querySelectorAll('.select-card').forEach(function (card) {
+      card.addEventListener('click', function () {
+        var field = card.dataset.field;
+        var val = card.dataset.value;
+        var otherId = card.dataset.other;
+        var group = card.closest('.select-cards');
+
+        group.querySelectorAll('.select-card').forEach(function (c) { c.classList.remove('selected'); });
+        card.classList.add('selected');
+        data[field] = val;
+
+        // Show/hide "autre" input
+        if (otherId) {
+          var otherEl = document.getElementById(otherId);
+          if (otherEl) {
+            // Hide all other-inputs in this step first
+            card.closest('.form-step').querySelectorAll('.other-input').forEach(function (o) {
+              o.classList.remove('visible');
+            });
+            if (val === 'autre') otherEl.classList.add('visible');
+          }
+        }
+
+        updateNav();
+      });
+    });
+
+    // Text inputs
+    function bind(id, field) {
+      var el = document.getElementById(id);
+      if (el) el.addEventListener('input', function () { data[field] = el.value; updateNav(); });
+    }
+    bind('besoin', 'besoin');
+    bind('entreprise', 'entreprise');
+    bind('profilAutre', 'profilAutre');
+    bind('sourceAutre', 'sourceAutre');
+    bind('nom', 'nom');
+    bind('prenom', 'prenom');
+    bind('email', 'email');
+    bind('tel', 'tel');
+
+    // Skip budget
+    if (skipBudget) {
+      skipBudget.addEventListener('click', function () {
+        data.budgetSkipped = true;
+        data.budget = null;
+        updateNav();
+        goTo(2);
+      });
+    }
+
+    // Prev / Next
+    btnPrev.addEventListener('click', function () { if (current > 0) goTo(current - 1); });
+    btnNext.addEventListener('click', function () {
+      if (!isValid()) return;
+      if (current < 3) {
+        goTo(current + 1);
+      } else {
+        formWrap.style.display = 'none';
+        formSuccess.classList.add('active');
+        successName.textContent = data.prenom || 'vous';
+      }
+    });
+
+    // Init
+    renderStepper();
+    updateNav();
+  })();
+  </script>
+</body>
+</html>

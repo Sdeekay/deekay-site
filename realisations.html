@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Réalisations — Deekay Consulting</title>
+  <meta name="description" content="Découvrez les projets livrés par Deekay Consulting : audits organisationnels, workspaces Notion sur mesure, automatisations Make et intégrations IA." />
+  <link rel="canonical" href="https://deekayconsulting.com/realisations.html" />
+  <link rel="icon" href="assets/Favicon_provisoir.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="tweaks.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="logo" href="index.html" aria-label="Deekay Consulting — accueil">
+        <span class="logo__mark">DK</span>
+        Deekay<span class="logo__sub">consulting</span>
+      </a>
+      <nav>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="realisations.html" aria-current="page">Réalisations</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#parcours">Parcours</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="nav__lang">
+            <span class="lang-active">FR</span>
+            <span class="lang-sep">|</span>
+            <span class="lang-inactive">EN</span>
+          </li>
+        </ul>
+      </nav>
+      <a href="contact.html" class="nav__cta">
+        Évaluer mon projet
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <button class="nav__burger" aria-label="Ouvrir le menu" aria-controls="navLinks"><span></span></button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="realisations-header">
+    <div class="hero__grain" aria-hidden="true"></div>
+    <div class="container realisations-header__inner">
+      <span class="hero__eyebrow reveal"><span class="dot" aria-hidden="true"></span>Portfolio</span>
+      <h1 class="reveal" data-delay="1"><em>Réalisations.</em></h1>
+      <p class="realisations-header__sub reveal" data-delay="2">
+        Audits, workspaces sur mesure, automatisations —<br/>
+        les projets livrés mis en lumière.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTENU -->
+  <section class="section section--light" id="projets">
+    <div class="container">
+
+      <!-- État vide — remplacé par la grille quand des projets sont ajoutés -->
+      <div class="realisations-empty" id="emptyState">
+        <div class="realisations-empty__orb" aria-hidden="true"></div>
+        <span class="coming__pill reveal">
+          <span class="dot" aria-hidden="true"></span>
+          Bientôt disponible
+        </span>
+        <h2 class="realisations-empty__title reveal" data-delay="1">En cours de construction.</h2>
+        <p class="realisations-empty__sub reveal" data-delay="2">
+          Les premiers projets livrés seront publiés ici très prochainement.
+        </p>
+        <a class="realisations-empty__back reveal" data-delay="3" href="index.html">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          Retour à l'accueil
+        </a>
+      </div>
+
+      <!-- Grille projets (phase 2) — décommenter et remplir quand des projets sont prêts -->
+      <!--
+      <div class="portfolio-grid" id="portfolioGrid">
+        <article class="portfolio-card">
+          <div class="portfolio-card__thumb"></div>
+          <div class="portfolio-card__body">
+            <div class="portfolio-card__tags">
+              <span class="portfolio-card__tag">Workspace</span>
+              <span class="portfolio-card__tag">Notion</span>
+            </div>
+            <h3 class="portfolio-card__title">Titre du projet</h3>
+            <p class="portfolio-card__desc">Description courte du projet livré.</p>
+          </div>
+        </article>
+      </div>
+      -->
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col footer__col--brand">
+          <a class="logo" href="index.html"><span class="logo__mark">DK</span>Deekay<span class="logo__sub">consulting</span></a>
+          <p class="footer__tag"><em>Transformez la complexité en clarté.</em></p>
+          <a class="footer__email" href="mailto:shawn@deekayconsulting.com">shawn@deekayconsulting.com</a>
+        </div>
+        <div class="footer__col">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="realisations.html">Réalisations</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#parcours">Parcours</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Retrouvez-moi</h4>
+          <ul class="footer__socials">
+            <li>
+              <a href="https://www.linkedin.com/in/shawn-diakite-3a503a163" aria-label="LinkedIn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 13v4"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://tiktok.com/@deekayconsulting" aria-label="TikTok" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.4 2.4 2.4 4.2 5 4.4"/></svg>
+              </a>
+            </li>
+          </ul>
+          <p class="footer__handle">@deekayconsulting</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Deekay Consulting · Tous droits réservés</span>
+        <span class="legal"><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="tweaks.js"></script>
+</body>
+</html>
