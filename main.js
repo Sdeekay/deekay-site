@@ -49,45 +49,4 @@
     items.forEach(el => el.classList.add('is-visible'));
   }
 
-  // Subtle parallax on the orb
-  const orb = document.querySelector('.orb');
-  if (orb && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    let raf = 0;
-    window.addEventListener('mousemove', (e) => {
-      cancelAnimationFrame(raf);
-      raf = requestAnimationFrame(() => {
-        const x = (e.clientX / window.innerWidth - 0.5) * 14;
-        const y = (e.clientY / window.innerHeight - 0.5) * 10;
-        orb.style.setProperty('--orb-x', `${x}px`);
-        orb.style.setProperty('--orb-y', `${y}px`);
-      });
-    });
-  }
-
-  // Orb scroll-driven state (chaos → clarity) + mini-orb visibility
-  const heroOrb = document.getElementById('heroOrb');
-  const miniOrb = document.getElementById('miniOrb');
-  const hero = document.getElementById('accueil');
-  if (hero) {
-    let rafScroll = 0;
-    const updateOrb = () => {
-      const heroH = hero.offsetHeight || window.innerHeight;
-      const y = window.scrollY;
-      const progress = Math.min(1, Math.max(0, y / heroH));
-      if (heroOrb) {
-        heroOrb.style.setProperty('--orb-progress', progress.toFixed(3));
-        heroOrb.style.setProperty('--orb-rot', `${(y * 0.08).toFixed(2)}deg`);
-      }
-      if (miniOrb) {
-        if (y > heroH * 0.85) miniOrb.classList.add('is-visible');
-        else miniOrb.classList.remove('is-visible');
-      }
-    };
-    updateOrb();
-    window.addEventListener('scroll', () => {
-      cancelAnimationFrame(rafScroll);
-      rafScroll = requestAnimationFrame(updateOrb);
-    }, { passive: true });
-    window.addEventListener('resize', updateOrb);
-  }
 })();
