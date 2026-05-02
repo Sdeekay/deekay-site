@@ -1318,6 +1318,9 @@ p { margin: 0; text-wrap: pretty; }
   display: flex;
   flex-direction: column;
 }
+@media (min-width: 900px) {
+  .contact-sidebar-col { position: sticky; top: 24px; align-self: start; }
+}
 
 .contact-sidebar {
   background: var(--white);
@@ -1329,7 +1332,7 @@ p { margin: 0; text-wrap: pretty; }
   gap: 20px;
 }
 @media (min-width: 900px) {
-  .contact-sidebar { position: sticky; top: 96px; }
+  .contact-sidebar { position: static; }
 }
 .contact-sidebar__photo {
   width: 80px; height: 80px;
