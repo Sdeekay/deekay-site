@@ -66,7 +66,7 @@
     <!-- HERO Claude — points connectés chaos→clarté (commenté, ne pas supprimer)
     <div class="hero-net-wrap" aria-hidden="true">
       <svg class="hero-net" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice">
-        <!-- CHAOS — scattered drifting dots -->
+        - - CHAOS — scattered drifting dots - -
         <g class="net-chaos">
           <g stroke="#A8C5DA" stroke-opacity="0.2" stroke-width="1" fill="none">
             <line x1="175" y1="212" x2="112" y2="158"/>
@@ -96,7 +96,7 @@
           <circle class="cd3 net-full" cx="875" cy="75"  r="3"   fill="#A8C5DA" opacity="0.5"/>
           <circle class="cd6 net-full" cx="295" cy="255" r="3"   fill="#A8C5DA" opacity="0.5"/>
         </g>
-        <!-- CLARITY — organized connected grid -->
+        - - CLARITY — organized connected grid - -
         <g class="net-clarity">
           <g stroke="#A8C5DA" stroke-opacity="0.35" stroke-width="1.2" fill="none">
             <line x1="85"   y1="95"  x2="235"  y2="60"/>
@@ -133,7 +133,7 @@
         </g>
       </svg>
     </div>
-    End HERO Claude -->
+    - - End HERO Claude - - -->
 
     <div class="container hero__inner">
 
@@ -436,39 +436,51 @@
 
     var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var isMobile = window.innerWidth < 768;
-    var COLS = isMobile ? 10 : 20;
-    var ROWS = isMobile ? 8  : 12;
-    var CELL = isMobile ? 22 : 18;
+    var CELL = 40;
     var GAP  = 4;
 
     grid.style.setProperty('--mouse-x', '-9999px');
     grid.style.setProperty('--mouse-y', '-9999px');
 
     var inner = document.createElement('div');
-    inner.style.cssText = [
-      'display:grid',
-      'grid-template-columns:repeat(' + COLS + ',' + CELL + 'px)',
-      'grid-template-rows:repeat(' + ROWS + ',' + CELL + 'px)',
-      'gap:' + GAP + 'px',
-      'position:absolute',
-      'top:50%',
-      'left:50%',
-      'transform:translate(-50%,-50%)',
-    ].join(';');
+    inner.style.cssText = 'position:absolute;top:0;left:0;';
+    grid.appendChild(inner);
 
-    for (var r = 0; r < ROWS; r++) {
-      for (var c = 0; c < COLS; c++) {
-        var cell = document.createElement('div');
-        var baseOp = (0.04 + Math.random() * 0.14).toFixed(3);
-        cell.style.cssText = 'background:#A8C5DA;border-radius:2px;opacity:' + baseOp;
-        if (!reducedMotion) {
-          var delay = ((r + c) * 0.1).toFixed(1);
-          cell.style.animation = 'cell-pulse 3s ' + delay + 's ease-in-out infinite';
+    function buildGrid() {
+      var cols = Math.ceil(grid.offsetWidth  / CELL);
+      var rows = Math.ceil(grid.offsetHeight / CELL);
+      inner.innerHTML = '';
+      inner.style.cssText = [
+        'display:grid',
+        'grid-template-columns:repeat(' + cols + ',' + CELL + 'px)',
+        'grid-template-rows:repeat(' + rows + ',' + CELL + 'px)',
+        'gap:' + GAP + 'px',
+        'position:absolute',
+        'top:0',
+        'left:0',
+      ].join(';');
+
+      for (var r = 0; r < rows; r++) {
+        for (var c = 0; c < cols; c++) {
+          var cell = document.createElement('div');
+          var baseOp = (0.04 + Math.random() * 0.14).toFixed(3);
+          cell.style.cssText = 'background:#A8C5DA;border-radius:2px;opacity:' + baseOp;
+          if (!reducedMotion) {
+            var delay = ((r + c) * 0.1).toFixed(1);
+            cell.style.animation = 'cell-pulse 3s ' + delay + 's ease-in-out infinite';
+          }
+          inner.appendChild(cell);
         }
-        inner.appendChild(cell);
       }
     }
-    grid.appendChild(inner);
+
+    buildGrid();
+
+    var resizeTimer;
+    window.addEventListener('resize', function () {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(buildGrid, 150);
+    });
 
     if (!reducedMotion && !isMobile) {
       var hero = document.querySelector('.hero');
