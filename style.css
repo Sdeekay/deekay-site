@@ -1313,7 +1313,10 @@ p { margin: 0; text-wrap: pretty; }
     gap: 72px;
     align-items: start;
   }
-  .contact-layout .engagement-badge { grid-column: 2; margin-top: 0; }
+}
+.contact-sidebar-col {
+  display: flex;
+  flex-direction: column;
 }
 
 .contact-sidebar {
