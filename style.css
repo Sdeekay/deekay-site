@@ -1769,8 +1769,10 @@ p { margin: 0; text-wrap: pretty; }
 .engagement-badge {
   margin-top: 24px;
   padding: 20px 24px;
-  background: var(--navy-600);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 12px;
   display: grid;
   gap: 10px;
@@ -1781,5 +1783,5 @@ p { margin: 0; text-wrap: pretty; }
   color: var(--accent);
 }
 .engagement-badge p {
-  font-size: 13px; color: var(--offwhite); line-height: 1.75; margin: 0;
+  font-size: 13px; color: rgba(255, 255, 255, 0.75); line-height: 1.75; margin: 0;
 }
