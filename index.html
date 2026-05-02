@@ -231,6 +231,9 @@
           </div>
         </article>
       </div>
+      <div class="realisations__cta reveal" data-delay="2">
+        <a href="realisations.html">Voir toutes les réalisations →</a>
+      </div>
     </div>
   </section>
 
@@ -359,7 +362,7 @@
   <!-- CTA BANNER -->
   <section class="cta-banner" id="contact">
     <div class="container cta-banner__inner">
-      <h2 class="reveal">Prêt à transformer votre <em>organisation</em> ?</h2>
+      <h2 class="reveal">Prêt à transformer votre <em><span id="cta-word" class="cta-word">organisation</span></em> ?</h2>
       <p class="reveal" data-delay="1">Un échange de 30&nbsp;minutes suffit pour y voir plus clair.</p>
       <a class="btn btn--primary reveal" data-delay="2" href="contact.html">
         Évaluer mon projet
@@ -378,7 +381,6 @@
             Deekay<span class="logo__sub">consulting</span>
           </a>
           <p class="footer__tag"><em>Transformez la complexité en clarté.</em></p>
-          <a class="footer__email" href="mailto:shawn@deekayconsulting.com">shawn@deekayconsulting.com</a>
         </div>
         <div class="footer__col footer__col--nav">
           <ul>
@@ -417,5 +419,32 @@
 
   <script src="main.js"></script>
   <script src="tweaks.js"></script>
+  <script>
+  (function () {
+    var el = document.getElementById('cta-word');
+    if (!el) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var mots = [
+      { texte: 'organisation', duree: 2500 },
+      { texte: 'activité',     duree: 2500 },
+      { texte: 'équipe',       duree: 2500 },
+      { texte: 'workflow',     duree: 2500 },
+      { texte: 'système',      duree: 2500 },
+      { texte: 'entreprise',   duree: 2500 },
+      { texte: 'quotidien',    duree: 4000 },
+    ];
+    var i = 0;
+    function next() {
+      el.style.opacity = '0';
+      setTimeout(function () {
+        i = (i + 1) % mots.length;
+        el.textContent = mots[i].texte;
+        el.style.opacity = '1';
+        setTimeout(next, mots[i].duree);
+      }, 400);
+    }
+    setTimeout(next, mots[0].duree);
+  })();
+  </script>
 </body>
 </html>

@@ -65,10 +65,15 @@
     </div>
   </div>
 
-  <!-- FILTRES TAGS -->
+  <!-- FILTRE -->
   <div class="blog-filters">
     <div class="container">
-      <div class="blog-filters__inner" id="tagFilters" role="list" aria-label="Filtres par catégorie"></div>
+      <div class="blog-filters__wrap">
+        <button class="blog-filter-btn" id="filterBtn" aria-haspopup="listbox" aria-expanded="false">
+          Filtrer ↓
+        </button>
+        <div class="blog-filter-dropdown" id="filterDropdown" role="listbox"></div>
+      </div>
     </div>
   </div>
 
@@ -91,12 +96,13 @@
     <div class="container">
       <div class="footer__grid">
         <div class="footer__col footer__col--brand">
-          <a class="logo" href="index.html"><img src="DEEKAY.svg" class="logo__mark-img" height="32" alt="Deekay Consulting">Deekay<span class="logo__sub">consulting</span></a>
+          <a class="logo" href="index.html">
+            <img src="DEEKAY.svg" class="logo__mark-img" height="32" alt="Deekay Consulting">
+            Deekay<span class="logo__sub">consulting</span>
+          </a>
           <p class="footer__tag"><em>Transformez la complexité en clarté.</em></p>
-          <a class="footer__email" href="mailto:shawn@deekayconsulting.com">shawn@deekayconsulting.com</a>
         </div>
-        <div class="footer__col">
-          <h4>Navigation</h4>
+        <div class="footer__col footer__col--nav">
           <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="index.html#services">Services</a></li>
@@ -106,8 +112,7 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
-        <div class="footer__col">
-          <h4>Retrouvez-moi</h4>
+        <div class="footer__col footer__col--socials">
           <ul class="footer__socials">
             <li>
               <a href="https://www.linkedin.com/in/shawn-diakite-3a503a163" aria-label="LinkedIn" target="_blank" rel="noopener">
@@ -120,7 +125,6 @@
               </a>
             </li>
           </ul>
-          <p class="footer__handle">@deekayconsulting</p>
         </div>
       </div>
       <div class="footer__bottom">
@@ -149,28 +153,50 @@
     /* ---- Marquee ---- */
     var track = document.getElementById('marqueeTrack');
     var pills = TAGS.filter(function (t) { return t !== 'Tous'; });
-    // Double the pills for seamless infinite loop
     var allPills = pills.concat(pills);
     track.innerHTML = allPills.map(function (t) {
       return '<span class="marquee-pill">' + t + '</span>';
     }).join('');
 
-    /* ---- Tag filters ---- */
-    var filterContainer = document.getElementById('tagFilters');
-    TAGS.forEach(function (tag) {
-      var btn = document.createElement('button');
-      btn.className = 'tag-pill' + (tag === 'Tous' ? ' active' : '');
-      btn.textContent = tag;
-      btn.setAttribute('role', 'listitem');
-      btn.addEventListener('click', function () {
-        activeTag = tag;
-        filterContainer.querySelectorAll('.tag-pill').forEach(function (p) {
-          p.classList.toggle('active', p.textContent === tag);
+    /* ---- Dropdown filter ---- */
+    var filterBtn = document.getElementById('filterBtn');
+    var filterDropdown = document.getElementById('filterDropdown');
+
+    function buildDropdown() {
+      filterDropdown.innerHTML = TAGS.map(function (tag) {
+        var active = tag === activeTag ? ' active' : '';
+        return '<button class="blog-filter-option' + active + '" role="option" aria-selected="' + (tag === activeTag) + '">' +
+          tag + '<span class="check">✓</span></button>';
+      }).join('');
+      filterDropdown.querySelectorAll('.blog-filter-option').forEach(function (opt, idx) {
+        opt.addEventListener('click', function () {
+          activeTag = TAGS[idx];
+          filterBtn.textContent = activeTag === 'Tous' ? 'Filtrer ↓' : activeTag + ' ↓';
+          closeDropdown();
+          renderArticles();
         });
-        renderArticles();
       });
-      filterContainer.appendChild(btn);
+    }
+
+    function openDropdown() {
+      filterDropdown.classList.add('is-open');
+      filterBtn.classList.add('is-open');
+      filterBtn.setAttribute('aria-expanded', 'true');
+      buildDropdown();
+    }
+
+    function closeDropdown() {
+      filterDropdown.classList.remove('is-open');
+      filterBtn.classList.remove('is-open');
+      filterBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    filterBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      filterDropdown.classList.contains('is-open') ? closeDropdown() : openDropdown();
     });
+
+    document.addEventListener('click', function () { closeDropdown(); });
 
     /* ---- Render ---- */
     function renderArticles() {

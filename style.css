@@ -605,7 +605,7 @@ p { margin: 0; text-wrap: pretty; }
 }
 
 /* Photo column */
-.parcours__photo-col { }
+.parcours__photo-col { padding-left: 56px; }
 .parcours__photo-wrap {
   background: rgba(168, 197, 218, 0.08);
   border-radius: 12px;
@@ -1531,7 +1531,7 @@ p { margin: 0; text-wrap: pretty; }
 }
 
 /* Tag filters */
-.blog-filters { padding: 36px 0 0; background: var(--off-white); }
+.blog-filters { padding: 24px 0 0; background: var(--offwhite); }
 .blog-filters__inner { display: flex; flex-wrap: wrap; gap: 8px; }
 @media (max-width: 600px) {
   .blog-filters__inner {
@@ -1549,7 +1549,7 @@ p { margin: 0; text-wrap: pretty; }
 .tag-pill.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
 
 /* Blog list */
-.blog-list { padding: 40px 0 96px; background: var(--off-white); }
+.blog-list { padding: 40px 0 96px; background: var(--offwhite); }
 .blog-empty { padding: 80px 0; text-align: center; display: grid; gap: 12px; justify-items: center; }
 .blog-empty__icon {
   width: 60px; height: 60px; border-radius: 50%;
@@ -1659,3 +1659,113 @@ p { margin: 0; text-wrap: pretty; }
 }
 .portfolio-card__title { font-size: 18px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
 .portfolio-card__desc { font-size: 14px; color: rgba(27, 42, 74, 0.6); line-height: 1.65; }
+
+/* ============================================================
+   CTA rotating word
+   ============================================================ */
+.cta-word { display: inline; transition: opacity 0.4s ease; }
+
+/* ============================================================
+   Réalisations CTA link (landing page)
+   ============================================================ */
+.realisations__cta {
+  text-align: center;
+  margin-top: 40px;
+}
+.realisations__cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: 1.5px solid var(--accent);
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: background 0.2s, color 0.2s;
+}
+.realisations__cta a:hover {
+  background: rgba(168, 197, 218, 0.12);
+}
+
+/* ============================================================
+   Blog dropdown filter
+   ============================================================ */
+.blog-filters__wrap { position: relative; display: inline-block; }
+.blog-filter-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 10px 20px; border-radius: 10px;
+  background: var(--white); border: 1.5px solid rgba(27, 42, 74, 0.2);
+  font-size: 14px; font-weight: 600; color: var(--navy);
+  cursor: pointer; transition: all 0.18s;
+  font-family: var(--font-sans);
+}
+.blog-filter-btn:hover,
+.blog-filter-btn.is-open { border-color: var(--navy); background: var(--navy); color: var(--white); }
+.blog-filter-dropdown {
+  display: none; position: absolute; top: calc(100% + 8px); left: 0;
+  background: var(--navy); border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 12px; padding: 8px; min-width: 220px; z-index: 40;
+  box-shadow: 0 16px 40px -8px rgba(0,0,0,0.35);
+}
+.blog-filter-dropdown.is-open { display: block; }
+.blog-filter-option {
+  display: flex; align-items: center; justify-content: space-between;
+  width: 100%; padding: 10px 14px; border-radius: 8px;
+  font-size: 14px; font-weight: 500; color: rgba(245,245,242,0.8);
+  background: none; border: none; cursor: pointer;
+  text-align: left; transition: background 0.15s; font-family: var(--font-sans);
+}
+.blog-filter-option:hover { background: rgba(255,255,255,0.08); color: var(--white); }
+.blog-filter-option.active { color: var(--accent); }
+.blog-filter-option .check { font-size: 11px; color: var(--accent); opacity: 0; }
+.blog-filter-option.active .check { opacity: 1; }
+
+/* ============================================================
+   Contact sidebar — horizontal card layout
+   ============================================================ */
+.contact-sidebar__top {
+  display: flex; align-items: center; gap: 16px;
+}
+.contact-sidebar__photo {
+  width: 72px; height: 72px; flex-shrink: 0;
+  border-radius: 50%; border: 2px solid var(--accent);
+  background: rgba(168,197,218,0.12); overflow: hidden;
+}
+.contact-sidebar__photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.contact-sidebar__link svg {
+  stroke-linejoin: round;
+}
+
+/* ============================================================
+   Contact form card wrapper
+   ============================================================ */
+.form-card {
+  background: var(--offwhite);
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 24px -4px rgba(27,42,74,0.10);
+}
+@media (max-width: 600px) { .form-card { padding: 24px 20px; } }
+
+/* ============================================================
+   Engagement badge
+   ============================================================ */
+.engagement-badge {
+  margin-top: 24px;
+  padding: 20px 24px;
+  background: var(--navy-600);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  display: grid;
+  gap: 10px;
+}
+.engagement-badge__label {
+  font-size: 10px; font-weight: 700;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent);
+}
+.engagement-badge p {
+  font-size: 13px; color: var(--offwhite); line-height: 1.75; margin: 0;
+}
