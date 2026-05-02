@@ -1780,7 +1780,7 @@ p { margin: 0; text-wrap: pretty; }
 .engagement-badge__label {
   font-size: 10px; font-weight: 700;
   letter-spacing: 0.18em; text-transform: uppercase;
-  color: rgba(27, 42, 74, 0.5);
+  color: var(--navy);
 }
 .engagement-badge p {
   font-size: 13px; color: rgba(27, 42, 74, 0.75); line-height: 1.75; margin: 0;
