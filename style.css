@@ -929,11 +929,11 @@ p { margin: 0; text-wrap: pretty; }
   border: 1px solid rgba(27, 42, 74, 0.1);
   border-radius: 16px;
   overflow: hidden;
-  transition: transform var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .portfolio-ph-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 40px -12px rgba(27, 42, 74, 0.14);
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px -12px rgba(27, 42, 74, 0.18);
 }
 .portfolio-ph-card__thumb {
   height: 200px;
@@ -1386,19 +1386,30 @@ p { margin: 0; text-wrap: pretty; }
 }
 .form-step__title {
   font-size: 22px; font-weight: 800; color: var(--navy);
-  letter-spacing: -0.025em; margin-bottom: 4px;
+  letter-spacing: -0.025em; margin-bottom: 32px;
 }
 .form-step__sub {
   font-size: 14px; color: rgba(27, 42, 74, 0.6);
-  margin-bottom: 28px; line-height: 1.6;
+  margin-top: -20px; margin-bottom: 32px; line-height: 1.6;
 }
 .form-note {
   background: rgba(168, 197, 218, 0.1);
   border: 1px solid rgba(168, 197, 218, 0.28);
   border-radius: 14px; padding: 16px 20px;
   font-size: 14px; color: rgba(27, 42, 74, 0.75);
-  line-height: 1.7; margin-bottom: 28px;
+  line-height: 1.7; margin-bottom: 32px;
 }
+/* RGPD checkbox */
+.form-group--rgpd { margin-top: 24px; margin-bottom: 0; }
+.rgpd-label {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 13px; color: rgba(27,42,74,0.7); line-height: 1.6; cursor: pointer;
+}
+.rgpd-label input[type="checkbox"] {
+  margin-top: 3px; flex-shrink: 0; width: 15px; height: 15px;
+  accent-color: var(--navy); cursor: pointer;
+}
+.rgpd-label a { color: var(--navy); text-decoration: underline; }
 
 /* Select cards */
 .select-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
@@ -1678,15 +1689,18 @@ p { margin: 0; text-wrap: pretty; }
   gap: 8px;
   padding: 10px 24px;
   border-radius: 999px;
-  border: 1.5px solid var(--accent);
-  color: var(--accent);
+  border: 1px solid rgba(27, 42, 74, 0.15);
+  background: rgba(27, 42, 74, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--navy);
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.02em;
-  transition: background 0.2s, color 0.2s;
+  transition: background 0.2s;
 }
 .realisations__cta a:hover {
-  background: rgba(168, 197, 218, 0.12);
+  background: rgba(27, 42, 74, 0.18);
 }
 
 /* ============================================================

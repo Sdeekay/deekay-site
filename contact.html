@@ -86,7 +86,7 @@
             <div class="form-step active" id="step-0">
               <h2 class="form-step__title">Qui êtes-vous ?</h2>
               <div class="form-note">
-                3 minutes suffisent. La seule question qui demande un peu de réflexion : décrire votre projet. Prenez votre temps sur celle-là.
+                3 minutes suffisent. Prenez quand même le temps de bien décrire votre projet.
               </div>
 
               <div class="select-cards" data-field-group="profil">
@@ -200,6 +200,14 @@
               </div>
             </div>
 
+            <!-- RGPD -->
+            <div class="form-group form-group--rgpd" id="rgpdWrap" style="display:none">
+              <label class="rgpd-label">
+                <input type="checkbox" id="rgpd">
+                <span>J'accepte que mes données soient utilisées pour traiter ma demande conformément à la <a href="politique-de-confidentialite.html">politique de confidentialité</a> de Deekay Consulting.</span>
+              </label>
+            </div>
+
             <!-- Navigation -->
             <div class="form-nav">
               <button type="button" class="btn-prev" id="btnPrev" disabled>
@@ -210,11 +218,6 @@
                 Continuer
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
               </button>
-            </div>
-
-            <div class="engagement-badge">
-              <span class="engagement-badge__label">Mon engagement</span>
-              <p>Chaque demande reçoit une réponse personnalisée sous 48h.<br>Pas de réponse automatique, pas de template — une vraie analyse de ta situation.</p>
             </div>
           </div>
 
@@ -253,6 +256,10 @@
               <svg viewBox="0 0 24 24" aria-hidden="true" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.4 2.4 2.4 4.2 5 4.4"/></svg>
               TikTok
             </a>
+          </div>
+          <div class="engagement-badge">
+            <span class="engagement-badge__label">Mon engagement</span>
+            <p>Chaque demande reçoit une réponse personnalisée sous 48h.<br>Pas de réponse automatique, pas de template — une vraie analyse de ta situation.</p>
           </div>
         </aside>
 
@@ -298,7 +305,7 @@
       </div>
       <div class="footer__bottom">
         <span>© 2026 Deekay Consulting · Tous droits réservés</span>
-        <span class="legal"><a href="#">Mentions légales</a><a href="#">Politique de confidentialité</a></span>
+        <span class="legal"><a href="faq.html">FAQ</a><a href="mentions-legales.html">Mentions légales</a><a href="politique-de-confidentialite.html">Politique de confidentialité</a></span>
       </div>
     </div>
   </footer>
@@ -332,18 +339,22 @@
     var skipBudget = document.getElementById('skipBudget');
 
     var current = 0;
+    var rgpdWrap = document.getElementById('rgpdWrap');
+    var rgpdEl = document.getElementById('rgpd');
     var data = {
       profil: null, profilAutre: '',
       besoin: '', entreprise: '',
       budget: null, budgetSkipped: false,
       source: null, sourceAutre: '',
-      nom: '', prenom: '', email: '', tel: ''
+      nom: '', prenom: '', email: '', tel: '',
+      rgpd: false
     };
 
     function goTo(n) {
       steps[current].classList.remove('active');
       steps[n].classList.add('active');
       current = n;
+      if (rgpdWrap) rgpdWrap.style.display = current === 3 ? 'block' : 'none';
       renderStepper();
       updateNav();
       var top = document.getElementById('form-top');
@@ -376,7 +387,7 @@
         case 2:
           return data.source && (data.source !== 'autre' || data.sourceAutre.trim());
         case 3:
-          return data.nom.trim() && data.prenom.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email);
+          return data.nom.trim() && data.prenom.trim() && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email) && data.rgpd;
         default: return false;
       }
     }
@@ -431,6 +442,9 @@
     bind('prenom', 'prenom');
     bind('email', 'email');
     bind('tel', 'tel');
+
+    // RGPD
+    if (rgpdEl) rgpdEl.addEventListener('change', function () { data.rgpd = rgpdEl.checked; updateNav(); });
 
     // Skip budget
     if (skipBudget) {
