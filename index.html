@@ -59,6 +59,11 @@
   <!-- HERO -->
   <section class="hero" id="accueil">
     <div class="hero__grain" aria-hidden="true"></div>
+
+    <!-- HERO Grid — data grid animée avec wave + mouse glow -->
+    <div class="hero__grid" aria-hidden="true"></div>
+
+    <!-- HERO Claude — points connectés chaos→clarté (commenté, ne pas supprimer)
     <div class="hero-net-wrap" aria-hidden="true">
       <svg class="hero-net" viewBox="0 0 1200 500" preserveAspectRatio="xMidYMid slice">
         <!-- CHAOS — scattered drifting dots -->
@@ -128,6 +133,8 @@
         </g>
       </svg>
     </div>
+    End HERO Claude -->
+
     <div class="container hero__inner">
 
       <span class="hero__eyebrow reveal">
@@ -420,6 +427,64 @@
 
   <script src="main.js"></script>
   <script src="tweaks.js"></script>
+
+  <!-- HERO Grid — JS -->
+  <script>
+  (function () {
+    var grid = document.querySelector('.hero__grid');
+    if (!grid) return;
+
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var isMobile = window.innerWidth < 768;
+    var COLS = isMobile ? 10 : 20;
+    var ROWS = isMobile ? 8  : 12;
+    var CELL = isMobile ? 22 : 18;
+    var GAP  = 4;
+
+    grid.style.setProperty('--mouse-x', '-9999px');
+    grid.style.setProperty('--mouse-y', '-9999px');
+
+    var inner = document.createElement('div');
+    inner.style.cssText = [
+      'display:grid',
+      'grid-template-columns:repeat(' + COLS + ',' + CELL + 'px)',
+      'grid-template-rows:repeat(' + ROWS + ',' + CELL + 'px)',
+      'gap:' + GAP + 'px',
+      'position:absolute',
+      'top:50%',
+      'left:50%',
+      'transform:translate(-50%,-50%)',
+    ].join(';');
+
+    for (var r = 0; r < ROWS; r++) {
+      for (var c = 0; c < COLS; c++) {
+        var cell = document.createElement('div');
+        var baseOp = (0.04 + Math.random() * 0.14).toFixed(3);
+        cell.style.cssText = 'background:#A8C5DA;border-radius:2px;opacity:' + baseOp;
+        if (!reducedMotion) {
+          var delay = ((r + c) * 0.1).toFixed(1);
+          cell.style.animation = 'cell-pulse 3s ' + delay + 's ease-in-out infinite';
+        }
+        inner.appendChild(cell);
+      }
+    }
+    grid.appendChild(inner);
+
+    if (!reducedMotion && !isMobile) {
+      var hero = document.querySelector('.hero');
+      hero.addEventListener('mousemove', function (e) {
+        var rect = hero.getBoundingClientRect();
+        grid.style.setProperty('--mouse-x', (e.clientX - rect.left) + 'px');
+        grid.style.setProperty('--mouse-y', (e.clientY - rect.top)  + 'px');
+      });
+      hero.addEventListener('mouseleave', function () {
+        grid.style.setProperty('--mouse-x', '-9999px');
+        grid.style.setProperty('--mouse-y', '-9999px');
+      });
+    }
+  })();
+  </script>
+
   <script>
   (function () {
     var el = document.getElementById('cta-word');

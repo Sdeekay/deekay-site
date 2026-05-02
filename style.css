@@ -254,6 +254,32 @@ p { margin: 0; text-wrap: pretty; }
 }
 
 /* ============================================================
+   HERO Grid — data grid animée (wave + mouse glow)
+   ============================================================ */
+.hero__grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.hero__grid::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(400px circle at var(--mouse-x) var(--mouse-y), rgba(168,197,218,0.08), transparent 60%);
+  pointer-events: none;
+  transition: background 0.1s;
+}
+@keyframes cell-pulse {
+  0%, 100% { opacity: var(--op-min, 0.04); }
+  50%       { opacity: var(--op-max, 0.18); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__grid * { animation: none !important; opacity: 0.06 !important; }
+}
+
+/* ============================================================
    Hero Network — chaos → clarté (CSS-only SVG animation)
    ============================================================ */
 .hero-net-wrap {
