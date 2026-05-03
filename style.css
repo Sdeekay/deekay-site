@@ -1837,19 +1837,19 @@ p { margin: 0; text-wrap: pretty; }
   font-family: var(--font-serif);
   font-style: italic;
   font-weight: 400;
-  color: #1F304D;
+  color: var(--accent);
 }
 .avis-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 24px;
-  align-items: start;
+  align-items: stretch;
 }
 .avis-card {
   background: #FFFFFF;
   border-radius: 18px;
   box-shadow: 0 2px 20px rgba(27, 42, 74, 0.07);
-  padding: 32px 28px 28px;
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
 }
@@ -1863,12 +1863,13 @@ p { margin: 0; text-wrap: pretty; }
   user-select: none;
 }
 .avis-card__body {
+  flex: 1;
   display: flex;
   flex-direction: column;
 }
 .avis-card__text-wrap {
   position: relative;
-  max-height: 100px;
+  max-height: 74px;
   overflow: hidden;
   transition: max-height 0.4s ease;
 }
@@ -1879,7 +1880,7 @@ p { margin: 0; text-wrap: pretty; }
   content: '';
   position: absolute;
   bottom: 0; left: 0; right: 0;
-  height: 40px;
+  height: 32px;
   background: linear-gradient(to bottom, transparent, #FFFFFF);
   pointer-events: none;
 }
@@ -1887,9 +1888,9 @@ p { margin: 0; text-wrap: pretty; }
   font-size: 14px;
   line-height: 1.75;
   color: #1F304D;
-  margin: 0 0 0.75em;
+  margin: 0;
 }
-.avis-card__text-wrap p:last-child { margin-bottom: 0; }
+.avis-card__text-wrap p.gap { margin-bottom: 0.75em; }
 .avis-card__toggle {
   margin-top: 10px;
   background: none;
@@ -1916,7 +1917,7 @@ p { margin: 0; text-wrap: pretty; }
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-top: 24px;
+  margin-top: auto;
   padding-top: 20px;
   border-top: 1px solid rgba(27, 42, 74, 0.07);
 }
