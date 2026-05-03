@@ -270,11 +270,10 @@ p { margin: 0; text-wrap: pretty; }
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgba(31, 48, 77, 0.55) 0%,
-    rgba(31, 48, 77, 0.35) 60%,
-    rgba(31, 48, 77, 0.7) 100%
+  background: radial-gradient(
+    ellipse 70% 60% at 50% 50%,
+    rgba(31, 48, 77, 0.52) 0%,
+    rgba(31, 48, 77, 0.0) 100%
   );
 }
 
@@ -354,6 +353,7 @@ p { margin: 0; text-wrap: pretty; }
   letter-spacing: -0.03em;
   margin-top: 28px;
   color: var(--white);
+  text-shadow: 0 2px 24px rgba(10, 20, 40, 0.55);
 }
 .hero h1 em {
   font-family: var(--font-serif);
