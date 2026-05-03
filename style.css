@@ -1825,19 +1825,18 @@ p { margin: 0; text-wrap: pretty; }
   padding: 96px 0;
 }
 .avis-section__title {
-  font-size: clamp(26px, 3vw, 40px);
-  font-weight: 800;
-  letter-spacing: -0.025em;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3rem);
   color: #1F304D;
   line-height: 1.15;
+  letter-spacing: -0.02em;
   margin: 0 0 56px;
   text-align: center;
 }
 .avis-section__title em {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
-  color: var(--accent);
+  color: inherit;
 }
 .avis-grid {
   display: flex;
