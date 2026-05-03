@@ -1840,18 +1840,28 @@ p { margin: 0; text-wrap: pretty; }
   color: var(--accent);
 }
 .avis-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  align-items: stretch;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  align-items: flex-start;
+  justify-content: center;
 }
 .avis-card {
+  max-width: 340px;
+  flex: 0 0 340px;
   background: #FFFFFF;
-  border-radius: 18px;
-  box-shadow: 0 2px 20px rgba(27, 42, 74, 0.07);
+  border-radius: 16px;
+  border: 1px solid rgba(31, 48, 77, 0.06);
+  box-shadow: 0 2px 12px rgba(31, 48, 77, 0.07);
   padding: 1.25rem;
   display: flex;
   flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.avis-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(31, 48, 77, 0.15);
+  border-color: rgba(191, 215, 234, 0.6);
 }
 .avis-card__quote {
   font-family: var(--font-serif);
@@ -1863,20 +1873,18 @@ p { margin: 0; text-wrap: pretty; }
   user-select: none;
 }
 .avis-card__body {
-  flex: 1;
   display: flex;
   flex-direction: column;
 }
-.avis-card__text-wrap {
+.review-text {
   position: relative;
-  max-height: 74px;
+  height: 80px;
   overflow: hidden;
-  transition: max-height 0.4s ease;
 }
-.avis-card__text-wrap.is-expanded {
-  max-height: 2000px;
+.review-text.is-expanded {
+  height: auto;
 }
-.avis-card__text-wrap:not(.is-expanded)::after {
+.review-text:not(.is-expanded)::after {
   content: '';
   position: absolute;
   bottom: 0; left: 0; right: 0;
@@ -1884,13 +1892,13 @@ p { margin: 0; text-wrap: pretty; }
   background: linear-gradient(to bottom, transparent, #FFFFFF);
   pointer-events: none;
 }
-.avis-card__text-wrap p {
+.review-text p {
   font-size: 14px;
   line-height: 1.75;
   color: #1F304D;
   margin: 0;
 }
-.avis-card__text-wrap p.gap { margin-bottom: 0.75em; }
+.review-text p.gap { margin-bottom: 0.75em; }
 .avis-card__toggle {
   margin-top: 10px;
   background: none;
@@ -1917,8 +1925,8 @@ p { margin: 0; text-wrap: pretty; }
   display: flex;
   align-items: center;
   gap: 14px;
-  margin-top: auto;
-  padding-top: 20px;
+  margin-top: 20px;
+  padding-top: 16px;
   border-top: 1px solid rgba(27, 42, 74, 0.07);
 }
 .avis-card__avatar-wrap {
@@ -1958,10 +1966,9 @@ p { margin: 0; text-wrap: pretty; }
   margin: 0;
   line-height: 1.4;
 }
-@media (max-width: 900px) {
-  .avis-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
+@media (max-width: 760px) {
+  .avis-card { flex: 1 1 280px; max-width: 100%; }
 }
 @media (max-width: 600px) {
   .avis-section { padding: 64px 0; }
-  .avis-card { padding: 24px 20px 20px; }
 }

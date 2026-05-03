@@ -345,7 +345,7 @@
         <article class="avis-card reveal" data-delay="1">
           <span class="avis-card__quote" aria-hidden="true">"</span>
           <div class="avis-card__body">
-            <div class="avis-card__text-wrap">
+            <div class="review-text">
               <p>Je savais que je voulais en faire mon métier, mais entre savoir et structurer il y a un grand écart.</p>
               <p>J'avais toutes mes notions en tête sur la muscu, la nutrition, etc... mais rien était documenté. Pour moi c'était pas un problème, j'appliquais tout ça dans mon sport et ma vie perso. Mais pour lancer une activité, ça peut vite le devenir.</p>
               <p>Shawn a pris le temps de comprendre comment je travaille avec les gens que je coach avant de construire quoi que ce soit. Et le résultat c'est un workspace où j'ai tout, mes exercices classés par groupe musculaire, mes programmes prêts à être proposés, tout ce que je sais sur l'anatomie regroupé au même endroit.</p>
@@ -371,7 +371,7 @@
         <article class="avis-card reveal" data-delay="2">
           <span class="avis-card__quote" aria-hidden="true">"</span>
           <div class="avis-card__body">
-            <div class="avis-card__text-wrap">
+            <div class="review-text">
               <p class="gap">Ce qui m'a convaincu dès le départ c'est que Shawn n'a pas cherché à m'imposer une solution. Il a d'abord voulu comprendre comment je travaillais au quotidien, ce qui me manquait et me faisait perdre du temps. J'irai même jusqu'à dire qu'on a co-construit ensemble ce workspace tant il reflète ma manière de voir les choses.</p>
               <p>L'espace centralise toute mon activité commerciale. J'ai un suivi de mon pipeline d'acquisition et de vente, un tableau de bord de mes performances et objectifs mensuels, le suivi de mes commissions et de mes dépenses professionnelles. Tout est relié, tout est lisible, et je peux passer d'une vue à l'autre selon ce que j'ai besoin d'analyser à un instant T.</p>
               <p>Ce que j'ai mis du temps à réaliser c'est l'importance de la routine qu'il m'a aidé à installer. Au début c'était une session par semaine, quinze minutes pour mettre à jour mon pipeline, vérifier mes objectifs en cours et cocher ce qui avait avancé. Mais l'outil est tellement bien construit et agréable à utiliser, que je me suis retrouvé à l'ouvrir tous les jours. Parfois plusieurs fois.</p>
@@ -397,7 +397,7 @@
         <article class="avis-card reveal" data-delay="3">
           <span class="avis-card__quote" aria-hidden="true">"</span>
           <div class="avis-card__body">
-            <div class="avis-card__text-wrap">
+            <div class="review-text">
               <p>Honnêtement je savais même pas que ce genre de système existait. Je gérais tout à la main, sur un Google Sheet basique, c'était un peu le bordel.</p>
               <p>Shawn a mis en place un formulaire que je partage, et derrière tout se fait tout seul. Les infos de la personne arrivent directement dans un tableau, elle reçoit un email de confirmation dans la foulée, et moi je reçois une alerte si j'ai pas répondu au bout de 48h. Je touche à rien, c'est magnifique.</p>
               <p>J'avais pas du tout prévu à quel point ça change l'image qu'on renvoie, moi la première je me sens plus pro.</p>
@@ -556,15 +556,15 @@
   <!-- Avis — toggle "Voir plus" -->
   <script>
   (function () {
-    var LIMIT = 160;
     document.querySelectorAll('.avis-card').forEach(function (card) {
-      var wrap   = card.querySelector('.avis-card__text-wrap');
+      var text   = card.querySelector('.review-text');
       var toggle = card.querySelector('.avis-card__toggle');
-      if (!wrap || !toggle) return;
-      if (wrap.scrollHeight > LIMIT) {
+      if (!text || !toggle) return;
+      if (text.scrollHeight > 80) {
         toggle.hidden = false;
         toggle.addEventListener('click', function () {
-          var expanded = wrap.classList.toggle('is-expanded');
+          var expanded = text.classList.toggle('is-expanded');
+          text.style.height = expanded ? 'auto' : '80px';
           toggle.textContent = expanded ? 'Voir moins' : 'Voir plus';
         });
       }
