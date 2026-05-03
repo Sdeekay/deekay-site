@@ -270,10 +270,11 @@ p { margin: 0; text-wrap: pretty; }
   inset: 0;
   z-index: 1;
   pointer-events: none;
-  background: radial-gradient(
-    ellipse 70% 60% at 50% 50%,
-    rgba(31, 48, 77, 0.52) 0%,
-    rgba(31, 48, 77, 0.0) 100%
+  background: linear-gradient(
+    to bottom,
+    rgba(31, 48, 77, 0.3) 0%,
+    rgba(31, 48, 77, 0.2) 40%,
+    rgba(31, 48, 77, 0.5) 100%
   );
 }
 
@@ -353,7 +354,7 @@ p { margin: 0; text-wrap: pretty; }
   letter-spacing: -0.03em;
   margin-top: 28px;
   color: var(--white);
-  text-shadow: 0 2px 24px rgba(10, 20, 40, 0.55);
+  text-shadow: 0 2px 30px rgba(5, 12, 30, 0.7);
 }
 .hero h1 em {
   font-family: var(--font-serif);
@@ -369,6 +370,7 @@ p { margin: 0; text-wrap: pretty; }
   font-size: clamp(16px, 1.6vw, 19px);
   color: rgba(245, 245, 242, 0.72);
   line-height: 1.55;
+  text-shadow: 0 1px 12px rgba(5, 12, 30, 0.8);
 }
 
 .hero__ctas--single { justify-content: center; }
