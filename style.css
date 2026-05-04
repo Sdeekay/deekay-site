@@ -371,13 +371,13 @@ p { margin: 0; text-wrap: pretty; }
   line-height: 1.55;
 }
 
-.hero__glass {
-  background: rgba(31, 48, 77, 0.25);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 20px;
-  padding: 2.5rem 3rem;
-  border: 1px solid rgba(191, 215, 234, 0.1);
+.hero-word {
+  display: inline;
+  background: rgba(31, 48, 77, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-radius: 4px;
+  padding: 0 4px;
 }
 
 .hero__ctas--single { justify-content: center; }
