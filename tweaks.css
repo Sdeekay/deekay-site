@@ -26,12 +26,12 @@ body { font-size: calc(17px * var(--tw-text-scale)); }
 /* Orb */
 .orb { width: min(560px, var(--tw-orb-size)); filter: drop-shadow(0 40px 80px rgba(168,197,218,0.18)) hue-rotate(calc(var(--tw-orb-hue) * 1deg)); }
 
-/* Hero background — valeurs hex fixes, pas d'oklch */
+/* Hero background — fond navy unifié, sans bandes noires */
 .hero {
   background:
     radial-gradient(ellipse 80% 60% at 50% 18%, rgba(168,197,218,0.18), transparent 60%),
     radial-gradient(ellipse 60% 40% at 50% 90%, rgba(168,197,218,0.08), transparent 60%),
-    linear-gradient(180deg, #17233E 0%, #1B2A4A 45%, #111E35 100%);
+    #1B2A4A;
 }
 
 .hero__grain { opacity: var(--tw-grain); }
