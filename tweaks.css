@@ -28,7 +28,7 @@ body { font-size: calc(17px * var(--tw-text-scale)); }
 
 /* Hero background — fond plat navy, shader WebGL par-dessus */
 .hero {
-  background: #1B2A4A;
+  background: #111E35;
 }
 
 .hero__grain { opacity: var(--tw-grain); }

@@ -53,7 +53,7 @@
    Reset + base
    ============================================================ */
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background-color: #1B2A4A; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; background-color: #111E35; }
 body {
   margin: 0;
   font-family: var(--font-sans);
@@ -61,7 +61,7 @@ body {
   font-size: 17px;
   line-height: 1.6;
   color: var(--offwhite);
-  background-color: #1B2A4A;
+  background-color: #111E35;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -129,7 +129,7 @@ p { margin: 0; text-wrap: pretty; }
   top: 0; left: 0; right: 0;
   z-index: 50;
   padding: 18px 0;
-  background-color: #1B2A4A;
+  background-color: #111E35;
   transition: padding var(--t-med) var(--ease), background var(--t-med) var(--ease), backdrop-filter var(--t-med) var(--ease), border-color var(--t-med) var(--ease);
   border-bottom: 1px solid transparent;
 }
@@ -213,7 +213,7 @@ p { margin: 0; text-wrap: pretty; }
   padding: 140px 0 100px;
   overflow: hidden;
   isolation: isolate;
-  background: #1B2A4A;
+  background: #111E35;
 }
 
 /* Mist layer */
@@ -238,7 +238,7 @@ p { margin: 0; text-wrap: pretty; }
   height: 60px;
   z-index: 2;
   pointer-events: none;
-  background: linear-gradient(to bottom, transparent, #1B2A4A);
+  background: linear-gradient(to bottom, transparent, #111E35);
 }
 
 .hero__grain {
@@ -579,7 +579,7 @@ p { margin: 0; text-wrap: pretty; }
    À propos — 2 colonnes, fond navy
    ============================================================ */
 .parcours {
-  background: var(--navy);
+  background: #111E35;
   color: var(--white);
   padding: var(--sp-10) 0;
   position: relative;
@@ -1056,7 +1056,7 @@ p { margin: 0; text-wrap: pretty; }
    KPI Section
    ============================================================ */
 .kpi-section {
-  background: var(--navy);
+  background: #111E35;
   padding: 72px 0;
   border-top: 1px solid rgba(168, 197, 218, 0.12);
 }
@@ -1147,7 +1147,7 @@ p { margin: 0; text-wrap: pretty; }
   padding: 120px 0;
   background:
     radial-gradient(ellipse 70% 55% at 50% 50%, rgba(168, 197, 218, 0.20), transparent 60%),
-    #1B2A4A;
+    #111E35;
   text-align: center;
   position: relative;
   overflow: hidden;
