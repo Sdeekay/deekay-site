@@ -252,6 +252,19 @@ p { margin: 0; text-wrap: pretty; }
   justify-items: center;
   z-index: 3;
 }
+.hero__inner::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 80% 70% at 50% 48%,
+    rgba(27, 42, 77, 0.52) 0%,
+    rgba(27, 42, 77, 0.18) 55%,
+    rgba(27, 42, 77, 0.0) 100%
+  );
+  z-index: 0;
+}
 
 /* ============================================================
    HERO Shader — WebGL canvas + readability overlay
@@ -272,9 +285,10 @@ p { margin: 0; text-wrap: pretty; }
   pointer-events: none;
   background: linear-gradient(
     to bottom,
-    rgba(31, 48, 77, 0.3) 0%,
-    rgba(31, 48, 77, 0.2) 40%,
-    rgba(31, 48, 77, 0.5) 100%
+    rgba(27, 42, 77, 0.30) 0%,
+    rgba(27, 42, 77, 0.10) 40%,
+    rgba(27, 42, 77, 0.10) 60%,
+    rgba(27, 42, 77, 0.55) 100%
   );
 }
 
@@ -354,6 +368,9 @@ p { margin: 0; text-wrap: pretty; }
   letter-spacing: -0.03em;
   margin-top: 28px;
   color: var(--white);
+  text-shadow:
+    0 2px 24px rgba(10, 18, 40, 0.80),
+    0 1px 6px  rgba(10, 18, 40, 0.50);
 }
 .hero h1 em {
   font-family: var(--font-serif);
@@ -369,15 +386,19 @@ p { margin: 0; text-wrap: pretty; }
   font-size: clamp(16px, 1.6vw, 19px);
   color: rgba(245, 245, 242, 0.72);
   line-height: 1.55;
+  text-shadow:
+    0 2px 18px rgba(10, 18, 40, 0.75),
+    0 1px 4px  rgba(10, 18, 40, 0.45);
+  opacity: 0.92;
 }
 
 .hero-word {
   display: inline;
-  background: rgba(31, 48, 77, 0.2);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 4px;
-  padding: 0 4px;
+}
+
+.hero__glass {
+  position: relative;
+  z-index: 1;
 }
 
 .hero__ctas--single { justify-content: center; }
