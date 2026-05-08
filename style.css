@@ -279,29 +279,47 @@ p { margin: 0; text-wrap: pretty; }
 }
 
 /* ============================================================
-   HERO Shader — WebGL canvas + readability overlay
+   HERO Waves — animation CSS/SVG
    ============================================================ */
-.hero__shader {
+.hero-waves {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-waves__svg {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  z-index: 0;
-  pointer-events: none;
-  display: block;
 }
-.hero__shader-overlay {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgba(27, 42, 77, 0.30) 0%,
-    rgba(27, 42, 77, 0.10) 40%,
-    rgba(27, 42, 77, 0.10) 60%,
-    rgba(27, 42, 77, 0.55) 100%
-  );
+.wave {
+  transform-origin: center;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.wave--1 { animation: waveFloat1  8s ease-in-out infinite alternate; }
+.wave--2 { animation: waveFloat2 11s ease-in-out infinite alternate; animation-delay: -2s; }
+.wave--3 { animation: waveFloat3  9s ease-in-out infinite alternate; animation-delay: -4s; }
+.wave--4 { animation: waveFloat1 13s ease-in-out infinite alternate; animation-delay: -1s; }
+.wave--5 { animation: waveFloat2 10s ease-in-out infinite alternate; animation-delay: -6s; }
+.wave--6 { animation: waveFloat3 12s ease-in-out infinite alternate; animation-delay: -3s; }
+@keyframes waveFloat1 {
+  from { transform: translateY(0px) scaleY(1); }
+  to   { transform: translateY(-28px) scaleY(0.95); }
+}
+@keyframes waveFloat2 {
+  from { transform: translateY(0px) scaleY(1); }
+  to   { transform: translateY(22px) scaleY(1.04); }
+}
+@keyframes waveFloat3 {
+  from { transform: translateY(-12px) scaleY(0.97); }
+  to   { transform: translateY(18px) scaleY(1.03); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wave { animation: none; }
 }
 
 /* ============================================================
