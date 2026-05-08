@@ -563,13 +563,16 @@
       '  }',
       '  vec4 col = vec4(0.0, 0.0, 0.0, 0.0);',
       '  col *= vFade;',
-      '  col.a = 1.0;',
+      '  col.a = 0.0;',
       '  col += lines;',
       '  gl_FragColor = col;',
       '}'
     ].join('\n');
 
-    var gl = canvas.getContext('webgl');
+    var gl = canvas.getContext('webgl', {
+      alpha: true,
+      premultipliedAlpha: false
+    });
     if (!gl) return;
 
     function loadShader(type, src) {
