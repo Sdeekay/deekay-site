@@ -561,15 +561,18 @@
       '    float circle = drawCircle(cp,0.01,space)*4.0;',
       '    lines += (line+circle)*lineColor*rand;',
       '  }',
-      '  vec4 col = mix(bgColor1,bgColor2,uv.x);',
+      '  vec4 col = vec4(0.0, 0.0, 0.0, 0.0);',
       '  col *= vFade;',
-      '  col.a = 1.0;',
+      '  col.a = col.a;',
       '  col += lines;',
       '  gl_FragColor = col;',
       '}'
     ].join('\n');
 
-    var gl = canvas.getContext('webgl');
+    var gl = canvas.getContext('webgl', {
+      alpha: true,
+      premultipliedAlpha: false
+    });
     if (!gl) return;
 
     function loadShader(type, src) {
