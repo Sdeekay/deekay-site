@@ -289,6 +289,7 @@ p { margin: 0; text-wrap: pretty; }
   z-index: 0;
   pointer-events: none;
   display: block;
+  background: transparent;
 }
 .hero__shader-overlay {
   position: absolute;

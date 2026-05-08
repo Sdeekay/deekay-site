@@ -561,11 +561,8 @@
       '    float circle = drawCircle(cp,0.01,space)*4.0;',
       '    lines += (line+circle)*lineColor*rand;',
       '  }',
-      '  vec4 col = vec4(0.0, 0.0, 0.0, 0.0);',
-      '  col *= vFade;',
-      '  col.a = 0.0;',
-      '  col += lines;',
-      '  gl_FragColor = col;',
+      '  lines *= vFade;',
+      '  gl_FragColor = lines;',
       '}'
     ].join('\n');
 
@@ -617,6 +614,8 @@
     var t0 = Date.now();
     function render() {
       var t = (Date.now() - t0) / 1000;
+      gl.clearColor(0, 0, 0, 0);
+      gl.clear(gl.COLOR_BUFFER_BIT);
       gl.useProgram(prog);
       gl.uniform2f(uRes, canvas.width, canvas.height);
       gl.uniform1f(uTime, t);
