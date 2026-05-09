@@ -240,19 +240,6 @@ p { margin: 0; text-wrap: pretty; }
   padding-left: clamp(1.5rem, 5vw, 4rem);
   padding-right: clamp(1.5rem, 5vw, 4rem);
 }
-.hero__inner::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: radial-gradient(
-    ellipse 80% 80% at 50% 52%,
-    rgba(27, 42, 77, 0.62) 0%,
-    rgba(27, 42, 77, 0.35) 45%,
-    rgba(27, 42, 77, 0.0) 100%
-  );
-  z-index: 0;
-}
 
 /* ============================================================
    HERO Shader — WebGL canvas + readability overlay
