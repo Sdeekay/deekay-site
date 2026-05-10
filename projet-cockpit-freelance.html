@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Cockpit Freelance — Deekay Consulting</title>
+  <meta name="description" content="Étude de cas : workspace Notion sur mesure pour Laura, Office Manager freelance. Audit, conception et livraison d'un cockpit centralisé pour piloter son activité de bout en bout." />
+  <link rel="canonical" href="https://deekayconsulting.com/projet-cockpit-freelance.html" />
+  <link rel="icon" type="image/svg+xml" href="DEEKAY.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="tweaks.css" />
+  <style>
+    /* ============================================================
+       Cockpit Freelance — page projet
+       ============================================================ */
+
+    /* HERO */
+    .proj-hero {
+      position: relative;
+      padding: 140px 0 0;
+      background: #1B2A4A;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .proj-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 20%, rgba(168,197,218,0.15), transparent 55%),
+        radial-gradient(circle at 20% 80%, rgba(168,197,218,0.06), transparent 40%);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .proj-hero__inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 20px;
+      text-align: center;
+      justify-items: center;
+    }
+    .proj-breadcrumb {
+      font-size: 14px;
+      font-weight: 600;
+      color: #A8C5DA;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(168,197,218,0.08);
+      border: 1px solid rgba(168,197,218,0.18);
+      transition: background 0.2s;
+    }
+    .proj-breadcrumb:hover { background: rgba(168,197,218,0.14); }
+    .proj-hero__tags {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .proj-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #A8C5DA;
+      padding: 4px 14px;
+      border-radius: 100px;
+      background: rgba(168,197,218,0.12);
+      border: 1px solid rgba(168,197,218,0.22);
+    }
+    .proj-hero h1 {
+      font-family: "DM Serif Display", "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(38px, 5.5vw, 72px);
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin: 0;
+    }
+    .proj-hero__sub {
+      font-size: clamp(16px, 1.6vw, 19px);
+      color: rgba(245,245,242,0.75);
+      max-width: 580px;
+      line-height: 1.55;
+    }
+    .proj-hero__images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      width: 100%;
+      max-width: 1040px;
+      margin-top: 8px;
+    }
+    .proj-img-wrap {
+      position: relative;
+    }
+    .proj-img-wrap .proj-main-img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(27,42,74,0.15);
+      display: block;
+    }
+    .proj-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      width: 120px;
+      opacity: 0.92;
+      pointer-events: none;
+    }
+
+    /* SECTIONS */
+    .proj-section {
+      padding: 96px 0;
+    }
+    .proj-section--offwhite {
+      background: #F5F5F2;
+      color: #0B1426;
+    }
+    .proj-section--white {
+      background: #ffffff;
+      color: #0B1426;
+    }
+    .proj-section--navy {
+      background: #1B2A4A;
+      color: #F5F5F2;
+    }
+
+    /* Centred text blocks */
+    .proj-content {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .proj-content--wide {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .proj-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 16px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .proj-eyebrow--light {
+      background: rgba(27,42,74,0.07);
+      border: 1px solid rgba(27,42,74,0.13);
+      color: rgba(27,42,74,0.65);
+    }
+    .proj-eyebrow--dark {
+      background: rgba(168,197,218,0.1);
+      border: 1px solid rgba(168,197,218,0.2);
+      color: #A8C5DA;
+    }
+    .proj-section h2 {
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin: 0 0 20px;
+      color: #0B1426;
+      line-height: 1.1;
+    }
+    .proj-section--navy h2 {
+      color: #fff;
+    }
+    .proj-section p.proj-text {
+      font-size: 17px;
+      line-height: 1.8;
+      color: rgba(11,20,38,0.7);
+    }
+    .proj-section--navy p.proj-text {
+      color: rgba(245,245,242,0.75);
+    }
+
+    /* Feature blocks */
+    .proj-blocks {
+      margin-top: 72px;
+    }
+    .proj-block {
+      padding: 64px 0;
+      border-top: 1px solid rgba(27,42,74,0.08);
+    }
+    .proj-block:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+    .proj-block__text-wrap {
+      max-width: 680px;
+      margin: 0 auto 40px;
+      text-align: center;
+    }
+    .proj-block__title {
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 800;
+      color: #0B1426;
+      letter-spacing: -0.02em;
+      margin: 0 0 14px;
+      line-height: 1.15;
+    }
+    .proj-block__text {
+      font-size: 16px;
+      color: rgba(11,20,38,0.65);
+      line-height: 1.8;
+    }
+    .proj-block__images {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+
+    /* Avant / Après */
+    .proj-avap-head {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .proj-split {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 0 48px;
+      max-width: 880px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .proj-split__divider {
+      background: rgba(168,197,218,0.2);
+      align-self: stretch;
+    }
+    .proj-split__col h3 {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 20px;
+      color: #fff;
+    }
+    .proj-split__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+    .proj-split__list li {
+      font-size: 15px;
+      line-height: 1.55;
+      color: rgba(245,245,242,0.82);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+    }
+    .mark {
+      flex-shrink: 0;
+      font-weight: 700;
+      font-size: 14px;
+      margin-top: 1px;
+    }
+    .mark--cross { color: #E05252; }
+    .mark--check { color: #4CAF82; }
+
+    /* CTA final */
+    .proj-cta {
+      text-align: center;
+      display: grid;
+      gap: 24px;
+      justify-items: center;
+    }
+    .proj-cta p.proj-cta__text {
+      max-width: 560px;
+      font-size: 18px;
+      color: rgba(245,245,242,0.8);
+      line-height: 1.65;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .proj-hero { padding-top: 110px; }
+      .proj-hero__images { grid-template-columns: 1fr; gap: 16px; }
+      .proj-block__images { grid-template-columns: 1fr; gap: 16px; }
+      .proj-split { grid-template-columns: 1fr; gap: 40px 0; }
+      .proj-split__divider { display: none; }
+      .proj-section { padding: 64px 0; }
+      .proj-block { padding: 48px 0; }
+    }
+    @media (max-width: 480px) {
+      .proj-badge { width: 80px; bottom: 8px; right: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="logo" href="index.html" aria-label="Deekay Consulting — accueil">
+        <img src="DEEKAY.svg" class="logo__mark-img" height="32" alt="Deekay Consulting">
+        Deekay<span class="logo__sub">consulting</span>
+      </a>
+      <nav>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="realisations.html" aria-current="page">Réalisations</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#parcours">Parcours</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="nav__lang">
+            <span class="lang-active">FR</span>
+            <span class="lang-sep">|</span>
+            <span class="lang-inactive">EN</span>
+          </li>
+        </ul>
+      </nav>
+      <a href="contact.html" class="nav__cta">
+        Évaluer mon projet
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <button class="nav__burger" aria-label="Ouvrir le menu" aria-controls="navLinks"><span></span></button>
+    </div>
+  </header>
+
+  <!-- A. HERO -->
+  <section class="proj-hero">
+    <div class="hero__grain" aria-hidden="true"></div>
+    <div class="container proj-hero__inner">
+
+      <a href="realisations.html" class="proj-breadcrumb reveal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Réalisations
+      </a>
+
+      <div class="proj-hero__tags reveal" data-delay="1">
+        <span class="proj-tag">Workspace</span>
+        <span class="proj-tag">Notion</span>
+      </div>
+
+      <h1 class="reveal" data-delay="2">Cockpit Freelance 🚀</h1>
+
+      <p class="proj-hero__sub reveal" data-delay="3">
+        Un workspace sur mesure pour piloter une activité freelance de bout en bout.
+      </p>
+
+      <div class="proj-hero__images reveal" data-delay="4">
+        <div class="proj-img-wrap">
+          <img class="proj-main-img" src="assets/Mockup_Dashboard_1.svg" alt="Dashboard principal — Cockpit Freelance">
+          <img class="proj-badge" src="assets/Badge_Deekay.svg" alt="Deekay Consulting">
+        </div>
+        <div class="proj-img-wrap">
+          <img class="proj-main-img" src="assets/Mockup_Dashboard_3.svg" alt="Vue planning — Cockpit Freelance">
+          <img class="proj-badge" src="assets/Badge_Deekay.svg" alt="Deekay Consulting">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- B. CONTEXTE -->
+  <section class="proj-section proj-section--offwhite">
+    <div class="container">
+      <div class="proj-content">
+        <span class="proj-eyebrow proj-eyebrow--light reveal">Contexte client</span>
+        <h2 class="reveal" data-delay="1">Laura, Office Manager freelance</h2>
+        <p class="proj-text reveal" data-delay="2">
+          Laura est Office Manager freelance. Elle pilote l'administration et les projets opérationnels de plusieurs entreprises clientes simultanément&nbsp;: comptabilité, coordination, suivi de projets, communication interne. Un métier aux contours flous, où ses clients lui délèguent tout, y compris ce qui dépasse largement sa mission initiale. Résultat&nbsp;: elle faisait tout, sans cadre, sans limite, payée à l'heure.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- C. MISSION -->
+  <section class="proj-section proj-section--white">
+    <div class="container">
+      <div class="proj-content">
+        <span class="proj-eyebrow proj-eyebrow--light reveal">La mission</span>
+        <h2 class="reveal" data-delay="1">Un audit, puis un cockpit</h2>
+        <p class="proj-text reveal" data-delay="2">
+          Audit de son organisation, de ses outils et de sa manière de travailler. Puis conception et livraison d'un workspace Notion centralisé, pensé pour son métier et son rythme. Pas un template générique, un cockpit sculpté pour elle.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- D. CE QUI A ÉTÉ CONSTRUIT -->
+  <section class="proj-section proj-section--offwhite">
+    <div class="container">
+      <div class="proj-content">
+        <span class="proj-eyebrow proj-eyebrow--light reveal">Ce qui a été construit</span>
+        <h2 class="reveal" data-delay="1">Quatre espaces, une seule logique</h2>
+      </div>
+
+      <div class="proj-blocks">
+
+        <!-- Bloc 1 -->
+        <div class="proj-block">
+          <div class="proj-block__text-wrap">
+            <h3 class="proj-block__title reveal">Tout commence ici</h3>
+            <p class="proj-block__text reveal" data-delay="1">
+              Chaque matin, Laura ouvre son workspace sur une citation qu'elle a choisie. Le cap est donné. Deux blocs en toggle font office de post-its numériques&nbsp;: sa to-do du jour et son pense-bête. En dessous, ses accomplissements s'accumulent semaine après semaine en vue chronologique. Quand les blocs sont remplis, elle sait qu'elle mérite de s'arrêter.
+            </p>
+          </div>
+          <div class="proj-block__images reveal" data-delay="2">
+            <div class="proj-img-wrap">
+              <img class="proj-main-img" src="assets/Mockup_Dashboard_2.svg" alt="Dashboard quotidien">
+              <img class="proj-badge" src="assets/Badge_Deekay.svg" alt="Deekay Consulting">
+            </div>
+            <div class="proj-img-wrap">
+              <img class="proj-main-img" src="assets/Mockup_RétroPlanning.svg" alt="Rétroplanning hebdomadaire">
+              <img class="proj-badge" src="assets/Badge_Deekay.svg" alt="Deekay Consulting">
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloc 2 -->
+        <div class="proj-block">
+          <div class="proj-block__text-wrap">
+            <h3 class="proj-block__title reveal">De la vision à l'action</h3>
+            <p class="proj-block__text reveal" data-delay="1">
+              Son plan d'action est découpé en trois phases&nbsp;: Structuration, Déploiement, Expansion. Cinq vues pour naviguer&nbsp;: vision globale, objectifs du mois, cette semaine, par deadline, par priorité. Elle sait exactement ce qui est urgent, ce qui peut attendre, et ce qu'elle a déjà accompli.
+            </p>
+          </div>
+          <div class="proj-block__images reveal" data-delay="2">
+            <div class="proj-img-wrap">
+              <img class="proj-main-img" src="assets/Mockup_BDD_strat_1.svg" alt="Base plan d'action — vue globale">
+              <img class="proj-badge" src="assets/Badge_Deekay.svg" alt="Deekay Consulting">
+            </div>
+            <div class="proj-img-wrap">
+              <img class="proj-main-img" src="assets/Mockup_BDD_strat_5.svg" alt="Base plan d'action — vue par priorité">
+              <img class="proj-badge" src="assets/Badge_Deekay.svg" alt="Deekay Consulting">
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloc 3 -->
+        <div class="proj-block">
+          <div class="proj-block__text-wrap">
+            <h3 class="proj-block__title reveal">Chaque projet, une page vivante</h3>
+            <p class="proj-block__text reveal" data-delay="1">
+              Ses projets clients et personnels sont centralisés dans une seule base. Vue kanban par progression, vue calendrier pour anticiper les échéances. Chaque ligne est une page dans laquelle elle pilote l'activité du projet en détail.
+            </p>
+          </div>
+          <div class="proj-block__images reveal" data-delay="2">
+            <div class="proj-img-wrap">
+              <img class="proj-main-img" src="assets/Mockup_BDD_projet_1.svg" alt="Base projets — vue kanban">
+              <img class="proj-badge" src="assets/Badge_Deekay.svg" alt="Deekay Consulting">
+            </div>
+            <div class="proj-img-wrap">
+              <img class="proj-main-img" src="assets/Mockup_BDD_projet_3.svg" alt="Base projets — vue calendrier">
+              <img class="proj-badge" src="assets/Badge_Deekay.svg" alt="Deekay Consulting">
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloc 4 -->
+        <div class="proj-block">
+          <div class="proj-block__text-wrap">
+            <h3 class="proj-block__title reveal">Son réseau, en un clic</h3>
+            <p class="proj-block__text reveal" data-delay="1">
+              Partenaires, collaborateurs, sous-traitants. Chaque contact est une fiche complète&nbsp;: titre, entreprise, projet commun, coordonnées. Quand elle a besoin d'aide ou d'une collaboration, elle sait immédiatement qui appeler.
+            </p>
+          </div>
+          <div class="proj-block__images reveal" data-delay="2">
+            <div class="proj-img-wrap">
+              <img class="proj-main-img" src="assets/Mockup_Dashboard_4.svg" alt="Vue réseau — tableau de bord">
+              <img class="proj-badge" src="assets/Badge_Deekay.svg" alt="Deekay Consulting">
+            </div>
+            <div class="proj-img-wrap">
+              <img class="proj-main-img" src="assets/Mockup_Contact.svg" alt="Base réseau — fiche contact">
+              <img class="proj-badge" src="assets/Badge_Deekay.svg" alt="Deekay Consulting">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- E. AVANT / APRÈS -->
+  <section class="proj-section proj-section--navy">
+    <div class="container">
+
+      <div class="proj-avap-head">
+        <span class="proj-eyebrow proj-eyebrow--dark reveal">Ce qui a changé</span>
+        <h2 class="reveal" data-delay="1">Avant et après</h2>
+      </div>
+
+      <div class="proj-split">
+
+        <!-- Avant -->
+        <div class="proj-split__col">
+          <h3 class="reveal">Avant</h3>
+          <ul class="proj-split__list reveal" data-delay="1">
+            <li><span class="mark mark--cross">✗</span><span>Une todo list sur son bloc-notes iPhone comme seul outil</span></li>
+            <li><span class="mark mark--cross">✗</span><span>Ses offres et tarifs jamais formalisés</span></li>
+            <li><span class="mark mark--cross">✗</span><span>Autant de Google Sheets que de clients et de projets</span></li>
+            <li><span class="mark mark--cross">✗</span><span>Ses documents admin éparpillés dans son ordinateur</span></li>
+            <li><span class="mark mark--cross">✗</span><span>Aucune vision stratégique, aucun KPI, aucune projection</span></li>
+            <li><span class="mark mark--cross">✗</span><span>Aucun suivi de ses accomplissements</span></li>
+            <li><span class="mark mark--cross">✗</span><span>Aucun répertoire réseau structuré</span></li>
+            <li><span class="mark mark--cross">✗</span><span>Elle finissait en pleurs une fois par semaine</span></li>
+          </ul>
+        </div>
+
+        <div class="proj-split__divider" aria-hidden="true"></div>
+
+        <!-- Après -->
+        <div class="proj-split__col">
+          <h3 class="reveal">Après</h3>
+          <ul class="proj-split__list reveal" data-delay="1">
+            <li><span class="mark mark--check">✓</span><span>Un dashboard unique, ouvert en premier chaque matin</span></li>
+            <li><span class="mark mark--check">✓</span><span>Ses offres posées noir sur blanc, ses tarifs assumés</span></li>
+            <li><span class="mark mark--check">✓</span><span>Tous ses projets dans une seule base, plusieurs vues</span></li>
+            <li><span class="mark mark--check">✓</span><span>Son admin centralisée dans son menu Notion</span></li>
+            <li><span class="mark mark--check">✓</span><span>Une vision par phases&nbsp;: Structuration, Déploiement, Expansion</span></li>
+            <li><span class="mark mark--check">✓</span><span>Elle voit chaque semaine le chemin parcouru</span></li>
+            <li><span class="mark mark--check">✓</span><span>Son réseau accessible en un clic</span></li>
+            <li><span class="mark mark--check">✓</span><span>Elle a repris le contrôle. Elle a repris confiance.</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- F. LIVRABLES -->
+  <section class="proj-section proj-section--offwhite">
+    <div class="container">
+      <div class="proj-content--wide">
+        <span class="proj-eyebrow proj-eyebrow--light reveal">Ce qui a été livré</span>
+        <h2 class="reveal" data-delay="1">Les livrables</h2>
+        <p class="proj-text reveal" data-delay="2">
+          Workspace Notion complet&nbsp;: 2 bases de données liées (Projets et Contacts), 1 base Plan d'action, 1 base Réseau, un menu avec une page Admin, une page Devis et Facturation, une page Offres et Tableau de prestations, et un stack d'outils cliquable avec leurs descriptifs. Back-end structuré, 15+ vues configurées. Au-delà du livrable, un accompagnement sur-mesure du début à la fin.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- G. CTA FINAL -->
+  <section class="proj-section proj-section--navy">
+    <div class="container">
+      <div class="proj-cta">
+        <p class="proj-cta__text reveal">
+          Vos outils sont éparpillés&nbsp;? Vos projets vivent dans des fichiers séparés&nbsp;? Votre activité mérite d'avoir un espace à sa hauteur.
+        </p>
+        <a class="btn btn--accent-outline reveal" data-delay="1" href="contact.html">
+          Parlons de votre cockpit
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col footer__col--brand">
+          <a class="logo" href="index.html">
+            <img src="DEEKAY.svg" class="logo__mark-img" height="32" alt="Deekay Consulting">
+            Deekay<span class="logo__sub">consulting</span>
+          </a>
+          <p class="footer__tag"><em>Transformez la complexité en clarté.</em></p>
+        </div>
+        <div class="footer__col footer__col--nav">
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="realisations.html">Réalisations</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#parcours">Parcours</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col footer__col--socials">
+          <ul class="footer__socials">
+            <li>
+              <a href="https://www.linkedin.com/in/shawn-diakite-3a503a163" aria-label="LinkedIn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 13v4"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://tiktok.com/@deekayconsulting" aria-label="TikTok" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.4 2.4 2.4 4.2 5 4.4"/></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Deekay Consulting · Tous droits réservés</span>
+        <span class="legal">
+          <a href="faq.html">FAQ</a>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="tweaks.js"></script>
+</body>
+</html>
