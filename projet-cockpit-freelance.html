@@ -181,7 +181,9 @@
       font-size: 17px;
       line-height: 1.8;
       color: rgba(11,20,38,0.7);
-      text-align: left;
+      text-align: justify;
+      hyphens: auto;
+      -webkit-hyphens: auto;
     }
     .proj-section--navy .proj-text { color: rgba(245,245,242,0.75); }
 
@@ -192,7 +194,7 @@
       display: grid;
       grid-template-columns: 45% 55%;
       gap: 56px;
-      align-items: start;
+      align-items: center;
       padding: 72px 0;
       border-top: 1px solid rgba(27,42,74,0.08);
     }
@@ -215,7 +217,7 @@
       text-align: left;
     }
     .proj-block__text {
-      font-size: 16px;
+      font-size: 18px;
       color: rgba(11,20,38,0.65);
       line-height: 1.85;
       text-align: left;
@@ -226,6 +228,19 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
+    }
+
+    /* Badge section fin de "Ce qui a été construit" */
+    .proj-section-badge {
+      text-align: center;
+      margin-top: 48px;
+      padding-top: 48px;
+      border-top: 1px solid rgba(27,42,74,0.1);
+    }
+    .proj-section-badge img {
+      width: 160px;
+      opacity: 0.85;
+      display: inline-block;
     }
 
     /* ---- Avant / Après ---- */
@@ -444,10 +459,8 @@
       </p>
 
       <div class="proj-hero__images reveal" data-delay="4">
-        <!-- Badge uniquement sur cette image -->
         <div class="proj-img-wrap">
           <img class="proj-main-img" src="assets/Mockup_Dashboard_1.svg" alt="Dashboard principal — Cockpit Freelance">
-          <img class="proj-badge" src="assets/Badge_Deekay.svg" alt="Deekay Consulting">
         </div>
         <div class="proj-img-wrap">
           <img class="proj-main-img" src="assets/Mockup_Dashboard_3.svg" alt="Vue planning — Cockpit Freelance">
@@ -571,6 +584,12 @@
         </div>
 
       </div>
+
+      <!-- Badge Deekay fin de section -->
+      <div class="proj-section-badge">
+        <img src="actifs/G-2.png" alt="Deekay Consulting">
+      </div>
+
     </div>
   </section>
 
@@ -608,10 +627,10 @@
           <ul class="proj-split__list reveal" data-delay="1">
             <li><span class="mark mark--check">✓</span><span>Un dashboard unique qui lui appartient, une routine pour commencer sa journée</span></li>
             <li><span class="mark mark--check">✓</span><span>Ses offres et tarifs sont posés noir sur blanc. Elle sait ce qu'elle vend et à quel prix</span></li>
-            <li><span class="mark mark--check">✓</span><span>Son admin centralisée dans son menu Notion</span></li>
             <li><span class="mark mark--check">✓</span><span>Elle pilote tous ses projets clients depuis un seul endroit, avec une lecture modulable</span></li>
-            <li><span class="mark mark--check">✓</span><span>Elle voit chaque semaine le chemin parcouru. Quand les blocs sont remplis, elle sait qu'elle mérite de s'arrêter</span></li>
+            <li><span class="mark mark--check">✓</span><span>Son admin centralisée dans son menu Notion</span></li>
             <li><span class="mark mark--check">✓</span><span>Une vision stratégique et structurée de son activité</span></li>
+            <li><span class="mark mark--check">✓</span><span>Elle voit chaque semaine le chemin parcouru. Quand les blocs sont remplis, elle sait qu'elle mérite de s'arrêter</span></li>
             <li><span class="mark mark--check">✓</span><span>En un clic, elle sait qui contacter dans son réseau quand elle a besoin d'aide ou d'un collaborateur</span></li>
             <li><span class="mark mark--check">✓</span><span>Elle a repris le contrôle. Elle a repris confiance en elle.</span></li>
           </ul>
