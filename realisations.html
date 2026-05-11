@@ -61,39 +61,34 @@
   <section class="section section--light" id="projets">
     <div class="container">
 
-      <!-- État vide — remplacé par la grille quand des projets sont ajoutés -->
-      <div class="realisations-empty" id="emptyState">
-        <div class="realisations-empty__orb" aria-hidden="true"></div>
-        <span class="coming__pill reveal">
-          <span class="dot" aria-hidden="true"></span>
-          Bientôt disponible
-        </span>
-        <h2 class="realisations-empty__title reveal" data-delay="1">En cours de construction</h2>
-        <p class="realisations-empty__sub reveal" data-delay="2">
-          Les premiers projets livrés seront publiés ici très prochainement.
-        </p>
-        <a class="realisations-empty__back reveal" data-delay="3" href="index.html">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          Retour à l'accueil
-        </a>
-      </div>
-
-      <!-- Grille projets (phase 2) — décommenter et remplir quand des projets sont prêts -->
-      <!--
+      <!-- Grille projets -->
       <div class="portfolio-grid" id="portfolioGrid">
-        <article class="portfolio-card">
-          <div class="portfolio-card__thumb"></div>
+
+        <!-- Projet Camille B. — Automatisation onboarding -->
+        <article class="portfolio-card reveal" data-delay="1" id="projet-camille" onclick="location.href='projet-automatisation-onboarding.html'" style="cursor:pointer;">
+          <div class="portfolio-card__thumb" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#1B2A4A 0%,#1F3155 100%);">
+            <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <circle cx="8"  cy="32" r="5" fill="rgba(168,197,218,0.3)" stroke="#A8C5DA" stroke-width="1.2"/>
+              <circle cx="32" cy="16" r="5" fill="rgba(168,197,218,0.3)" stroke="#A8C5DA" stroke-width="1.2"/>
+              <circle cx="56" cy="32" r="5" fill="rgba(168,197,218,0.3)" stroke="#A8C5DA" stroke-width="1.2"/>
+              <line x1="13" y1="29" x2="27" y2="19" stroke="#A8C5DA" stroke-width="1.2" stroke-opacity="0.7"/>
+              <line x1="37" y1="19" x2="51" y2="29" stroke="#A8C5DA" stroke-width="1.2" stroke-opacity="0.7"/>
+              <polyline points="49,28 51,32 48,31" stroke="#A8C5DA" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-opacity="0.7"/>
+            </svg>
+          </div>
           <div class="portfolio-card__body">
             <div class="portfolio-card__tags">
-              <span class="portfolio-card__tag">Workspace</span>
+              <span class="portfolio-card__tag">Automatisation</span>
+              <span class="portfolio-card__tag">Make</span>
               <span class="portfolio-card__tag">Notion</span>
             </div>
-            <h3 class="portfolio-card__title">Titre du projet</h3>
-            <p class="portfolio-card__desc">Description courte du projet livré.</p>
+            <h3 class="portfolio-card__title">Automatisation Onboarding &mdash; Camille B.</h3>
+            <p class="portfolio-card__desc">Formulaire structuré, fiche Notion automatique, email de confirmation et alerte de relance. Zéro saisie manuelle.</p>
+            <a href="projet-automatisation-onboarding.html" class="portfolio-card__link" style="display:inline-block;margin-top:14px;font-size:13px;font-weight:600;color:rgba(27,42,74,0.55);transition:color 0.2s;" onmouseenter="this.style.color='#1B2A4A'" onmouseleave="this.style.color='rgba(27,42,74,0.55)'">Voir le projet →</a>
           </div>
         </article>
+
       </div>
-      -->
 
     </div>
   </section>
