@@ -98,10 +98,12 @@
       line-height: 1.6;
     }
     .proj-hero__diagram {
-      max-width: 640px;
+      max-width: 840px;
       width: 100%;
       display: block;
       margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 8px 40px rgba(27, 42, 74, 0.35);
     }
 
     /* Content sections */
@@ -143,56 +145,99 @@
       text-align: justify;
     }
 
-    /* Build blocks (Section D) */
-    .proj-blocks {
-      max-width: 840px;
+    /* ---- Mission 2 colonnes ---- */
+    .proj-mission-cols {
+      display: flex;
+      gap: 48px;
+      max-width: 900px;
       margin: 0 auto;
+      align-items: center;
     }
-    .proj-block {
-      padding: 64px 0;
-      border-bottom: 1px solid rgba(27, 42, 74, 0.1);
-    }
-    .proj-block:last-child { border-bottom: 0; }
-    .proj-block__text {
-      max-width: 680px;
-      margin: 0 auto 36px;
-      text-align: center;
-    }
-    .proj-block h3 {
-      font-family: "DM Serif Display", serif;
-      font-style: italic;
-      font-weight: 400;
-      font-size: clamp(22px, 2.8vw, 30px);
-      color: #1B2A4A;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-      line-height: 1.2;
-    }
-    .proj-block p {
+    .proj-mission-text {
+      flex: 1;
       color: #2D2D2D;
-      font-size: 16px;
+      font-size: 17px;
       line-height: 1.8;
       text-align: justify;
     }
-    .proj-block__img {
-      width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 8px 32px rgba(27, 42, 74, 0.10);
-    }
-    .proj-block__imgs {
-      display: flex;
-      gap: 24px;
-    }
-    .proj-block__imgs img {
+    .proj-mission-diagram {
       flex: 1;
-      width: 0;
       min-width: 0;
-      border-radius: 12px;
-      box-shadow: 0 8px 32px rgba(27, 42, 74, 0.10);
     }
-    @media (max-width: 640px) {
-      .proj-block__imgs { flex-direction: column; }
-      .proj-block__imgs img { width: 100%; flex: none; }
+    .proj-mission-diagram svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    @media (max-width: 768px) {
+      .proj-mission-cols { flex-direction: column; gap: 40px; }
+      .proj-mission-text { text-align: left; }
+    }
+
+    /* ---- Build blocks — alternating grid ---- */
+    .proj-build-rows {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .proj-build-row {
+      display: grid;
+      grid-template-columns: 45% 55%;
+      gap: 56px;
+      align-items: center;
+      padding: 64px 0;
+      border-top: 1px solid rgba(27, 42, 74, 0.08);
+    }
+    .proj-build-row:first-child { border-top: none; padding-top: 0; }
+    .proj-build-row--reverse {
+      grid-template-columns: 55% 45%;
+    }
+    .proj-build-row__text h3 {
+      font-size: clamp(19px, 2.2vw, 24px);
+      font-weight: 800;
+      color: #1B2A4A;
+      letter-spacing: -0.02em;
+      margin: 0 0 16px;
+      line-height: 1.2;
+    }
+    .proj-build-row__text p {
+      font-size: 16px;
+      color: rgba(27, 42, 74, 0.65);
+      line-height: 1.85;
+      text-align: justify;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      margin: 0;
+    }
+    .proj-build-row__imgs {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .proj-build-row__img-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .proj-build-row__img-wrap:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(27, 42, 74, 0.15);
+    }
+    .proj-build-row__img-wrap img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+      box-shadow: 0 6px 24px rgba(27, 42, 74, 0.10);
+    }
+    @media (max-width: 900px) {
+      .proj-build-row,
+      .proj-build-row--reverse {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .proj-build-row--reverse .proj-build-row__imgs { order: -1; }
+    }
+    @media (max-width: 600px) {
+      .proj-build-row { padding: 48px 0; }
     }
 
     /* Badge Deekay */
@@ -209,39 +254,47 @@
       display: block;
     }
 
-    /* Citation forte (Section E) */
+    /* ---- Citation forte — style card avec bordure gauche ---- */
     .proj-quote {
-      padding: 100px 0;
-      text-align: center;
-      background: #1B2A4A;
-      position: relative;
+      padding: 80px 0;
+      background: #FFFFFF;
     }
-    .proj-quote::before {
-      content: "";
-      position: absolute;
-      inset: -1px 0 auto 0;
-      height: 1px;
-      background: linear-gradient(90deg, transparent, rgba(168,197,218,0.25), transparent);
+    .proj-quote__card {
+      max-width: 700px;
+      margin: 0 auto;
+      border-left: 4px solid #A8C5DA;
+      padding-left: 36px;
     }
     .proj-quote__text {
       font-family: "DM Serif Display", serif;
       font-style: italic;
       font-weight: 400;
-      font-size: clamp(22px, 3.2vw, 30px);
-      color: #F5F5F2;
-      max-width: 760px;
-      margin: 0 auto 24px;
-      line-height: 1.5;
+      font-size: clamp(20px, 2.8vw, 28px);
+      color: #1B2A4A;
+      line-height: 1.55;
+      margin: 0 0 32px;
     }
-    .proj-quote__author {
-      color: #A8C5DA;
-      font-family: "Inter", sans-serif;
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 1.7;
+    .proj-quote__bubble {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: #1B2A4A;
+      color: #F5F5F2;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: background 0.2s, transform 0.2s;
+      cursor: default;
+    }
+    .proj-quote__bubble:hover {
+      background: #243657;
+      transform: translateY(-1px);
     }
 
-    /* Avant / Après (Section F) */
+    /* Avant / Après */
     .proj-compare {
       padding: 80px 0;
       background: #FFFFFF;
@@ -253,13 +306,18 @@
       max-width: 880px;
       margin: 48px auto 0;
       text-align: left;
+      align-items: stretch;
     }
     .proj-compare__col {
       flex: 1;
-      padding: 0 40px;
+      padding: 32px 40px;
+      border-radius: 16px;
     }
-    .proj-compare__col:first-child {
-      border-right: 1px solid rgba(27, 42, 74, 0.1);
+    .proj-compare__col--before {
+      background: rgba(192, 57, 43, 0.04);
+    }
+    .proj-compare__col--after {
+      background: #EFF7EE;
     }
     .proj-compare__col h3 {
       font-size: 20px;
@@ -268,7 +326,7 @@
       letter-spacing: -0.02em;
     }
     .proj-compare__col--before h3 { color: #C0392B; }
-    .proj-compare__col--after  h3 { color: #A8C5DA; }
+    .proj-compare__col--after  h3 { color: #2E7D32; }
     .proj-compare__list {
       list-style: none;
       padding: 0;
@@ -287,84 +345,19 @@
     }
     .proj-compare__item svg { flex-shrink: 0; margin-top: 2px; }
     @media (max-width: 640px) {
-      .proj-compare__cols { flex-direction: column; }
-      .proj-compare__col:first-child { border-right: 0; border-bottom: 1px solid rgba(27,42,74,0.1); padding-bottom: 40px; }
-      .proj-compare__col { padding: 32px 16px; }
+      .proj-compare__cols { flex-direction: column; gap: 16px; }
+      .proj-compare__col { padding: 28px 20px; }
     }
 
-    /* Témoignage complet (Section G) */
-    .proj-testi {
-      padding: 80px 0;
-      background: #F4F8FB;
-    }
-    .proj-testi__card {
-      max-width: 720px;
-      margin: 0 auto;
-      background: #FFFFFF;
-      border-radius: 16px;
-      padding: 48px;
-      border: 1px solid rgba(27, 42, 74, 0.07);
-      box-shadow: 0 4px 24px rgba(27, 42, 74, 0.07);
-    }
-    .proj-testi__quote-mark {
-      font-family: "DM Serif Display", serif;
-      font-size: 80px;
-      line-height: 0.7;
-      color: #A8C5DA;
-      display: block;
-      margin-bottom: 16px;
-      user-select: none;
-    }
-    .proj-testi__text {
-      font-size: 16px;
-      color: #1F304D;
-      line-height: 1.85;
-      text-align: justify;
-      font-style: italic;
-      margin-bottom: 32px;
-    }
-    .proj-testi__footer {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding-top: 24px;
-      border-top: 1px solid rgba(27, 42, 74, 0.07);
-    }
-    .proj-testi__avatar {
-      width: 56px;
-      height: 56px;
-      border-radius: 50%;
-      object-fit: cover;
-      object-position: center top;
-      border: 2px solid rgba(168, 197, 218, 0.4);
-      flex-shrink: 0;
-      display: block;
-    }
-    .proj-testi__name {
-      font-size: 15px;
-      font-weight: 700;
-      color: #1F304D;
-      margin: 0 0 2px;
-    }
-    .proj-testi__role {
-      font-size: 13px;
-      color: #6B7280;
-      margin: 0;
-      line-height: 1.45;
-    }
-    @media (max-width: 600px) {
-      .proj-testi__card { padding: 32px 24px; }
-    }
-
-    /* CTA final (Section H) */
+    /* CTA final — fond navy + bouton lumineux */
     .proj-cta {
       padding: 100px 0;
-      background: #F5F5F2;
+      background: #1B2A4A;
       text-align: center;
     }
     .proj-cta h2 {
       font-size: clamp(26px, 4vw, 40px);
-      color: #1B2A4A;
+      color: #FFFFFF;
       font-weight: 800;
       letter-spacing: -0.025em;
       max-width: 620px;
@@ -372,7 +365,7 @@
       line-height: 1.2;
     }
     .proj-cta__sub {
-      color: rgba(27, 42, 74, 0.62);
+      color: rgba(245, 245, 242, 0.62);
       font-size: 17px;
       max-width: 540px;
       margin: 0 auto 36px;
@@ -384,29 +377,38 @@
       align-items: center;
       gap: 18px;
     }
-    .btn--dark {
-      background: #1B2A4A;
-      color: #F5F5F2;
-      box-shadow: 0 12px 32px -10px rgba(27, 42, 74, 0.35);
+    .proj-cta__btn-glow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #A8C5DA;
+      color: #1B2A4A;
+      font-family: "Inter", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 16px 48px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 0 24px rgba(168, 197, 218, 0.5), 0 4px 16px rgba(168, 197, 218, 0.3);
+      transition: all 0.3s ease;
     }
-    .btn--dark:hover {
+    .proj-cta__btn-glow:hover {
+      box-shadow: 0 0 36px rgba(168, 197, 218, 0.7), 0 6px 24px rgba(168, 197, 218, 0.4);
       transform: translateY(-2px);
-      background: #243657;
-      box-shadow: 0 18px 48px -10px rgba(27, 42, 74, 0.45);
     }
-    .btn--dark svg { transition: transform 0.18s; }
-    .btn--dark:hover svg { transform: translateX(3px); }
+    .proj-cta__btn-glow svg { transition: transform 0.18s; }
+    .proj-cta__btn-glow:hover svg { transform: translateX(3px); }
     .proj-cta__secondary {
       font-size: 14px;
-      color: rgba(27, 42, 74, 0.5);
+      color: rgba(245, 245, 242, 0.45);
       text-decoration: none;
       transition: color 0.2s;
     }
-    .proj-cta__secondary:hover { color: #1B2A4A; }
+    .proj-cta__secondary:hover { color: rgba(245, 245, 242, 0.85); }
 
-    /* Responsive */
+    /* Responsive misc */
     @media (max-width: 840px) {
-      .proj-blocks { padding: 0 24px; }
+      .proj-build-rows { padding: 0 24px; }
     }
     @media (max-width: 680px) {
       .proj-section__inner { padding: 0 8px; }
@@ -444,7 +446,7 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- A. HERO -->
   <section class="proj-hero">
     <div class="hero__grain" aria-hidden="true"></div>
     <div class="container proj-hero__inner">
@@ -470,75 +472,19 @@
       <!-- H1 avec icône inline -->
       <h1 class="reveal" data-delay="2">
         Automatisation Onboarding
-        <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;">
-          <circle cx="4" cy="16" r="3.2" fill="#A8C5DA"/>
-          <circle cx="16" cy="8" r="3.2" fill="#A8C5DA"/>
-          <circle cx="28" cy="16" r="3.2" fill="#A8C5DA"/>
-          <line x1="7" y1="14.5" x2="13" y2="9.5" stroke="#A8C5DA" stroke-width="1.5" stroke-linecap="round"/>
-          <line x1="19" y1="9.5" x2="25" y2="14.5" stroke="#A8C5DA" stroke-width="1.5" stroke-linecap="round"/>
-          <!-- Arrowhead top-right -->
-          <polyline points="23,14 25,14.5 24,12.5" stroke="#A8C5DA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-        </svg>
+        <img src="assets/logo_automation.svg" width="32" height="32" alt="" aria-hidden="true" style="vertical-align:middle;flex-shrink:0;">
       </h1>
 
       <!-- Sous-titre -->
-      <p class="proj-hero__sub reveal" data-delay="3">Automatiser l'administratif pour se concentrer sur l'humain.</p>
+      <p class="proj-hero__sub reveal" data-delay="3">Parce que votre temps devrait aller à vos clients, pas à votre boîte mail.</p>
 
-      <!-- Schéma de flux SVG -->
-      <svg
+      <!-- Visuel banner -->
+      <img
         class="proj-hero__diagram reveal"
         data-delay="4"
-        viewBox="0 0 640 330"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        role="img"
-        aria-label="Schéma du flux d'automatisation onboarding : Tally vers Notion, puis deux branches Gmail"
-      >
-        <defs>
-          <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
-            <path d="M0,0 L0,6 L8,3 Z" fill="#A8C5DA" opacity="0.8"/>
-          </marker>
-        </defs>
-
-        <!-- Fond du diagramme -->
-        <rect width="640" height="330" rx="14" fill="#1F3155"/>
-
-        <!-- Ligne Tally → Notion -->
-        <line x1="156" y1="165" x2="246" y2="165" stroke="#A8C5DA" stroke-width="1.5" stroke-opacity="0.7" marker-end="url(#arr)"/>
-
-        <!-- Bifurcation Notion → Gmail top -->
-        <polyline points="396,148 428,148 428,100 454,100"
-          stroke="#A8C5DA" stroke-width="1.5" stroke-opacity="0.7" fill="none" marker-end="url(#arr)"/>
-
-        <!-- Bifurcation Notion → Gmail bottom -->
-        <polyline points="396,182 428,182 428,240 454,240"
-          stroke="#A8C5DA" stroke-width="1.5" stroke-opacity="0.7" fill="none" marker-end="url(#arr)"/>
-
-        <!-- Point de bifurcation -->
-        <circle cx="428" cy="165" r="3" fill="#A8C5DA" opacity="0.6"/>
-
-        <!-- Boîte Tally -->
-        <rect x="14" y="128" width="142" height="74" rx="10" fill="rgba(168,197,218,0.07)" stroke="#A8C5DA" stroke-opacity="0.35" stroke-width="1"/>
-        <text x="85" y="158" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#F5F5F2">Tally</text>
-        <text x="85" y="178" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="rgba(168,197,218,0.75)">Nouveau formulaire</text>
-
-        <!-- Boîte Notion -->
-        <rect x="246" y="128" width="150" height="74" rx="10" fill="rgba(168,197,218,0.07)" stroke="#A8C5DA" stroke-opacity="0.35" stroke-width="1"/>
-        <text x="321" y="155" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#F5F5F2">Notion</text>
-        <text x="321" y="173" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="rgba(168,197,218,0.75)">Fiche créée</text>
-        <text x="321" y="189" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="rgba(168,197,218,0.75)">automatiquement</text>
-
-        <!-- Boîte Gmail haut -->
-        <rect x="454" y="62" width="168" height="74" rx="10" fill="rgba(168,197,218,0.07)" stroke="#A8C5DA" stroke-opacity="0.35" stroke-width="1"/>
-        <text x="538" y="91" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#F5F5F2">Gmail</text>
-        <text x="538" y="111" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="rgba(168,197,218,0.75)">Email de confirmation</text>
-
-        <!-- Boîte Gmail bas -->
-        <rect x="454" y="204" width="168" height="74" rx="10" fill="rgba(168,197,218,0.07)" stroke="#A8C5DA" stroke-opacity="0.35" stroke-width="1"/>
-        <text x="538" y="232" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#F5F5F2">Gmail</text>
-        <text x="538" y="250" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="rgba(168,197,218,0.75)">Alerte si pas de</text>
-        <text x="538" y="268" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="rgba(168,197,218,0.75)">réponse sous 48h</text>
-      </svg>
+        src="assets/mockup_banner_automation.svg"
+        alt="Aperçu du système d'automatisation onboarding"
+      />
 
     </div>
   </section>
@@ -548,7 +494,7 @@
     <div class="container">
       <div class="proj-section__inner">
         <span class="proj-eyebrow reveal">Contexte client</span>
-        <h2 class="reveal" data-delay="1">Camille prospecte, conseille et vend.<br>L'admin mangeait le reste.</h2>
+        <h2 class="reveal" data-delay="1">Automatiser l'administratif pour se concentrer sur l'humain.</h2>
         <p class="reveal" data-delay="2">
           Camille est autoentrepreneuse, représentante de marques de parfums. Elle prospecte, conseille et vend à ses clients. Son métier repose entièrement sur la relation humaine et la recommandation. Mais à chaque nouvelle demande, c'est la même histoire&nbsp;: noter les infos à la main, rédiger une réponse, et essayer de ne rien oublier. L'admin mangeait du temps qu'elle aurait dû passer à vendre.
         </p>
@@ -559,12 +505,48 @@
   <!-- C. LA MISSION -->
   <section class="proj-section proj-section--white">
     <div class="container">
-      <div class="proj-section__inner">
+      <div class="proj-section__inner" style="margin-bottom:48px;">
         <span class="proj-eyebrow reveal">La mission</span>
         <h2 class="reveal" data-delay="1">Un système qui travaille avant même qu'elle ouvre sa boîte mail.</h2>
-        <p class="reveal" data-delay="2">
+      </div>
+      <div class="proj-mission-cols reveal" data-delay="2">
+        <p class="proj-mission-text">
           Construire un système de réception et de traitement des demandes entrantes, sans saisie manuelle. Formulaire structuré, enregistrement automatique dans Notion, email de confirmation immédiat et alerte de relance à 48h. Camille ne touche plus à rien jusqu'à ce qu'il soit temps de répondre.
         </p>
+        <div class="proj-mission-diagram">
+          <svg
+            viewBox="0 0 640 330"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            aria-label="Schéma du flux d'automatisation onboarding : Tally vers Notion, puis deux branches Gmail"
+          >
+            <defs>
+              <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto" markerUnits="strokeWidth">
+                <path d="M0,0 L0,6 L8,3 Z" fill="#A8C5DA" opacity="0.8"/>
+              </marker>
+            </defs>
+            <rect width="640" height="330" rx="14" fill="#1F3155"/>
+            <line x1="156" y1="165" x2="246" y2="165" stroke="#A8C5DA" stroke-width="1.5" stroke-opacity="0.7" marker-end="url(#arr)"/>
+            <polyline points="396,148 428,148 428,100 454,100" stroke="#A8C5DA" stroke-width="1.5" stroke-opacity="0.7" fill="none" marker-end="url(#arr)"/>
+            <polyline points="396,182 428,182 428,240 454,240" stroke="#A8C5DA" stroke-width="1.5" stroke-opacity="0.7" fill="none" marker-end="url(#arr)"/>
+            <circle cx="428" cy="165" r="3" fill="#A8C5DA" opacity="0.6"/>
+            <rect x="14" y="128" width="142" height="74" rx="10" fill="rgba(168,197,218,0.07)" stroke="#A8C5DA" stroke-opacity="0.35" stroke-width="1"/>
+            <text x="85" y="158" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#F5F5F2">Tally</text>
+            <text x="85" y="178" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="rgba(168,197,218,0.75)">Nouveau formulaire</text>
+            <rect x="246" y="128" width="150" height="74" rx="10" fill="rgba(168,197,218,0.07)" stroke="#A8C5DA" stroke-opacity="0.35" stroke-width="1"/>
+            <text x="321" y="155" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#F5F5F2">Notion</text>
+            <text x="321" y="173" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="rgba(168,197,218,0.75)">Fiche créée</text>
+            <text x="321" y="189" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="rgba(168,197,218,0.75)">automatiquement</text>
+            <rect x="454" y="62" width="168" height="74" rx="10" fill="rgba(168,197,218,0.07)" stroke="#A8C5DA" stroke-opacity="0.35" stroke-width="1"/>
+            <text x="538" y="91" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#F5F5F2">Gmail</text>
+            <text x="538" y="111" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="rgba(168,197,218,0.75)">Email de confirmation</text>
+            <rect x="454" y="204" width="168" height="74" rx="10" fill="rgba(168,197,218,0.07)" stroke="#A8C5DA" stroke-opacity="0.35" stroke-width="1"/>
+            <text x="538" y="232" text-anchor="middle" font-family="Inter, sans-serif" font-size="14" font-weight="700" fill="#F5F5F2">Gmail</text>
+            <text x="538" y="250" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="rgba(168,197,218,0.75)">Alerte si pas de</text>
+            <text x="538" y="268" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="rgba(168,197,218,0.75)">réponse sous 48h</text>
+          </svg>
+        </div>
       </div>
     </div>
   </section>
@@ -576,49 +558,57 @@
         <span class="proj-eyebrow reveal">Ce qui a été construit</span>
         <h2 class="reveal" data-delay="1">Trois briques. Un système complet.</h2>
       </div>
-      <div class="proj-blocks">
 
-        <!-- Bloc 1 — Le formulaire -->
-        <div class="proj-block">
-          <div class="proj-block__text">
-            <h3 class="reveal">Un point d'entrée unique et guidé</h3>
-            <p class="reveal" data-delay="1">
-              Le formulaire remplace tous les canaux d'entrée disparates. En 4 étapes courtes, le prospect partage son identité, ses préférences olfactives, son budget et ses inspirations. Une barre de progression visible à chaque étape. Une page de remerciement qui pose d'emblée le bon ton&nbsp;: "Je reviens vers toi dans les 48h." Camille le partage où elle veut, le système fait le reste.
+      <div class="proj-build-rows">
+
+        <!-- Bloc 1 — Formulaire : texte gauche, image droite -->
+        <div class="proj-build-row">
+          <div class="proj-build-row__text reveal">
+            <h3>Un point d'entrée unique et guidé</h3>
+            <p>
+              Le formulaire remplace tous les canaux d'entrée disparates. En 4 étapes courtes, le prospect partage son identité, ses préférences olfactives, son budget et ses inspirations. Une barre de progression visible à chaque étape. Une page de remerciement qui pose d'emblée le bon ton&nbsp;: «&nbsp;Je reviens vers toi dans les 48h.&nbsp;» Camille le partage où elle veut, le système fait le reste.
             </p>
           </div>
-          <img
-            src="assets/Formulaire.svg"
-            alt="Aperçu du formulaire d'onboarding Tally"
-            class="proj-block__img reveal"
-            data-delay="2"
-          />
+          <div class="proj-build-row__imgs reveal" data-delay="1">
+            <div class="proj-build-row__img-wrap">
+              <img src="assets/Formulaire.svg" alt="Aperçu du formulaire d'onboarding Tally">
+            </div>
+          </div>
         </div>
 
-        <!-- Bloc 2 — Workspace Notion -->
-        <div class="proj-block">
-          <div class="proj-block__text">
-            <h3 class="reveal">Tout arrive au même endroit, structuré et prêt à traiter</h3>
-            <p class="reveal" data-delay="1">
+        <!-- Bloc 2 — Workspace Notion : images gauche, texte droite -->
+        <div class="proj-build-row proj-build-row--reverse">
+          <div class="proj-build-row__imgs reveal" data-delay="1">
+            <div class="proj-build-row__img-wrap">
+              <img src="assets/Workspace_onboarding.svg" alt="Workspace Notion &mdash; vue kanban des prospects">
+            </div>
+            <div class="proj-build-row__img-wrap">
+              <img src="assets/BDD_Onboarding.svg" alt="Base de données Notion &mdash; fiche prospect">
+            </div>
+          </div>
+          <div class="proj-build-row__text reveal" data-delay="2">
+            <h3>Tout arrive au même endroit, structuré et prêt à traiter</h3>
+            <p>
               Dès qu'un formulaire est soumis, les informations arrivent automatiquement dans Notion. Chaque prospect a sa fiche, son statut, ses préférences et sa date de contact. Le tout dans un workspace pensé pour grandir&nbsp;: à terme, d'autres outils et bases pourront venir s'y greffer selon les besoins de l'activité.
             </p>
           </div>
-          <div class="proj-block__imgs reveal" data-delay="2">
-            <img src="assets/Workspace_onboarding.svg" alt="Workspace Notion &mdash; vue kanban des prospects" />
-            <img src="assets/BDD_Onboarding.svg"       alt="Base de données Notion &mdash; fiche prospect" />
-          </div>
         </div>
 
-        <!-- Bloc 3 — Automatisations Make -->
-        <div class="proj-block">
-          <div class="proj-block__text">
-            <h3 class="reveal">Le système qui travaille à votre place</h3>
-            <p class="reveal" data-delay="1">
+        <!-- Bloc 3 — Make : texte gauche, images droite -->
+        <div class="proj-build-row">
+          <div class="proj-build-row__text reveal">
+            <h3>Le système qui travaille à votre place</h3>
+            <p>
               Deux scénarios Make s'activent automatiquement. Le premier se déclenche à chaque nouvelle soumission Tally&nbsp;: les informations arrivent dans Notion et un email de confirmation personnalisé part au prospect dans la foulée. Le second tourne chaque matin&nbsp;: il détecte les demandes sans réponse depuis plus de 48h et envoie une alerte à Camille. Elle ne touche à rien jusqu'à ce qu'il soit temps d'agir.
             </p>
           </div>
-          <div class="proj-block__imgs reveal" data-delay="2">
-            <img src="assets/Make_1.svg" alt="Scénario Make 1 &mdash; réception et enregistrement automatique" />
-            <img src="assets/Make_2.svg" alt="Scénario Make 2 &mdash; alerte de relance à 48h" />
+          <div class="proj-build-row__imgs reveal" data-delay="1">
+            <div class="proj-build-row__img-wrap">
+              <img src="assets/Make_1.svg" alt="Scénario Make 1 &mdash; réception et enregistrement automatique">
+            </div>
+            <div class="proj-build-row__img-wrap">
+              <img src="assets/Make_2.svg" alt="Scénario Make 2 &mdash; alerte de relance à 48h">
+            </div>
           </div>
         </div>
 
@@ -635,17 +625,18 @@
     />
   </div>
 
-  <!-- E. CITATION FORTE -->
+  <!-- E. CITATION -->
   <section class="proj-quote">
     <div class="container">
-      <blockquote style="max-width:760px;margin:0 auto;padding:0;">
-        <p class="proj-quote__text reveal">
+      <div class="proj-quote__card reveal">
+        <p class="proj-quote__text">
           &ldquo;Au moins maintenant je passe mon temps à conseiller mes clients, pas à gérer de l'administratif. C'est quand même ça l'objectif.&rdquo;
         </p>
-        <footer class="proj-quote__author reveal" data-delay="1">
-          Camille B.<br>Autoentrepreneuse, représentante de marques de parfums
-        </footer>
-      </blockquote>
+        <span class="proj-quote__bubble">
+          Voir l'avis complet
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </span>
+      </div>
     </div>
   </section>
 
@@ -711,36 +702,36 @@
           <ul class="proj-compare__list">
             <li class="proj-compare__item">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <circle cx="8" cy="8" r="7" stroke="#A8C5DA" stroke-width="1.2"/>
-                <polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#A8C5DA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="8" cy="8" r="7" stroke="#4CAF82" stroke-width="1.2"/>
+                <polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#4CAF82" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               Un seul lien de formulaire à partager
             </li>
             <li class="proj-compare__item">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <circle cx="8" cy="8" r="7" stroke="#A8C5DA" stroke-width="1.2"/>
-                <polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#A8C5DA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="8" cy="8" r="7" stroke="#4CAF82" stroke-width="1.2"/>
+                <polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#4CAF82" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               Chaque réponse arrive structurée dans Notion
             </li>
             <li class="proj-compare__item">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <circle cx="8" cy="8" r="7" stroke="#A8C5DA" stroke-width="1.2"/>
-                <polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#A8C5DA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="8" cy="8" r="7" stroke="#4CAF82" stroke-width="1.2"/>
+                <polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#4CAF82" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               Confirmation envoyée automatiquement en quelques secondes
             </li>
             <li class="proj-compare__item">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <circle cx="8" cy="8" r="7" stroke="#A8C5DA" stroke-width="1.2"/>
-                <polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#A8C5DA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="8" cy="8" r="7" stroke="#4CAF82" stroke-width="1.2"/>
+                <polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#4CAF82" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               Alerte automatique si pas de réponse sous 48h
             </li>
             <li class="proj-compare__item">
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <circle cx="8" cy="8" r="7" stroke="#A8C5DA" stroke-width="1.2"/>
-                <polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#A8C5DA" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="8" cy="8" r="7" stroke="#4CAF82" stroke-width="1.2"/>
+                <polyline points="4.5,8.5 7,11 11.5,5.5" stroke="#4CAF82" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
               Expérience professionnelle dès l'envoi du formulaire
             </li>
@@ -751,31 +742,7 @@
     </div>
   </section>
 
-  <!-- G. TÉMOIGNAGE COMPLET -->
-  <section class="proj-testi">
-    <div class="container">
-      <div class="proj-testi__card reveal">
-        <span class="proj-testi__quote-mark" aria-hidden="true">"</span>
-        <p class="proj-testi__text">
-          Honnêtement je savais même pas que ce genre de système existait. Je gérais tout à la main, sur un Google Sheet basique, c'était un peu le bordel. Shawn a mis en place un formulaire que je partage, et derrière tout se fait tout seul. Les infos de la personne arrivent directement dans un tableau, elle reçoit un email de confirmation dans la foulée, et moi je reçois une alerte si j'ai pas répondu au bout de 48h. Je touche à rien, c'est magnifique. J'avais pas du tout prévu à quel point ça change l'image qu'on renvoie, moi la première je me sens plus pro. Au moins maintenant je passe mon temps à conseiller mes clients, pas à gérer de l'administratif. C'est quand même ça l'objectif.
-        </p>
-        <footer class="proj-testi__footer">
-          <img
-            class="proj-testi__avatar"
-            src="assets/Cam.jpeg"
-            alt="Camille B."
-            onerror="this.style.display='none'"
-          />
-          <div>
-            <p class="proj-testi__name">Camille B.</p>
-            <p class="proj-testi__role">Autoentrepreneuse, représentante de marques de parfums</p>
-          </div>
-        </footer>
-      </div>
-    </div>
-  </section>
-
-  <!-- H. CTA FINAL -->
+  <!-- G. CTA FINAL -->
   <section class="proj-cta">
     <div class="container">
       <h2 class="reveal">Vous recevez des demandes que vous traitez encore à la main&nbsp;?</h2>
@@ -783,7 +750,7 @@
         Un formulaire, un tableau, quelques automatisations. Vos prochaines demandes seront gérées avant même d'ouvrir votre boîte mail.
       </p>
       <div class="proj-cta__actions reveal" data-delay="2">
-        <a class="btn btn--dark" href="contact.html">
+        <a class="proj-cta__btn-glow" href="contact.html">
           Automatiser mon onboarding client
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
