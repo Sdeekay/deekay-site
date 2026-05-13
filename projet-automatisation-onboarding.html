@@ -50,6 +50,8 @@
       display: grid;
       gap: 0;
       justify-items: center;
+      padding-bottom: 0;
+      overflow: hidden;
     }
     .proj-hero__back {
       display: inline-flex;
@@ -114,9 +116,10 @@
       max-width: 840px;
       width: 100%;
       display: block;
-      margin: 0 auto;
+      margin: -20px auto 0;
       border-radius: 12px;
       box-shadow: 0 8px 40px rgba(27, 42, 74, 0.35);
+      vertical-align: bottom;
     }
 
     /* Content sections */
@@ -190,6 +193,12 @@
       width: 100%;
       height: auto;
       display: block;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .proj-mission-diagram:hover svg {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(27, 42, 74, 0.15);
     }
     @media (max-width: 768px) {
       .proj-mission-cols { flex-direction: column; gap: 40px; }
@@ -221,6 +230,9 @@
       margin: 0 0 16px;
       line-height: 1.2;
       text-align: left;
+      hyphens: none;
+      -webkit-hyphens: none;
+      white-space: normal;
     }
     .proj-build-row__text p {
       font-size: 16px;
@@ -292,7 +304,7 @@
       font-family: "DM Serif Display", serif;
       font-style: italic;
       font-weight: 400;
-      font-size: clamp(20px, 2.8vw, 30px);
+      font-size: clamp(15px, 1.8vw, 18px);
       color: #F5F5F2;
       line-height: 1.55;
       margin: 0 0 40px;
@@ -427,11 +439,12 @@
     .proj-cta__tagline {
       font-family: "DM Serif Display", "Times New Roman", serif;
       font-style: italic;
-      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-size: clamp(1rem, 1.5vw, 1.25rem);
       color: #fff;
       max-width: 640px;
       margin: 0 auto;
-      line-height: 1.2;
+      line-height: 1.5;
+      text-align: center;
     }
     .proj-cta__actions {
       display: flex;
@@ -797,7 +810,7 @@
           </div>
           <div class="proj-build-row__imgs reveal" data-delay="1">
             <div class="proj-build-row__img-wrap">
-              <img src="assets/automation_make.svg" alt="Scénarios Make &mdash; automatisation onboarding">
+              <img src="automation_make.svg" alt="Scénarios Make &mdash; automatisation onboarding">
             </div>
           </div>
         </div>
