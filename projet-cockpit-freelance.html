@@ -58,6 +58,24 @@
       transition: background 0.2s;
     }
     .proj-breadcrumb:hover { background: rgba(168,197,218,0.14); }
+    .proj-hero__back--capsule {
+      padding: 6px 16px 6px 12px;
+      border: 1px solid rgba(168,197,218,0.45);
+      background: rgba(168,197,218,0.08);
+      color: #A8C5DA;
+      transition: background 0.2s, opacity 0.2s;
+    }
+    .proj-hero__back--capsule:hover {
+      background: rgba(168,197,218,0.16);
+      opacity: 1;
+    }
+    .proj-cta__secondary {
+      font-size: 14px;
+      color: rgba(245,245,242,0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .proj-cta__secondary:hover { color: rgba(245,245,242,0.85); }
     .proj-hero__confidential {
       font-style: italic;
       color: rgba(168, 197, 218, 0.7);
@@ -452,7 +470,7 @@
     <div class="hero__grain" aria-hidden="true"></div>
     <div class="container proj-hero__inner">
 
-      <a href="realisations.html" class="proj-breadcrumb reveal">
+      <a href="realisations.html" class="proj-breadcrumb proj-hero__back--capsule reveal">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
         Réalisations
       </a>
@@ -702,6 +720,7 @@
           Parlons de votre cockpit
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
         </a>
+        <a class="proj-cta__secondary reveal" data-delay="3" href="realisations.html">Voir toutes les réalisations</a>
       </div>
     </div>
   </section>

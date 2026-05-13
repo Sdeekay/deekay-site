@@ -23,6 +23,16 @@
       isolation: isolate;
       text-align: center;
     }
+    .proj-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 20%, rgba(168,197,218,0.15), transparent 55%),
+        radial-gradient(circle at 20% 80%, rgba(168,197,218,0.06), transparent 40%);
+      z-index: 0;
+      pointer-events: none;
+    }
     .proj-hero .hero__grain {
       position: absolute;
       inset: 0;
@@ -31,9 +41,12 @@
       mix-blend-mode: overlay;
       pointer-events: none;
     }
+    .proj-hero .container {
+      padding-bottom: 0;
+    }
     .proj-hero__inner {
       position: relative;
-      z-index: 3;
+      z-index: 1;
       display: grid;
       gap: 0;
       justify-items: center;
@@ -94,7 +107,7 @@
       color: rgba(245, 245, 242, 0.68);
       font-size: 18px;
       max-width: 560px;
-      margin: 0 0 28px;
+      margin: 0;
       line-height: 1.6;
     }
     .proj-hero__diagram {
@@ -127,6 +140,15 @@
       text-transform: uppercase;
       color: #A8C5DA;
       margin-bottom: 18px;
+    }
+    .proj-eyebrow--light {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 16px;
+      border-radius: 999px;
+      background: rgba(27,42,74,0.07);
+      border: 1px solid rgba(27,42,74,0.13);
+      color: rgba(27,42,74,0.65);
     }
     .proj-section__inner h2 {
       font-family: "DM Serif Display", serif;
@@ -391,22 +413,25 @@
       padding: 100px 0;
       background: #1B2A4A;
       text-align: center;
+      display: grid;
+      gap: 32px;
+      justify-items: center;
     }
-    .proj-cta h2 {
-      font-size: clamp(26px, 4vw, 40px);
-      color: #FFFFFF;
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      max-width: 620px;
-      margin: 0 auto 16px;
+    .proj-cta__question {
+      font-size: 18px;
+      color: rgba(255,255,255,0.65);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.65;
+    }
+    .proj-cta__tagline {
+      font-family: "DM Serif Display", "Times New Roman", serif;
+      font-style: italic;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: #fff;
+      max-width: 640px;
+      margin: 0 auto;
       line-height: 1.2;
-    }
-    .proj-cta__sub {
-      color: rgba(245, 245, 242, 0.62);
-      font-size: 17px;
-      max-width: 540px;
-      margin: 0 auto 36px;
-      line-height: 1.7;
     }
     .proj-cta__actions {
       display: flex;
@@ -624,7 +649,7 @@
 
       <!-- Note de confidentialité -->
       <p class="proj-hero__confidential reveal" data-delay="1">
-        Les données visibles dans les captures sont fictives et ont été générées pour protéger la confidentialité de la cliente.
+        Afin de protéger la confidentialité des clients, les données visibles dans les captures sont fictives et ne servent qu'à illustrer le projet.
       </p>
 
       <!-- Tags -->
@@ -941,7 +966,7 @@
   <section class="proj-deliverables">
     <div class="container">
       <div style="text-align:center;margin-bottom:48px;">
-        <span class="proj-eyebrow reveal">Ce qui a été livré</span>
+        <span class="proj-eyebrow proj-eyebrow--light reveal">Ce qui a été livré</span>
         <h2 class="reveal" data-delay="1" style="font-family:'Inter',system-ui,sans-serif;font-style:normal;font-weight:800;font-size:clamp(28px,4vw,42px);color:#1B2A4A;letter-spacing:-0.025em;margin-bottom:0;line-height:1.2;">Les livrables</h2>
       </div>
       <div class="proj-deliverables__block reveal" data-delay="2">
@@ -974,10 +999,8 @@
   <!-- H. CTA FINAL -->
   <section class="proj-cta">
     <div class="container">
-      <h2 class="reveal">Vous recevez des demandes que vous traitez encore à la main&nbsp;?</h2>
-      <p class="proj-cta__sub reveal" data-delay="1">
-        Plus que quelques automatisations et vos prochaines demandes seront gérées avant même d'ouvrir votre boîte mail.
-      </p>
+      <p class="proj-cta__question reveal">Vous recevez des demandes que vous traitez encore à la main&nbsp;?</p>
+      <p class="proj-cta__tagline reveal" data-delay="1">Plus que quelques automatisations et vos prochaines demandes seront gérées avant même d'ouvrir votre boîte mail.</p>
       <div class="proj-cta__actions reveal" data-delay="2">
         <a class="proj-cta__btn-glow" href="contact.html">
           Automatiser mon onboarding client
@@ -1029,7 +1052,7 @@
         <span class="legal">
           <a href="faq.html">FAQ</a>
           <a href="mentions-legales.html">Mentions légales</a>
-          <a href="politique-de-confidentialité.html">Politique de confidentialité</a>
+          <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
         </span>
       </div>
     </div>
