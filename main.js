@@ -6,10 +6,23 @@
   const burger = document.querySelector('.nav__burger');
   const links = document.querySelectorAll('.nav__links a');
 
-  // Sticky nav glassmorphism on scroll
+  // Sticky nav glassmorphism + auto-hide on scroll
+  let lastScrollY = window.scrollY;
   const onScroll = () => {
-    if (window.scrollY > 24) nav.classList.add('is-stuck');
+    const y = window.scrollY;
+    const delta = y - lastScrollY;
+
+    if (y > 24) nav.classList.add('is-stuck');
     else nav.classList.remove('is-stuck');
+
+    if (y < 80) {
+      nav.classList.remove('nav--hidden');
+    } else if (Math.abs(delta) > 8) {
+      if (delta > 0) nav.classList.add('nav--hidden');
+      else nav.classList.remove('nav--hidden');
+    }
+
+    lastScrollY = y;
   };
   onScroll();
   window.addEventListener('scroll', onScroll, { passive: true });
