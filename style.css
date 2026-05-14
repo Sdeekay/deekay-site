@@ -718,16 +718,37 @@ p { margin: 0; text-wrap: pretty; }
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: var(--accent);
-  color: var(--navy);
-  font-weight: 700;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: #F5F5F2;
+  font-weight: 600;
   padding: 14px 28px;
   border-radius: 999px;
   text-decoration: none;
   font-size: 0.95rem;
-  transition: opacity 0.2s;
+  transition: background 0.2s, border-color 0.2s, transform 0.2s;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.15), 0 4px 16px rgba(0,0,0,0.15);
 }
 
 .faq-cta .btn--primary:hover {
-  opacity: 0.85;
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.35);
+  transform: translateY(-1px);
+}
+
+/* ── Nav forcé navy sur pages légales ── */
+
+.page-legal .nav {
+  background: rgba(15,24,50,0.97);
+  border-bottom-color: var(--glass-border);
+}
+
+/* ── Texte justifié sur pages légales ── */
+
+.legal-section p,
+.legal-section li,
+.faq-item p {
+  text-align: justify;
 }
