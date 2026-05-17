@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Cockpit Commercial — Deekay Consulting</title>
+  <meta name="description" content="Workspace Notion sur mesure pour un commercial indépendant. Pipeline, CRM, objectifs, dépenses et facturation centralisés dans un cockpit unique." />
+  <link rel="canonical" href="https://deekayconsulting.com/projet-cockpit-commercial.html" />
+  <link rel="icon" type="image/svg+xml" href="DEEKAY.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="tweaks.css" />
+  <style>
+    /* ============================================================
+       Cockpit Commercial — page projet
+       ============================================================ */
+
+    /* HERO */
+    .proj-hero {
+      position: relative;
+      padding: 140px 0 0;
+      background: #1B2A4A;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .proj-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 50% 20%, rgba(168,197,218,0.15), transparent 55%),
+        radial-gradient(circle at 20% 80%, rgba(168,197,218,0.06), transparent 40%);
+      z-index: 0;
+      pointer-events: none;
+    }
+    .proj-hero__inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 20px;
+      text-align: center;
+      justify-items: center;
+    }
+    .proj-breadcrumb {
+      font-size: 14px;
+      font-weight: 600;
+      color: #A8C5DA;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: 999px;
+      background: rgba(168,197,218,0.08);
+      border: 1px solid rgba(168,197,218,0.18);
+      transition: background 0.2s;
+    }
+    .proj-breadcrumb:hover { background: rgba(168,197,218,0.14); }
+    .proj-hero__back--capsule {
+      padding: 6px 16px 6px 12px;
+      border: 1px solid rgba(168,197,218,0.45);
+      background: rgba(168,197,218,0.08);
+      color: #A8C5DA;
+      transition: background 0.2s, opacity 0.2s;
+    }
+    .proj-hero__back--capsule:hover {
+      background: rgba(168,197,218,0.16);
+      opacity: 1;
+    }
+    .proj-cta__secondary {
+      font-size: 14px;
+      color: rgba(245,245,242,0.45);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .proj-cta__secondary:hover { color: rgba(245,245,242,0.85); }
+    .proj-hero__confidential {
+      font-style: italic;
+      color: rgba(168, 197, 218, 0.7);
+      font-size: 13px;
+      max-width: 560px;
+      margin: 0;
+    }
+    .proj-hero__tags {
+      display: flex;
+      gap: 8px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .proj-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #A8C5DA;
+      padding: 4px 14px;
+      border-radius: 100px;
+      background: rgba(168,197,218,0.12);
+      border: 1px solid rgba(168,197,218,0.22);
+    }
+    .proj-hero h1 {
+      font-family: "DM Serif Display", "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(38px, 5.5vw, 72px);
+      color: #fff;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .proj-hero__sub {
+      font-size: clamp(16px, 1.6vw, 19px);
+      color: rgba(245,245,242,0.75);
+      max-width: 580px;
+      line-height: 1.55;
+    }
+    .proj-hero__images {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      width: 100%;
+      max-width: 760px;
+      margin-top: 8px;
+    }
+    .proj-img-wrap {
+      position: relative;
+    }
+    .proj-img-wrap .proj-main-img {
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(27,42,74,0.15);
+      display: block;
+    }
+
+    /* SECTIONS */
+    .proj-section { padding: 96px 0; }
+    .proj-section--offwhite { background: #F5F5F2; color: #0B1426; }
+    .proj-section--white { background: #ffffff; color: #0B1426; }
+    .proj-section--navy { background: #1B2A4A; color: #F5F5F2; }
+    .proj-section--tight-bottom { padding-bottom: 48px; }
+
+    .proj-section-head {
+      text-align: center;
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+      margin-bottom: 32px;
+    }
+    .proj-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 16px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .proj-eyebrow--light {
+      background: rgba(27,42,74,0.07);
+      border: 1px solid rgba(27,42,74,0.13);
+      color: rgba(27,42,74,0.65);
+    }
+    .proj-eyebrow--dark {
+      background: rgba(168,197,218,0.1);
+      border: 1px solid rgba(168,197,218,0.2);
+      color: #A8C5DA;
+    }
+    .proj-section h2 {
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin: 0;
+      line-height: 1.1;
+      color: #0B1426;
+    }
+    .proj-section--navy h2 { color: #fff; }
+
+    .proj-section-sub {
+      font-size: 14px;
+      letter-spacing: 0.12em;
+      color: #A8C5DA;
+      margin: 0;
+    }
+    .proj-section--offwhite .proj-section-sub {
+      color: rgba(27,42,74,0.45);
+    }
+
+    .proj-text-wrap {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .proj-text {
+      font-size: 17px;
+      line-height: 1.8;
+      color: rgba(11,20,38,0.7);
+      text-align: justify;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+    }
+    .proj-section--navy .proj-text { color: rgba(245,245,242,0.75); }
+
+    .proj-blocks { margin-top: 72px; }
+
+    .proj-block {
+      display: grid;
+      grid-template-columns: 45% 55%;
+      gap: 56px;
+      align-items: center;
+      padding: 72px 0;
+      border-top: 1px solid rgba(27,42,74,0.08);
+    }
+    .proj-block:first-child { border-top: none; padding-top: 0; }
+
+    .proj-block--reverse {
+      grid-template-columns: 55% 45%;
+    }
+
+    .proj-block__text-wrap { }
+
+    .proj-block__title {
+      font-size: clamp(19px, 2.2vw, 26px);
+      font-weight: 800;
+      color: #0B1426;
+      letter-spacing: -0.02em;
+      margin: 0 0 16px;
+      line-height: 1.2;
+      text-align: left;
+    }
+    .proj-block__text {
+      font-size: 18px;
+      color: rgba(11,20,38,0.65);
+      line-height: 1.85;
+      text-align: justify;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+    }
+
+    .proj-block__images {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .proj-block__images .proj-img-wrap {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .proj-block__images .proj-img-wrap:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(27,42,74,0.15);
+    }
+
+    /* Finance bloc — deux colonnes image + légende */
+    .proj-finance-intro {
+      font-size: 17px;
+      color: rgba(11,20,38,0.65);
+      line-height: 1.8;
+      text-align: justify;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+      margin: 0 0 20px;
+    }
+    .proj-finance-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .proj-finance-col {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .proj-finance-col .proj-img-wrap {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .proj-finance-col .proj-img-wrap:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(27,42,74,0.15);
+    }
+    .proj-finance-caption {
+      font-size: 13px;
+      color: rgba(11,20,38,0.55);
+      line-height: 1.65;
+    }
+
+    /* Badge Deekay */
+    .proj-badge {
+      padding: 24px 0 0;
+      text-align: center;
+      background: transparent;
+      border-top: none;
+    }
+    .proj-badge__img {
+      width: 280px;
+      height: auto;
+      opacity: 0.85;
+      margin: 0 auto;
+      display: block;
+    }
+
+    /* Citation forte — fond navy */
+    .proj-quote--navy {
+      padding: 56px 0 80px;
+      background: #1B2A4A;
+    }
+    .proj-quote--navy .proj-quote__card {
+      max-width: 760px;
+      margin: 0 auto;
+      border-left: 4px solid rgba(168, 197, 218, 0.5);
+      padding-left: 40px;
+    }
+    .proj-quote--navy .proj-quote__text {
+      font-family: "DM Serif Display", serif;
+      font-style: italic;
+      font-weight: 400;
+      font-size: clamp(15px, 1.8vw, 18px);
+      color: #F5F5F2;
+      line-height: 1.55;
+      margin: 0 0 40px;
+    }
+    .proj-quote__author-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .proj-quote__author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .proj-quote__avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(168, 197, 218, 0.4);
+      flex-shrink: 0;
+    }
+    .proj-quote__author-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .proj-quote__author-info strong {
+      color: #F5F5F2;
+      font-size: 15px;
+      font-weight: 700;
+    }
+    .proj-quote__author-info span {
+      color: rgba(245, 245, 242, 0.55);
+      font-size: 13px;
+    }
+    .proj-quote__cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: rgba(168, 197, 218, 0.12);
+      border: 1px solid rgba(168, 197, 218, 0.3);
+      color: #A8C5DA;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      font-family: "Inter", system-ui, sans-serif;
+    }
+    .proj-quote__cta:hover {
+      background: rgba(168, 197, 218, 0.22);
+      transform: translateY(-1px);
+    }
+
+    /* Modal */
+    .proj-modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(27, 42, 74, 0.55);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .proj-modal-overlay.is-open {
+      display: flex;
+    }
+    .proj-modal {
+      position: relative;
+      max-width: 620px;
+      width: 100%;
+      background: #FFFFFF;
+      border: 1px solid rgba(27, 42, 74, 0.1);
+      border-radius: 20px;
+      padding: 48px 48px 40px;
+      box-shadow: 0 24px 64px rgba(27, 42, 74, 0.25);
+      animation: modalIn 0.25s ease;
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(12px) scale(0.98); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .proj-modal__close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: rgba(27,42,74,0.06);
+      border: 1px solid rgba(27,42,74,0.12);
+      border-radius: 50%;
+      width: 36px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #1B2A4A;
+      transition: background 0.2s;
+    }
+    .proj-modal__close:hover { background: rgba(27,42,74,0.12); }
+    .proj-modal__author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .proj-modal__author .proj-quote__author-info strong { color: #1B2A4A; }
+    .proj-modal__author .proj-quote__author-info span {
+      color: rgba(27,42,74,0.55);
+    }
+    .proj-modal__text {
+      font-family: "Inter", system-ui, sans-serif;
+      font-style: normal;
+      color: rgba(27,42,74,0.75);
+      font-size: 16px;
+      line-height: 1.8;
+      margin: 0;
+    }
+
+    /* AVANT / APRÈS */
+    .proj-section--avap { padding: 120px 0; }
+
+    .proj-avap-head {
+      text-align: center;
+      margin-bottom: 64px;
+      display: grid;
+      gap: 12px;
+      justify-items: center;
+    }
+    .proj-split {
+      display: grid;
+      grid-template-columns: 1fr 1px 1fr;
+      gap: 0 56px;
+      max-width: 960px;
+      margin: 0 auto;
+      align-items: start;
+    }
+    .proj-split__divider {
+      background: rgba(168,197,218,0.2);
+      align-self: stretch;
+    }
+    .proj-split__col h3 {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin: 0 0 28px;
+      color: #fff;
+    }
+    .proj-split__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 20px;
+    }
+    .proj-split__list li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: rgba(245,245,242,0.82);
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .mark {
+      flex-shrink: 0;
+      font-weight: 700;
+      font-size: 15px;
+      margin-top: 2px;
+    }
+    .mark--cross { color: #E05252; }
+    .mark--check { color: #4CAF82; }
+
+    /* LIVRABLES */
+    .proj-livrables-wrap {
+      max-width: 720px;
+      margin: 48px auto 0;
+    }
+    .proj-livrables-block { margin-bottom: 32px; }
+    .proj-livrables-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1B2A4A;
+      margin: 0 0 20px;
+      text-align: left;
+    }
+    .proj-livrables-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 16px;
+    }
+    .proj-livrables-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 16px;
+      color: rgba(11,20,38,0.7);
+      line-height: 1.65;
+      text-align: left;
+    }
+    .proj-livrables-list li svg {
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .proj-livrables-quote {
+      font-family: "DM Serif Display", "Times New Roman", serif;
+      font-style: italic;
+      font-size: 18px;
+      color: #1B2A4A;
+      text-align: center;
+      margin: 0;
+      padding-top: 8px;
+    }
+
+    /* CTA */
+    .proj-cta {
+      text-align: center;
+      display: grid;
+      gap: 32px;
+      justify-items: center;
+    }
+    .proj-cta__question {
+      font-size: 18px;
+      color: rgba(255,255,255,0.65);
+      max-width: 560px;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .proj-cta__tagline {
+      font-family: "DM Serif Display", "Times New Roman", serif;
+      font-style: italic;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      color: #fff;
+      max-width: 640px;
+      line-height: 1.2;
+      margin: 0;
+    }
+    .proj-cta__btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #A8C5DA;
+      color: #1B2A4A;
+      font-family: "Inter", system-ui, sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 16px 48px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: 0 0 24px rgba(168,197,218,0.5), 0 4px 16px rgba(168,197,218,0.3);
+      transition: all 0.3s ease;
+    }
+    .proj-cta__btn:hover {
+      box-shadow: 0 0 36px rgba(168,197,218,0.7), 0 6px 24px rgba(168,197,218,0.4);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 900px) {
+      .proj-block,
+      .proj-block--reverse {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .proj-block--reverse .proj-block__images { order: -1; }
+      .proj-finance-cols { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      .proj-hero { padding-top: 110px; }
+      .proj-hero__images { grid-template-columns: 1fr; gap: 16px; }
+      .proj-split { grid-template-columns: 1fr; gap: 48px 0; }
+      .proj-split__divider { display: none; }
+      .proj-section { padding: 64px 0; }
+      .proj-section--avap { padding: 80px 0; }
+      .proj-block { padding: 48px 0; }
+      .proj-block:first-child { padding-top: 0; }
+    }
+    @media (max-width: 580px) {
+      .proj-modal { padding: 40px 24px 32px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="logo" href="index.html" aria-label="Deekay Consulting — accueil">
+        <img src="DEEKAY.svg" class="logo__mark-img" height="32" alt="Deekay Consulting">
+        Deekay<span class="logo__sub">consulting</span>
+      </a>
+      <nav>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="realisations.html" aria-current="page">Réalisations</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#parcours">Parcours</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="nav__lang">
+            <span class="lang-active">FR</span>
+            <span class="lang-sep">|</span>
+            <span class="lang-inactive">EN</span>
+          </li>
+        </ul>
+      </nav>
+      <a href="contact.html" class="nav__cta">
+        Évaluer mon projet
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <button class="nav__burger" aria-label="Ouvrir le menu" aria-controls="navLinks"><span></span></button>
+    </div>
+  </header>
+
+  <!-- A. HERO -->
+  <section class="proj-hero">
+    <div class="hero__grain" aria-hidden="true"></div>
+    <div class="container proj-hero__inner">
+
+      <a href="realisations.html" class="proj-breadcrumb proj-hero__back--capsule reveal">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Réalisations
+      </a>
+
+      <p class="proj-hero__confidential reveal" data-delay="1">
+        Afin de protéger la confidentialité des clients, les données visibles dans les captures sont fictives et ne servent qu'à illustrer le projet.
+      </p>
+
+      <div class="proj-hero__tags reveal" data-delay="1">
+        <span class="proj-tag">Workspace</span>
+        <span class="proj-tag">Notion</span>
+      </div>
+
+      <h1 class="reveal" data-delay="2">
+        Cockpit Commercial
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;vertical-align:middle;">
+          <rect width="48" height="48" rx="10" fill="rgba(168,197,218,0.15)"/>
+          <rect x="8" y="18" width="32" height="12" rx="6" fill="rgba(168,197,218,0.18)"/>
+          <rect x="8" y="18" width="20" height="12" rx="6" fill="#A8C5DA"/>
+          <rect x="14" y="30" width="20" height="6" rx="3" fill="rgba(168,197,218,0.12)"/>
+          <rect x="14" y="30" width="12" height="6" rx="3" fill="rgba(168,197,218,0.5)"/>
+        </svg>
+      </h1>
+
+      <p class="proj-hero__sub reveal" data-delay="3">
+        Un workspace sur mesure pour piloter toute son activité commerciale depuis un seul endroit.
+      </p>
+
+      <div class="proj-hero__images reveal" data-delay="4">
+        <div class="proj-img-wrap">
+          <img class="proj-main-img" src="assets/Cockpit%20Commercial/Dashboard_1.svg" alt="Dashboard principal — Cockpit Commercial">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- B. CONTEXTE CLIENT -->
+  <section class="proj-section proj-section--offwhite">
+    <div class="container">
+      <div class="proj-section-head">
+        <span class="proj-eyebrow proj-eyebrow--light reveal">Contexte client</span>
+        <h2 class="reveal" data-delay="1">Marc, commercial indépendant</h2>
+      </div>
+      <div class="proj-text-wrap">
+        <p class="proj-text reveal" data-delay="2">
+          Marc est commercial indépendant. Il prospecte, négocie, signe, facture et recommence. Un cycle en boucle qu'il gérait jusqu'ici sans outil dédié : des relances dans sa tête, des prospects suivis sur des Google Sheets éparpillés, des objectifs fixés en début de mois et perdus de vue une semaine plus tard. Pas de réel suivi, pas de lecture claire de ce qu'il allait toucher en fin de mois. Il naviguait à vue.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- C. LA MISSION -->
+  <section class="proj-section proj-section--white">
+    <div class="container">
+      <div class="proj-section-head">
+        <span class="proj-eyebrow proj-eyebrow--light reveal">La mission</span>
+        <h2 class="reveal" data-delay="1">Un audit, puis un cockpit</h2>
+      </div>
+      <div class="proj-text-wrap">
+        <p class="proj-text reveal" data-delay="2">
+          Comprendre comment Marc travaillait au quotidien, ce qui lui faisait perdre du temps et ce qui lui manquait pour prendre des décisions. Puis concevoir et livrer un workspace Notion complet, avec cinq bases de données reliées entre elles, un dashboard opérationnel et un menu de navigation synchronisé. Pas un template générique. Un cockpit sculpté pour sa réalité de commercial indépendant.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- D. CE QUI A ÉTÉ CONSTRUIT -->
+  <section class="proj-section proj-section--offwhite proj-section--tight-bottom">
+    <div class="container">
+      <div class="proj-section-head">
+        <span class="proj-eyebrow proj-eyebrow--light reveal">Ce qui a été construit</span>
+        <h2 class="reveal" data-delay="1">Cinq bases, une seule logique</h2>
+        <p class="proj-section-sub reveal" data-delay="2">Pipeline · CRM · Objectifs · Dépenses · Devis &amp; Factures</p>
+      </div>
+
+      <div class="proj-blocks">
+
+        <!-- Bloc 1 — texte gauche, image droite -->
+        <div class="proj-block">
+          <div class="proj-block__text-wrap">
+            <h3 class="proj-block__title reveal">Tout commence ici</h3>
+            <p class="proj-block__text reveal" data-delay="1">
+              Le dashboard est la première page que Marc ouvre. Une citation pour donner le ton, une todo en trois niveaux pour structurer sa journée, et cinq vues liées qui remontent l'essentiel de son activité : ses objectifs du mois avec leur progression, ses prospects chauds, ses relances de la semaine et ses dépenses en cours. Tout est visible. Rien n'est à chercher. Un bloc mémo lui permet de noter ce qui ne rentre dans aucune case. Un menu de navigation synchronisé, présent sur chaque page, lui permet de passer d'un espace à l'autre en un clic depuis n'importe où dans le workspace.
+            </p>
+          </div>
+          <div class="proj-block__images reveal" data-delay="2">
+            <div class="proj-img-wrap">
+              <img class="proj-main-img" src="assets/Cockpit%20Commercial/Dashboard_2.svg" alt="Dashboard opérationnel — Cockpit Commercial">
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloc 2 — image gauche, texte droite (reverse) -->
+        <div class="proj-block proj-block--reverse">
+          <div class="proj-block__images reveal" data-delay="1">
+            <div class="proj-img-wrap">
+              <img class="proj-main-img" src="assets/Cockpit%20Commercial/Pipeline.svg" alt="Pipeline commercial — vue kanban et suivi prospects">
+            </div>
+          </div>
+          <div class="proj-block__text-wrap">
+            <h3 class="proj-block__title reveal">Son pipeline, enfin lisible</h3>
+            <p class="proj-block__text reveal" data-delay="1">
+              Chaque prospect est un deal avec un statut, un secteur, une valeur estimée, une date de relance et une prochaine action. Trois vues pour trois besoins différents : le kanban par statut pour avoir la vision globale du parcours, le tableau groupé par probabilité pour savoir immédiatement où concentrer son énergie, le tableau filtré sur les relances de la semaine pour ne jamais laisser un prospect sans suite. Chaque fiche deal est une page structurée avec un template de prise de notes intégré.
+            </p>
+          </div>
+        </div>
+
+        <!-- Bloc 3 — texte gauche, image droite -->
+        <div class="proj-block">
+          <div class="proj-block__text-wrap">
+            <h3 class="proj-block__title reveal">Des objectifs qui parlent d'eux-mêmes</h3>
+            <p class="proj-block__text reveal" data-delay="1">
+              Chaque objectif mensuel est une ligne : un montant cible, un montant réalisé, et deux formules qui calculent tout le reste. La progression s'affiche automatiquement en pourcentage avec une barre visuelle. Le statut se met à jour seul : vert quand l'objectif est atteint, orange quand il reste atteignable, rouge quand il faut accélérer. Trois vues : la vue globale pour l'historique, la vue du mois en cours pour le pilotage quotidien, et un calendrier pour situer chaque objectif dans le temps.
+            </p>
+          </div>
+          <div class="proj-block__images reveal" data-delay="2">
+            <div class="proj-img-wrap">
+              <img class="proj-main-img" src="assets/Cockpit%20Commercial/Objetifs.svg" alt="Objectifs mensuels — progression automatique">
+            </div>
+          </div>
+        </div>
+
+        <!-- Bloc 4 — image gauche, texte droite (reverse) -->
+        <div class="proj-block proj-block--reverse">
+          <div class="proj-block__images reveal" data-delay="1">
+            <p class="proj-finance-intro">
+              Les dépenses et la facturation centralisées dans deux bases reliées. Plus de tickets froissés, plus de fichiers éparpillés. Chaque pièce justificative attachée directement à sa ligne.
+            </p>
+            <div class="proj-finance-cols">
+              <div class="proj-finance-col">
+                <div class="proj-img-wrap">
+                  <img class="proj-main-img" src="assets/Cockpit%20Commercial/D%C3%A9penses.svg" alt="Dépenses professionnelles — base Notion">
+                </div>
+                <p class="proj-finance-caption">Les dépenses professionnelles sont catégorisées, datées et archivées avec leur justificatif attaché directement à la fiche. Plus de photos qui traînent sur le téléphone. Le champ déductible force la bonne question à chaque saisie.</p>
+              </div>
+              <div class="proj-finance-col">
+                <div class="proj-img-wrap">
+                  <img class="proj-main-img" src="assets/Cockpit%20Commercial/Devis.svg" alt="Devis et factures — base Notion">
+                </div>
+                <p class="proj-finance-caption">La base Devis &amp; Factures suit chaque document émis avec son statut, sa date d'échéance et le document PDF joint. Trois vues : la vue globale, les devis envoyés en attente de réponse pour anticiper les relances, et les retards de paiement pour ne jamais laisser une facture se perdre.</p>
+              </div>
+            </div>
+          </div>
+          <div class="proj-block__text-wrap">
+            <h3 class="proj-block__title reveal">Ses finances, sans friction</h3>
+          </div>
+        </div>
+
+        <!-- Bloc 5 — texte gauche, image droite -->
+        <div class="proj-block">
+          <div class="proj-block__text-wrap">
+            <h3 class="proj-block__title reveal">Ses clients, centralisés</h3>
+            <p class="proj-block__text reveal" data-delay="1">
+              Chaque contact est une fiche complète : entreprise, secteur, coordonnées, statut et date de début de la relation. Le CA généré remonte automatiquement depuis les deals signés via un rollup, sans aucune saisie manuelle. Chaque fiche client est reliée à ses deals dans le Pipeline et à ses documents dans Devis &amp; Factures. Un template de prise de notes est intégré à chaque fiche.
+            </p>
+          </div>
+          <div class="proj-block__images reveal" data-delay="2">
+            <div class="proj-img-wrap">
+              <img class="proj-main-img" src="assets/Cockpit%20Commercial/Clients.svg" alt="CRM clients — fiches et CA automatique">
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BADGE DEEKAY -->
+  <div class="proj-badge reveal">
+    <img src="assets/Badge_Deekay.svg" alt="Badge Deekay Consulting" class="proj-badge__img" />
+  </div>
+
+  <!-- E. TÉMOIGNAGE -->
+  <section class="proj-quote proj-quote--navy">
+    <div class="container">
+      <div class="proj-quote__card reveal">
+        <p class="proj-quote__text">
+          &ldquo;L'outil est tellement bien construit et agréable à utiliser, que je me suis retrouvé à l'ouvrir tous les jours. Parfois plusieurs fois.&rdquo;
+        </p>
+        <div class="proj-quote__author-row">
+          <div class="proj-quote__author">
+            <img src="assets/Marc.jpeg" alt="Marc C." class="proj-quote__avatar">
+            <div class="proj-quote__author-info">
+              <strong>Marc C.</strong>
+              <span>Commercial indépendant</span>
+            </div>
+          </div>
+          <button class="proj-quote__cta" id="openModal" aria-haspopup="dialog">
+            Voir l'avis complet
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MODAL AVIS COMPLET -->
+  <div class="proj-modal-overlay" id="modalOverlay" role="dialog" aria-modal="true" aria-label="Avis complet de Marc C.">
+    <div class="proj-modal">
+      <button class="proj-modal__close" id="closeModal" aria-label="Fermer">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <div class="proj-modal__author">
+        <img src="assets/Marc.jpeg" alt="Marc C." class="proj-quote__avatar">
+        <div class="proj-quote__author-info">
+          <strong>Marc C.</strong>
+          <span>Commercial indépendant</span>
+        </div>
+      </div>
+      <p class="proj-modal__text">
+        &ldquo;Ce qui m'a convaincu dès le départ c'est que Shawn n'a pas cherché à m'imposer une solution. Il a d'abord voulu comprendre comment je travaillais au quotidien, ce qui me manquait et me faisait perdre du temps. J'irai même jusqu'à dire qu'on a co-construit ensemble ce workspace tant il reflète ma manière de voir les choses. L'espace centralise toute mon activité commerciale. J'ai un suivi de mon pipeline d'acquisition et de vente, un tableau de bord de mes performances et objectifs mensuels, le suivi de mes commissions et de mes dépenses professionnelles. Tout est relié, tout est lisible, et je peux passer d'une vue à l'autre selon ce que j'ai besoin d'analyser à un instant T. Ce que j'ai mis du temps à réaliser c'est l'importance de la routine qu'il m'a aidé à installer. Au début c'était une session par semaine, quinze minutes pour mettre à jour mon pipeline, vérifier mes objectifs en cours et cocher ce qui avait avancé. Mais l'outil est tellement bien construit et agréable à utiliser, que je me suis retrouvé à l'ouvrir tous les jours. Parfois plusieurs fois. Même quand rien n'a changé. Un coup d'œil suffit, c'est devenu un automatisme. Je recommande Shawn à tout commercial qui veut arrêter de naviguer à vue.&rdquo;
+      </p>
+    </div>
+  </div>
+
+  <!-- F. AVANT / APRÈS -->
+  <section class="proj-section proj-section--navy proj-section--avap">
+    <div class="container">
+
+      <div class="proj-avap-head">
+        <span class="proj-eyebrow proj-eyebrow--dark reveal">Ce qui a changé</span>
+        <h2 class="reveal" data-delay="1">Avant et après</h2>
+      </div>
+
+      <div class="proj-split">
+
+        <div class="proj-split__col">
+          <h3 class="reveal">Avant</h3>
+          <ul class="proj-split__list reveal" data-delay="1">
+            <li><span class="mark mark--cross">✗</span><span>Un Google Sheet avec une liste de prospects, un Google Doc avec une note par contact. Aucun système de tracking, aucune vue d'ensemble sur ce qui était chaud, froid ou en attente</span></li>
+            <li><span class="mark mark--cross">✗</span><span>Ses objectifs recalculés plusieurs fois dans le mois à la main pour savoir où il en était. Une perte de temps récurrente sans jamais avoir un chiffre fiable sous les yeux</span></li>
+            <li><span class="mark mark--cross">✗</span><span>Ses relances notées dans son calendrier, éparpillées parmi ses rendez-vous. Certains prospects tombaient dans l'oubli faute d'un suivi centralisé</span></li>
+            <li><span class="mark mark--cross">✗</span><span>Son CA recalculé et recalculé encore au fil du mois, sur plusieurs fichiers, sans jamais avoir une vision consolidée en temps réel</span></li>
+            <li><span class="mark mark--cross">✗</span><span>Ses dépenses professionnelles éparpillées entre tickets froissés, photos de factures et notes vocales</span></li>
+            <li><span class="mark mark--cross">✗</span><span>Ses contacts clients éparpillés dans son téléphone sans historique ni contexte</span></li>
+            <li><span class="mark mark--cross">✗</span><span>Ses outils : Google Sheets, Google Docs, son calendrier et surtout sa tête. Quatre endroits différents pour gérer une seule activité. Du temps passé à chercher, à mettre à jour, à recouper des informations qui auraient dû être au même endroit</span></li>
+            <li><span class="mark mark--cross">✗</span><span>Il naviguait à vue</span></li>
+          </ul>
+        </div>
+
+        <div class="proj-split__divider" aria-hidden="true"></div>
+
+        <div class="proj-split__col">
+          <h3 class="reveal">Après</h3>
+          <ul class="proj-split__list reveal" data-delay="1">
+            <li><span class="mark mark--check">✓</span><span>Un pipeline lisible en un coup d'oeil avec les deals chauds toujours visibles en priorité</span></li>
+            <li><span class="mark mark--check">✓</span><span>Ses objectifs suivis semaine par semaine avec progression automatique et signal visuel immédiat. La barre de progression fait le calcul à sa place</span></li>
+            <li><span class="mark mark--check">✓</span><span>Ses relances de la semaine remontent automatiquement dans le dashboard. Aucun prospect ne tombe dans l'oubli</span></li>
+            <li><span class="mark mark--check">✓</span><span>Son CA en cours visible à tout moment depuis le dashboard, sans recalcul, sans fichier ouvert en parallèle</span></li>
+            <li><span class="mark mark--check">✓</span><span>Chaque dépense catégorisée, datée et archivée avec son justificatif en deux clics</span></li>
+            <li><span class="mark mark--check">✓</span><span>Chaque client a sa fiche, son historique de deals et son CA généré calculé automatiquement</span></li>
+            <li><span class="mark mark--check">✓</span><span>Un seul outil. Tout est à jour, tout est visible. Il ne passe plus son temps à chercher et modifier, il observe et il analyse</span></li>
+            <li><span class="mark mark--check">✓</span><span>Il pilote</span></li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- G. CE QUI A ÉTÉ LIVRÉ -->
+  <section class="proj-section proj-section--offwhite">
+    <div class="container">
+      <div class="proj-section-head">
+        <span class="proj-eyebrow proj-eyebrow--light reveal">Ce qui a été livré</span>
+        <h2 class="reveal" data-delay="1">Les livrables</h2>
+      </div>
+
+      <div class="proj-livrables-wrap">
+
+        <div class="proj-livrables-block reveal" data-delay="2">
+          <h4 class="proj-livrables-title">Un workspace qui contient</h4>
+          <ul class="proj-livrables-list">
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 9v12"/></svg>
+              <span>Un dashboard opérationnel avec todo, mémo, et cinq vues liées</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h7"/><circle cx="17" cy="17" r="3"/><path d="M17 15v2l1 1"/></svg>
+              <span>Un menu de navigation synchronisé présent sur toutes les pages</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.7 4 3 9 3s9-1.3 9-3V5"/><path d="M3 12c0 1.7 4 3 9 3s9-1.3 9-3"/></svg>
+              <span>Cinq bases de données reliées entre elles : Pipeline, CRM Clients, Objectifs &amp; Performances, Dépenses Professionnelles, Devis &amp; Factures</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2l10 6.5L12 15 2 8.5z"/><path d="M2 15.5l10 6.5 10-6.5"/><path d="M2 11l10 6.5L22 11"/></svg>
+              <span>15+ vues configurées couvrant kanban, tableaux filtrés, regroupements et calendriers</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+              <span>Des templates de prise de notes intégrés aux fiches deals et clients</span>
+            </li>
+            <li>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              <span>Des formules de progression et de statut automatiques sur les objectifs</span>
+            </li>
+          </ul>
+        </div>
+
+        <p class="proj-livrables-quote reveal" data-delay="3">
+          Un accompagnement sur-mesure du début à la fin.
+        </p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- H. CTA FINAL -->
+  <section class="proj-section proj-section--navy">
+    <div class="container">
+      <div class="proj-cta">
+        <p class="proj-cta__question reveal">
+          Vous avez des prospects partout, des relances dans la tête et des objectifs que vous recalculez chaque semaine&nbsp;?
+        </p>
+        <p class="proj-cta__tagline reveal" data-delay="1">
+          Votre activité mérite mieux qu'un tableur et une bonne mémoire.
+        </p>
+        <a class="proj-cta__btn reveal" data-delay="2" href="contact.html">
+          Parlons de votre cockpit
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+        </a>
+        <a class="proj-cta__secondary reveal" data-delay="3" href="realisations.html">Voir toutes les réalisations</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col footer__col--brand">
+          <a class="logo" href="index.html">
+            <img src="DEEKAY.svg" class="logo__mark-img" height="32" alt="Deekay Consulting">
+            Deekay<span class="logo__sub">consulting</span>
+          </a>
+          <p class="footer__tag"><em>Transformez la complexité en clarté.</em></p>
+        </div>
+        <div class="footer__col footer__col--nav">
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="realisations.html">Réalisations</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#parcours">Parcours</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col footer__col--socials">
+          <ul class="footer__socials">
+            <li>
+              <a href="https://www.linkedin.com/in/shawn-diakite-3a503a163" aria-label="LinkedIn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 13v4"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://tiktok.com/@deekayconsulting" aria-label="TikTok" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.4 2.4 2.4 4.2 5 4.4"/></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Deekay Consulting · Tous droits réservés</span>
+        <span class="legal">
+          <a href="faq.html">FAQ</a>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="tweaks.js"></script>
+  <script>
+    const overlay = document.getElementById('modalOverlay');
+    const openBtn = document.getElementById('openModal');
+    const closeBtn = document.getElementById('closeModal');
+    openBtn.addEventListener('click', () => overlay.classList.add('is-open'));
+    closeBtn.addEventListener('click', () => overlay.classList.remove('is-open'));
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) overlay.classList.remove('is-open'); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') overlay.classList.remove('is-open'); });
+  </script>
+</body>
+</html>
