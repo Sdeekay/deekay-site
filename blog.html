@@ -143,9 +143,19 @@
       'Audit', 'Conseils', 'Lecture', 'Développement personnel'
     ];
 
-    // Articles — tableau vide au lancement, à remplir en phase 2
+    // Articles
     // Format : { id, titre, extrait, tags: [], date, lecture, slug }
-    var articles = [];
+    var articles = [
+      {
+        id: 1,
+        titre: "Pourquoi ton entreprise devient chaotique quand elle commence à grandir",
+        extrait: "Au début, tout tient. Pas parce que c'est structuré ou optimisé. Juste parce que l'échelle reste humaine. Quelques clients, quelques projets, quelques décisions à prendre et une seule tête pour coordonner l'ensemble.",
+        tags: ["Organisation"],
+        date: "17 mai 2026",
+        lecture: 7,
+        slug: "article-chaos-entreprise.html"
+      }
+    ];
 
     var activeTag = 'Tous';
 
