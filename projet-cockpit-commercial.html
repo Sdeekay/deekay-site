@@ -258,25 +258,36 @@
       box-shadow: 0 16px 40px rgba(27,42,74,0.15);
     }
 
-    /* Finance bloc — deux colonnes image + légende */
+    /* Finance bloc — centré, titre + sous-titre + deux colonnes image + légende */
+    .proj-block--finance {
+      display: block;
+      padding: 72px 0;
+      border-top: 1px solid rgba(27,42,74,0.08);
+      text-align: center;
+    }
+    .proj-block--finance .proj-block__title {
+      text-align: center;
+      margin-bottom: 14px;
+    }
     .proj-finance-intro {
       font-size: 17px;
       color: rgba(11,20,38,0.65);
       line-height: 1.8;
-      text-align: justify;
-      hyphens: auto;
-      -webkit-hyphens: auto;
-      margin: 0 0 20px;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto 32px;
     }
     .proj-finance-cols {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
     }
     .proj-finance-col {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 14px;
     }
     .proj-finance-col .proj-img-wrap {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -291,6 +302,7 @@
       font-size: 13px;
       color: rgba(11,20,38,0.55);
       line-height: 1.65;
+      text-align: left;
     }
 
     /* Badge Deekay */
@@ -468,7 +480,7 @@
       align-items: start;
     }
     .proj-split__divider {
-      background: rgba(168,197,218,0.2);
+      background: rgba(27,42,74,0.12);
       align-self: stretch;
     }
     .proj-split__col h3 {
@@ -476,7 +488,7 @@
       font-weight: 800;
       letter-spacing: -0.02em;
       margin: 0 0 28px;
-      color: #fff;
+      color: #0B1426;
     }
     .proj-split__list {
       list-style: none;
@@ -488,7 +500,7 @@
     .proj-split__list li {
       font-size: 15px;
       line-height: 1.75;
-      color: rgba(245,245,242,0.82);
+      color: rgba(11,20,38,0.72);
       display: flex;
       gap: 12px;
       align-items: flex-start;
@@ -666,10 +678,10 @@
         Cockpit Commercial
         <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="flex-shrink:0;vertical-align:middle;">
           <rect width="48" height="48" rx="10" fill="rgba(168,197,218,0.15)"/>
-          <rect x="8" y="18" width="32" height="12" rx="6" fill="rgba(168,197,218,0.18)"/>
-          <rect x="8" y="18" width="20" height="12" rx="6" fill="#A8C5DA"/>
-          <rect x="14" y="30" width="20" height="6" rx="3" fill="rgba(168,197,218,0.12)"/>
-          <rect x="14" y="30" width="12" height="6" rx="3" fill="rgba(168,197,218,0.5)"/>
+          <rect x="8" y="28" width="8" height="12" rx="2" fill="#A8C5DA"/>
+          <rect x="20" y="20" width="8" height="20" rx="2" fill="#A8C5DA" opacity="0.85"/>
+          <rect x="32" y="10" width="8" height="30" rx="2" fill="#A8C5DA" opacity="0.65"/>
+          <line x1="6" y1="40" x2="42" y2="40" stroke="#A8C5DA" stroke-width="1.5" stroke-opacity="0.5" stroke-linecap="round"/>
         </svg>
       </h1>
 
@@ -772,29 +784,25 @@
           </div>
         </div>
 
-        <!-- Bloc 4 — image gauche, texte droite (reverse) -->
-        <div class="proj-block proj-block--reverse">
-          <div class="proj-block__images reveal" data-delay="1">
-            <p class="proj-finance-intro">
-              Les dépenses et la facturation centralisées dans deux bases reliées. Plus de tickets froissés, plus de fichiers éparpillés. Chaque pièce justificative attachée directement à sa ligne.
-            </p>
-            <div class="proj-finance-cols">
-              <div class="proj-finance-col">
-                <div class="proj-img-wrap">
-                  <img class="proj-main-img" src="Cockpit%20Commercial/D%C3%A9penses.svg" alt="Dépenses professionnelles — base Notion">
-                </div>
-                <p class="proj-finance-caption">Les dépenses professionnelles sont catégorisées, datées et archivées avec leur justificatif attaché directement à la fiche. Plus de photos qui traînent sur le téléphone. Le champ déductible force la bonne question à chaque saisie.</p>
+        <!-- Bloc 4 — centré : titre, sous-titre, deux colonnes image + légende -->
+        <div class="proj-block proj-block--finance">
+          <h3 class="proj-block__title reveal">Ses finances, sans friction</h3>
+          <p class="proj-finance-intro reveal" data-delay="1">
+            Les dépenses et la facturation centralisées dans deux bases reliées. Plus de tickets froissés, plus de fichiers éparpillés. Chaque pièce justificative attachée directement à sa ligne.
+          </p>
+          <div class="proj-finance-cols reveal" data-delay="2">
+            <div class="proj-finance-col">
+              <div class="proj-img-wrap">
+                <img class="proj-main-img" src="Cockpit%20Commercial/D%C3%A9penses.svg" alt="Dépenses professionnelles — base Notion">
               </div>
-              <div class="proj-finance-col">
-                <div class="proj-img-wrap">
-                  <img class="proj-main-img" src="Cockpit%20Commercial/Devis.svg" alt="Devis et factures — base Notion">
-                </div>
-                <p class="proj-finance-caption">La base Devis &amp; Factures suit chaque document émis avec son statut, sa date d'échéance et le document PDF joint. Trois vues : la vue globale, les devis envoyés en attente de réponse pour anticiper les relances, et les retards de paiement pour ne jamais laisser une facture se perdre.</p>
-              </div>
+              <p class="proj-finance-caption">Les dépenses professionnelles sont catégorisées, datées et archivées avec leur justificatif attaché directement à la fiche. Plus de photos qui traînent sur le téléphone. Le champ déductible force la bonne question à chaque saisie.</p>
             </div>
-          </div>
-          <div class="proj-block__text-wrap">
-            <h3 class="proj-block__title reveal">Ses finances, sans friction</h3>
+            <div class="proj-finance-col">
+              <div class="proj-img-wrap">
+                <img class="proj-main-img" src="Cockpit%20Commercial/Devis.svg" alt="Devis et factures — base Notion">
+              </div>
+              <p class="proj-finance-caption">La base Devis &amp; Factures suit chaque document émis avec son statut, sa date d'échéance et le document PDF joint. Trois vues : la vue globale, les devis envoyés en attente de réponse pour anticiper les relances, et les retards de paiement pour ne jamais laisser une facture se perdre.</p>
+            </div>
           </div>
         </div>
 
@@ -867,11 +875,11 @@
   </div>
 
   <!-- F. AVANT / APRÈS -->
-  <section class="proj-section proj-section--navy proj-section--avap">
+  <section class="proj-section proj-section--white proj-section--avap">
     <div class="container">
 
       <div class="proj-avap-head">
-        <span class="proj-eyebrow proj-eyebrow--dark reveal">Ce qui a changé</span>
+        <span class="proj-eyebrow proj-eyebrow--light reveal">Ce qui a changé</span>
         <h2 class="reveal" data-delay="1">Avant et après</h2>
       </div>
 
