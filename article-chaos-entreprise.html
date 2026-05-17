@@ -127,6 +127,8 @@
       line-height: 1.15;
       letter-spacing: -0.01em;
       margin: 0 0 20px;
+      text-wrap: unset;
+      max-width: 100%;
     }
 
     /* Author + meta row */
@@ -196,9 +198,13 @@
       display: block;
     }
 
-    /* Closing section — h2 pleine largeur, image flottante droite, texte enroulé */
+    /* Closing section — grille 50/50, image inclinée côté droit */
     .article-closing {
       margin-top: 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
     }
     .article-closing h2 {
       font-size: 22px;
@@ -209,13 +215,6 @@
       letter-spacing: -0.02em;
       line-height: 1.1;
     }
-    .article-closing__image {
-      float: right;
-      width: 44%;
-      margin: 0 0 16px 32px;
-      border-radius: 20px;
-      display: block;
-    }
     .article-closing p {
       font-size: 17px;
       line-height: 1.8;
@@ -224,7 +223,19 @@
       text-align: justify;
       hyphens: auto;
     }
-    .article-closing__clear { clear: both; }
+    .article-closing__media {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px 8px;
+    }
+    .article-closing__image {
+      width: 100%;
+      display: block;
+      border-radius: 18px;
+      transform: rotate(3deg);
+      box-shadow: 0 32px 80px -16px rgba(27, 42, 74, 0.20), 0 8px 24px -8px rgba(27, 42, 74, 0.10);
+    }
 
     /* Footer — toujours navy */
     .footer {
@@ -242,10 +253,13 @@
       .article-body {
         padding: 48px 0 64px;
       }
+      .article-closing {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
       .article-closing__image {
-        float: none;
-        width: 100%;
-        margin: 0 0 24px;
+        transform: none;
+        box-shadow: 0 16px 40px -8px rgba(27, 42, 74, 0.14);
       }
     }
   </style>
@@ -386,16 +400,18 @@
 
         <p>Une entreprise qui tient par sa structure n'est pas une entreprise rigide. C'est une entreprise qui peut enfin grandir sans que chaque palier de croissance se transforme en crise.</p>
 
-        <!-- SECTION FINALE — h2 pleine largeur, image flottante droite -->
+        <!-- SECTION FINALE — grille 50/50, image inclinée premium -->
         <div class="article-closing">
-          <h2>Une entreprise ne devient pas chaotique par hasard</h2>
-          <img class="article-closing__image" src="Article/banner_warm.svg" alt="Illustration de conclusion de l'article" loading="lazy" />
+          <div class="article-closing__text">
+            <h2>Une entreprise ne devient pas chaotique par hasard</h2>
 
-          <p>Elle devient chaotique à un moment précis. Quand la croissance dépasse la capacité du système à absorber cette croissance. Et ce moment-là est trompeur parce que tout continue de fonctionner, mais tout devient plus lourd, plus lent, plus mental, plus dépendant.</p>
+            <p>Elle devient chaotique à un moment précis. Quand la croissance dépasse la capacité du système à absorber cette croissance. Et ce moment-là est trompeur parce que tout continue de fonctionner, mais tout devient plus lourd, plus lent, plus mental, plus dépendant.</p>
 
-          <p>À un moment, improviser coûte plus cher que structurer. La question n'est pas de savoir si tu vas atteindre ce seuil. C'est de savoir si tu l'auras anticipé ou subi. Les entreprises qui franchissent ce cap sans casse ne sont pas celles qui ont trouvé le bon outil. Ce sont celles qui ont arrêté de traiter la structure comme une contrainte et commencé à la traiter comme un avantage concurrentiel. C'est souvent à partir de là qu'une entreprise cesse simplement de fonctionner pour devenir réellement pilotable.</p>
-
-          <div class="article-closing__clear"></div>
+            <p>À un moment, improviser coûte plus cher que structurer. La question n'est pas de savoir si tu vas atteindre ce seuil. C'est de savoir si tu l'auras anticipé ou subi. Les entreprises qui franchissent ce cap sans casse ne sont pas celles qui ont trouvé le bon outil. Ce sont celles qui ont arrêté de traiter la structure comme une contrainte et commencé à la traiter comme un avantage concurrentiel. C'est souvent à partir de là qu'une entreprise cesse simplement de fonctionner pour devenir réellement pilotable.</p>
+          </div>
+          <div class="article-closing__media">
+            <img class="article-closing__image" src="Article/banner_warm.svg" alt="Illustration de conclusion de l'article" loading="lazy" />
+          </div>
         </div>
 
       </div>

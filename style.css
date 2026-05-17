@@ -93,6 +93,8 @@ p { margin: 0; text-wrap: pretty; }
   transition: transform var(--t-fast) var(--ease), background var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
 }
 .nav__cta:hover { background: var(--white); transform: translateY(-1px); box-shadow: 0 8px 24px -8px rgba(168,197,218,0.5); }
+.nav__cta svg { opacity: 0; transition: opacity var(--t-fast) var(--ease), transform var(--t-fast) var(--ease); }
+.nav__cta:hover svg { opacity: 1; transform: translateX(3px); }
 .nav__burger {
   display: none; width: 40px; height: 40px; align-items: center; justify-content: center;
   border-radius: 10px; background: var(--glass); border: 1px solid var(--glass-border);
@@ -192,16 +194,16 @@ p { margin: 0; text-wrap: pretty; }
 }
 .btn--primary { background: var(--white); color: var(--navy); box-shadow: 0 12px 30px -12px rgba(168, 197, 218, 0.6), inset 0 0 0 1px rgba(255,255,255,0.6); }
 .btn--primary:hover { transform: translateY(-2px); box-shadow: 0 18px 50px -10px rgba(168, 197, 218, 0.85), inset 0 0 0 1px rgba(255,255,255,0.6); }
-.btn--primary svg { transition: transform var(--t-fast) var(--ease); }
-.btn--primary:hover svg { transform: translateX(3px); }
+.btn--primary svg { opacity: 0; transition: opacity var(--t-fast) var(--ease), transform var(--t-fast) var(--ease); }
+.btn--primary:hover svg { opacity: 1; transform: translateX(3px); }
 .btn--ghost { color: var(--accent-soft); padding: 8px 4px; }
 .btn--ghost:hover { color: var(--white); }
 .btn--ghost .arrow { display: inline-block; transition: transform var(--t-fast) var(--ease); }
 .btn--ghost:hover .arrow { transform: translateY(3px); }
 .btn--accent-outline { background: transparent; color: var(--white); border: 1.5px solid var(--accent); }
 .btn--accent-outline:hover { background: rgba(168, 197, 218, 0.12); transform: translateY(-2px); }
-.btn--accent-outline svg { transition: transform var(--t-fast) var(--ease); }
-.btn--accent-outline:hover svg { transform: translateX(3px); }
+.btn--accent-outline svg { opacity: 0; transition: opacity var(--t-fast) var(--ease), transform var(--t-fast) var(--ease); }
+.btn--accent-outline:hover svg { opacity: 1; transform: translateX(3px); }
 
 .section { padding: var(--sp-10) 0; position: relative; }
 .section--light { background: var(--offwhite); color: var(--navy-900); }
