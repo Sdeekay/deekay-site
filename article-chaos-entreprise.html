@@ -4,7 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Pourquoi ton entreprise devient chaotique quand elle commence à grandir — Deekay Consulting</title>
-  <meta name="description" content="Au début, tout tient. Pas parce que c'est structuré ou optimisé. Juste parce que l'échelle reste humaine. Puis quelque chose change..." />
+  <meta name="description" content="Au début, tout tient. Pas parce que c'est structuré ou optimisé. Juste parce que l'échelle reste humaine. Découvrez pourquoi la croissance crée du chaos et comment y remédier par la structure." />
+  <meta name="author" content="Shawn Diakite" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Pourquoi ton entreprise devient chaotique quand elle commence à grandir" />
+  <meta property="og:description" content="Au début, tout tient. Juste parce que l'échelle reste humaine. Puis quelque chose change. Par accumulation." />
+  <meta property="og:url" content="https://deekayconsulting.com/article-chaos-entreprise.html" />
+  <meta property="article:published_time" content="2026-05-17" />
+  <meta property="article:author" content="Shawn Diakite" />
+  <meta property="article:tag" content="Organisation" />
+  <meta property="article:tag" content="Systèmes" />
+  <meta property="article:tag" content="Croissance" />
   <link rel="canonical" href="https://deekayconsulting.com/article-chaos-entreprise.html" />
   <link rel="icon" type="image/svg+xml" href="DEEKAY.svg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -19,7 +29,16 @@
       color: #2D2D2D;
     }
 
-    /* Banner full-width */
+    /* Nav always navy on this light-background page */
+    .nav {
+      background: #1B2A4A;
+      border-bottom-color: rgba(255, 255, 255, 0.08);
+    }
+    .nav.is-stuck {
+      background: rgba(15, 24, 50, 0.95);
+    }
+
+    /* Banner full-width (ouverture seulement) */
     .article-banner {
       width: 100%;
       height: 480px;
@@ -46,52 +65,80 @@
       padding: 0 24px;
     }
 
-    /* Category label */
+    /* Category pill — même style que les tags blog */
     .article-category {
       display: inline-block;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 600;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #A8C5DA;
+      color: #F5F5F2;
+      padding: 3px 10px;
+      border-radius: 100px;
+      background: rgba(27, 42, 74, 0.78);
+      border: 1px solid rgba(27, 42, 74, 0.12);
       margin-bottom: 18px;
     }
 
-    /* Title */
+    /* Title — même police que le site, sans italique */
     .article-title {
       font-size: 36px;
-      font-weight: 500;
+      font-weight: 800;
       color: #1B2A4A;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin: 0 0 16px;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin: 0 0 20px;
       text-wrap: balance;
     }
 
-    /* Meta */
+    /* Author + meta row */
+    .article-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+    .article-author__photo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      flex-shrink: 0;
+      display: block;
+    }
+    .article-author__name {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1B2A4A;
+      line-height: 1.2;
+    }
     .article-meta {
       font-size: 13px;
       color: #888;
-      margin-bottom: 48px;
+      margin: 0;
     }
 
-    /* Paragraphs */
+    /* Paragraphs — justifiés */
     .article-content p {
       font-size: 17px;
       line-height: 1.8;
       color: #2D2D2D;
       margin-bottom: 24px;
+      text-align: justify;
+      hyphens: auto;
     }
 
-    /* Section headings */
+    /* Section headings — même police que le site */
     .article-content h2 {
       font-size: 22px;
-      font-weight: 500;
+      font-weight: 800;
       color: #1B2A4A;
       margin-top: 56px;
       margin-bottom: 20px;
-      letter-spacing: -0.015em;
-      line-height: 1.25;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
     }
 
     /* Schema figure */
@@ -104,13 +151,46 @@
       display: block;
     }
 
-    /* Footer — on this page body is light, but footer is dark */
+    /* Closing section — dernière h2 + texte + image côte à côte */
+    .article-closing {
+      margin-top: 56px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+    .article-closing h2 {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1B2A4A;
+      margin-top: 0;
+      margin-bottom: 20px;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+    }
+    .article-closing p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #2D2D2D;
+      margin-bottom: 24px;
+      text-align: justify;
+      hyphens: auto;
+    }
+    .article-closing__image img {
+      width: 100%;
+      display: block;
+      border-radius: 20px;
+      position: sticky;
+      top: 100px;
+    }
+
+    /* Footer — toujours navy */
     .footer {
       background: #1B2A4A;
     }
 
     /* Mobile */
-    @media (max-width: 600px) {
+    @media (max-width: 640px) {
       .article-title {
         font-size: 26px;
       }
@@ -119,6 +199,12 @@
       }
       .article-body {
         padding: 48px 0 64px;
+      }
+      .article-closing {
+        grid-template-columns: 1fr;
+      }
+      .article-closing__image img {
+        position: static;
       }
     }
   </style>
@@ -167,7 +253,13 @@
 
       <h1 class="article-title">Pourquoi ton entreprise devient chaotique quand elle commence à grandir</h1>
 
-      <p class="article-meta">17 mai 2026&nbsp;&nbsp;·&nbsp;&nbsp;7 min de lecture</p>
+      <div class="article-author">
+        <img src="assets/images/ppshawn.jpeg" alt="Shawn Diakite" class="article-author__photo" />
+        <div>
+          <span class="article-author__name">Shawn Diakite</span>
+          <p class="article-meta">17 mai 2026&nbsp;&nbsp;·&nbsp;&nbsp;7 min de lecture</p>
+        </div>
+      </div>
 
       <div class="article-content">
 
@@ -203,7 +295,7 @@
 
         <p>L'entreprise ne s'écroule pas. Elle se désynchronise.</p>
 
-        <p>Et ça commence presque toujours de la même façon : les mêmes questions reviennent, en boucle. "C'est où déjà ?" "On a validé ça ou pas ?" "Qui s'en occupe ?" "C'était prévu pour quand ?" Ce ne sont pas des problèmes de compétence. Ce sont des problèmes de mémoire externe inexistante. L'information existe quelque part, mais elle n'est pas structurée de manière à être retrouvée sans dépendre d'une personne précise.</p>
+        <p>Et ça commence presque toujours de la même façon : les mêmes questions reviennent, en boucle. <em>"C'est où déjà ?" "On a validé ça ou pas ?" "Qui s'en occupe ?" "C'était prévu pour quand ?"</em> Ce ne sont pas des problèmes de compétence. Ce sont des problèmes de mémoire externe inexistante. L'information existe quelque part, mais elle n'est pas structurée de manière à être retrouvée sans dépendre d'une personne précise.</p>
 
         <p>En parallèle, les outils se multiplient. Notion, Google Drive, WhatsApp, Slack, emails, tableurs. Chaque outil a sa propre logique, mais ensemble ils n'en ont aucune. L'information ne circule plus. Elle se disperse.</p>
 
@@ -251,20 +343,23 @@
 
         <p>Une entreprise qui tient par sa structure n'est pas une entreprise rigide. C'est une entreprise qui peut enfin grandir sans que chaque palier de croissance se transforme en crise.</p>
 
-        <h2>Une entreprise ne devient pas chaotique par hasard</h2>
+        <!-- SECTION FINALE — texte + image côte à côte -->
+        <div class="article-closing">
+          <div class="article-closing__text">
+            <h2>Une entreprise ne devient pas chaotique par hasard</h2>
 
-        <p>Elle devient chaotique à un moment précis. Quand la croissance dépasse la capacité du système à absorber cette croissance. Et ce moment-là est trompeur parce que tout continue de fonctionner, mais tout devient plus lourd, plus lent, plus mental, plus dépendant.</p>
+            <p>Elle devient chaotique à un moment précis. Quand la croissance dépasse la capacité du système à absorber cette croissance. Et ce moment-là est trompeur parce que tout continue de fonctionner, mais tout devient plus lourd, plus lent, plus mental, plus dépendant.</p>
 
-        <p>À un moment, improviser coûte plus cher que structurer. La question n'est pas de savoir si tu vas atteindre ce seuil. C'est de savoir si tu l'auras anticipé ou subi. Les entreprises qui franchissent ce cap sans casse ne sont pas celles qui ont trouvé le bon outil. Ce sont celles qui ont arrêté de traiter la structure comme une contrainte et commencé à la traiter comme un avantage concurrentiel. C'est souvent à partir de là qu'une entreprise cesse simplement de fonctionner pour devenir réellement pilotable.</p>
+            <p>À un moment, improviser coûte plus cher que structurer. La question n'est pas de savoir si tu vas atteindre ce seuil. C'est de savoir si tu l'auras anticipé ou subi. Les entreprises qui franchissent ce cap sans casse ne sont pas celles qui ont trouvé le bon outil. Ce sont celles qui ont arrêté de traiter la structure comme une contrainte et commencé à la traiter comme un avantage concurrentiel. C'est souvent à partir de là qu'une entreprise cesse simplement de fonctionner pour devenir réellement pilotable.</p>
+          </div>
+          <div class="article-closing__image">
+            <img src="Article/banner_warm.svg" alt="Illustration de conclusion de l'article" loading="lazy" />
+          </div>
+        </div>
 
       </div>
     </div>
   </section>
-
-  <!-- BANNER FERMETURE -->
-  <div class="article-banner">
-    <img src="Article/banner_warm.svg" alt="Illustration de fermeture de l'article" loading="lazy" />
-  </div>
 
   <!-- FOOTER -->
   <footer class="footer">
