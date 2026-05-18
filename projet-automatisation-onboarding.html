@@ -65,6 +65,8 @@
       transition: opacity 0.2s;
     }
     .proj-hero__back:hover { opacity: 0.7; }
+    .proj-hero__back svg { transition: transform 0.18s ease; }
+    .proj-hero__back:hover svg { transform: translateX(-3px); }
     .proj-hero__confidential {
       font-style: italic;
       color: rgba(168, 197, 218, 0.7);
@@ -347,7 +349,8 @@
     .proj-quote__cta {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 0;
+      justify-content: center;
       padding: 10px 22px;
       border-radius: 999px;
       background: rgba(168, 197, 218, 0.12);
@@ -363,6 +366,8 @@
       background: rgba(168, 197, 218, 0.22);
       transform: translateY(-1px);
     }
+    .proj-quote__cta svg { opacity: 0; flex-shrink: 0; width: 0; overflow: hidden; margin-left: 0; transition: opacity 0.18s ease, transform 0.18s ease, width 0.18s ease, margin-left 0.18s ease; }
+    .proj-quote__cta:hover svg { opacity: 1; width: 14px; margin-left: 8px; transform: translateX(2px); }
 
     /* Avant / Après */
     .proj-compare {
@@ -453,7 +458,8 @@
     .proj-cta__btn-glow {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 0;
+      justify-content: center;
       background: #A8C5DA;
       color: #1B2A4A;
       font-family: "Inter", system-ui, sans-serif;
@@ -469,8 +475,8 @@
       box-shadow: 0 0 36px rgba(168, 197, 218, 0.7), 0 6px 24px rgba(168, 197, 218, 0.4);
       transform: translateY(-2px);
     }
-    .proj-cta__btn-glow svg { transition: transform 0.18s; }
-    .proj-cta__btn-glow:hover svg { transform: translateX(3px); }
+    .proj-cta__btn-glow svg { opacity: 0; flex-shrink: 0; width: 0; overflow: hidden; margin-left: 0; transition: opacity 0.18s ease, transform 0.18s ease, width 0.18s ease, margin-left 0.18s ease; }
+    .proj-cta__btn-glow:hover svg { opacity: 1; width: 16px; margin-left: 10px; transform: translateX(2px); }
     .proj-cta__secondary {
       font-size: 14px;
       color: rgba(245, 245, 242, 0.45);
