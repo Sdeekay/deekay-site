@@ -797,8 +797,14 @@ p { margin: 0; text-wrap: pretty; }
 /* ── OFFRES SECTION ── */
 
 .offres-section {
+  background: #FFFFFF;
+  padding: 0;
+}
+
+.offres-chemin-wrap {
   background: radial-gradient(circle at 50% 0%, rgba(168,197,218,0.07), transparent 60%), var(--navy);
-  padding-bottom: 0;
+  padding-top: var(--sp-10);
+  position: relative;
   overflow: hidden;
 }
 
@@ -1127,7 +1133,7 @@ p { margin: 0; text-wrap: pretty; }
   width: 0%;
 }
 
-/* Icons grid (2x3) */
+/* Icons grid (2x3) — cartes recap */
 .offre-carte__icons {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1156,6 +1162,40 @@ p { margin: 0; text-wrap: pretty; }
   font-weight: 600;
   color: var(--navy);
   letter-spacing: 0.02em;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* Icons grid dans les infographies (fond navy) */
+.offre-infographie__icons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px 10px;
+  width: 100%;
+}
+
+.offre-infographie__icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+}
+
+.offre-infographie__icon-item svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.offre-infographie__icon-item span {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: rgba(245, 245, 242, 0.72);
   text-align: center;
   line-height: 1.3;
 }
@@ -1199,16 +1239,34 @@ p { margin: 0; text-wrap: pretty; }
 
 .offres-cta-grid .offre-carte__score-svg { width: 72px; height: 72px; }
 
-/* Pousse le CTA en bas de chaque carte */
+/* CTA en lien texte dans la grille récap */
 .offres-cta-grid .offre-carte .offre-carte__cta {
   margin-top: auto;
-  background: var(--accent);
-  color: var(--navy);
-  box-shadow: 0 6px 20px -6px rgba(168, 197, 218, 0.40);
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+  justify-content: flex-start;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  transition: opacity var(--t-fast) var(--ease);
 }
 .offres-cta-grid .offre-carte .offre-carte__cta:hover {
-  background: var(--accent-soft);
-  box-shadow: 0 10px 28px -6px rgba(168, 197, 218, 0.50);
+  background: none;
+  box-shadow: none;
+  transform: none;
+  opacity: 0.72;
+}
+.offres-cta-grid .offre-carte--white .offre-carte__cta,
+.offres-cta-grid .offre-carte--offwhite .offre-carte__cta {
+  color: var(--navy);
+}
+.offres-cta-grid .offre-carte--navy .offre-carte__cta {
+  color: var(--accent);
 }
 
 /* Pilules plus légères dans la grille CTA */
