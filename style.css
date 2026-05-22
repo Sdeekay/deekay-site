@@ -798,13 +798,14 @@ p { margin: 0; text-wrap: pretty; }
 
 .offres-section {
   background: radial-gradient(circle at 50% 0%, rgba(168,197,218,0.07), transparent 60%), var(--navy);
+  padding-bottom: 0;
 }
 
 .offre-bloc {
   display: flex;
   align-items: center;
   gap: 64px;
-  padding: 20px 0;
+  padding: 56px 0;
 }
 
 .offre-bloc--reverse { flex-direction: row-reverse; }
@@ -1074,24 +1075,42 @@ p { margin: 0; text-wrap: pretty; }
   z-index: 1;
 }
 
+/* Bande blanche CTA */
+.offres-cta-band {
+  background: #FFFFFF;
+  padding: 72px 0 96px;
+}
+
 /* Grille CTA 3 cartes */
 .offres-cta-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  margin-top: 72px;
 }
 
-/* Les cartes dans la grille CTA s'étirent à la même hauteur */
+/* Cartes plus compactes dans la grille CTA */
 .offres-cta-grid .offre-carte {
   display: flex;
   flex-direction: column;
+  padding: 22px 20px;
+  gap: 14px;
 }
+
+.offres-cta-grid .offre-carte__score-svg { width: 72px; height: 72px; }
 
 /* Pousse le CTA en bas de chaque carte */
 .offres-cta-grid .offre-carte .offre-carte__cta {
   margin-top: auto;
 }
+
+/* Pilules plus légères dans la grille CTA */
+.offres-cta-grid .offre-carte__pill {
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
+/* Barres plus compactes */
+.offres-cta-grid .offre-carte__bars { gap: 10px; }
 
 /* Pas de cursor pointer sur les cartes de blocs (div) */
 div.offre-carte { cursor: default; }
@@ -1103,6 +1122,7 @@ a.offre-carte { cursor: pointer; }
   .offre-bloc--reverse {
     flex-direction: column;
     gap: 32px;
+    padding: 36px 0;
   }
   .offre-bloc__card-side {
     flex: 1 1 auto;
@@ -1110,7 +1130,8 @@ a.offre-carte { cursor: pointer; }
     width: 100%;
   }
   .offres-path { display: none; }
-  .offres-cta-grid { grid-template-columns: 1fr; margin-top: 48px; }
+  .offres-cta-band { padding: 48px 0 64px; }
+  .offres-cta-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 640px) {
