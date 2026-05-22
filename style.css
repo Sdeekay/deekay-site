@@ -1058,6 +1058,45 @@ p { margin: 0; text-wrap: pretty; }
   line-height: 1.3;
 }
 
+/* Chemin SVG inter-cartes */
+.offres-path {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: visible;
+}
+
+/* Container au-dessus du chemin SVG */
+.offres-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Grille CTA 3 cartes */
+.offres-cta-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 72px;
+}
+
+/* Les cartes dans la grille CTA s'étirent à la même hauteur */
+.offres-cta-grid .offre-carte {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Pousse le CTA en bas de chaque carte */
+.offres-cta-grid .offre-carte .offre-carte__cta {
+  margin-top: auto;
+}
+
+/* Pas de cursor pointer sur les cartes de blocs (div) */
+div.offre-carte { cursor: default; }
+a.offre-carte { cursor: pointer; }
+
 /* Responsive offres */
 @media (max-width: 900px) {
   .offre-bloc,
@@ -1070,5 +1109,10 @@ p { margin: 0; text-wrap: pretty; }
     max-width: 100%;
     width: 100%;
   }
-  .offre-connector { display: none; }
+  .offres-path { display: none; }
+  .offres-cta-grid { grid-template-columns: 1fr; margin-top: 48px; }
+}
+
+@media (max-width: 640px) {
+  .offres-cta-grid { grid-template-columns: 1fr; }
 }
