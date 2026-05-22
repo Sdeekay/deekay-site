@@ -58,6 +58,8 @@
       transition: background 0.2s;
     }
     .proj-breadcrumb:hover { background: rgba(168,197,218,0.14); }
+    .proj-breadcrumb svg { transition: transform 0.18s ease; }
+    .proj-breadcrumb:hover svg { transform: translateX(-3px); }
     .proj-hero__back--capsule {
       padding: 6px 16px 6px 12px;
       border: 1px solid rgba(168,197,218,0.45);
@@ -394,7 +396,8 @@
     .proj-cta__btn {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 0;
+      justify-content: center;
       background: #A8C5DA;
       color: #1B2A4A;
       font-family: "Inter", system-ui, sans-serif;
@@ -410,6 +413,8 @@
       box-shadow: 0 0 36px rgba(168,197,218,0.7), 0 6px 24px rgba(168,197,218,0.4);
       transform: translateY(-2px);
     }
+    .proj-cta__btn svg { opacity: 0; flex-shrink: 0; width: 0; overflow: hidden; margin-left: 0; transition: opacity 0.18s ease, transform 0.18s ease, width 0.18s ease, margin-left 0.18s ease; }
+    .proj-cta__btn:hover svg { opacity: 1; width: 16px; margin-left: 10px; transform: translateX(2px); }
 
     @media (max-width: 900px) {
       .proj-block,
