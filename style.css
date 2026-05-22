@@ -793,3 +793,282 @@ p { margin: 0; text-wrap: pretty; }
 .avis-modal__text p { margin-bottom: 14px; }
 .avis-modal__text p:last-child { margin-bottom: 0; }
 @media (max-width: 580px) { .avis-modal { padding: 40px 24px 32px; } }
+
+/* ── OFFRES SECTION ── */
+
+.offres-section {
+  background: radial-gradient(circle at 50% 0%, rgba(168,197,218,0.07), transparent 60%), var(--navy);
+}
+
+.offre-bloc {
+  display: flex;
+  align-items: center;
+  gap: 64px;
+  padding: 20px 0;
+}
+
+.offre-bloc--reverse { flex-direction: row-reverse; }
+
+.offre-bloc__text {
+  flex: 1 1 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.offre-bloc__card-side {
+  flex: 0 0 420px;
+  max-width: 420px;
+}
+
+.offre-bloc__num {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 40px;
+  color: var(--accent);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.offre-bloc__title {
+  font-size: clamp(22px, 2.4vw, 32px);
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.offre-bloc__body {
+  font-size: 15px;
+  color: rgba(245, 245, 242, 0.65);
+  line-height: 1.75;
+  text-align: justify;
+}
+
+/* Connector */
+.offre-connector { padding: 4px 0; pointer-events: none; }
+
+/* Cards */
+.offre-carte {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 32px 28px;
+  border-radius: 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.32s var(--ease), box-shadow 0.32s var(--ease);
+  cursor: pointer;
+}
+.offre-carte:hover { transform: translateY(-5px); }
+
+.offre-carte--white {
+  background: #FFFFFF;
+  box-shadow: 0 8px 32px -8px rgba(27, 42, 74, 0.13);
+  color: var(--navy);
+}
+.offre-carte--white:hover { box-shadow: 0 18px 52px -8px rgba(27, 42, 74, 0.20); }
+
+.offre-carte--navy {
+  background: var(--navy-800);
+  border: 1px solid rgba(168, 197, 218, 0.18);
+  color: var(--white);
+  box-shadow: 0 8px 32px -8px rgba(0, 0, 0, 0.28);
+}
+.offre-carte--navy:hover { box-shadow: 0 18px 52px -8px rgba(0, 0, 0, 0.40); }
+
+.offre-carte--offwhite {
+  background: var(--offwhite);
+  color: var(--navy);
+  box-shadow: 0 8px 32px -8px rgba(27, 42, 74, 0.11);
+}
+.offre-carte--offwhite:hover { box-shadow: 0 18px 52px -8px rgba(27, 42, 74, 0.18); }
+
+/* Card top */
+.offre-carte__top { display: flex; align-items: center; gap: 14px; }
+
+.offre-carte__avatar {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.offre-carte__title {
+  font-size: 16px;
+  font-weight: 800;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+  margin: 0;
+  color: inherit;
+}
+
+.offre-carte__title--dark {
+  font-size: 18px;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+/* Pills */
+.offre-carte__pills { display: flex; flex-direction: column; gap: 8px; }
+
+.offre-carte__pill {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 500;
+  background: rgba(27, 42, 74, 0.05);
+  border: 1px solid rgba(27, 42, 74, 0.1);
+  color: var(--navy);
+}
+.offre-carte__pill::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+/* CTA button */
+.offre-carte__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 22px;
+  border-radius: var(--radius-pill);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  text-align: center;
+  background: var(--navy);
+  color: var(--white);
+  box-shadow: 0 6px 20px -6px rgba(27, 42, 74, 0.30);
+  transition: transform var(--t-fast) var(--ease), background var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
+}
+.offre-carte__cta:hover {
+  background: var(--navy-600);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px -6px rgba(27, 42, 74, 0.40);
+}
+.offre-carte__cta--outline {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid var(--accent);
+  box-shadow: none;
+}
+.offre-carte__cta--outline:hover {
+  background: rgba(168, 197, 218, 0.12);
+  box-shadow: none;
+}
+
+/* Badge "Offre phare" */
+.offre-carte__badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: rgba(168, 197, 218, 0.14);
+  color: var(--accent);
+  border: 1px solid rgba(168, 197, 218, 0.22);
+  width: fit-content;
+}
+
+/* Score ring */
+.offre-carte__score-wrap { display: flex; justify-content: center; align-items: center; }
+.offre-carte__score-svg { width: 96px; height: 96px; }
+
+/* Progress bars */
+.offre-carte__bars { display: flex; flex-direction: column; gap: 14px; }
+
+.offre-carte__bar-row { display: flex; flex-direction: column; gap: 6px; }
+
+.offre-carte__bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.offre-carte__bar-label { font-size: 12px; color: rgba(245, 245, 242, 0.72); }
+
+.offre-carte__bar-pct { font-size: 12px; font-weight: 700; color: var(--accent); }
+
+.offre-carte__bar-track {
+  height: 4px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+}
+
+.offre-carte__bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--accent);
+  width: 0%;
+}
+
+/* Icons grid (2x3) */
+.offre-carte__icons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 12px;
+}
+
+.offre-carte__icon-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.offre-carte__icon-item svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--navy);
+  fill: none;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.offre-carte__icon-item span {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--navy);
+  letter-spacing: 0.02em;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* Responsive offres */
+@media (max-width: 900px) {
+  .offre-bloc,
+  .offre-bloc--reverse {
+    flex-direction: column;
+    gap: 32px;
+  }
+  .offre-bloc__card-side {
+    flex: 1 1 auto;
+    max-width: 100%;
+    width: 100%;
+  }
+  .offre-connector { display: none; }
+}
