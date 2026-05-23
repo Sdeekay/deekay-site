@@ -296,11 +296,38 @@
       <div class="container">
         <div class="offres-cta-grid reveal" data-delay="1">
         <a href="diagnostic.html" class="offre-carte offre-carte--white">
-          <h4 class="offre-carte__title">Appel de diagnostic</h4>
-          <div class="offre-carte__pills">
-            <span class="offre-carte__pill">Diagnostic Express</span>
-            <span class="offre-carte__pill">Session de Cadrage</span>
+          <div class="diag-card__header">
+            <div class="diag-card__avatar">SD</div>
+            <span class="diag-card__reserve">Réserver</span>
           </div>
+          <div class="diag-card__sessions">
+            <div class="diag-card__session diag-card__session--active">
+              <div class="diag-card__session-main">
+                <span class="diag-card__session-title">Diagnostic Express</span>
+                <span class="diag-card__session-dot"></span>
+              </div>
+              <div class="diag-card__session-skel">
+                <span></span><span></span>
+              </div>
+            </div>
+            <div class="diag-card__session">
+              <div class="diag-card__session-main">
+                <span class="diag-card__session-title">Session de Cadrage</span>
+              </div>
+              <div class="diag-card__session-skel">
+                <span></span><span></span>
+              </div>
+            </div>
+            <div class="diag-card__session">
+              <div class="diag-card__session-main">
+                <span class="diag-card__session-title">Bilan de clôture</span>
+              </div>
+              <div class="diag-card__session-skel">
+                <span></span><span></span>
+              </div>
+            </div>
+          </div>
+          <h4 class="offre-carte__title">Appel de diagnostic</h4>
           <span class="offre-carte__cta">Définir mon besoin →</span>
         </a>
         <a href="audit.html" class="offre-carte offre-carte--navy">
@@ -340,15 +367,43 @@
           <span class="offre-carte__cta">Demander un audit →</span>
         </a>
         <a href="contact.html" class="offre-carte offre-carte--offwhite">
+          <div class="accom-card__visual">
+            <div class="accom-card__badge accom-card__badge--tl">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
+            </div>
+            <div class="accom-card__badge accom-card__badge--tr">{ }</div>
+            <div class="accom-card__browser">
+              <div class="accom-card__browser-bar">
+                <span class="accom-card__dot"></span>
+                <span class="accom-card__dot"></span>
+                <span class="accom-card__dot"></span>
+                <div class="accom-card__urlbar"></div>
+              </div>
+              <div class="accom-card__browser-content">
+                <div class="accom-card__row">
+                  <div class="accom-card__block-sq"></div>
+                  <div class="accom-card__line-group">
+                    <div class="accom-card__skel-line" style="width:55%"></div>
+                  </div>
+                  <div class="accom-card__block-circle"></div>
+                </div>
+                <div class="accom-card__row">
+                  <div class="accom-card__line-group">
+                    <div class="accom-card__skel-line" style="width:35%"></div>
+                    <div class="accom-card__skel-line" style="width:85%"></div>
+                    <div class="accom-card__skel-line" style="width:60%"></div>
+                  </div>
+                </div>
+                <div class="accom-card__row accom-card__row--2col">
+                  <div class="accom-card__skel-line" style="width:100%"></div>
+                  <div class="accom-card__skel-line" style="width:100%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="accom-card__badge accom-card__badge--bl">Notion</div>
+            <div class="accom-card__badge accom-card__badge--br">Make</div>
+          </div>
           <h4 class="offre-carte__title offre-carte__title--dark">Accompagnement Complet</h4>
-          <ul class="offre-carte__livrables">
-            <li>Un workspace qui centralise tout</li>
-            <li>Des automatisations qui tournent sans vous</li>
-            <li>Une formation pour rester autonome</li>
-            <li>Un audit pour poser le diagnostic</li>
-            <li>Des bases de données structurées</li>
-            <li>L'IA intégrée dans vos process</li>
-          </ul>
           <span class="offre-carte__cta">Discuter de mon projet →</span>
         </a>
         </div><!-- /offres-cta-grid -->

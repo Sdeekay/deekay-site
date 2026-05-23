@@ -1308,6 +1308,233 @@ p { margin: 0; text-wrap: pretty; }
   margin-top: 5px;
 }
 
+/* ── Carte Diagnostic (style booking PJ1) ─────────────── */
+.diag-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.diag-card__avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+}
+
+.diag-card__reserve {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--navy);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.diag-card__sessions {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.diag-card__session {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border-left: 3px solid rgba(27, 42, 74, 0.10);
+  background: rgba(27, 42, 74, 0.03);
+}
+
+.diag-card__session--active {
+  border-left-color: var(--navy);
+  background: rgba(27, 42, 74, 0.055);
+}
+
+.diag-card__session-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.diag-card__session-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(27, 42, 74, 0.30);
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.diag-card__session--active .diag-card__session-title {
+  color: var(--navy-900);
+  font-weight: 700;
+}
+
+.diag-card__session-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--navy-900);
+  flex-shrink: 0;
+}
+
+.diag-card__session-skel {
+  display: flex;
+  gap: 6px;
+}
+
+.diag-card__session-skel span {
+  display: block;
+  height: 7px;
+  border-radius: 4px;
+  background: rgba(27, 42, 74, 0.09);
+}
+
+.diag-card__session-skel span:first-child { width: 56px; }
+.diag-card__session-skel span:last-child  { width: 38px; }
+
+.diag-card__session--active .diag-card__session-skel span {
+  background: rgba(27, 42, 74, 0.15);
+}
+
+/* ── Carte Accompagnement (style browser mockup PJ2) ────── */
+.accom-card__visual {
+  position: relative;
+  border-radius: 14px;
+  background: #EDF0F5;
+  padding: 18px 14px;
+  margin: 10px 6px 24px;
+  overflow: visible;
+}
+
+.accom-card__browser {
+  background: #FFFFFF;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 14px rgba(27, 42, 74, 0.09);
+}
+
+.accom-card__browser-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 12px;
+  background: #F2F4F8;
+  border-bottom: 1px solid rgba(27, 42, 74, 0.06);
+}
+
+.accom-card__dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(27, 42, 74, 0.16);
+  flex-shrink: 0;
+}
+
+.accom-card__urlbar {
+  flex: 1;
+  height: 7px;
+  border-radius: 4px;
+  background: rgba(27, 42, 74, 0.09);
+  margin-left: 4px;
+}
+
+.accom-card__browser-content {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.accom-card__row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.accom-card__row--2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  align-items: stretch;
+}
+
+.accom-card__block-sq {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(27, 42, 74, 0.08);
+  flex-shrink: 0;
+}
+
+.accom-card__block-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(27, 42, 74, 0.08);
+  flex-shrink: 0;
+}
+
+.accom-card__line-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.accom-card__skel-line {
+  height: 7px;
+  border-radius: 4px;
+  background: rgba(27, 42, 74, 0.08);
+}
+
+/* Floating badges */
+.accom-card__badge {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 6px 10px;
+  border-radius: 9px;
+  background: #FFFFFF;
+  box-shadow: 0 2px 12px rgba(27, 42, 74, 0.14);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.accom-card__badge svg {
+  width: 13px;
+  height: 13px;
+  stroke: var(--navy);
+  fill: none;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  flex-shrink: 0;
+}
+
+.accom-card__badge--tl { top: -13px; left: 0; }
+.accom-card__badge--tr { top: -13px; right: 0; }
+.accom-card__badge--bl { bottom: -13px; left: 0; }
+.accom-card__badge--br { bottom: -13px; right: 0; }
+
 /* Pas de cursor pointer sur les cartes de blocs (div) */
 div.offre-carte { cursor: default; }
 a.offre-carte { cursor: pointer; }
