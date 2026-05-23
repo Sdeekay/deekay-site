@@ -281,7 +281,7 @@
             </div>
           </div>
           <h4 class="offre-carte__title">Appel de diagnostic</h4>
-          <span class="offre-carte__cta">Définir mon besoin →</span>
+          <span class="offre-carte__cta">Définir mon besoin <span class="arrow">→</span></span>
         </a>
         <a href="audit.html" class="offre-carte offre-carte--navy">
           <span class="offre-carte__badge">Offre phare</span>
@@ -317,7 +317,7 @@
               <div class="offre-carte__bar-track"><div class="offre-carte__bar-fill" data-pct="74%"></div></div>
             </div>
           </div>
-          <span class="offre-carte__cta">Demander un audit →</span>
+          <span class="offre-carte__cta">Demander un audit <span class="arrow">→</span></span>
         </a>
         <a href="contact.html" class="offre-carte offre-carte--offwhite">
           <div class="accom-card__visual">
@@ -357,7 +357,7 @@
             <div class="accom-card__badge accom-card__badge--br">Make</div>
           </div>
           <h4 class="offre-carte__title offre-carte__title--dark">Accompagnement Complet</h4>
-          <span class="offre-carte__cta">Discuter de mon projet →</span>
+          <span class="offre-carte__cta">Discuter de mon projet <span class="arrow">→</span></span>
         </a>
         </div><!-- /offres-cta-grid -->
       </div><!-- /container -->
@@ -372,9 +372,12 @@
 
       function drawPath(animate) {
         if (!svg || !blocs || blocs.length < 3) return;
-        var c1 = blocs[0].querySelector('.offre-bloc__card-side');
-        var c2 = blocs[1].querySelector('.offre-bloc__card-side');
-        var c3 = blocs[2].querySelector('.offre-bloc__card-side');
+        function cardTarget(bloc) {
+          return bloc.querySelector('.offre-img-wrap') || bloc.querySelector('.offre-avantapres') || bloc.querySelector('.offre-bloc__card-side');
+        }
+        var c1 = cardTarget(blocs[0]);
+        var c2 = cardTarget(blocs[1]);
+        var c3 = cardTarget(blocs[2]);
         if (!c1 || !c2 || !c3) return;
 
         var sR = wrap.getBoundingClientRect();
@@ -384,12 +387,13 @@
         svg.style.width = W + 'px';
         svg.style.height = H + 'px';
 
-        function p(el) {
+        function p(el, trim) {
           var r = el.getBoundingClientRect();
+          var t = r.height * (trim || 0.10);
           return {
             cx: r.left - sR.left + r.width / 2,
-            top: r.top - sR.top,
-            bot: r.top - sR.top + r.height
+            top: r.top - sR.top + t,
+            bot: r.top - sR.top + r.height - t
           };
         }
 
@@ -556,7 +560,7 @@
             <div class="timeline">
               <div class="timeline__step"><span class="timeline__date">2023</span><span class="timeline__dot"></span><div class="timeline__content"><h4>Master en Management</h4><p>Digitalisation, IA &amp; Big Data</p></div></div>
               <div class="timeline__step"><span class="timeline__date">2024</span><span class="timeline__dot"></span><div class="timeline__content"><h4>Business Data Analyst</h4><p>Au sein d'une start-up parisienne</p></div></div>
-              <div class="timeline__step"><span class="timeline__date"></span><span class="timeline__dot"></span><div class="timeline__content"><h4>Freelance No-Code</h4><p>Premiers workspaces · Formation Notion</p></div></div>
+              <div class="timeline__step"><span class="timeline__date"></span><span class="timeline__dot"></span><div class="timeline__content"><h4>Freelance No-Code</h4><p>Premiers workspaces et automatisations</p></div></div>
               <div class="timeline__step"><span class="timeline__date">2025</span><span class="timeline__dot"></span><div class="timeline__content"><h4>Deekay Consulting</h4><p>Conseil · No-Code · IA</p></div></div>
             </div>
           </div>
@@ -598,7 +602,9 @@
               <p class="gap">Ça m'a aussi fait réaliser que mon expertise pouvait devenir un vrai produit. On parle même d'en faire une appli un jour.</p>
               <p>Si t'as des connaissances qui traînent partout et que tu sais pas quoi en faire, Shawn sait exactement quoi faire avec.</p>
             </div>
-            <button class="avis-card__toggle" hidden>Voir plus</button>
+            <div class="avis-card__actions">
+              <button class="avis-card__toggle" hidden>Voir plus</button>
+            </div>
           </div>
           <footer class="avis-card__footer">
             <div class="avis-card__avatar-wrap">
@@ -621,8 +627,10 @@
               <p class="gap">Même quand rien n'a changé. Un coup d'œil suffit, c'est devenu un automatisme.</p>
               <p>Je recommande Shawn à tout commercial qui veut arrêter de naviguer à vue.</p>
             </div>
-            <button class="avis-card__toggle" hidden>Voir plus</button>
-            <a class="avis-card__project-link" href="realisations.html#projet-marc">Voir le projet <span class="arrow">→</span></a>
+            <div class="avis-card__actions">
+              <button class="avis-card__toggle" hidden>Voir plus</button>
+              <a class="avis-card__project-link" href="projet-cockpit-commercial.html">Voir le projet <span class="arrow">→</span></a>
+            </div>
           </div>
           <footer class="avis-card__footer">
             <div class="avis-card__avatar-wrap">
@@ -644,8 +652,10 @@
               <p>J'avais pas du tout prévu à quel point ça change l'image qu'on renvoie, moi la première je me sens plus pro.</p>
               <p>Au moins maintenant je passe mon temps à conseiller mes clients, pas à gérer de l'administratif. C'est quand même ça l'objectif.</p>
             </div>
-            <button class="avis-card__toggle" hidden>Voir plus</button>
-            <a class="avis-card__project-link" href="projet-automatisation-onboarding.html">Voir le projet <span class="arrow">→</span></a>
+            <div class="avis-card__actions">
+              <button class="avis-card__toggle" hidden>Voir plus</button>
+              <a class="avis-card__project-link" href="projet-automatisation-onboarding.html">Voir le projet <span class="arrow">→</span></a>
+            </div>
           </div>
           <footer class="avis-card__footer">
             <div class="avis-card__avatar-wrap">
