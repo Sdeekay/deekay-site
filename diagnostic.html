@@ -55,17 +55,19 @@
 
     .diag-intro {
       display: flex; flex-direction: column; gap: 10px;
-      max-width: 640px;
+      max-width: 640px; margin: 0 auto;
     }
     .diag-intro p {
       font-size: 14px; line-height: 1.70;
       color: rgba(27,42,74,0.62); margin: 0;
+      text-align: justify;
     }
     .diag-intro p.diag-intro__conclusion {
       font-size: 14px; font-weight: 700;
       color: var(--navy); font-style: normal;
       border-left: 3px solid var(--accent);
       padding-left: 14px; margin-top: 4px;
+      text-align: left;
     }
 
     /* Mention bloc dans l'intro */
@@ -76,15 +78,16 @@
       padding: 10px 14px;
       font-size: 13px; line-height: 1.60;
       color: rgba(27,42,74,0.62); margin: 0;
+      text-align: left;
     }
 
     /* Cards section */
-    .diag-cards-section { background: var(--offwhite); padding: 0 0 56px; }
+    .diag-cards-section { background: var(--offwhite); padding: 20px 0 56px; }
 
     .diag-offres-grid {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 20px; align-items: start;
-      max-width: 820px;
+      gap: 20px; align-items: stretch;
+      max-width: 820px; margin: 0 auto;
     }
 
     /* Pricing card */
@@ -102,7 +105,6 @@
       border-color: rgba(168,197,218,0.14);
       color: var(--white);
       box-shadow: 0 6px 32px -8px rgba(0,0,0,0.30);
-      margin-top: 14px; /* space for floating badge */
     }
 
     /* Badge on top border */
@@ -211,7 +213,7 @@
     .diag-offre--dark .diag-offre__cta:hover { background: var(--accent-soft); }
 
     /* Blocs "aller plus loin" */
-    .diag-next { margin-top: 32px; display: flex; flex-direction: column; gap: 10px; max-width: 820px; }
+    .diag-next { margin-top: 32px; display: flex; flex-direction: column; gap: 10px; max-width: 820px; margin-left: auto; margin-right: auto; }
 
     .diag-next__block {
       display: flex; align-items: center; justify-content: space-between; gap: 16px;
@@ -301,9 +303,9 @@
         <p>Tu ne saurais pas forcément l'expliquer à quelqu'un d'autre. Mais tu le sens. Chaque semaine, tu travailles, tu avances, tu livres. Et pourtant il y a ce sentiment persistant que ça pourrait tourner beaucoup mieux.</p>
         <p>Peut-être que tu réinventes la roue à chaque nouveau projet. Peut-être que tes outils s'accumulent sans vraiment se parler. Peut-être que tu passes ton temps à gérer au lieu de construire. Ou peut-être que si quelqu'un te demandait comment ton activité fonctionne vraiment, tu serais bien en peine de lui répondre clairement.</p>
         <p>Ce n'est pas un problème de motivation. Ce n'est pas un problème de compétences. C'est un problème d'organisation. Et la plupart du temps, il suffit d'un regard extérieur pour voir ce que tu ne vois plus.</p>
-        <p class="diag-col__mention">Le Diagnostic Express est fait pour toi si tu as un point précis qui coince : un outil que tu n'utilises pas comme tu voudrais, un process qui te coûte du temps, une friction que tu n'arrives pas à résoudre seul.</p>
-        <p class="diag-col__mention">La Session de Cadrage va plus loin : tu reçois un compte rendu structuré avec ce qui bloque, pourquoi, et les premières pistes concrètes. Le point de départ idéal si tu veux avancer avec méthode.</p>
         <p class="diag-intro__conclusion">C'est exactement ce que le Diagnostic est là pour faire.</p>
+        <p class="diag-col__mention"><strong>Le Diagnostic Express</strong> est fait pour toi si tu as un point précis qui coince : un outil que tu n'utilises pas comme tu voudrais, un process qui te coûte du temps, une friction que tu n'arrives pas à résoudre seul.</p>
+        <p class="diag-col__mention"><strong>La Session de Cadrage</strong> va plus loin : tu reçois un compte rendu structuré avec ce qui bloque, pourquoi, et les premières pistes concrètes. Le point de départ idéal si tu veux avancer avec méthode.</p>
       </div>
     </div>
   </section>
