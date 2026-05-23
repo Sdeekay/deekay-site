@@ -985,6 +985,40 @@ p { margin: 0; text-wrap: pretty; }
 }
 
 /* Infographies du chemin */
+/* Illustration avant/après — bloc diagnostic */
+.offre-avantapres {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid rgba(168, 197, 218, 0.18);
+  background: rgba(168, 197, 218, 0.04);
+}
+.offre-avantapres__panel {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+}
+.offre-avantapres__panel svg {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+}
+.offre-avantapres__panel--avant {
+  background: rgba(168, 197, 218, 0.04);
+}
+.offre-avantapres__panel--apres {
+  background: rgba(168, 197, 218, 0.08);
+}
+.offre-avantapres__divider {
+  width: 1px;
+  background: rgba(168, 197, 218, 0.20);
+  flex-shrink: 0;
+}
+
 .offre-infographie {
   display: flex;
   flex-direction: column;
@@ -1218,9 +1252,8 @@ p { margin: 0; text-wrap: pretty; }
 
 /* Bande blanche CTA */
 .offres-cta-band {
-  background: var(--navy);
+  background: #FFFFFF;
   padding: 72px 0 96px;
-  border-top: 1px solid rgba(168, 197, 218, 0.12);
 }
 
 /* Grille CTA 3 cartes */
