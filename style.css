@@ -986,37 +986,35 @@ p { margin: 0; text-wrap: pretty; }
 
 /* Infographies du chemin */
 /* Illustration avant/après — bloc diagnostic */
+/* Avant/Après diagnostic — deux images côte à côte sans encadré */
 .offre-avantapres {
   display: flex;
-  align-items: stretch;
-  gap: 0;
-  border-radius: 20px;
-  overflow: hidden;
-  border: 1px solid rgba(168, 197, 218, 0.18);
-  background: rgba(168, 197, 218, 0.04);
-}
-.offre-avantapres__panel {
-  flex: 1 1 0;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  padding: 24px 16px;
+  gap: 0;
 }
-.offre-avantapres__panel svg {
-  width: 100%;
-  max-width: 160px;
+.offre-avantapres__img {
+  flex: 1 1 0;
+  min-width: 0;
+  width: 50%;
   height: auto;
-}
-.offre-avantapres__panel--avant {
-  background: rgba(168, 197, 218, 0.04);
-}
-.offre-avantapres__panel--apres {
-  background: rgba(168, 197, 218, 0.08);
+  display: block;
 }
 .offre-avantapres__divider {
   width: 1px;
-  background: rgba(168, 197, 218, 0.20);
+  align-self: stretch;
+  background: rgba(168, 197, 218, 0.28);
   flex-shrink: 0;
+  margin: 8px 0;
+}
+
+/* Icône SVG pleine largeur — blocs audit et accompagnement */
+.offre-img-wrap {
+  width: 100%;
+}
+.offre-img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 .offre-infographie {
