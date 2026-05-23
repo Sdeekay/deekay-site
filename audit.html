@@ -212,6 +212,39 @@
     @media (max-width: 860px) {
       .audit-offres-grid { grid-template-columns: 1fr; }
     }
+
+    /* Blocs "aller plus loin" */
+    .diag-next { margin-top: 32px; display: flex; flex-direction: column; gap: 10px; max-width: 820px; margin-left: auto; margin-right: auto; }
+    .diag-next__block {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 16px 20px; border-radius: 12px;
+      background: #FFFFFF; border: 1px solid rgba(27,42,74,0.10);
+      text-decoration: none; color: var(--navy);
+      box-shadow: 0 2px 12px -4px rgba(27,42,74,0.08);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .diag-next__block:hover { box-shadow: 0 6px 20px -4px rgba(27,42,74,0.15); transform: translateY(-2px); }
+    .diag-next__block-left { display: flex; flex-direction: column; gap: 2px; }
+    .diag-next__label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+    .diag-next__title { font-size: 15px; font-weight: 800; letter-spacing: -0.015em; color: var(--navy-900); }
+    .diag-next__sub { font-size: 12.5px; color: rgba(27,42,74,0.52); line-height: 1.4; }
+    .diag-next__arrow {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(27,42,74,0.06);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .diag-next__arrow svg { width: 14px; height: 14px; stroke: var(--navy); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Lien retour bas de page */
+    .diag-back-bottom { display: flex; justify-content: center; margin-top: 32px; }
+    .diag-back-bottom__link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600;
+      color: rgba(27,42,74,0.45); text-decoration: none;
+      transition: color .2s;
+    }
+    .diag-back-bottom__link:hover { color: var(--navy); }
+    .diag-back-bottom__link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
   </style>
 </head>
 <body>
@@ -395,6 +428,39 @@
         </div>
 
       </div>
+
+      <!-- Blocs "aller plus loin" -->
+      <div class="diag-next reveal" data-delay="3">
+        <a href="diagnostic.html" class="diag-next__block">
+          <div class="diag-next__block-left">
+            <span class="diag-next__label">Point d'entrée</span>
+            <span class="diag-next__title">Appel de Diagnostic</span>
+            <span class="diag-next__sub">Pas encore sûr de vos priorités ? Commencez par un diagnostic pour poser les bases.</span>
+          </div>
+          <div class="diag-next__arrow">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+        <a href="contact.html" class="diag-next__block">
+          <div class="diag-next__block-left">
+            <span class="diag-next__label">Sur mesure</span>
+            <span class="diag-next__title">Accompagnement Complet</span>
+            <span class="diag-next__sub">De l'audit à la mise en place : workspace, automatisations, IA, formation.</span>
+          </div>
+          <div class="diag-next__arrow">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+      </div>
+
+      <!-- Lien retour -->
+      <div class="diag-back-bottom reveal" data-delay="4">
+        <a href="index.html#services" class="diag-back-bottom__link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          Retour aux services
+        </a>
+      </div>
+
     </div>
   </section>
 

@@ -182,7 +182,7 @@ p { margin: 0; text-wrap: pretty; }
 .hero h1 { font-size: clamp(40px, 6.4vw, 84px); letter-spacing: -0.03em; margin-top: 28px; color: var(--white); }
 .hero h1 em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--accent); letter-spacing: -0.01em; }
 .hero__sub { margin: 22px auto 0; max-width: 580px; font-size: clamp(16px, 1.6vw, 19px); color: rgba(245, 245, 242, 0.72); line-height: 1.55; }
-.hero-word { display: inline; background: rgba(31, 48, 77, 0.2); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius: 4px; padding: 0 4px; }
+.hero-word { display: inline; }
 .hero__ctas--single { justify-content: center; }
 .hero__ctas { margin-top: 36px; display: inline-flex; align-items: center; gap: 22px; flex-wrap: wrap; justify-content: center; }
 
@@ -815,7 +815,7 @@ p { margin: 0; text-wrap: pretty; }
   padding: 56px 0;
 }
 
-.offre-bloc--reverse { flex-direction: row-reverse; }
+.offre-bloc--reverse { flex-direction: row-reverse; padding-top: 96px; }
 
 .offre-bloc__text {
   flex: 1 1 0;
@@ -1218,8 +1218,9 @@ p { margin: 0; text-wrap: pretty; }
 
 /* Bande blanche CTA */
 .offres-cta-band {
-  background: #FFFFFF;
+  background: var(--navy);
   padding: 72px 0 96px;
+  border-top: 1px solid rgba(168, 197, 218, 0.12);
 }
 
 /* Grille CTA 3 cartes */
