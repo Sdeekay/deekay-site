@@ -36,7 +36,9 @@
     }
     .diag-back:hover { color: var(--accent); }
     .diag-back svg { width: 13px; height: 13px; stroke: currentColor; fill: none;
-      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+      transition: transform var(--t-fast) var(--ease); }
+    .diag-back:hover svg { transform: translateX(-3px); }
 
     .diag-hero__inner { position: relative; z-index: 1; display: grid; gap: 10px; }
 
@@ -180,7 +182,7 @@
     .diag-offre--dark .diag-offre__note { color: rgba(245,245,242,0.48); }
 
     .diag-offre__cta {
-      display: flex; align-items: center; justify-content: center; gap: 7px;
+      display: flex; align-items: center; justify-content: center; gap: 0;
       padding: 11px 20px; border-radius: 999px;
       font-size: 13px; font-weight: 700; letter-spacing: 0.01em;
       text-decoration: none;
@@ -190,9 +192,12 @@
       margin-top: auto;
     }
     .diag-offre__cta svg {
-      width: 13px; height: 13px; stroke: currentColor; fill: none;
+      height: 13px; stroke: currentColor; fill: none;
       stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0;
+      opacity: 0; width: 0; overflow: hidden; margin-left: 0;
+      transition: opacity .2s, width .2s, margin-left .2s, transform .2s;
     }
+    .diag-offre__cta:hover svg { opacity: 1; width: 13px; margin-left: 7px; transform: translateX(2px); }
     .diag-offre__cta:hover { background: var(--navy-600); transform: translateY(-2px); }
     .diag-offre--dark .diag-offre__cta {
       background: var(--accent); color: var(--navy);
@@ -244,7 +249,9 @@
       transition: color .2s;
     }
     .diag-back-bottom__link:hover { color: var(--navy); }
-    .diag-back-bottom__link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .diag-back-bottom__link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+      transition: transform var(--t-fast) var(--ease); }
+    .diag-back-bottom__link:hover svg { transform: translateX(-3px); }
   </style>
 </head>
 <body>

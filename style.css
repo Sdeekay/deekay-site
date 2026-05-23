@@ -524,10 +524,10 @@ p { margin: 0; text-wrap: pretty; }
 
 .cta-word { display: inline; transition: opacity 0.4s ease; }
 .realisations__cta { text-align: center; margin-top: 40px; }
-.realisations__cta a { display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; border-radius: 999px; border: 1px solid rgba(27, 42, 74, 0.15); background: rgba(27, 42, 74, 0.12); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: var(--navy); font-size: 14px; font-weight: 600; letter-spacing: 0.02em; transition: background 0.2s; }
+.realisations__cta a { display: inline-flex; align-items: center; gap: 0; padding: 10px 24px; border-radius: 999px; border: 1px solid rgba(27, 42, 74, 0.15); background: rgba(27, 42, 74, 0.12); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); color: var(--navy); font-size: 14px; font-weight: 600; letter-spacing: 0.02em; transition: background 0.2s; }
 .realisations__cta a:hover { background: rgba(27, 42, 74, 0.18); }
-.realisations__cta a .arrow { display: inline-block; opacity: 0; transform: translateX(-6px); transition: opacity var(--t-fast) var(--ease), transform var(--t-fast) var(--ease); }
-.realisations__cta a:hover .arrow { opacity: 1; transform: translateX(0); }
+.realisations__cta a .arrow { opacity: 0; flex-shrink: 0; width: 0; overflow: hidden; margin-left: 0; transition: opacity var(--t-fast) var(--ease), transform var(--t-fast) var(--ease), width var(--t-fast) var(--ease), margin-left var(--t-fast) var(--ease); }
+.realisations__cta a:hover .arrow { opacity: 1; width: 14px; margin-left: 8px; transform: translateX(2px); }
 
 .blog-filters__wrap { position: relative; display: inline-block; }
 .blog-filter-btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 10px; background: var(--white); border: 1.5px solid rgba(27, 42, 74, 0.2); font-size: 14px; font-weight: 600; color: var(--navy); cursor: pointer; transition: all 0.18s; font-family: var(--font-sans); }
@@ -553,7 +553,7 @@ p { margin: 0; text-wrap: pretty; }
 .engagement-badge p { font-size: 14px; color: rgba(27, 42, 74, 0.75); line-height: 1.7; margin: 0; }
 
 .avis-section { background: #F4F8FB; padding: 96px 0; }
-.avis-section__title { font-family: var(--font-serif); font-style: italic; font-weight: 400; font-size: clamp(2rem, 4vw, 3rem); color: #1F304D; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 56px; text-align: center; }
+.avis-section__title { font-family: var(--font-sans); font-style: italic; font-weight: 800; font-size: clamp(2rem, 4vw, 3rem); color: #1F304D; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 56px; text-align: center; }
 .avis-section__title em { color: inherit; }
 .avis-grid { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: flex-start; justify-content: center; }
 .avis-card { max-width: 340px; flex: 0 0 340px; background: #FFFFFF; border-radius: 16px; border: 1px solid rgba(31, 48, 77, 0.06); box-shadow: 0 2px 12px rgba(31, 48, 77, 0.07); padding: 1.25rem; display: flex; flex-direction: column; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
@@ -1294,9 +1294,7 @@ p { margin: 0; text-wrap: pretty; }
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.02em;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  text-decoration-thickness: 1px;
+  text-decoration: none;
   transition: opacity var(--t-fast) var(--ease);
 }
 .offres-cta-grid .offre-carte .offre-carte__cta:hover {
