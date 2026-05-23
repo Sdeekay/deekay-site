@@ -167,7 +167,7 @@
     <div class="offres-chemin-wrap">
     <!-- Chemin SVG calculé en JS reliant les cartes -->
     <svg class="offres-path" aria-hidden="true">
-      <path fill="none" stroke="#A8C5DA" stroke-width="2" stroke-linecap="round"/>
+      <path fill="none" stroke="#A8C5DA" stroke-width="2" stroke-linecap="round" stroke-dasharray="8 5"/>
       <circle r="5" fill="#A8C5DA" opacity="0.55"/>
       <circle r="5" fill="#A8C5DA" opacity="0.55"/>
       <circle r="5" fill="#A8C5DA" opacity="0.55"/>
@@ -372,9 +372,9 @@
 
       function drawPath(animate) {
         if (!svg || !blocs || blocs.length < 3) return;
-        var c1 = blocs[0].querySelector('.offre-infographie');
-        var c2 = blocs[1].querySelector('.offre-infographie');
-        var c3 = blocs[2].querySelector('.offre-infographie');
+        var c1 = blocs[0].querySelector('.offre-bloc__card-side');
+        var c2 = blocs[1].querySelector('.offre-bloc__card-side');
+        var c3 = blocs[2].querySelector('.offre-bloc__card-side');
         if (!c1 || !c2 || !c3) return;
 
         var sR = wrap.getBoundingClientRect();
@@ -419,6 +419,11 @@
             requestAnimationFrame(function() {
               path.style.transition = 'stroke-dashoffset 2s cubic-bezier(.22,.61,.36,1) 0.2s';
               path.style.strokeDashoffset = '0';
+              path.addEventListener('transitionend', function() {
+                path.style.strokeDasharray = '';
+                path.style.strokeDashoffset = '';
+                path.style.transition = '';
+              }, { once: true });
             });
           });
         }
@@ -537,7 +542,7 @@
       <div class="parcours__label-wrap"><span class="parcours__label reveal">QUI SUIS-JE ?</span></div>
       <div class="parcours__cols">
         <div class="parcours__text-col reveal" data-delay="1">
-          <h2 class="parcours__title">Architecte de l'<em>organisation</em></h2>
+          <h2 class="parcours__title">Architecte de l'organisation</h2>
           <p class="parcours__subtitle">J'aime construire des systèmes utiles, efficaces et agréables à utiliser.</p>
           <p class="parcours__text">J'ai toujours eu une façon particulière de voir les problèmes : je perçois les connexions, je hiérarchise l'essentiel, et je construis des solutions simples là où les autres voient du chaos. Après un Master en Management de la Digitalisation, de l'IA et du Big Data, j'ai transformé cette façon de penser en métier.</p>
           <p class="parcours__text">Deekay Consulting, c'est cette conviction mise en pratique : vos outils doivent être utiles, efficaces, et agréables à utiliser. Pas seulement fonctionnels.</p>
@@ -547,7 +552,7 @@
             <blockquote>« La complexité n'est pas un problème à tolérer. C'est un problème à résoudre. »</blockquote>
           </div>
           <div class="parcours__timeline-block">
-            <h3 class="parcours__timeline-title">D'analyste à <em>entrepreneur</em></h3>
+            <h3 class="parcours__timeline-title">D'analyste à entrepreneur</h3>
             <div class="timeline">
               <div class="timeline__step"><span class="timeline__date">2023</span><span class="timeline__dot"></span><div class="timeline__content"><h4>Master en Management</h4><p>Digitalisation, IA &amp; Big Data</p></div></div>
               <div class="timeline__step"><span class="timeline__date">2024</span><span class="timeline__dot"></span><div class="timeline__content"><h4>Business Data Analyst</h4><p>Au sein d'une start-up parisienne</p></div></div>
@@ -777,6 +782,42 @@
         });
       }
     });
+  })();
+  </script>
+  <script>
+  (function() {
+    var timeline = document.querySelector('.timeline');
+    if (!timeline) return;
+    var steps = Array.prototype.slice.call(timeline.querySelectorAll('.timeline__step'));
+    if (!steps.length) return;
+
+    function activate(step) {
+      steps.forEach(function(s) { s.classList.remove('is-active'); });
+      if (step) step.classList.add('is-active');
+    }
+
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      steps.forEach(function(step) {
+        var kids = step.querySelectorAll('.timeline__dot, .timeline__content, .timeline__date');
+        kids.forEach(function(child) {
+          child.addEventListener('mouseenter', function() { activate(step); });
+        });
+      });
+      timeline.addEventListener('mouseleave', function() { activate(null); });
+    } else {
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var step = entry.target.closest('.timeline__step');
+            if (step) activate(step);
+          }
+        });
+      }, { threshold: 0.6, rootMargin: '0px 0px -15% 0px' });
+      steps.forEach(function(step) {
+        var content = step.querySelector('.timeline__content');
+        if (content) io.observe(content);
+      });
+    }
   })();
   </script>
   <script>
