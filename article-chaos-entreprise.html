@@ -224,9 +224,29 @@
       border-radius: 16px;
     }
 
+    /* Discrete mention */
+    .article-mention {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(27,42,74,0.08);
+      font-size: 14px;
+      font-style: italic;
+      color: rgba(27,42,74,0.52);
+      line-height: 1.65;
+    }
+    .article-mention a {
+      color: rgba(27,42,74,0.6);
+      text-decoration: underline;
+      text-decoration-color: rgba(27,42,74,0.25);
+      text-underline-offset: 2px;
+      transition: color 0.18s, text-decoration-color 0.18s;
+      font-style: normal;
+    }
+    .article-mention a:hover { color: #1B2A4A; text-decoration-color: #1B2A4A; }
+
     /* Bottom back link */
     .article-back-footer {
-      margin-top: 48px;
+      margin-top: 24px;
       padding-top: 22px;
       border-top: 1px solid rgba(27,42,74,0.1);
     }
@@ -394,6 +414,8 @@
         </div>
 
       </div>
+
+      <p class="article-mention">Tu hésites encore entre les deux&nbsp;? Décris-moi ton activité en deux lignes, je te dis lequel te convient.&nbsp;<a href="mailto:shawn@deekayconsulting.com">shawn@deekayconsulting.com</a></p>
 
       <!-- Retour au blog — bas -->
       <div class="article-back-footer">

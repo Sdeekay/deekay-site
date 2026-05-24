@@ -152,6 +152,16 @@
       hyphens: auto;
     }
 
+    /* Inline links inside content */
+    .article-content a {
+      color: #1B2A4A;
+      text-decoration: underline;
+      text-decoration-color: rgba(27,42,74,0.28);
+      text-underline-offset: 2px;
+      transition: text-decoration-color 0.18s;
+    }
+    .article-content a:hover { text-decoration-color: #1B2A4A; }
+
     /* Section headings */
     .article-content h2 {
       font-size: 17.5px;
@@ -198,37 +208,25 @@
       font-weight: 600;
     }
 
-    /* CTA block */
-    .article-cta {
-      margin-top: 40px;
-      padding: 24px 28px;
-      background: rgba(27,42,74,0.04);
-      border: 1px solid rgba(27,42,74,0.1);
-      border-radius: 14px;
-    }
-    .article-cta p {
-      font-size: 15px;
+    /* Discrete mention */
+    .article-mention {
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(27,42,74,0.08);
+      font-size: 14px;
+      font-style: italic;
+      color: rgba(27,42,74,0.52);
       line-height: 1.65;
-      color: rgba(27,42,74,0.72);
-      margin: 0 0 16px;
-      text-align: left;
-      hyphens: none;
     }
-    .article-cta a {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 10px 20px;
-      background: #1B2A4A;
-      color: #F5F5F2;
-      font-size: 13px;
-      font-weight: 700;
-      border-radius: 100px;
-      text-decoration: none;
-      letter-spacing: 0.01em;
-      transition: opacity 0.18s;
+    .article-mention a {
+      color: rgba(27,42,74,0.6);
+      text-decoration: underline;
+      text-decoration-color: rgba(27,42,74,0.25);
+      text-underline-offset: 2px;
+      transition: color 0.18s, text-decoration-color 0.18s;
+      font-style: normal;
     }
-    .article-cta a:hover { opacity: 0.85; }
+    .article-mention a:hover { color: #1B2A4A; text-decoration-color: #1B2A4A; }
 
     /* Bottom back link */
     .article-back-footer {
@@ -299,9 +297,14 @@
 
       <hr class="article-divider" />
 
+      <!-- Image d'ouverture — inset -->
+      <figure class="article-hero-img">
+        <img src="Article/Bannières.svg" alt="Illustration Notion vs Airtable" loading="eager" />
+      </figure>
+
       <div class="article-content">
 
-        <p>La question revient tout le temps. Dans les DM, dans les calls de découverte, dans les formulaires de contact&nbsp;: <em>"J'hésite entre Notion et Airtable, tu me conseilles quoi&nbsp;?"</em></p>
+        <p>La question revient tout le temps. Dans les DM, dans les calls de découverte, dans les formulaires de contact&nbsp;: <em>"J'hésite entre <a href="https://www.notion.com/fr" target="_blank" rel="noopener">Notion</a> et <a href="https://www.airtable.com" target="_blank" rel="noopener">Airtable</a>, tu me conseilles quoi&nbsp;?"</em></p>
 
         <p>Et ma réponse honnête, c'est que ça dépend. Pas parce que je veux esquiver, mais parce que ce sont deux outils qui ne font pas la même chose, même s'ils semblent se ressembler depuis l'extérieur.</p>
 
@@ -371,7 +374,7 @@
 
         <h3>Prends Notion si&nbsp;:</h3>
 
-        <p>Tu es freelance, solo ou en petite équipe, et tu cherches un endroit où tout centraliser&nbsp;: tes projets, tes clients, ta compta légère, tes notes, ta documentation. Tu veux un espace de travail qui ressemble à toi et qui répond à ton rythme. Tu n'as pas de flux de données complexes à gérer.</p>
+        <p>Tu es freelance, solo ou en petite équipe, et tu cherches un endroit où tout centraliser&nbsp;: tes projets, tes clients, ta compta légère, tes notes, ta documentation. Tu veux un espace de travail qui te ressemble et qui répond à ton rythme. Tu n'as pas de flux de données complexes à gérer.</p>
 
         <h3>Prends Airtable si&nbsp;:</h3>
 
@@ -391,13 +394,7 @@
 
         <p>C'est exactement ce que je fais lors d'un audit&nbsp;: on identifie les vrais blocages, et on choisit les bons outils en fonction, pas l'inverse.</p>
 
-        <div class="article-cta">
-          <p>Si tu veux qu'on regarde ensemble ce qui correspond à ta situation, tu peux décrire ton projet directement via le formulaire. Je reviens vers toi sous 48h.</p>
-          <a href="contact.html">
-            Évaluer mon projet
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
-          </a>
-        </div>
+        <p class="article-mention">Tu te reconnais dans ce que tu viens de lire&nbsp;? C'est exactement ce que je règle. Discutons-en&nbsp;: <a href="mailto:shawn@deekayconsulting.com">shawn@deekayconsulting.com</a></p>
 
       </div>
 
