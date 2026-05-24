@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Audit Approfondi — Deekay Consulting</title>
+  <meta name="description" content="Un audit structuré pour savoir exactement ce qui freine votre organisation — score sur 100, rapport actionnable, plan d'action priorisé." />
+  <link rel="canonical" href="https://deekayconsulting.com/audit.html" />
+  <link rel="icon" type="image/svg+xml" href="DEEKAY.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="tweaks.css" />
+  <style>
+    /* ── Page Audit ───────────────────────────────── */
+
+    /* Hero compact */
+    .diag-hero {
+      position: relative;
+      padding: 110px 0 52px;
+      overflow: hidden;
+      isolation: isolate;
+      background: radial-gradient(ellipse 70% 55% at 50% 20%, rgba(168,197,218,0.15), transparent 55%),
+                  linear-gradient(180deg, #1B2A4A 0%, #111E35 100%);
+    }
+    .diag-hero__grain { position: absolute; inset: 0; opacity: .35; pointer-events: none;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.4'/%3E%3C/svg%3E");
+    }
+
+    .diag-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600;
+      color: rgba(245,245,242,0.50); text-decoration: none;
+      transition: color .2s; margin-bottom: 20px;
+    }
+    .diag-back:hover { color: var(--accent); }
+    .diag-back svg { width: 13px; height: 13px; stroke: currentColor; fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+      transition: transform var(--t-fast) var(--ease); }
+    .diag-back:hover svg { transform: translateX(-3px); }
+
+    .diag-hero__inner { position: relative; z-index: 1; display: grid; gap: 10px; }
+
+    .diag-hero__title {
+      font-size: clamp(26px, 3.8vw, 44px);
+      font-weight: 800; letter-spacing: -0.03em;
+      color: var(--white); margin: 0;
+    }
+    .diag-hero__sub {
+      font-size: 15px; font-weight: 600;
+      color: rgba(245,245,242,0.65); line-height: 1.5; margin: 0;
+    }
+
+    /* Intro section */
+    .diag-intro-section { background: var(--offwhite); padding: 36px 0 28px; }
+
+    .diag-intro {
+      display: flex; flex-direction: column; gap: 10px;
+      max-width: 640px; margin: 0 auto;
+    }
+    .diag-intro p {
+      font-size: 14px; line-height: 1.70;
+      color: rgba(27,42,74,0.62); margin: 0;
+      text-align: justify;
+    }
+    .diag-intro__conclusion {
+      font-size: 14px; font-weight: 700;
+      color: var(--navy); font-style: normal;
+      border-left: 3px solid var(--accent);
+      padding-left: 14px; margin-top: 4px;
+      text-align: left;
+    }
+    .diag-intro__subhead {
+      font-size: 15px; font-weight: 800; letter-spacing: -0.01em;
+      color: var(--navy); margin: 8px 0 2px;
+      text-align: left;
+    }
+
+    /* Mention bloc dans l'intro */
+    .diag-col__mention {
+      background: rgba(27,42,74,0.05);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+      padding: 10px 14px;
+      font-size: 13px; line-height: 1.60;
+      color: rgba(27,42,74,0.62); margin: 0;
+      text-align: left;
+    }
+
+    /* Cards section */
+    .diag-cards-section { background: var(--offwhite); padding: 20px 0 56px; }
+
+    .audit-offres-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 20px; align-items: stretch;
+      max-width: 1000px; margin: 0 auto;
+    }
+
+    /* Pricing card */
+    .diag-offre {
+      position: relative;
+      background: #FFFFFF;
+      border: 1px solid rgba(27,42,74,0.10);
+      border-radius: 14px;
+      padding: 22px 20px;
+      display: flex; flex-direction: column; gap: 16px;
+      box-shadow: 0 3px 18px -4px rgba(27,42,74,0.08);
+    }
+    .diag-offre--dark {
+      background: var(--navy-800);
+      border-color: rgba(168,197,218,0.14);
+      color: var(--white);
+      box-shadow: 0 6px 32px -8px rgba(0,0,0,0.30);
+    }
+    .diag-offre--muted {
+      background: rgba(27,42,74,0.03);
+      border-color: rgba(27,42,74,0.12);
+      border-style: dashed;
+    }
+
+    .diag-offre__head { display: flex; flex-direction: column; gap: 3px; }
+    .diag-offre__title {
+      font-size: 17px; font-weight: 800;
+      letter-spacing: -0.02em; color: var(--navy-900); margin: 0; line-height: 1.15;
+    }
+    .diag-offre--dark .diag-offre__title { color: #fff; }
+    .diag-offre__sub {
+      font-size: 12.5px; color: rgba(27,42,74,0.50); line-height: 1.4; margin: 0;
+    }
+    .diag-offre--dark .diag-offre__sub { color: rgba(245,245,242,0.55); }
+
+    .diag-offre__price-block { display: flex; align-items: baseline; gap: 8px; }
+    .diag-offre__price {
+      font-size: 26px; font-weight: 800;
+      letter-spacing: -0.03em; color: var(--navy-900); line-height: 1;
+    }
+    .diag-offre--dark .diag-offre__price { color: #fff; }
+    .diag-offre__price-note {
+      font-size: 11px; color: rgba(27,42,74,0.40); margin: 0;
+    }
+    .diag-offre--dark .diag-offre__price-note { color: rgba(245,245,242,0.40); }
+
+    .diag-offre__section-label {
+      font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--accent); margin: 0;
+    }
+
+    .diag-offre__checklist {
+      list-style: none; margin: 0; padding: 0;
+      display: flex; flex-direction: column; gap: 9px;
+    }
+    .diag-offre__checklist li {
+      display: flex; align-items: flex-start; gap: 8px;
+      font-size: 13px; line-height: 1.50;
+      color: rgba(27,42,74,0.70);
+    }
+    .diag-offre--dark .diag-offre__checklist li { color: rgba(245,245,242,0.80); }
+    .diag-offre__checklist li svg {
+      width: 13px; height: 13px; stroke: var(--accent); fill: none;
+      stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round;
+      flex-shrink: 0; margin-top: 2px;
+    }
+    .diag-offre__checklist li strong {
+      font-weight: 700; display: block; margin-bottom: 2px;
+      color: rgba(27,42,74,0.85);
+    }
+    .diag-offre--dark .diag-offre__checklist li strong { color: rgba(245,245,242,0.95); }
+    .diag-offre__checklist li span {
+      font-size: 12px; color: rgba(27,42,74,0.52);
+    }
+    .diag-offre--dark .diag-offre__checklist li span { color: rgba(245,245,242,0.50); }
+
+    .diag-offre__divider {
+      height: 1px; background: rgba(27,42,74,0.08); border: none; margin: 0;
+    }
+    .diag-offre--dark .diag-offre__divider { background: rgba(255,255,255,0.10); }
+
+    .diag-offre__note {
+      font-size: 12px; color: rgba(27,42,74,0.44); line-height: 1.55; margin: 0;
+    }
+    .diag-offre--dark .diag-offre__note { color: rgba(245,245,242,0.48); }
+
+    .diag-offre__cta {
+      display: flex; align-items: center; justify-content: center; gap: 0;
+      padding: 11px 20px; border-radius: 999px;
+      font-size: 13px; font-weight: 700; letter-spacing: 0.01em;
+      text-decoration: none;
+      background: var(--navy); color: var(--white);
+      transition: background .2s, transform .2s, box-shadow .2s;
+      box-shadow: 0 4px 16px -4px rgba(27,42,74,0.32);
+      margin-top: auto;
+    }
+    .diag-offre__cta svg {
+      height: 13px; stroke: currentColor; fill: none;
+      stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; flex-shrink: 0;
+      opacity: 0; width: 0; overflow: hidden; margin-left: 0;
+      transition: opacity .2s, width .2s, margin-left .2s, transform .2s;
+    }
+    .diag-offre__cta:hover svg { opacity: 1; width: 13px; margin-left: 7px; transform: translateX(2px); }
+    .diag-offre__cta:hover { background: var(--navy-600); transform: translateY(-2px); }
+    .diag-offre--dark .diag-offre__cta {
+      background: var(--accent); color: var(--navy);
+      box-shadow: 0 4px 16px -4px rgba(168,197,218,0.40);
+    }
+    .diag-offre--dark .diag-offre__cta:hover { background: var(--accent-soft); }
+    .diag-offre--muted .diag-offre__cta {
+      background: var(--navy); color: var(--white);
+    }
+
+    /* Sur devis: price placeholder */
+    .diag-offre__price--devis {
+      font-size: 16px; font-weight: 700; letter-spacing: 0.04em;
+      text-transform: uppercase; color: rgba(27,42,74,0.40);
+    }
+
+    @media (max-width: 860px) {
+      .audit-offres-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Blocs "aller plus loin" */
+    .diag-next { margin-top: 32px; display: flex; flex-direction: column; gap: 10px; max-width: 820px; margin-left: auto; margin-right: auto; }
+    .diag-next__block {
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      padding: 16px 20px; border-radius: 12px;
+      background: #FFFFFF; border: 1px solid rgba(27,42,74,0.10);
+      text-decoration: none; color: var(--navy);
+      box-shadow: 0 2px 12px -4px rgba(27,42,74,0.08);
+      transition: box-shadow .2s, transform .2s;
+    }
+    .diag-next__block:hover { box-shadow: 0 6px 20px -4px rgba(27,42,74,0.15); transform: translateY(-2px); }
+    .diag-next__block-left { display: flex; flex-direction: column; gap: 2px; }
+    .diag-next__label { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
+    .diag-next__title { font-size: 15px; font-weight: 800; letter-spacing: -0.015em; color: var(--navy-900); }
+    .diag-next__sub { font-size: 12.5px; color: rgba(27,42,74,0.52); line-height: 1.4; }
+    .diag-next__arrow {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(27,42,74,0.06);
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .diag-next__arrow svg { width: 14px; height: 14px; stroke: var(--navy); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Lien retour bas de page */
+    .diag-back-bottom { display: flex; justify-content: center; margin-top: 32px; }
+    .diag-back-bottom__link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600;
+      color: rgba(27,42,74,0.45); text-decoration: none;
+      transition: color .2s;
+    }
+    .diag-back-bottom__link:hover { color: var(--navy); }
+    .diag-back-bottom__link svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+      transition: transform var(--t-fast) var(--ease); }
+    .diag-back-bottom__link:hover svg { transform: translateX(-3px); }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="logo" href="index.html" aria-label="Deekay Consulting — accueil">
+        <img src="DEEKAY.svg" class="logo__mark-img" height="32" alt="Deekay Consulting">
+        Deekay<span class="logo__sub">consulting</span>
+      </a>
+      <nav>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="realisations.html">Réalisations</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#parcours">Parcours</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="nav__lang">
+            <span class="lang-active">FR</span>
+            <span class="lang-sep">|</span>
+            <span class="lang-inactive">EN</span>
+          </li>
+        </ul>
+      </nav>
+      <a href="contact.html" class="nav__cta">
+        Évaluer mon projet
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <button class="nav__burger" aria-label="Ouvrir le menu" aria-controls="navLinks"><span></span></button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="diag-hero">
+    <div class="diag-hero__grain" aria-hidden="true"></div>
+    <div class="container">
+      <div class="diag-hero__inner">
+        <a href="index.html#offres-cta" class="diag-back">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          Retour aux services
+        </a>
+        <h1 class="diag-hero__title">Audit Approfondi</h1>
+        <p class="diag-hero__sub">Tu sais que quelque chose freine. Tu veux savoir exactement quoi.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="diag-intro-section">
+    <div class="container">
+      <div class="diag-intro reveal">
+        <p>Le diagnostic t'a confirmé qu'il y a un problème. Ou tu le sais déjà depuis un moment et tu veux passer à l'étape suivante. Dans les deux cas, tu arrives au même endroit : il faut regarder en face ce qui ne fonctionne pas, le mesurer, et savoir dans quel ordre s'en occuper.</p>
+        <p>C'est le rôle de l'audit. Pas un regard en surface. Une analyse structurée de ce qui coince, pourquoi ça coince, et ce qu'il faut faire en premier.</p>
+        <p class="diag-intro__conclusion">Tu repars avec un score, un rapport, et une direction claire.</p>
+        <p class="diag-intro__subhead">Quelle formule choisir ?</p>
+        <p class="diag-col__mention"><strong>L'Audit Ciblé</strong> est fait pour toi si tu sais déjà ce que tu veux ausculter. Un outil, un workflow, une base de données, un espace de travail, une équipe. Pas toute l'entreprise — un périmètre précis. On commence par un questionnaire court et un appel d'une heure pour cadrer le sujet, j'audite, et tu reçois un score sur 100 ainsi qu'un rapport actionnable avec les priorités classées.</p>
+        <p class="diag-col__mention"><strong>L'Audit Complet</strong> est fait pour toi si tu veux une vue d'ensemble. Toute la structure, tous les process, tous les outils, tous les workflows. On démarre par une session de cadrage pour poser les bases, puis j'audite tout sur une journée complète. Tu reçois un score sur 100 et un rapport complet avec un plan d'action qui te servira de roadmap priorisée pour la suite.</p>
+        <p class="diag-col__mention"><strong>L'Audit Sur Devis</strong> est fait pour les situations qui sortent du cadre standard. Tu as besoin d'un audit plus approfondi, d'un accompagnement combiné ou d'un contexte particulier qui ne rentre pas dans une case. On en parle et je te fais une proposition adaptée.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFRES -->
+  <section class="diag-cards-section">
+    <div class="container">
+      <div class="audit-offres-grid">
+
+        <!-- Carte 1 — Audit Ciblé -->
+        <div class="diag-offre reveal" data-delay="1">
+          <div class="diag-offre__head">
+            <h2 class="diag-offre__title">Audit Ciblé</h2>
+            <p class="diag-offre__sub">Un périmètre précis, analysé en profondeur</p>
+          </div>
+          <div class="diag-offre__price-block">
+            <div class="diag-offre__price">600 €</div>
+            <p class="diag-offre__price-note">HT · paiement unique</p>
+          </div>
+          <p class="diag-offre__section-label">Ce qui est inclus</p>
+          <ul class="diag-offre__checklist">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div>
+                <strong>Un Diagnostic Express</strong>
+                <span>Questionnaire court + appel vidéo d'1h pour cadrer le périmètre</span>
+              </div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div>
+                <strong>L'audit du périmètre ciblé</strong>
+                <span>Analyse du fonctionnement d'un outil, workflow ou espace défini</span>
+              </div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Score Audit sur 100
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Rapport actionnable avec priorités classées
+            </li>
+          </ul>
+          <a href="contact.html" class="diag-offre__cta">
+            Réserver
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Carte 2 — Audit Complet -->
+        <div class="diag-offre diag-offre--dark reveal" data-delay="2">
+          <div class="diag-offre__head">
+            <h2 class="diag-offre__title">Audit Complet</h2>
+            <p class="diag-offre__sub">Une vue d'ensemble de toute l'organisation</p>
+          </div>
+          <div class="diag-offre__price-block">
+            <div class="diag-offre__price">900 €</div>
+            <p class="diag-offre__price-note">HT · paiement unique</p>
+          </div>
+          <p class="diag-offre__section-label">Ce qui est inclus</p>
+          <ul class="diag-offre__checklist">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div>
+                <strong>Une Session de Cadrage</strong>
+                <span>Questionnaire approfondi + appel vidéo d'1h30 pour structurer l'échange</span>
+              </div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              <div>
+                <strong>L'audit de toute l'organisation</strong>
+                <span>Structure, process, outils, workflows — une journée complète d'analyse</span>
+              </div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Score sur 100
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Rapport complet avec plan d'action — roadmap priorisée
+            </li>
+          </ul>
+          <a href="contact.html" class="diag-offre__cta">
+            Réserver
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <!-- Carte 3 — Audit Sur Devis -->
+        <div class="diag-offre diag-offre--muted reveal" data-delay="3">
+          <div class="diag-offre__head">
+            <h2 class="diag-offre__title">Audit Sur Devis</h2>
+            <p class="diag-offre__sub">Pour les contextes qui sortent du cadre</p>
+          </div>
+          <div class="diag-offre__price-block">
+            <span class="diag-offre__price--devis">Sur devis</span>
+          </div>
+          <p class="diag-offre__section-label">Ce qui peut être couvert</p>
+          <ul class="diag-offre__checklist">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Audit multi-périmètres ou approfondi
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Accompagnement combiné audit + mise en place
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+              Contexte spécifique, multi-sites ou équipe
+            </li>
+          </ul>
+          <hr class="diag-offre__divider" />
+          <p class="diag-offre__note">On en parle et je te fais une proposition adaptée à ta situation.</p>
+          <a href="contact.html" class="diag-offre__cta">
+            Prendre contact
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Blocs "aller plus loin" -->
+      <div class="diag-next reveal" data-delay="3">
+        <a href="diagnostic.html" class="diag-next__block">
+          <div class="diag-next__block-left">
+            <span class="diag-next__label">Point d'entrée</span>
+            <span class="diag-next__title">Appel de Diagnostic</span>
+            <span class="diag-next__sub">Pas encore sûr de vos priorités ? Commencez par un diagnostic pour poser les bases.</span>
+          </div>
+          <div class="diag-next__arrow">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+        <a href="contact.html" class="diag-next__block">
+          <div class="diag-next__block-left">
+            <span class="diag-next__label">Sur mesure</span>
+            <span class="diag-next__title">Accompagnement Complet</span>
+            <span class="diag-next__sub">De l'audit à la mise en place : workspace, automatisations, IA, formation.</span>
+          </div>
+          <div class="diag-next__arrow">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </div>
+        </a>
+      </div>
+
+      <!-- Lien retour -->
+      <div class="diag-back-bottom reveal" data-delay="4">
+        <a href="index.html#offres-cta" class="diag-back-bottom__link">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          Retour aux services
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col footer__col--brand">
+          <a class="logo" href="index.html">
+            <img src="DEEKAY.svg" class="logo__mark-img" height="32" alt="Deekay Consulting">
+            Deekay<span class="logo__sub">consulting</span>
+          </a>
+          <p class="footer__tag"><em>Transformez la complexité en clarté.</em></p>
+        </div>
+        <div class="footer__col footer__col--nav">
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="realisations.html">Réalisations</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#parcours">Parcours</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col footer__col--socials">
+          <ul class="footer__socials">
+            <li>
+              <a href="https://www.linkedin.com/in/shawn-diakite-3a503a163" aria-label="LinkedIn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 13v4"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://tiktok.com/@deekayconsulting" aria-label="TikTok" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.4 2.4 2.4 4.2 5 4.4"/></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Deekay Consulting · Tous droits réservés</span>
+        <span class="legal">
+          <a href="faq.html">FAQ</a>
+          <a href="mentions-legales.html">Mentions légales</a>
+          <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="tweaks.js"></script>
+
+</body>
+</html>

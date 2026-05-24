@@ -40,7 +40,7 @@
       box-shadow: 0 20px 48px rgba(27,42,74,0.2);
     }
     .proj-card__thumb {
-      height: 260px;
+      height: 200px;
       overflow: hidden;
       position: relative;
     }
@@ -90,7 +90,7 @@
       border: 1px solid rgba(27,42,74,0.12);
     }
     .proj-card__title {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
       color: #1B2A4A;
       letter-spacing: -0.01em;
@@ -100,6 +100,10 @@
       font-size: 14px;
       color: rgba(27,42,74,0.6);
       line-height: 1.65;
+    }
+    #realisations .section__title em {
+      font-family: var(--font-sans);
+      font-weight: 800;
     }
   </style>
 </head>
@@ -164,9 +168,59 @@
 
   <!-- OFFRES -->
   <section class="section offres-section" id="services">
+
+  <!-- PAIN POINTS -->
+  <div class="container pain-points-wrap">
+    <canvas class="pain-particles" aria-hidden="true"></canvas>
+    <div class="pain-points" id="painPoints">
+      <div class="pain-points__left">
+        <button class="pain-card is-active" data-pain="0" type="button">
+          <span class="pain-card__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16"/><path d="M3 21v-5h5"/></svg>
+          </span>
+          <span class="pain-card__title">J'ai encore essayé un nouvel outil.</span>
+        </button>
+        <button class="pain-card" data-pain="1" type="button">
+          <span class="pain-card__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </span>
+          <span class="pain-card__title">Sans moi, rien n'avance.</span>
+        </button>
+        <button class="pain-card" data-pain="2" type="button">
+          <span class="pain-card__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          </span>
+          <span class="pain-card__title">Je cherche des choses que j'ai déjà.</span>
+        </button>
+        <button class="pain-card" data-pain="3" type="button">
+          <span class="pain-card__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </span>
+          <span class="pain-card__title">Ma journée commence déjà en retard.</span>
+        </button>
+      </div>
+      <div class="pain-points__right" id="painPointsRight">
+        <div class="pain-panel" id="painPanel">
+          <h3 class="pain-panel__title" id="painPanelTitle"></h3>
+          <p class="pain-panel__body" id="painPanelBody"></p>
+        </div>
+      </div>
+    </div>
+    <div class="pain-points__bridge-wrap">
+      <p class="pain-points__bridge">C&rsquo;est votre quotidien&nbsp;? Vous êtes exactement au bon endroit.</p>
+    </div>
+  </div>
+
+  <div class="section-divider section-divider--dark" aria-hidden="true">
+    <div class="section-divider__line"></div>
+    <div class="section-divider__dot"></div>
+    <div class="section-divider__line"></div>
+  </div>
+
+    <div class="offres-chemin-wrap">
     <!-- Chemin SVG calculé en JS reliant les cartes -->
     <svg class="offres-path" aria-hidden="true">
-      <path fill="none" stroke="#A8C5DA" stroke-width="2" stroke-linecap="round"/>
+      <path fill="none" stroke="#A8C5DA" stroke-width="2" stroke-linecap="round" stroke-dasharray="8 5"/>
       <circle r="5" fill="#A8C5DA" opacity="0.55"/>
       <circle r="5" fill="#A8C5DA" opacity="0.55"/>
       <circle r="5" fill="#A8C5DA" opacity="0.55"/>
@@ -176,8 +230,8 @@
     <div class="container offres-container">
       <div class="section__head">
         <span class="section__eyebrow reveal">Ma méthode</span>
-        <h2 class="section__title reveal" data-delay="1">Par où <em>commencer ?</em></h2>
-        <p class="section__sub reveal" data-delay="2">Chaque situation est différente. Choisissez le point d'entrée qui correspond à où vous en êtes.</p>
+        <h2 class="section__title reveal" data-delay="1">Par où commencer ?</h2>
+        <p class="section__sub reveal" data-delay="2">Chaque situation est différente. Choisissez le point qui vous correspond.</p>
       </div>
 
       <!-- BLOC 1 — Appel de diagnostic -->
@@ -188,15 +242,10 @@
           <p class="offre-bloc__body">Prenez du temps pour faire le point. On pose votre situation sur la table, on identifie ce qui coince vraiment, et vous repartez avec une direction claire et des priorités dans l'ordre, que vous travailliez avec moi ensuite ou pas.</p>
         </div>
         <div class="offre-bloc__card-side">
-          <div class="offre-carte offre-carte--white">
-            <div class="offre-carte__top">
-              <div class="offre-carte__avatar">SD</div>
-              <h4 class="offre-carte__title">Appel de diagnostic</h4>
-            </div>
-            <div class="offre-carte__pills">
-              <span class="offre-carte__pill">Diagnostic Express</span>
-              <span class="offre-carte__pill">Session de Cadrage</span>
-            </div>
+          <div class="offre-avantapres">
+            <img src="assets/diagnostic_avant.svg" alt="Situation avant le diagnostic" class="offre-avantapres__img">
+            <div class="offre-avantapres__divider" aria-hidden="true"></div>
+            <img src="assets/diagnostic_après.svg" alt="Situation après le diagnostic" class="offre-avantapres__img">
           </div>
         </div>
       </div>
@@ -209,39 +258,8 @@
           <p class="offre-bloc__body">J'analyse votre organisation en profondeur : qui fait quoi, comment l'information circule, ce qui peut être automatisé, ce qui doit être formalisé. Vous recevez un rapport complet avec un plan d'action classé par priorité et par impact.</p>
         </div>
         <div class="offre-bloc__card-side">
-          <div class="offre-carte offre-carte--navy">
-            <span class="offre-carte__badge">Offre phare</span>
-            <div class="offre-carte__score-wrap">
-              <svg class="offre-carte__score-svg" viewBox="0 0 100 100" aria-label="Score 78 sur 100">
-                <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="6"/>
-                <circle cx="50" cy="50" r="36" fill="none" stroke="#A8C5DA" stroke-width="6" stroke-linecap="round" transform="rotate(-90 50 50)" class="score-ring"/>
-                <text x="50" y="46" text-anchor="middle" dominant-baseline="middle" fill="white" font-size="22" font-weight="800" font-family="Inter, sans-serif">78</text>
-                <text x="50" y="64" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10" font-family="Inter, sans-serif">/100</text>
-              </svg>
-            </div>
-            <div class="offre-carte__bars">
-              <div class="offre-carte__bar-row">
-                <div class="offre-carte__bar-header">
-                  <span class="offre-carte__bar-label">Répartition des tâches</span>
-                  <span class="offre-carte__bar-pct">82%</span>
-                </div>
-                <div class="offre-carte__bar-track"><div class="offre-carte__bar-fill" data-pct="82%"></div></div>
-              </div>
-              <div class="offre-carte__bar-row">
-                <div class="offre-carte__bar-header">
-                  <span class="offre-carte__bar-label">Priorisation</span>
-                  <span class="offre-carte__bar-pct">67%</span>
-                </div>
-                <div class="offre-carte__bar-track"><div class="offre-carte__bar-fill" data-pct="67%"></div></div>
-              </div>
-              <div class="offre-carte__bar-row">
-                <div class="offre-carte__bar-header">
-                  <span class="offre-carte__bar-label">Mise en place de procédures</span>
-                  <span class="offre-carte__bar-pct">74%</span>
-                </div>
-                <div class="offre-carte__bar-track"><div class="offre-carte__bar-fill" data-pct="74%"></div></div>
-              </div>
-            </div>
+          <div class="offre-img-wrap">
+            <img src="assets/audit.svg" alt="Audit Approfondi">
           </div>
         </div>
       </div>
@@ -254,56 +272,85 @@
           <p class="offre-bloc__body">Un dashboard pour piloter, des tâches assignées avec un contexte clair, des automatisations qui font avancer les choses sans que vous ayez à relancer : c'est ce type de solution qu'on construit ensemble, adapté à votre réalité. Chaque accompagnement part d'un audit et va jusqu'à la mise en place complète.</p>
         </div>
         <div class="offre-bloc__card-side">
-          <div class="offre-carte offre-carte--offwhite">
-            <h4 class="offre-carte__title offre-carte__title--dark">Accompagnement Complet</h4>
-            <div class="offre-carte__icons">
-              <div class="offre-carte__icon-item">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.3-4.3"/></svg>
-                <span>Audit</span>
-              </div>
-              <div class="offre-carte__icon-item">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
-                <span>Data</span>
-              </div>
-              <div class="offre-carte__icon-item">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg>
-                <span>Workspace</span>
-              </div>
-              <div class="offre-carte__icon-item">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="7" r="2.2"/><circle cx="18" cy="7" r="2.2"/><circle cx="12" cy="17" r="2.2"/><path d="M8 7h8M7.5 9l3.5 6M16.5 9l-3.5 6"/></svg>
-                <span>Automatisation</span>
-              </div>
-              <div class="offre-carte__icon-item">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/><circle cx="12" cy="12" r="4"/></svg>
-                <span>IA</span>
-              </div>
-              <div class="offre-carte__icon-item">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8l10-4 10 4-10 4-10-4z"/><path d="M6 10v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/><path d="M22 8v6"/></svg>
-                <span>Formation</span>
-              </div>
-            </div>
+          <div class="offre-img-wrap">
+            <img src="assets/accompagnement.svg" alt="Accompagnement Complet">
           </div>
         </div>
       </div>
 
     </div><!-- /offres-container -->
 
-    <div class="offres-cta-band">
+    <div class="services-marquee" aria-hidden="true">
+      <div class="services-marquee__track">
+        <span>Audit</span><span class="services-marquee__sep">·</span>
+        <span>Workspace sur mesure</span><span class="services-marquee__sep">·</span>
+        <span>Bases de données</span><span class="services-marquee__sep">·</span>
+        <span>Automatisation</span><span class="services-marquee__sep">·</span>
+        <span>IA &amp; Prompt Engineering</span><span class="services-marquee__sep">·</span>
+        <span>Formation</span><span class="services-marquee__sep">·</span>
+        <span>Audit</span><span class="services-marquee__sep">·</span>
+        <span>Workspace sur mesure</span><span class="services-marquee__sep">·</span>
+        <span>Bases de données</span><span class="services-marquee__sep">·</span>
+        <span>Automatisation</span><span class="services-marquee__sep">·</span>
+        <span>IA &amp; Prompt Engineering</span><span class="services-marquee__sep">·</span>
+        <span>Formation</span><span class="services-marquee__sep">·</span>
+        <span>Audit</span><span class="services-marquee__sep">·</span>
+        <span>Workspace sur mesure</span><span class="services-marquee__sep">·</span>
+        <span>Bases de données</span><span class="services-marquee__sep">·</span>
+        <span>Automatisation</span><span class="services-marquee__sep">·</span>
+        <span>IA &amp; Prompt Engineering</span><span class="services-marquee__sep">·</span>
+        <span>Formation</span><span class="services-marquee__sep">·</span>
+        <span>Audit</span><span class="services-marquee__sep">·</span>
+        <span>Workspace sur mesure</span><span class="services-marquee__sep">·</span>
+        <span>Bases de données</span><span class="services-marquee__sep">·</span>
+        <span>Automatisation</span><span class="services-marquee__sep">·</span>
+        <span>IA &amp; Prompt Engineering</span><span class="services-marquee__sep">·</span>
+        <span>Formation</span><span class="services-marquee__sep">·</span>
+      </div>
+    </div>
+    </div><!-- /offres-chemin-wrap -->
+
+    <div class="offres-cta-band" id="offres-cta">
       <div class="container">
         <div class="offres-cta-grid reveal" data-delay="1">
         <a href="diagnostic.html" class="offre-carte offre-carte--white">
-          <div class="offre-carte__top">
-            <div class="offre-carte__avatar">SD</div>
-            <h4 class="offre-carte__title">Appel de diagnostic</h4>
+          <div class="diag-card__header">
+            <div class="diag-card__avatar">SD</div>
+            <span class="diag-card__reserve">Réserver</span>
           </div>
-          <div class="offre-carte__pills">
-            <span class="offre-carte__pill">Diagnostic Express</span>
-            <span class="offre-carte__pill">Session de Cadrage</span>
+          <div class="diag-card__sessions">
+            <div class="diag-card__session diag-card__session--active">
+              <div class="diag-card__session-main">
+                <span class="diag-card__session-title">Diagnostic Express</span>
+                <span class="diag-card__session-dot"></span>
+              </div>
+              <div class="diag-card__session-skel">
+                <span></span><span></span>
+              </div>
+            </div>
+            <div class="diag-card__session">
+              <div class="diag-card__session-main">
+                <span class="diag-card__session-title">Session de Cadrage</span>
+              </div>
+              <div class="diag-card__session-skel">
+                <span></span><span></span>
+              </div>
+            </div>
+            <div class="diag-card__session">
+              <div class="diag-card__session-main">
+                <span class="diag-card__session-title">Bilan de clôture</span>
+              </div>
+              <div class="diag-card__session-skel">
+                <span></span><span></span>
+              </div>
+            </div>
           </div>
-          <span class="offre-carte__cta">Définir mon besoin →</span>
+          <h4 class="offre-carte__title">Appel de diagnostic</h4>
+          <span class="offre-carte__cta">Définir mon besoin <span class="arrow">→</span></span>
         </a>
         <a href="audit.html" class="offre-carte offre-carte--navy">
           <span class="offre-carte__badge">Offre phare</span>
+          <h4 class="offre-carte__title">Audit Approfondi</h4>
           <div class="offre-carte__score-wrap">
             <svg class="offre-carte__score-svg" viewBox="0 0 100 100" aria-label="Score 78 sur 100">
               <circle cx="50" cy="50" r="36" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="6"/>
@@ -335,37 +382,47 @@
               <div class="offre-carte__bar-track"><div class="offre-carte__bar-fill" data-pct="74%"></div></div>
             </div>
           </div>
-          <span class="offre-carte__cta offre-carte__cta--outline">Auditer mon organisation →</span>
+          <span class="offre-carte__cta">Demander un audit <span class="arrow">→</span></span>
         </a>
         <a href="contact.html" class="offre-carte offre-carte--offwhite">
-          <h4 class="offre-carte__title offre-carte__title--dark">Accompagnement Complet</h4>
-          <div class="offre-carte__icons">
-            <div class="offre-carte__icon-item">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.3-4.3"/></svg>
-              <span>Audit</span>
-            </div>
-            <div class="offre-carte__icon-item">
+          <div class="accom-card__visual">
+            <div class="accom-card__badge accom-card__badge--tl">
               <svg viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/></svg>
-              <span>Data</span>
             </div>
-            <div class="offre-carte__icon-item">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M9 9v11"/></svg>
-              <span>Workspace</span>
+            <div class="accom-card__badge accom-card__badge--tr">{ }</div>
+            <div class="accom-card__browser">
+              <div class="accom-card__browser-bar">
+                <span class="accom-card__dot"></span>
+                <span class="accom-card__dot"></span>
+                <span class="accom-card__dot"></span>
+                <div class="accom-card__urlbar"></div>
+              </div>
+              <div class="accom-card__browser-content">
+                <div class="accom-card__row">
+                  <div class="accom-card__block-sq"></div>
+                  <div class="accom-card__line-group">
+                    <div class="accom-card__skel-line" style="width:55%"></div>
+                  </div>
+                  <div class="accom-card__block-circle"></div>
+                </div>
+                <div class="accom-card__row">
+                  <div class="accom-card__line-group">
+                    <div class="accom-card__skel-line" style="width:35%"></div>
+                    <div class="accom-card__skel-line" style="width:85%"></div>
+                    <div class="accom-card__skel-line" style="width:60%"></div>
+                  </div>
+                </div>
+                <div class="accom-card__row accom-card__row--2col">
+                  <div class="accom-card__skel-line" style="width:100%"></div>
+                  <div class="accom-card__skel-line" style="width:100%"></div>
+                </div>
+              </div>
             </div>
-            <div class="offre-carte__icon-item">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="7" r="2.2"/><circle cx="18" cy="7" r="2.2"/><circle cx="12" cy="17" r="2.2"/><path d="M8 7h8M7.5 9l3.5 6M16.5 9l-3.5 6"/></svg>
-              <span>Automatisation</span>
-            </div>
-            <div class="offre-carte__icon-item">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4L7 17M17 7l1.4-1.4"/><circle cx="12" cy="12" r="4"/></svg>
-              <span>IA</span>
-            </div>
-            <div class="offre-carte__icon-item">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 8l10-4 10 4-10 4-10-4z"/><path d="M6 10v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5"/><path d="M22 8v6"/></svg>
-              <span>Formation</span>
-            </div>
+            <div class="accom-card__badge accom-card__badge--bl">Notion</div>
+            <div class="accom-card__badge accom-card__badge--br">Make</div>
           </div>
-          <span class="offre-carte__cta">Discuter de mon projet →</span>
+          <h4 class="offre-carte__title offre-carte__title--dark">Accompagnement Complet</h4>
+          <span class="offre-carte__cta">Discuter de mon projet <span class="arrow">→</span></span>
         </a>
         </div><!-- /offres-cta-grid -->
       </div><!-- /container -->
@@ -374,29 +431,34 @@
     <script>
     (function() {
       var section = document.querySelector('.offres-section');
-      var svg = section && section.querySelector('.offres-path');
+      var wrap = section && section.querySelector('.offres-chemin-wrap');
+      var svg = wrap && wrap.querySelector('.offres-path');
       var blocs = section && section.querySelectorAll('.offre-bloc');
 
       function drawPath(animate) {
         if (!svg || !blocs || blocs.length < 3) return;
-        var c1 = blocs[0].querySelector('.offre-carte');
-        var c2 = blocs[1].querySelector('.offre-carte');
-        var c3 = blocs[2].querySelector('.offre-carte');
+        function cardTarget(bloc) {
+          return bloc.querySelector('.offre-img-wrap') || bloc.querySelector('.offre-avantapres') || bloc.querySelector('.offre-bloc__card-side');
+        }
+        var c1 = cardTarget(blocs[0]);
+        var c2 = cardTarget(blocs[1]);
+        var c3 = cardTarget(blocs[2]);
         if (!c1 || !c2 || !c3) return;
 
-        var sR = section.getBoundingClientRect();
-        var W = section.offsetWidth;
-        var H = section.offsetHeight;
+        var sR = wrap.getBoundingClientRect();
+        var W = wrap.offsetWidth;
+        var H = wrap.offsetHeight;
         svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
         svg.style.width = W + 'px';
         svg.style.height = H + 'px';
 
-        function p(el) {
+        function p(el, trim) {
           var r = el.getBoundingClientRect();
+          var t = r.height * (trim || 0.10);
           return {
             cx: r.left - sR.left + r.width / 2,
-            top: r.top - sR.top,
-            bot: r.top - sR.top + r.height
+            top: r.top - sR.top + t,
+            bot: r.top - sR.top + r.height - t
           };
         }
 
@@ -426,6 +488,11 @@
             requestAnimationFrame(function() {
               path.style.transition = 'stroke-dashoffset 2s cubic-bezier(.22,.61,.36,1) 0.2s';
               path.style.strokeDashoffset = '0';
+              path.addEventListener('transitionend', function() {
+                path.style.strokeDasharray = '';
+                path.style.strokeDashoffset = '';
+                path.style.transition = '';
+              }, { once: true });
             });
           });
         }
@@ -482,6 +549,51 @@
     </script>
   </section>
 
+  <!-- À PROPOS -->
+  <section class="parcours" id="parcours">
+    <div class="container">
+      <div class="parcours__label-wrap"><span class="parcours__label reveal">QUI SUIS-JE ?</span></div>
+      <div class="parcours__cols">
+        <div class="parcours__text-col reveal" data-delay="1">
+          <h2 class="parcours__title">Architecte de l'organisation</h2>
+          <p class="parcours__subtitle">J'aime construire des systèmes utiles, efficaces et agréables à utiliser.</p>
+          <p class="parcours__text">J'ai toujours eu une façon particulière de voir les problèmes : je perçois les connexions, je hiérarchise l'essentiel, et je construis des solutions simples là où les autres voient du chaos. Après un Master en Management de la Digitalisation, de l'IA et du Big Data, j'ai transformé cette façon de penser en métier.</p>
+          <p class="parcours__text">Deekay Consulting, c'est cette conviction mise en pratique : vos outils doivent être utiles, efficaces, et agréables à utiliser. Pas seulement fonctionnels.</p>
+          <div class="parcours__convictions">
+            <blockquote>« Un système que vous ne comprenez pas est un système que vous n'utiliserez pas. »</blockquote>
+            <blockquote>« Je ne livre pas des outils. Je livre de l'autonomie. »</blockquote>
+            <blockquote>« La complexité n'est pas un problème à tolérer. C'est un problème à résoudre. »</blockquote>
+          </div>
+          <div class="parcours__timeline-block">
+            <span class="parcours__timeline-badge">D&rsquo;analyste à entrepreneur</span>
+            <div class="timeline">
+              <div class="timeline__step"><span class="timeline__date">2023</span><span class="timeline__dot"></span><div class="timeline__content"><h4>Master en Management</h4><p>Digitalisation, IA &amp; Big Data</p></div></div>
+              <div class="timeline__step"><span class="timeline__date">2024</span><span class="timeline__dot"></span><div class="timeline__content"><h4>Business Data Analyst</h4><p>Au sein d'une start-up parisienne</p></div></div>
+              <div class="timeline__step"><span class="timeline__date"></span><span class="timeline__dot"></span><div class="timeline__content"><h4>Freelance No-Code</h4><p>Premiers workspaces et automatisations</p></div></div>
+              <div class="timeline__step"><span class="timeline__date">2025</span><span class="timeline__dot"></span><div class="timeline__content"><h4>Deekay Consulting</h4><p>Conseil · No-Code · IA</p></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="parcours__photo-col reveal" data-delay="2">
+          <div class="parcours__photo-wrap">
+            <img src="assets/images/ppshawn.jpeg" alt="Shawn Diakite — Deekay Consulting" class="parcours__photo-img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPI -->
+  <section class="kpi-section">
+    <div class="container">
+      <div class="kpi-grid">
+        <div class="kpi-item reveal"><span class="kpi-number">+35</span><span class="kpi-label">Workspaces déployés</span></div>
+        <div class="kpi-item reveal" data-delay="1"><span class="kpi-number">+10</span><span class="kpi-label">Clients accompagnés</span></div>
+        <div class="kpi-item reveal" data-delay="2"><span class="kpi-number">2 ans</span><span class="kpi-label">D'expérience terrain</span></div>
+      </div>
+    </div>
+  </section>
+
   <!-- RÉALISATIONS -->
   <section class="section section--light" id="realisations">
     <div class="container">
@@ -533,61 +645,22 @@
         </a>
       </div>
       <div class="realisations__cta reveal" data-delay="2">
-        <a href="realisations.html">Voir toutes les réalisations <span class="arrow">→</span></a>
+        <a href="realisations.html">Voir toutes les réalisations <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
       </div>
     </div>
   </section>
 
-  <!-- À PROPOS -->
-  <section class="parcours" id="parcours">
-    <div class="container">
-      <div class="parcours__label-wrap"><span class="parcours__label reveal">QUI SUIS-JE ?</span></div>
-      <div class="parcours__cols">
-        <div class="parcours__text-col reveal" data-delay="1">
-          <h2 class="parcours__title">Architecte de l'<em>organisation</em></h2>
-          <p class="parcours__subtitle">J'aime construire des systèmes utiles, efficaces et agréables à utiliser.</p>
-          <p class="parcours__text">J'ai toujours eu une façon particulière de voir les problèmes : je perçois les connexions, je hiérarchise l'essentiel, et je construis des solutions simples là où les autres voient du chaos. Après un Master en Management de la Digitalisation, de l'IA et du Big Data, j'ai transformé cette façon de penser en métier.</p>
-          <p class="parcours__text">Deekay Consulting, c'est cette conviction mise en pratique : vos outils doivent être utiles, efficaces, et agréables à utiliser. Pas seulement fonctionnels.</p>
-          <div class="parcours__convictions">
-            <blockquote>« Un système que vous ne comprenez pas est un système que vous n'utiliserez pas. »</blockquote>
-            <blockquote>« Je ne livre pas des outils. Je livre de l'autonomie. »</blockquote>
-            <blockquote>« La complexité n'est pas un problème à tolérer. C'est un problème à résoudre. »</blockquote>
-          </div>
-          <div class="parcours__timeline-block">
-            <h3 class="parcours__timeline-title">D'analyste à <em>entrepreneur</em></h3>
-            <div class="timeline">
-              <div class="timeline__step"><span class="timeline__date">2023</span><span class="timeline__dot"></span><div class="timeline__content"><h4>Master en Management</h4><p>Digitalisation, IA &amp; Big Data</p></div></div>
-              <div class="timeline__step"><span class="timeline__date">2024</span><span class="timeline__dot"></span><div class="timeline__content"><h4>Business Data Analyst</h4><p>Au sein d'une start-up parisienne</p></div></div>
-              <div class="timeline__step"><span class="timeline__date"></span><span class="timeline__dot"></span><div class="timeline__content"><h4>Freelance No-Code</h4><p>Premiers workspaces · Formation Notion</p></div></div>
-              <div class="timeline__step"><span class="timeline__date">2025</span><span class="timeline__dot"></span><div class="timeline__content"><h4>Deekay Consulting</h4><p>Conseil · No-Code · IA</p></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="parcours__photo-col reveal" data-delay="2">
-          <div class="parcours__photo-wrap">
-            <img src="assets/images/ppshawn.jpeg" alt="Shawn Diakite — Deekay Consulting" class="parcours__photo-img">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- KPI -->
-  <section class="kpi-section">
-    <div class="container">
-      <div class="kpi-grid">
-        <div class="kpi-item reveal"><span class="kpi-number">+35</span><span class="kpi-label">Workspaces déployés</span></div>
-        <div class="kpi-item reveal" data-delay="1"><span class="kpi-number">+10</span><span class="kpi-label">Clients accompagnés</span></div>
-        <div class="kpi-item reveal" data-delay="2"><span class="kpi-number">2 ans</span><span class="kpi-label">D'expérience terrain</span></div>
-      </div>
-    </div>
-  </section>
+  <div class="section-divider section-divider--light" aria-hidden="true">
+    <div class="section-divider__line"></div>
+    <div class="section-divider__dot"></div>
+    <div class="section-divider__line"></div>
+  </div>
 
   <!-- AVIS -->
   <section class="avis-section">
     <div class="container">
       <div class="section__head">
-        <h2 class="avis-section__title reveal" data-delay="1"><em>Des résultats qui parlent d'eux-mêmes.</em></h2>
+        <h2 class="avis-section__title reveal" data-delay="1">Des résultats qui parlent d'eux-mêmes</h2>
       </div>
       <div class="avis-grid">
         <article class="avis-card reveal" data-delay="1">
@@ -600,7 +673,9 @@
               <p class="gap">Ça m'a aussi fait réaliser que mon expertise pouvait devenir un vrai produit. On parle même d'en faire une appli un jour.</p>
               <p>Si t'as des connaissances qui traînent partout et que tu sais pas quoi en faire, Shawn sait exactement quoi faire avec.</p>
             </div>
-            <button class="avis-card__toggle" hidden>Voir plus</button>
+            <div class="avis-card__actions">
+              <button class="avis-card__toggle" hidden>Voir plus</button>
+            </div>
           </div>
           <footer class="avis-card__footer">
             <div class="avis-card__avatar-wrap">
@@ -623,8 +698,10 @@
               <p class="gap">Même quand rien n'a changé. Un coup d'œil suffit, c'est devenu un automatisme.</p>
               <p>Je recommande Shawn à tout commercial qui veut arrêter de naviguer à vue.</p>
             </div>
-            <button class="avis-card__toggle" hidden>Voir plus</button>
-            <a class="avis-card__project-link" href="realisations.html#projet-marc">Voir le projet <span class="arrow">→</span></a>
+            <div class="avis-card__actions">
+              <button class="avis-card__toggle" hidden>Voir plus</button>
+              <a class="avis-card__project-link" href="projet-cockpit-commercial.html">Voir le projet <span class="arrow">→</span></a>
+            </div>
           </div>
           <footer class="avis-card__footer">
             <div class="avis-card__avatar-wrap">
@@ -646,8 +723,10 @@
               <p>J'avais pas du tout prévu à quel point ça change l'image qu'on renvoie, moi la première je me sens plus pro.</p>
               <p>Au moins maintenant je passe mon temps à conseiller mes clients, pas à gérer de l'administratif. C'est quand même ça l'objectif.</p>
             </div>
-            <button class="avis-card__toggle" hidden>Voir plus</button>
-            <a class="avis-card__project-link" href="projet-automatisation-onboarding.html">Voir le projet <span class="arrow">→</span></a>
+            <div class="avis-card__actions">
+              <button class="avis-card__toggle" hidden>Voir plus</button>
+              <a class="avis-card__project-link" href="projet-automatisation-onboarding.html">Voir le projet <span class="arrow">→</span></a>
+            </div>
           </div>
           <footer class="avis-card__footer">
             <div class="avis-card__avatar-wrap">
@@ -717,7 +796,7 @@
     var hero = document.querySelector('.hero');
     var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var vsSource = ['attribute vec4 aVertexPosition;','void main() { gl_Position = aVertexPosition; }'].join('\n');
-    var fsSource = ['precision highp float;','uniform vec2 iResolution;','uniform float iTime;','const float overallSpeed = 0.2;','const float gridSmoothWidth = 0.015;','const float axisWidth = 0.05;','const float majorLineWidth = 0.025;','const float minorLineWidth = 0.0125;','const float majorLineFrequency = 5.0;','const float minorLineFrequency = 1.0;','const float scale = 5.0;','const vec4 lineColor = vec4(0.749, 0.843, 0.918, 1.0);','const float minLineWidth = 0.01;','const float maxLineWidth = 0.2;','const float lineSpeed = 1.0 * overallSpeed;','const float lineAmplitude = 1.0;','const float lineFrequency = 0.2;','const float warpSpeed = 0.2 * overallSpeed;','const float warpFrequency = 0.5;','const float warpAmplitude = 1.0;','const float offsetFrequency = 0.5;','const float offsetSpeed = 1.33 * overallSpeed;','const float minOffsetSpread = 0.6;','const float maxOffsetSpread = 2.0;','const int linesPerGroup = 16;','#define drawCircle(pos,radius,coord) smoothstep(radius+gridSmoothWidth,radius,length(coord-(pos)))','#define drawSmoothLine(pos,halfWidth,t) smoothstep(halfWidth,0.0,abs(pos-(t)))','#define drawCrispLine(pos,halfWidth,t) smoothstep(halfWidth+gridSmoothWidth,halfWidth,abs(pos-(t)))','#define drawPeriodicLine(freq,width,t) drawCrispLine(freq/2.0,width,abs(mod(t,freq)-(freq)/2.0))','float drawGridLines(float axis) {','  return drawCrispLine(0.0,axisWidth,axis)','+drawPeriodicLine(majorLineFrequency,majorLineWidth,axis)','+drawPeriodicLine(minorLineFrequency,minorLineWidth,axis);','}','float random(float t) {','  return (cos(t)+cos(t*1.3+1.3)+cos(t*1.4+1.4))/3.0;','}','float getPlasmaY(float x,float hFade,float offset) {','  return random(x*lineFrequency+iTime*lineSpeed)*hFade*lineAmplitude+offset;','}','void main() {','  vec2 uv = gl_FragCoord.xy/iResolution.xy;','  vec2 space = (gl_FragCoord.xy-iResolution.xy/2.0)/iResolution.x*2.0*scale;','  float hFade = 1.0-(cos(uv.x*6.28)*0.5+0.5);','  float vFade = 1.0-(cos(uv.y*6.28)*0.5+0.5);','  space.y += random(space.x*warpFrequency+iTime*warpSpeed)*warpAmplitude*(0.5+hFade);','  space.x += random(space.y*warpFrequency+iTime*warpSpeed+2.0)*warpAmplitude*hFade;','  vec4 lines = vec4(0.0);','  vec4 bgColor1 = vec4(0.122,0.188,0.302,1.0);','  vec4 bgColor2 = vec4(0.149,0.220,0.349,1.0);','  for(int l=0;l<linesPerGroup;l++) {','    float nli = float(l)/float(linesPerGroup);','    float offTime = iTime*offsetSpeed;','    float offPos = float(l)+space.x*offsetFrequency;','    float rand = random(offPos+offTime)*0.5+0.5;','    float halfWidth = mix(minLineWidth,maxLineWidth,rand*hFade)/2.0;','    float offset = random(offPos+offTime*(1.0+nli))*mix(minOffsetSpread,maxOffsetSpread,hFade);','    float linePos = getPlasmaY(space.x,hFade,offset);','    float line = drawSmoothLine(linePos,halfWidth,space.y)/2.0+drawCrispLine(linePos,halfWidth*0.15,space.y);','    float cx = mod(float(l)+iTime*lineSpeed,25.0)-12.0;','    vec2 cp = vec2(cx,getPlasmaY(cx,hFade,offset));','    float circle = drawCircle(cp,0.01,space)*4.0;','    lines += (line+circle)*lineColor*rand;','  }','  vec4 col = mix(bgColor1,bgColor2,uv.x);','  col *= vFade;','  col.a = 1.0;','  col += lines;','  gl_FragColor = col;','}'].join('\n');
+    var fsSource = ['precision highp float;','uniform vec2 iResolution;','uniform float iTime;','const float overallSpeed = 0.2;','const float gridSmoothWidth = 0.015;','const float axisWidth = 0.05;','const float majorLineWidth = 0.025;','const float minorLineWidth = 0.0125;','const float majorLineFrequency = 5.0;','const float minorLineFrequency = 1.0;','const float scale = 5.0;','const vec4 lineColor = vec4(0.749, 0.843, 0.918, 1.0);','const float minLineWidth = 0.01;','const float maxLineWidth = 0.2;','const float lineSpeed = 1.0 * overallSpeed;','const float lineAmplitude = 1.0;','const float lineFrequency = 0.2;','const float warpSpeed = 0.2 * overallSpeed;','const float warpFrequency = 0.5;','const float warpAmplitude = 1.0;','const float offsetFrequency = 0.5;','const float offsetSpeed = 1.33 * overallSpeed;','const float minOffsetSpread = 0.6;','const float maxOffsetSpread = 2.0;','const int linesPerGroup = 16;','#define drawCircle(pos,radius,coord) smoothstep(radius+gridSmoothWidth,radius,length(coord-(pos)))','#define drawSmoothLine(pos,halfWidth,t) smoothstep(halfWidth,0.0,abs(pos-(t)))','#define drawCrispLine(pos,halfWidth,t) smoothstep(halfWidth+gridSmoothWidth,halfWidth,abs(pos-(t)))','#define drawPeriodicLine(freq,width,t) drawCrispLine(freq/2.0,width,abs(mod(t,freq)-(freq)/2.0))','float drawGridLines(float axis) {','  return drawCrispLine(0.0,axisWidth,axis)','+drawPeriodicLine(majorLineFrequency,majorLineWidth,axis)','+drawPeriodicLine(minorLineFrequency,minorLineWidth,axis);','}','float random(float t) {','  return (cos(t)+cos(t*1.3+1.3)+cos(t*1.4+1.4))/3.0;','}','float getPlasmaY(float x,float hFade,float offset) {','  return random(x*lineFrequency+iTime*lineSpeed)*hFade*lineAmplitude+offset;','}','void main() {','  vec2 uv = gl_FragCoord.xy/iResolution.xy;','  vec2 space = (gl_FragCoord.xy-iResolution.xy/2.0)/iResolution.x*2.0*scale;','  float hFade = 1.0-(cos(uv.x*6.28)*0.5+0.5);','  float vFade = 1.0-(cos(uv.y*6.28)*0.5+0.5);','  space.y += random(space.x*warpFrequency+iTime*warpSpeed)*warpAmplitude*(0.5+hFade);','  space.x += random(space.y*warpFrequency+iTime*warpSpeed+2.0)*warpAmplitude*hFade;','  vec4 lines = vec4(0.0);','  vec4 bgColor1 = vec4(0.106,0.165,0.290,1.0);','  vec4 bgColor2 = vec4(0.106,0.165,0.290,1.0);','  for(int l=0;l<linesPerGroup;l++) {','    float nli = float(l)/float(linesPerGroup);','    float offTime = iTime*offsetSpeed;','    float offPos = float(l)+space.x*offsetFrequency;','    float rand = random(offPos+offTime)*0.5+0.5;','    float halfWidth = mix(minLineWidth,maxLineWidth,rand*hFade)/2.0;','    float offset = random(offPos+offTime*(1.0+nli))*mix(minOffsetSpread,maxOffsetSpread,hFade);','    float linePos = getPlasmaY(space.x,hFade,offset);','    float line = drawSmoothLine(linePos,halfWidth,space.y)/2.0+drawCrispLine(linePos,halfWidth*0.15,space.y);','    float cx = mod(float(l)+iTime*lineSpeed,25.0)-12.0;','    vec2 cp = vec2(cx,getPlasmaY(cx,hFade,offset));','    float circle = drawCircle(cp,0.01,space)*4.0;','    lines += (line+circle)*lineColor*rand*vFade;','  }','  vec4 col = mix(bgColor1,bgColor2,uv.x);','  col = mix(col, vec4(0.106,0.165,0.290,1.0), 1.0-vFade);','  col.a = 1.0;','  col += lines;','  gl_FragColor = col;','}'].join('\n');
     var gl = canvas.getContext('webgl');
     if (!gl) return;
     function loadShader(type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) { gl.deleteShader(s); return null; } return s; }
@@ -740,6 +819,17 @@
     render();
   })();
   </script>
+  <!-- MODAL PAIN POINTS (mobile) -->
+  <div class="pain-modal-overlay" id="painModalOverlay" role="dialog" aria-modal="true" aria-label="Situation détaillée">
+    <div class="pain-modal">
+      <button class="pain-modal__close" id="painModalClose" aria-label="Fermer" type="button">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <h3 class="pain-modal__title" id="painModalTitle"></h3>
+      <p class="pain-modal__body" id="painModalBody"></p>
+    </div>
+  </div>
+
   <!-- MODAL AVIS -->
   <div class="avis-modal-overlay" id="avisModalOverlay" role="dialog" aria-modal="true" aria-label="Avis complet">
     <div class="avis-modal">
@@ -787,6 +877,42 @@
   })();
   </script>
   <script>
+  (function() {
+    var timeline = document.querySelector('.timeline');
+    if (!timeline) return;
+    var steps = Array.prototype.slice.call(timeline.querySelectorAll('.timeline__step'));
+    if (!steps.length) return;
+
+    function activate(step) {
+      steps.forEach(function(s) { s.classList.remove('is-active'); });
+      if (step) step.classList.add('is-active');
+    }
+
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      steps.forEach(function(step) {
+        var kids = step.querySelectorAll('.timeline__dot, .timeline__content, .timeline__date');
+        kids.forEach(function(child) {
+          child.addEventListener('mouseenter', function() { activate(step); });
+        });
+      });
+      timeline.addEventListener('mouseleave', function() { activate(null); });
+    } else {
+      var io = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            var step = entry.target.closest('.timeline__step');
+            if (step) activate(step);
+          }
+        });
+      }, { threshold: 0.6, rootMargin: '0px 0px -15% 0px' });
+      steps.forEach(function(step) {
+        var content = step.querySelector('.timeline__content');
+        if (content) io.observe(content);
+      });
+    }
+  })();
+  </script>
+  <script>
   (function () {
     var el = document.getElementById('cta-word');
     if (!el) return;
@@ -797,6 +923,82 @@
     function erase(cb) { var len = el.textContent.length; var text = el.textContent; (function step() { if (len >= 0) { el.textContent = text.slice(0, len--); setTimeout(step, ERASE); } else cb(); })(); }
     function cycle() { var mot = mots[idx]; type(mot.texte, function () { setTimeout(function () { erase(function () { idx = (idx + 1) % mots.length; setTimeout(cycle, 150); }); }, mot.duree); }); }
     cycle();
+  })();
+  </script>
+  <script>
+  (function() {
+    var pains = [
+      {
+        title: "J'ai encore essayé un nouvel outil.",
+        body: "Notion, Trello, Monday, les carnets, les applis de productivité. J'en ai testé au moins cinq. Chaque fois je me dis que c'est le bon. Deux semaines plus tard je suis revenu à mes vieilles habitudes. Le problème c'est pas l'outil. C'est que personne ne l'a configuré pour moi."
+      },
+      {
+        title: "Sans moi, rien n'avance.",
+        body: "Les projets aboutissent, les clients sont contents, les délais sont tenus. Mais c'est moi qui porte tout. Les validations, les accès, les décisions, les arbitrages. Mon équipe est compétente mais le moindre blocage remonte jusqu'à moi. Tout repose sur ma présence, ma disponibilité, ma mémoire et ma validation parce qu'il n'y a aucun système qui tourne sans moi dans la boucle."
+      },
+      {
+        title: "Je cherche des choses que j'ai déjà.",
+        body: "Le devis que j'ai envoyé il y a trois semaines. Je l'ai fait, je sais que je l'ai fait. Il est dans mes mails, ou dans Drive, ou dans le dossier du mois dernier. Je passe huit minutes à le retrouver. Huit minutes pour quelque chose que j'ai déjà produit. Ça arrive deux ou trois fois par jour. Multiplié par cinq ans d'activité, je préfère ne pas calculer."
+      },
+      {
+        title: "Ma journée commence déjà en retard.",
+        body: "J'ouvre ma liste de tâches le lundi matin. Il y en a vingt-trois. Certaines datent de la semaine dernière. Trois sont urgentes mais je ne sais plus lesquelles. Je passe la première heure à trier, à prioriser, à comprendre où j'en suis et la seconde à tout expliquer à mon équipe. Avant même d'avoir produit quoi que ce soit, je suis déjà à la traîne."
+      }
+    ];
+
+    var cards = document.querySelectorAll('.pain-card');
+    var panel = document.getElementById('painPanel');
+    var panelTitle = document.getElementById('painPanelTitle');
+    var panelBody = document.getElementById('painPanelBody');
+    var overlay = document.getElementById('painModalOverlay');
+    var modalTitle = document.getElementById('painModalTitle');
+    var modalBody = document.getElementById('painModalBody');
+    var modalClose = document.getElementById('painModalClose');
+
+    function isMobile() { return window.matchMedia('(max-width: 768px)').matches; }
+
+    function setPanel(idx, animate) {
+      if (animate) {
+        panel.style.opacity = '0';
+        panel.style.transform = 'translateY(6px)';
+      }
+      var delay = animate ? 180 : 0;
+      setTimeout(function() {
+        panelTitle.textContent = pains[idx].title;
+        panelBody.textContent = pains[idx].body;
+        panel.style.opacity = '1';
+        panel.style.transform = 'translateY(0)';
+      }, delay);
+    }
+
+    if (panel) {
+      panel.style.transition = 'opacity 0.18s ease, transform 0.18s ease';
+      setPanel(0, false);
+    }
+
+    cards.forEach(function(card) {
+      card.addEventListener('click', function() {
+        var idx = parseInt(card.getAttribute('data-pain'), 10);
+        if (isMobile()) {
+          if (modalTitle) modalTitle.textContent = pains[idx].title;
+          if (modalBody) modalBody.textContent = pains[idx].body;
+          if (overlay) { overlay.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+        } else {
+          cards.forEach(function(c) { c.classList.remove('is-active'); });
+          card.classList.add('is-active');
+          setPanel(idx, true);
+        }
+      });
+    });
+
+    function closePainModal() {
+      if (overlay) { overlay.classList.remove('is-open'); document.body.style.overflow = ''; }
+    }
+    if (modalClose) modalClose.addEventListener('click', closePainModal);
+    if (overlay) overlay.addEventListener('click', function(e) { if (e.target === overlay) closePainModal(); });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay && overlay.classList.contains('is-open')) closePainModal();
+    });
   })();
   </script>
 </body>
