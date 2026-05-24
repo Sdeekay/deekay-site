@@ -242,7 +242,7 @@ p { margin: 0; text-wrap: pretty; }
 .parcours__label { display: inline-flex; align-items: center; padding: 5px 16px; border-radius: 999px; background: rgba(168, 197, 218, 0.08); border: 1px solid rgba(168, 197, 218, 0.18); font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
 .parcours__cols { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
 .parcours__text-col { display: flex; flex-direction: column; gap: 20px; }
-.parcours__title { font-size: clamp(26px, 3vw, 40px); font-weight: 800; letter-spacing: -0.025em; color: var(--white); line-height: 1.15; }
+.parcours__title { font-size: clamp(20px, 2.6vw, 36px); font-weight: 800; letter-spacing: -0.025em; color: var(--white); line-height: 1.15; white-space: nowrap; }
 .parcours__title em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--accent); }
 .parcours__subtitle { font-size: 1.05rem; color: rgba(245, 245, 242, 0.8); line-height: 1.55; font-weight: 500; }
 .parcours__text { font-size: 15px; color: rgba(245, 245, 242, 0.62); line-height: 1.75; }
@@ -576,7 +576,7 @@ p { margin: 0; text-wrap: pretty; }
 .engagement-badge p { font-size: 14px; color: rgba(27, 42, 74, 0.75); line-height: 1.7; margin: 0; }
 
 .avis-section { background: #F1F3F7; padding: 64px 0; }
-.avis-section__title { font-family: var(--font-sans); font-style: normal; font-weight: 800; font-size: clamp(24px, 2.8vw, 38px); color: var(--navy-900); line-height: 1.15; letter-spacing: -0.025em; margin: 0 0 40px; text-align: center; }
+.avis-section__title { font-family: var(--font-sans); font-style: normal; font-weight: 800; font-size: clamp(24px, 2.8vw, 38px); color: var(--navy-500); line-height: 1.15; letter-spacing: -0.025em; margin: 0 0 40px; text-align: center; }
 .avis-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: start; }
 .avis-card { background: #FFFFFF; border-radius: 16px; border: 1px solid rgba(31, 48, 77, 0.06); box-shadow: 0 2px 12px rgba(31, 48, 77, 0.07); padding: 1.25rem; display: flex; flex-direction: column; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
 .avis-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(31, 48, 77, 0.15); border-color: rgba(191, 215, 234, 0.6); }
