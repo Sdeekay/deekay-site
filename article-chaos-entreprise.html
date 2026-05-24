@@ -62,85 +62,71 @@
   }
   </script>
   <style>
-    /* ── Article page overrides ── */
-    body {
-      background: #F5F5F2;
-      color: #2D2D2D;
-    }
+    body { background: #F5F5F2; color: #2D2D2D; }
 
-    /* Nav always navy on this light-background page */
-    .nav {
-      background: #1B2A4A;
-      border-bottom-color: rgba(255, 255, 255, 0.08);
-    }
-    .nav.is-stuck {
-      background: rgba(15, 24, 50, 0.95);
-    }
+    .nav { background: #1B2A4A; border-bottom-color: rgba(255,255,255,0.08); }
+    .nav.is-stuck { background: rgba(15,24,50,0.95); }
 
-    /* Banner full-width (ouverture seulement) */
-    .article-banner {
-      width: 100%;
-      height: 480px;
-      overflow: hidden;
-      display: block;
-      line-height: 0;
-    }
-    .article-banner img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      max-width: none;
-    }
-
-    /* Article body */
+    /* ── Article layout ── */
     .article-body {
       background: #F5F5F2;
-      padding: 72px 0 80px;
+      padding: 52px 0 80px;
     }
     .article-body__inner {
-      max-width: 740px;
+      max-width: 620px;
       margin: 0 auto;
       padding: 0 24px;
     }
 
-    /* Category pill — même style que les tags blog */
+    /* Back to blog */
+    .article-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: rgba(27,42,74,0.45);
+      text-decoration: none;
+      margin-bottom: 24px;
+      letter-spacing: 0.01em;
+      transition: color 0.18s;
+    }
+    .article-back-link:hover { color: #1B2A4A; }
+
+    /* Category pill */
     .article-category {
       display: inline-block;
       font-size: 10px;
       font-weight: 600;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: #F5F5F2;
+      color: rgba(27,42,74,0.7);
       padding: 3px 10px;
       border-radius: 100px;
-      background: rgba(27, 42, 74, 0.78);
-      border: 1px solid rgba(27, 42, 74, 0.12);
-      margin-bottom: 18px;
+      background: rgba(27,42,74,0.07);
+      border: 1px solid rgba(27,42,74,0.12);
+      margin-bottom: 14px;
     }
 
-    /* Title — même police que le site, sans italique */
+    /* Title — 2 lignes max */
     .article-title {
-      font-size: 36px;
+      font-size: clamp(22px, 3vw, 28px);
       font-weight: 800;
       color: #1B2A4A;
-      line-height: 1.15;
-      letter-spacing: -0.01em;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
       margin: 0 0 20px;
-      text-wrap: unset;
-      max-width: 100%;
     }
 
-    /* Author + meta row */
+    /* Author + meta */
     .article-author {
       display: flex;
       align-items: center;
-      gap: 12px;
-      margin-bottom: 48px;
+      gap: 10px;
+      margin-bottom: 20px;
     }
     .article-author__photo {
-      width: 40px;
-      height: 40px;
+      width: 34px; height: 34px;
       border-radius: 50%;
       object-fit: cover;
       object-position: center top;
@@ -149,77 +135,81 @@
     }
     .article-author__name {
       display: block;
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 600;
       color: #1B2A4A;
       line-height: 1.2;
     }
-    .article-meta {
-      font-size: 13px;
-      color: #888;
-      margin: 0;
-    }
+    .article-meta { font-size: 12px; color: #999; margin: 0; }
 
-    /* Divider after author block */
+    /* Divider */
     .article-divider {
       border: none;
-      border-top: 1px solid rgba(27, 42, 74, 0.12);
-      margin: 0 0 48px;
+      border-top: 1px solid rgba(27,42,74,0.1);
+      margin: 0 0 28px;
     }
 
-    /* Paragraphs — justifiés */
+    /* Hero image — inset, arrondie */
+    .article-hero-img {
+      margin: 0 0 36px;
+      border-radius: 12px;
+      overflow: hidden;
+      line-height: 0;
+    }
+    .article-hero-img img { width: 100%; display: block; }
+
+    /* Body text */
     .article-content p {
-      font-size: 17px;
-      line-height: 1.8;
-      color: #2D2D2D;
-      margin-bottom: 24px;
+      font-size: 15px;
+      line-height: 1.72;
+      color: rgba(27,42,74,0.72);
+      margin-bottom: 16px;
       text-align: justify;
       hyphens: auto;
     }
 
-    /* Section headings — même police que le site */
+    /* Section headings */
     .article-content h2 {
-      font-size: 22px;
+      font-size: 17.5px;
       font-weight: 800;
       color: #1B2A4A;
-      margin-top: 56px;
-      margin-bottom: 20px;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
+      margin-top: 36px;
+      margin-bottom: 12px;
+      letter-spacing: -0.018em;
+      line-height: 1.2;
     }
 
     /* Schema figure */
     .article-schema {
-      margin: 56px 0;
-      width: 100%;
+      margin: 36px 0;
+      border-radius: 10px;
+      overflow: hidden;
+      line-height: 0;
     }
-    .article-schema img {
-      width: 100%;
-      display: block;
-    }
+    .article-schema img { width: 100%; display: block; }
 
-    /* Closing section — grille 50/50, image inclinée côté droit */
+    /* Closing section — 50/50 */
     .article-closing {
-      margin-top: 56px;
+      margin-top: 44px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 48px;
+      gap: 36px;
       align-items: center;
     }
     .article-closing h2 {
-      font-size: 22px;
+      font-size: 17.5px;
       font-weight: 800;
       color: #1B2A4A;
       margin-top: 0;
-      margin-bottom: 20px;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
+      margin-bottom: 12px;
+      letter-spacing: -0.018em;
+      line-height: 1.2;
     }
     .article-closing p {
-      font-size: 17px;
-      line-height: 1.8;
-      color: #2D2D2D;
-      margin-bottom: 24px;
+      font-size: 15px;
+      line-height: 1.72;
+      color: rgba(27,42,74,0.72);
+      margin-bottom: 14px;
       text-align: justify;
       hyphens: auto;
     }
@@ -227,40 +217,30 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 16px 8px;
+      padding: 8px 4px;
     }
     .article-closing__image {
       width: 100%;
       display: block;
-      border-radius: 18px;
-      transform: rotate(3deg);
-      box-shadow: 0 32px 80px -16px rgba(27, 42, 74, 0.20), 0 8px 24px -8px rgba(27, 42, 74, 0.10);
+      border-radius: 12px;
+      transform: rotate(2.5deg);
+      box-shadow: 0 20px 56px -12px rgba(27,42,74,0.18);
     }
 
-    /* Footer — toujours navy */
-    .footer {
-      background: #1B2A4A;
+    /* Bottom back link */
+    .article-back-footer {
+      margin-top: 48px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(27,42,74,0.1);
     }
 
-    /* Mobile */
+    .footer { background: #1B2A4A; }
+
     @media (max-width: 640px) {
-      .article-title {
-        font-size: 26px;
-      }
-      .article-banner {
-        height: 260px;
-      }
-      .article-body {
-        padding: 48px 0 64px;
-      }
-      .article-closing {
-        grid-template-columns: 1fr;
-        gap: 32px;
-      }
-      .article-closing__image {
-        transform: none;
-        box-shadow: 0 16px 40px -8px rgba(27, 42, 74, 0.14);
-      }
+      .article-title { font-size: 21px; }
+      .article-body { padding: 40px 0 56px; }
+      .article-closing { grid-template-columns: 1fr; gap: 24px; }
+      .article-closing__image { transform: none; box-shadow: 0 10px 28px -6px rgba(27,42,74,0.14); }
     }
   </style>
 </head>
@@ -295,14 +275,15 @@
     </div>
   </header>
 
-  <!-- BANNER OUVERTURE -->
-  <div class="article-banner" style="margin-top: 72px;">
-    <img src="Article/banner_dark.svg" alt="Illustration d'ouverture de l'article" loading="eager" />
-  </div>
-
   <!-- CORPS DE L'ARTICLE -->
-  <section class="article-body">
+  <section class="article-body" style="margin-top: 72px;">
     <div class="article-body__inner">
+
+      <!-- Retour au blog — haut -->
+      <a href="blog.html" class="article-back-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Retour au blog
+      </a>
 
       <span class="article-category">Organisation &amp; Systèmes</span>
 
@@ -317,6 +298,11 @@
       </div>
 
       <hr class="article-divider" />
+
+      <!-- Image d'ouverture — inset -->
+      <figure class="article-hero-img">
+        <img src="Article/banner_dark.svg" alt="Illustration d'ouverture de l'article" loading="eager" />
+      </figure>
 
       <div class="article-content">
 
@@ -400,14 +386,14 @@
 
         <p>Une entreprise qui tient par sa structure n'est pas une entreprise rigide. C'est une entreprise qui peut enfin grandir sans que chaque palier de croissance se transforme en crise.</p>
 
-        <!-- SECTION FINALE — grille 50/50, image inclinée premium -->
+        <!-- SECTION FINALE — grille 50/50, image inclinée -->
         <div class="article-closing">
           <div class="article-closing__text">
             <h2>Une entreprise ne devient pas chaotique par hasard</h2>
 
             <p>Elle devient chaotique à un moment précis. Quand la croissance dépasse la capacité du système à absorber cette croissance. Et ce moment-là est trompeur parce que tout continue de fonctionner, mais tout devient plus lourd, plus lent, plus mental, plus dépendant.</p>
 
-            <p>À un moment, improviser coûte plus cher que structurer. La question n'est pas de savoir si tu vas atteindre ce seuil. C'est de savoir si tu l'auras anticipé ou subi. Les entreprises qui franchissent ce cap sans casse ne sont pas celles qui ont trouvé le bon outil. Ce sont celles qui ont arrêté de traiter la structure comme une contrainte et commencé à la traiter comme un avantage concurrentiel. C'est souvent à partir de là qu'une entreprise cesse simplement de fonctionner pour devenir réellement pilotable.</p>
+            <p>À un moment, improviser coûte plus cher que structurer. La question n'est pas de savoir si tu vas atteindre ce seuil. C'est de savoir si tu l'auras anticipé ou subi. Les entreprises qui franchissent ce cap sans casse ne sont pas celles qui ont trouvé le bon outil. Ce sont celles qui ont arrêté de traiter la structure comme une contrainte et commencé à la traiter comme un avantage concurrentiel.</p>
           </div>
           <div class="article-closing__media">
             <img class="article-closing__image" src="Article/banner_warm.svg" alt="Illustration de conclusion de l'article" loading="lazy" />
@@ -415,6 +401,15 @@
         </div>
 
       </div>
+
+      <!-- Retour au blog — bas -->
+      <div class="article-back-footer">
+        <a href="blog.html" class="article-back-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          Retour au blog
+        </a>
+      </div>
+
     </div>
   </section>
 

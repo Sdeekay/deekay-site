@@ -245,7 +245,7 @@ p { margin: 0; text-wrap: pretty; }
 .parcours__title { font-size: clamp(20px, 2.6vw, 36px); font-weight: 800; letter-spacing: -0.025em; color: var(--white); line-height: 1.15; white-space: nowrap; }
 .parcours__title em { font-family: var(--font-serif); font-style: italic; font-weight: 400; color: var(--accent); }
 .parcours__subtitle { font-size: 1.05rem; color: rgba(245, 245, 242, 0.8); line-height: 1.55; font-weight: 500; }
-.parcours__text { font-size: 15px; color: rgba(245, 245, 242, 0.62); line-height: 1.75; }
+.parcours__text { font-size: 15px; color: rgba(245, 245, 242, 0.62); line-height: 1.75; text-align: justify; hyphens: auto; }
 .parcours__convictions { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid rgba(168, 197, 218, 0.18); border-radius: 12px; overflow: hidden; }
 .parcours__convictions blockquote { margin: 0; padding: 18px 16px; font-style: italic; font-size: 12.5px; color: rgba(245, 245, 242, 0.7); line-height: 1.65; border-left: 1px solid rgba(168, 197, 218, 0.2); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; min-height: 120px; }
 .parcours__convictions blockquote:first-child { border-left: none; }
