@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Notion vs Airtable : lequel choisir pour gérer ton activité ? — Deekay Consulting</title>
+  <meta name="description" content="Notion ou Airtable ? La question revient tout le temps. Voici un cadre clair pour choisir sans te tromper, selon ton activité et tes vrais besoins." />
+  <meta name="author" content="Shawn Diakite" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Notion vs Airtable : lequel choisir pour gérer ton activité ?" />
+  <meta property="og:description" content="Notion ou Airtable ? La question revient tout le temps. Voici un cadre clair pour choisir sans te tromper, selon ton activité et tes vrais besoins." />
+  <meta property="og:url" content="https://deekayconsulting.com/blog-notion-vs-airtable.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:label1" content="Temps de lecture" />
+  <meta name="twitter:data1" content="6 min" />
+  <meta property="article:published_time" content="2026-05-24" />
+  <meta property="article:author" content="Shawn Diakite" />
+  <meta property="article:tag" content="No-Code" />
+  <meta property="article:tag" content="Organisation" />
+  <link rel="canonical" href="https://deekayconsulting.com/blog-notion-vs-airtable.html" />
+  <link rel="icon" type="image/svg+xml" href="DEEKAY.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="tweaks.css" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Notion vs Airtable : lequel choisir pour gérer ton activité ?",
+    "description": "Notion ou Airtable ? La question revient tout le temps. Voici un cadre clair pour choisir sans te tromper, selon ton activité et tes vrais besoins.",
+    "author": {
+      "@type": "Person",
+      "name": "Shawn Diakite",
+      "url": "https://deekayconsulting.com"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Deekay Consulting",
+      "logo": { "@type": "ImageObject", "url": "https://deekayconsulting.com/DEEKAY.svg" }
+    },
+    "datePublished": "2026-05-24",
+    "dateModified": "2026-05-24",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://deekayconsulting.com/blog-notion-vs-airtable.html"
+    },
+    "keywords": ["Notion", "Airtable", "No-Code", "Organisation", "Outils"],
+    "articleSection": "No-Code & Organisation",
+    "timeRequired": "PT6M",
+    "inLanguage": "fr-FR"
+  }
+  </script>
+  <style>
+    body { background: #F5F5F2; color: #2D2D2D; }
+
+    .nav { background: #1B2A4A; border-bottom-color: rgba(255,255,255,0.08); }
+    .nav.is-stuck { background: rgba(15,24,50,0.95); }
+
+    /* ── Layout ── */
+    .article-body {
+      background: #F5F5F2;
+      padding: 52px 0 80px;
+    }
+    .article-body__inner {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Back to blog */
+    .article-back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: rgba(27,42,74,0.45);
+      text-decoration: none;
+      margin-bottom: 24px;
+      letter-spacing: 0.01em;
+      transition: color 0.18s;
+    }
+    .article-back-link:hover { color: #1B2A4A; }
+
+    /* Category pill */
+    .article-category {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(27,42,74,0.7);
+      padding: 3px 10px;
+      border-radius: 100px;
+      background: rgba(27,42,74,0.07);
+      border: 1px solid rgba(27,42,74,0.12);
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+
+    /* Title */
+    .article-title {
+      font-size: clamp(22px, 3vw, 28px);
+      font-weight: 800;
+      color: #1B2A4A;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      margin: 0 0 20px;
+    }
+
+    /* Author + meta */
+    .article-author {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .article-author__photo {
+      width: 34px; height: 34px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      flex-shrink: 0;
+      display: block;
+    }
+    .article-author__name {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      color: #1B2A4A;
+      line-height: 1.2;
+    }
+    .article-meta { font-size: 12px; color: #999; margin: 0; }
+
+    /* Divider */
+    .article-divider {
+      border: none;
+      border-top: 1px solid rgba(27,42,74,0.1);
+      margin: 0 0 36px;
+    }
+
+    /* Body text */
+    .article-content p {
+      font-size: 15px;
+      line-height: 1.72;
+      color: rgba(27,42,74,0.72);
+      margin-bottom: 16px;
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    /* Section headings */
+    .article-content h2 {
+      font-size: 17.5px;
+      font-weight: 800;
+      color: #1B2A4A;
+      margin-top: 40px;
+      margin-bottom: 12px;
+      letter-spacing: -0.018em;
+      line-height: 1.2;
+    }
+
+    /* Sub-section headings */
+    .article-content h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: #1B2A4A;
+      margin-top: 24px;
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+      line-height: 1.3;
+    }
+
+    /* Lists */
+    .article-content ul {
+      margin: 0 0 16px;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .article-content li {
+      font-size: 15px;
+      line-height: 1.65;
+      color: rgba(27,42,74,0.72);
+      padding-left: 18px;
+      position: relative;
+    }
+    .article-content li::before {
+      content: '–';
+      position: absolute;
+      left: 0;
+      color: rgba(27,42,74,0.35);
+      font-weight: 600;
+    }
+
+    /* CTA block */
+    .article-cta {
+      margin-top: 40px;
+      padding: 24px 28px;
+      background: rgba(27,42,74,0.04);
+      border: 1px solid rgba(27,42,74,0.1);
+      border-radius: 14px;
+    }
+    .article-cta p {
+      font-size: 15px;
+      line-height: 1.65;
+      color: rgba(27,42,74,0.72);
+      margin: 0 0 16px;
+      text-align: left;
+      hyphens: none;
+    }
+    .article-cta a {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 20px;
+      background: #1B2A4A;
+      color: #F5F5F2;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 100px;
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: opacity 0.18s;
+    }
+    .article-cta a:hover { opacity: 0.85; }
+
+    /* Bottom back link */
+    .article-back-footer {
+      margin-top: 48px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(27,42,74,0.1);
+    }
+
+    .footer { background: #1B2A4A; }
+
+    @media (max-width: 640px) {
+      .article-title { font-size: 21px; }
+      .article-body { padding: 40px 0 56px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="container nav__inner">
+      <a class="logo" href="index.html" aria-label="Deekay Consulting — accueil">
+        <img src="DEEKAY.svg" class="logo__mark-img" height="32" alt="Deekay Consulting">
+        Deekay<span class="logo__sub">consulting</span>
+      </a>
+      <nav>
+        <ul class="nav__links" id="navLinks">
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="realisations.html">Réalisations</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#parcours">Parcours</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li class="nav__lang">
+            <span class="lang-active">FR</span>
+            <span class="lang-sep">|</span>
+            <span class="lang-inactive">EN</span>
+          </li>
+        </ul>
+      </nav>
+      <a href="contact.html" class="nav__cta">
+        Évaluer mon projet
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+      </a>
+      <button class="nav__burger" aria-label="Ouvrir le menu" aria-controls="navLinks"><span></span></button>
+    </div>
+  </header>
+
+  <!-- CORPS DE L'ARTICLE -->
+  <section class="article-body" style="margin-top: 72px;">
+    <div class="article-body__inner">
+
+      <!-- Retour au blog — haut -->
+      <a href="blog.html" class="article-back-link">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+        Retour au blog
+      </a>
+
+      <h1 class="article-title">Notion vs Airtable : lequel choisir pour gérer ton activité&nbsp;?</h1>
+
+      <div class="article-author">
+        <img src="assets/images/ppshawn.jpeg" alt="Shawn Diakite" class="article-author__photo" />
+        <div>
+          <span class="article-author__name">Shawn Diakite</span>
+          <p class="article-meta">24 mai 2026&nbsp;&nbsp;·&nbsp;&nbsp;6 min de lecture</p>
+        </div>
+        <span class="article-category">No-Code &amp; Organisation</span>
+      </div>
+
+      <hr class="article-divider" />
+
+      <div class="article-content">
+
+        <p>La question revient tout le temps. Dans les DM, dans les calls de découverte, dans les formulaires de contact&nbsp;: <em>"J'hésite entre Notion et Airtable, tu me conseilles quoi&nbsp;?"</em></p>
+
+        <p>Et ma réponse honnête, c'est que ça dépend. Pas parce que je veux esquiver, mais parce que ce sont deux outils qui ne font pas la même chose, même s'ils semblent se ressembler depuis l'extérieur.</p>
+
+        <p>Alors voilà ce que je vais faire&nbsp;: t'expliquer exactement ce que chacun fait bien, ce que chacun fait mal, et te donner un cadre clair pour choisir sans te tromper.</p>
+
+        <h2>Ce que Notion fait vraiment</h2>
+
+        <p>Notion, c'est avant tout un outil de pensée. Un espace où tu peux tout centraliser&nbsp;: tes notes, tes projets, ta documentation, ton CRM, ton tableau de bord. La force de Notion, c'est sa flexibilité totale.</p>
+
+        <p>Tu pars d'une page blanche. Tu construis exactement ce dont tu as besoin, avec exactement la structure que tu veux. Ça peut ressembler à un wiki, à un agenda, à un espace projet, à un tableau de bord de gestion, ou aux quatre en même temps.</p>
+
+        <p>C'est aussi là que réside son piège. Cette liberté peut devenir paralysante si tu n'as pas une vision claire de l'organisation que tu veux mettre en place. J'ai vu des freelances passer plus de temps à restructurer leur Notion qu'à travailler dans leur Notion.</p>
+
+        <p>Notion excelle pour&nbsp;:</p>
+        <ul>
+          <li>Centraliser l'information et la documentation</li>
+          <li>Suivre des projets avec leurs étapes, leurs notes, leurs fichiers liés</li>
+          <li>Créer un espace de travail quotidien qui regroupe tout</li>
+          <li>Collaborer en équipe sur du contenu (briefs, bases de connaissance, wikis internes)</li>
+        </ul>
+
+        <p>Ses bases de données sont puissantes pour un outil de ce type. Tu peux relier des tables entre elles, créer des vues filtrées, automatiser des statuts. Mais ses capacités de traitement de données restent limitées comparé à ce qu'Airtable propose.</p>
+
+        <h2>Ce qu'Airtable fait vraiment</h2>
+
+        <p>Airtable part d'un postulat différent. C'est un tableur, mais pensé pour des humains. Un tableur avec des relations, des formules avancées, des automatisations solides, et une interface qui ne fait pas fuir.</p>
+
+        <p>Là où Notion est un outil de pensée, Airtable est un outil de données. Tu ne l'utilises pas pour "penser" ou "organiser tes idées", tu l'utilises pour structurer des flux d'information et les faire circuler.</p>
+
+        <p>Il brille quand tu as plusieurs entités qui doivent se parler&nbsp;: des clients liés à des projets liés à des factures liées à des contacts. C'est pour ça qu'il est redoutable pour les CRM un peu plus musclés, les workflows de production, la gestion d'inventaires, les plateformes qui connectent plusieurs types d'acteurs.</p>
+
+        <p>Airtable excelle pour&nbsp;:</p>
+        <ul>
+          <li>Modéliser des données complexes avec des relations multiples</li>
+          <li>Créer des workflows automatisés directement dans la base</li>
+          <li>Construire des vues différentes selon les profils (commercial, ops, direction)</li>
+          <li>Alimenter des interfaces externes via ses API ou ses intégrations</li>
+        </ul>
+
+        <p>Sa courbe de prise en main est plus raide. Et il est plus cher dès que tu as besoin des fonctionnalités avancées. Mais quand la structure de données est bien posée, c'est une machine.</p>
+
+        <h2>Les vrais points de comparaison</h2>
+
+        <h3>La structure de données</h3>
+
+        <p>Notion gère des bases de données relationnelles simples. Tu peux lier des tables, mais les formules restent basiques et les rollups ont leurs limites. Pour 80&nbsp;% des freelances et petites structures, c'est largement suffisant.</p>
+
+        <p>Airtable est nativement conçu pour des données relationnelles plus complexes. Formules, lookups, rollups, automatisations conditionnelles&nbsp;: c'est son terrain de jeu naturel.</p>
+
+        <h3>L'expérience au quotidien</h3>
+
+        <p>Notion est plus agréable à vivre au jour le jour. Tu ouvres une page, tu notes, tu glisses des blocs, tu navigues entre tes espaces. C'est proche d'un carnet de bord numérique.</p>
+
+        <p>Airtable, c'est un outil de travail. Fonctionnel, efficace, mais moins "habitable". Tu n'y vas pas pour réfléchir, tu y vas pour opérer.</p>
+
+        <h3>Les automatisations</h3>
+
+        <p>Les deux proposent des automatisations natives. Celles d'Airtable sont plus puissantes directement dans l'outil. Celles de Notion ont évolué mais restent plus simples. Dans les deux cas, Make ou Zapier décuplent ce que tu peux faire.</p>
+
+        <h3>Le prix</h3>
+
+        <p>Notion est généreux en gratuit pour un usage solo. Le plan payant est abordable. Airtable a aussi un plan gratuit, mais il devient rapidement limitant. Les fonctionnalités qui font vraiment la différence (automatisations avancées, historique, API illimitée) arrivent sur des plans plus élevés.</p>
+
+        <h2>Alors, lequel choisir&nbsp;?</h2>
+
+        <p>Voilà ma grille de lecture, sans détour.</p>
+
+        <h3>Prends Notion si&nbsp;:</h3>
+
+        <p>Tu es freelance, solo ou en petite équipe, et tu cherches un endroit où tout centraliser&nbsp;: tes projets, tes clients, ta compta légère, tes notes, ta documentation. Tu veux un espace de travail qui ressemble à toi et qui répond à ton rythme. Tu n'as pas de flux de données complexes à gérer.</p>
+
+        <h3>Prends Airtable si&nbsp;:</h3>
+
+        <p>Tu gères des processus avec plusieurs types d'entités qui interagissent entre elles. Tu as besoin de rapports fiables, de vues différenciées par équipe, ou d'alimenter des outils externes via API. Tu es prêt à investir du temps dans la configuration et du budget dans l'outil.</p>
+
+        <h3>Utilise les deux si&nbsp;:</h3>
+
+        <p>Ton activité a une dimension opérationnelle forte (Airtable) et un besoin de documentation ou de suivi de projet (Notion). Les deux s'intègrent bien avec Make et les principaux outils du marché. Ce n'est pas une question de "l'un ou l'autre" si les cas d'usage sont distincts.</p>
+
+        <h2>Ce que j'observe sur le terrain</h2>
+
+        <p>La plupart des freelances et des petites structures n'ont pas besoin d'Airtable. Pas parce qu'il est trop complexe, mais parce que leur problème n'est pas la puissance de leur base de données. Leur problème, c'est qu'ils n'ont pas de système du tout.</p>
+
+        <p>Un Notion bien construit résout ça. Un Airtable sous-exploité, lui, devient juste un beau tableau vide.</p>
+
+        <p>L'outil ne fait pas le système. Le système fait le système. Et un bon système commence toujours par comprendre ce qu'on a vraiment besoin de gérer, avant de choisir avec quoi le gérer.</p>
+
+        <p>C'est exactement ce que je fais lors d'un audit&nbsp;: on identifie les vrais blocages, et on choisit les bons outils en fonction, pas l'inverse.</p>
+
+        <div class="article-cta">
+          <p>Si tu veux qu'on regarde ensemble ce qui correspond à ta situation, tu peux décrire ton projet directement via le formulaire. Je reviens vers toi sous 48h.</p>
+          <a href="contact.html">
+            Évaluer mon projet
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Retour au blog — bas -->
+      <div class="article-back-footer">
+        <a href="blog.html" class="article-back-link">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+          Retour au blog
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__col footer__col--brand">
+          <a class="logo" href="index.html">
+            <img src="DEEKAY.svg" class="logo__mark-img" height="32" alt="Deekay Consulting">
+            Deekay<span class="logo__sub">consulting</span>
+          </a>
+          <p class="footer__tag"><em>Transformez la complexité en clarté.</em></p>
+        </div>
+        <div class="footer__col footer__col--nav">
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="realisations.html">Réalisations</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="index.html#parcours">Parcours</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col footer__col--socials">
+          <ul class="footer__socials">
+            <li>
+              <a href="https://www.linkedin.com/in/shawn-diakite-3a503a163" aria-label="LinkedIn" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2.2"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 0 1 4 0v4M11 13v4"/></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://tiktok.com/@deekayconsulting" aria-label="TikTok" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4v9.5a3.5 3.5 0 1 1-3.5-3.5"/><path d="M14 4c.4 2.4 2.4 4.2 5 4.4"/></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© 2026 Deekay Consulting · Tous droits réservés</span>
+        <span class="legal"><a href="faq.html">FAQ</a><a href="mentions-legales.html">Mentions légales</a><a href="politique-de-confidentialite.html">Politique de confidentialité</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script src="tweaks.js"></script>
+</body>
+</html>
