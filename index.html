@@ -168,6 +168,38 @@
 
   <!-- OFFRES -->
   <section class="section offres-section" id="services">
+
+  <!-- PAIN POINTS -->
+  <div class="container pain-points-wrap">
+    <div class="pain-points" id="painPoints">
+      <div class="pain-points__left">
+        <button class="pain-card is-active" data-pain="0" type="button">
+          <span class="pain-card__title">J'ai encore essayé un nouvel outil.</span>
+          <svg class="pain-card__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="pain-card" data-pain="1" type="button">
+          <span class="pain-card__title">Sans moi, rien n'avance.</span>
+          <svg class="pain-card__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="pain-card" data-pain="2" type="button">
+          <span class="pain-card__title">Je cherche des choses que j'ai déjà.</span>
+          <svg class="pain-card__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+        <button class="pain-card" data-pain="3" type="button">
+          <span class="pain-card__title">Ma journée commence déjà en retard.</span>
+          <svg class="pain-card__chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+      <div class="pain-points__right" id="painPointsRight">
+        <div class="pain-panel" id="painPanel">
+          <h3 class="pain-panel__title" id="painPanelTitle"></h3>
+          <p class="pain-panel__body" id="painPanelBody"></p>
+        </div>
+      </div>
+    </div>
+    <p class="pain-points__bridge">C&rsquo;est votre quotidien&nbsp;? Vous êtes exactement au bon endroit.</p>
+  </div>
+
     <div class="offres-chemin-wrap">
     <!-- Chemin SVG calculé en JS reliant les cartes -->
     <svg class="offres-path" aria-hidden="true">
@@ -500,6 +532,51 @@
     </script>
   </section>
 
+  <!-- À PROPOS -->
+  <section class="parcours" id="parcours">
+    <div class="container">
+      <div class="parcours__label-wrap"><span class="parcours__label reveal">QUI SUIS-JE ?</span></div>
+      <div class="parcours__cols">
+        <div class="parcours__text-col reveal" data-delay="1">
+          <h2 class="parcours__title">Architecte de l'organisation</h2>
+          <p class="parcours__subtitle">J'aime construire des systèmes utiles, efficaces et agréables à utiliser.</p>
+          <p class="parcours__text">J'ai toujours eu une façon particulière de voir les problèmes : je perçois les connexions, je hiérarchise l'essentiel, et je construis des solutions simples là où les autres voient du chaos. Après un Master en Management de la Digitalisation, de l'IA et du Big Data, j'ai transformé cette façon de penser en métier.</p>
+          <p class="parcours__text">Deekay Consulting, c'est cette conviction mise en pratique : vos outils doivent être utiles, efficaces, et agréables à utiliser. Pas seulement fonctionnels.</p>
+          <div class="parcours__convictions">
+            <blockquote>« Un système que vous ne comprenez pas est un système que vous n'utiliserez pas. »</blockquote>
+            <blockquote>« Je ne livre pas des outils. Je livre de l'autonomie. »</blockquote>
+            <blockquote>« La complexité n'est pas un problème à tolérer. C'est un problème à résoudre. »</blockquote>
+          </div>
+          <div class="parcours__timeline-block">
+            <h3 class="parcours__timeline-title">D'analyste à entrepreneur</h3>
+            <div class="timeline">
+              <div class="timeline__step"><span class="timeline__date">2023</span><span class="timeline__dot"></span><div class="timeline__content"><h4>Master en Management</h4><p>Digitalisation, IA &amp; Big Data</p></div></div>
+              <div class="timeline__step"><span class="timeline__date">2024</span><span class="timeline__dot"></span><div class="timeline__content"><h4>Business Data Analyst</h4><p>Au sein d'une start-up parisienne</p></div></div>
+              <div class="timeline__step"><span class="timeline__date"></span><span class="timeline__dot"></span><div class="timeline__content"><h4>Freelance No-Code</h4><p>Premiers workspaces et automatisations</p></div></div>
+              <div class="timeline__step"><span class="timeline__date">2025</span><span class="timeline__dot"></span><div class="timeline__content"><h4>Deekay Consulting</h4><p>Conseil · No-Code · IA</p></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="parcours__photo-col reveal" data-delay="2">
+          <div class="parcours__photo-wrap">
+            <img src="assets/images/ppshawn.jpeg" alt="Shawn Diakite — Deekay Consulting" class="parcours__photo-img">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KPI -->
+  <section class="kpi-section">
+    <div class="container">
+      <div class="kpi-grid">
+        <div class="kpi-item reveal"><span class="kpi-number">+35</span><span class="kpi-label">Workspaces déployés</span></div>
+        <div class="kpi-item reveal" data-delay="1"><span class="kpi-number">+10</span><span class="kpi-label">Clients accompagnés</span></div>
+        <div class="kpi-item reveal" data-delay="2"><span class="kpi-number">2 ans</span><span class="kpi-label">D'expérience terrain</span></div>
+      </div>
+    </div>
+  </section>
+
   <!-- RÉALISATIONS -->
   <section class="section section--light" id="realisations">
     <div class="container">
@@ -552,51 +629,6 @@
       </div>
       <div class="realisations__cta reveal" data-delay="2">
         <a href="realisations.html">Voir toutes les réalisations <svg class="arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7"/></svg></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- À PROPOS -->
-  <section class="parcours" id="parcours">
-    <div class="container">
-      <div class="parcours__label-wrap"><span class="parcours__label reveal">QUI SUIS-JE ?</span></div>
-      <div class="parcours__cols">
-        <div class="parcours__text-col reveal" data-delay="1">
-          <h2 class="parcours__title">Architecte de l'organisation</h2>
-          <p class="parcours__subtitle">J'aime construire des systèmes utiles, efficaces et agréables à utiliser.</p>
-          <p class="parcours__text">J'ai toujours eu une façon particulière de voir les problèmes : je perçois les connexions, je hiérarchise l'essentiel, et je construis des solutions simples là où les autres voient du chaos. Après un Master en Management de la Digitalisation, de l'IA et du Big Data, j'ai transformé cette façon de penser en métier.</p>
-          <p class="parcours__text">Deekay Consulting, c'est cette conviction mise en pratique : vos outils doivent être utiles, efficaces, et agréables à utiliser. Pas seulement fonctionnels.</p>
-          <div class="parcours__convictions">
-            <blockquote>« Un système que vous ne comprenez pas est un système que vous n'utiliserez pas. »</blockquote>
-            <blockquote>« Je ne livre pas des outils. Je livre de l'autonomie. »</blockquote>
-            <blockquote>« La complexité n'est pas un problème à tolérer. C'est un problème à résoudre. »</blockquote>
-          </div>
-          <div class="parcours__timeline-block">
-            <h3 class="parcours__timeline-title">D'analyste à entrepreneur</h3>
-            <div class="timeline">
-              <div class="timeline__step"><span class="timeline__date">2023</span><span class="timeline__dot"></span><div class="timeline__content"><h4>Master en Management</h4><p>Digitalisation, IA &amp; Big Data</p></div></div>
-              <div class="timeline__step"><span class="timeline__date">2024</span><span class="timeline__dot"></span><div class="timeline__content"><h4>Business Data Analyst</h4><p>Au sein d'une start-up parisienne</p></div></div>
-              <div class="timeline__step"><span class="timeline__date"></span><span class="timeline__dot"></span><div class="timeline__content"><h4>Freelance No-Code</h4><p>Premiers workspaces et automatisations</p></div></div>
-              <div class="timeline__step"><span class="timeline__date">2025</span><span class="timeline__dot"></span><div class="timeline__content"><h4>Deekay Consulting</h4><p>Conseil · No-Code · IA</p></div></div>
-            </div>
-          </div>
-        </div>
-        <div class="parcours__photo-col reveal" data-delay="2">
-          <div class="parcours__photo-wrap">
-            <img src="assets/images/ppshawn.jpeg" alt="Shawn Diakite — Deekay Consulting" class="parcours__photo-img">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- KPI -->
-  <section class="kpi-section">
-    <div class="container">
-      <div class="kpi-grid">
-        <div class="kpi-item reveal"><span class="kpi-number">+35</span><span class="kpi-label">Workspaces déployés</span></div>
-        <div class="kpi-item reveal" data-delay="1"><span class="kpi-number">+10</span><span class="kpi-label">Clients accompagnés</span></div>
-        <div class="kpi-item reveal" data-delay="2"><span class="kpi-number">2 ans</span><span class="kpi-label">D'expérience terrain</span></div>
       </div>
     </div>
   </section>
@@ -764,6 +796,17 @@
     render();
   })();
   </script>
+  <!-- MODAL PAIN POINTS (mobile) -->
+  <div class="pain-modal-overlay" id="painModalOverlay" role="dialog" aria-modal="true" aria-label="Situation détaillée">
+    <div class="pain-modal">
+      <button class="pain-modal__close" id="painModalClose" aria-label="Fermer" type="button">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <h3 class="pain-modal__title" id="painModalTitle"></h3>
+      <p class="pain-modal__body" id="painModalBody"></p>
+    </div>
+  </div>
+
   <!-- MODAL AVIS -->
   <div class="avis-modal-overlay" id="avisModalOverlay" role="dialog" aria-modal="true" aria-label="Avis complet">
     <div class="avis-modal">
@@ -857,6 +900,82 @@
     function erase(cb) { var len = el.textContent.length; var text = el.textContent; (function step() { if (len >= 0) { el.textContent = text.slice(0, len--); setTimeout(step, ERASE); } else cb(); })(); }
     function cycle() { var mot = mots[idx]; type(mot.texte, function () { setTimeout(function () { erase(function () { idx = (idx + 1) % mots.length; setTimeout(cycle, 150); }); }, mot.duree); }); }
     cycle();
+  })();
+  </script>
+  <script>
+  (function() {
+    var pains = [
+      {
+        title: "J'ai encore essayé un nouvel outil.",
+        body: "Notion, Trello, Monday, les carnets, les applis de productivité. J'en ai testé au moins cinq. Chaque fois je me dis que c'est le bon. Deux semaines plus tard je suis revenu à mes vieilles habitudes. Le problème c'est pas l'outil. C'est que personne ne l'a configuré pour moi."
+      },
+      {
+        title: "Sans moi, rien n'avance.",
+        body: "Les projets aboutissent, les clients sont contents, les délais sont tenus. Mais c'est moi qui porte tout. Les validations, les accès, les décisions, les arbitrages. Mon équipe est compétente mais le moindre blocage remonte jusqu'à moi. Tout repose sur ma présence, ma disponibilité, ma mémoire et ma validation parce qu'il n'y a aucun système qui tourne sans moi dans la boucle."
+      },
+      {
+        title: "Je cherche des choses que j'ai déjà.",
+        body: "Le devis que j'ai envoyé il y a trois semaines. Je l'ai fait, je sais que je l'ai fait. Il est dans mes mails, ou dans Drive, ou dans le dossier du mois dernier. Je passe huit minutes à le retrouver. Huit minutes pour quelque chose que j'ai déjà produit. Ça arrive deux ou trois fois par jour. Multiplié par cinq ans d'activité, je préfère ne pas calculer."
+      },
+      {
+        title: "Ma journée commence déjà en retard.",
+        body: "J'ouvre ma liste de tâches le lundi matin. Il y en a vingt-trois. Certaines datent de la semaine dernière. Trois sont urgentes mais je ne sais plus lesquelles. Je passe la première heure à trier, à prioriser, à comprendre où j'en suis et la seconde à tout expliquer à mon équipe. Avant même d'avoir produit quoi que ce soit, je suis déjà à la traîne."
+      }
+    ];
+
+    var cards = document.querySelectorAll('.pain-card');
+    var panel = document.getElementById('painPanel');
+    var panelTitle = document.getElementById('painPanelTitle');
+    var panelBody = document.getElementById('painPanelBody');
+    var overlay = document.getElementById('painModalOverlay');
+    var modalTitle = document.getElementById('painModalTitle');
+    var modalBody = document.getElementById('painModalBody');
+    var modalClose = document.getElementById('painModalClose');
+
+    function isMobile() { return window.matchMedia('(max-width: 768px)').matches; }
+
+    function setPanel(idx, animate) {
+      if (animate) {
+        panel.style.opacity = '0';
+        panel.style.transform = 'translateY(6px)';
+      }
+      var delay = animate ? 180 : 0;
+      setTimeout(function() {
+        panelTitle.textContent = pains[idx].title;
+        panelBody.textContent = pains[idx].body;
+        panel.style.opacity = '1';
+        panel.style.transform = 'translateY(0)';
+      }, delay);
+    }
+
+    if (panel) {
+      panel.style.transition = 'opacity 0.18s ease, transform 0.18s ease';
+      setPanel(0, false);
+    }
+
+    cards.forEach(function(card) {
+      card.addEventListener('click', function() {
+        var idx = parseInt(card.getAttribute('data-pain'), 10);
+        if (isMobile()) {
+          if (modalTitle) modalTitle.textContent = pains[idx].title;
+          if (modalBody) modalBody.textContent = pains[idx].body;
+          if (overlay) { overlay.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
+        } else {
+          cards.forEach(function(c) { c.classList.remove('is-active'); });
+          card.classList.add('is-active');
+          setPanel(idx, true);
+        }
+      });
+    });
+
+    function closePainModal() {
+      if (overlay) { overlay.classList.remove('is-open'); document.body.style.overflow = ''; }
+    }
+    if (modalClose) modalClose.addEventListener('click', closePainModal);
+    if (overlay) overlay.addEventListener('click', function(e) { if (e.target === overlay) closePainModal(); });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay && overlay.classList.contains('is-open')) closePainModal();
+    });
   })();
   </script>
 </body>

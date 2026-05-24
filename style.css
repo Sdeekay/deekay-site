@@ -1617,3 +1617,117 @@ a.offre-carte { cursor: pointer; }
 @media (max-width: 640px) {
   .offres-cta-grid { grid-template-columns: 1fr; }
 }
+
+/* ── PAIN POINTS ── */
+.pain-points-wrap { padding: var(--sp-10) 0 var(--sp-7); }
+
+.pain-points {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.pain-card {
+  width: 100%;
+  text-align: left;
+  padding: 18px 22px;
+  border-radius: var(--radius-md);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(168,197,218,0.12);
+  color: rgba(245,245,242,0.50);
+  cursor: pointer;
+  transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 10px;
+}
+.pain-card:last-child { margin-bottom: 0; }
+.pain-card:hover {
+  background: rgba(168,197,218,0.07);
+  color: rgba(245,245,242,0.80);
+  border-color: rgba(168,197,218,0.20);
+}
+.pain-card.is-active {
+  background: rgba(168,197,218,0.10);
+  border-color: rgba(168,197,218,0.35);
+  color: var(--white);
+}
+.pain-card__title { font-size: 15px; font-weight: 600; line-height: 1.4; }
+.pain-card__chevron { flex-shrink: 0; opacity: 0.35; transition: opacity var(--t-fast) var(--ease), transform var(--t-fast) var(--ease); }
+.pain-card:hover .pain-card__chevron { opacity: 0.65; }
+.pain-card.is-active .pain-card__chevron { opacity: 1; }
+
+.pain-points__right { position: sticky; top: 100px; }
+.pain-panel {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(168,197,218,0.18);
+  border-radius: var(--radius-lg);
+  padding: 36px 40px;
+}
+.pain-panel__title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 16px;
+  letter-spacing: -0.01em;
+}
+.pain-panel__body {
+  font-size: 16px;
+  color: rgba(245,245,242,0.68);
+  line-height: 1.7;
+}
+.pain-points__bridge {
+  text-align: center;
+  margin: 56px auto 0;
+  max-width: 500px;
+  font-size: 17px;
+  color: rgba(245,245,242,0.60);
+  font-style: italic;
+}
+
+.pain-modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 200;
+  background: rgba(11,20,38,0.72);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  align-items: center; justify-content: center; padding: 24px;
+}
+.pain-modal-overlay.is-open { display: flex; }
+.pain-modal {
+  position: relative; max-width: 520px; width: 100%;
+  background: #162038;
+  border: 1px solid rgba(168,197,218,0.18);
+  border-radius: 20px; padding: 48px 36px 40px;
+  box-shadow: 0 24px 64px rgba(11,20,38,0.5);
+  animation: painModalIn 0.22s ease;
+  max-height: 85vh; overflow-y: auto;
+}
+@keyframes painModalIn {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+.pain-modal__close {
+  position: absolute; top: 16px; right: 16px;
+  width: 36px; height: 36px; border-radius: 50%;
+  background: rgba(168,197,218,0.10); border: 1px solid rgba(168,197,218,0.18);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--offwhite); cursor: pointer;
+  transition: background var(--t-fast) var(--ease);
+}
+.pain-modal__close:hover { background: rgba(168,197,218,0.20); }
+.pain-modal__title {
+  font-size: 19px; font-weight: 700; color: var(--white);
+  margin-bottom: 18px; letter-spacing: -0.01em; line-height: 1.3;
+}
+.pain-modal__body {
+  font-size: 15px; color: rgba(245,245,242,0.72); line-height: 1.75;
+}
+
+@media (max-width: 768px) {
+  .pain-points { grid-template-columns: 1fr; }
+  .pain-points__right { display: none; }
+  .pain-card { color: rgba(245,245,242,0.75); }
+  .pain-points-wrap { padding: var(--sp-9) 0 var(--sp-6); }
+}
