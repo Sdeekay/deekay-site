@@ -74,7 +74,7 @@ p { margin: 0; text-wrap: pretty; }
 .nav__inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
 .nav.is-stuck {
   padding: 12px 0;
-  background: rgba(15, 24, 50, 0.62);
+  background: rgba(27, 42, 74, 0.82);
   backdrop-filter: saturate(140%) blur(18px);
   -webkit-backdrop-filter: saturate(140%) blur(18px);
   border-bottom-color: var(--glass-border);
@@ -113,10 +113,7 @@ p { margin: 0; text-wrap: pretty; }
 .hero {
   position: relative; min-height: 100vh; display: grid; place-items: center;
   padding: 140px 0 100px; overflow: hidden; isolation: isolate;
-  background:
-    radial-gradient(ellipse 80% 60% at 50% 18%, rgba(168, 197, 218, 0.18), transparent 60%),
-    radial-gradient(ellipse 60% 40% at 50% 90%, rgba(168, 197, 218, 0.08), transparent 60%),
-    var(--navy);
+  background: var(--navy);
 }
 .hero::before, .hero::after { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none; }
 .hero::before {
@@ -352,7 +349,7 @@ p { margin: 0; text-wrap: pretty; }
 .testimonial-role, .testimonial-company { font-size: 12px; color: rgba(245, 245, 242, 0.5); }
 @media (max-width: 720px) { .testimonials-grid { grid-template-columns: 1fr; } }
 
-.cta-banner { padding: 120px 0; background: radial-gradient(ellipse 70% 55% at 50% 50%, rgba(168, 197, 218, 0.20), transparent 60%), linear-gradient(180deg, #1B2A4A 0%, #111E35 100%); text-align: center; position: relative; overflow: hidden; }
+.cta-banner { padding: 120px 0; background: var(--navy); text-align: center; position: relative; overflow: hidden; }
 .cta-banner::before { content: ""; position: absolute; inset: -1px 0 auto 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(168,197,218,0.35), transparent); }
 .cta-banner__inner { display: grid; gap: 22px; justify-items: center; }
 .cta-banner h2 { font-size: clamp(36px, 5vw, 60px); color: var(--white); }
@@ -360,7 +357,7 @@ p { margin: 0; text-wrap: pretty; }
 .cta-banner p { max-width: 540px; color: rgba(245, 245, 242, 0.70); font-size: 17px; }
 .cta-banner .btn { margin-top: 14px; }
 
-.footer { background: var(--navy-900); padding: 72px 0 32px; border-top: 1px solid rgba(255,255,255,0.06); }
+.footer { background: var(--navy); padding: 72px 0 32px; border-top: 1px solid rgba(255,255,255,0.06); }
 .footer__grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; align-items: center; }
 .footer__tag { margin-top: 16px; max-width: 300px; color: rgba(255, 255, 255, 0.7); font-family: var(--font-serif); font-style: italic; font-size: 15px; line-height: 1.5; }
 .footer__email { display: inline-block; margin-top: 14px; font-size: 14px; color: var(--white); border-bottom: 1px solid rgba(255,255,255,0.25); padding-bottom: 2px; transition: border-color var(--t-fast) var(--ease); }
@@ -564,7 +561,7 @@ p { margin: 0; text-wrap: pretty; }
 .engagement-badge__label { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(27, 42, 74, 0.75); }
 .engagement-badge p { font-size: 14px; color: rgba(27, 42, 74, 0.75); line-height: 1.7; margin: 0; }
 
-.avis-section { background: #F4F8FB; padding: 96px 0; }
+.avis-section { background: var(--offwhite); padding: 96px 0; }
 .avis-section__title { font-family: var(--font-sans); font-style: italic; font-weight: 800; font-size: clamp(2rem, 4vw, 3rem); color: #1F304D; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 56px; text-align: center; }
 .avis-section__title em { color: inherit; }
 .avis-grid { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: flex-start; justify-content: center; }
@@ -826,7 +823,7 @@ p { margin: 0; text-wrap: pretty; }
 }
 
 .offres-chemin-wrap {
-  background: radial-gradient(circle at 50% 0%, rgba(168,197,218,0.07), transparent 60%), var(--navy);
+  background: var(--navy);
   padding-top: var(--sp-10);
   position: relative;
   overflow: hidden;
@@ -1275,7 +1272,7 @@ p { margin: 0; text-wrap: pretty; }
 
 /* Bande blanche CTA */
 .offres-cta-band {
-  background: #FFFFFF;
+  background: var(--offwhite);
   padding: 72px 0 96px;
 }
 
@@ -1621,10 +1618,7 @@ a.offre-carte { cursor: pointer; }
 /* ── PAIN POINTS ── */
 .pain-points-wrap {
   padding: var(--sp-10) 0 var(--sp-7);
-  background:
-    radial-gradient(ellipse 90% 55% at 50% 0%, rgba(168,197,218,0.10), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 85% 85%, rgba(168,197,218,0.06), transparent 50%),
-    var(--navy);
+  background: var(--navy);
 }
 
 .pain-points {
