@@ -105,7 +105,9 @@
       border-radius: 100px;
       background: rgba(27,42,74,0.07);
       border: 1px solid rgba(27,42,74,0.12);
-      margin-bottom: 14px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-left: auto;
     }
 
     /* Title — 2 lignes max */
@@ -152,9 +154,10 @@
     /* Hero image — inset, arrondie */
     .article-hero-img {
       margin: 0 0 36px;
-      border-radius: 12px;
+      border-radius: 18px;
       overflow: hidden;
       line-height: 0;
+      box-shadow: 0 8px 32px -8px rgba(27,42,74,0.14);
     }
     .article-hero-img img { width: 100%; display: block; }
 
@@ -188,20 +191,15 @@
     }
     .article-schema img { width: 100%; display: block; }
 
-    /* Closing section — 50/50 */
+    /* Closing section — texte puis image en bas */
     .article-closing {
       margin-top: 44px;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 36px;
-      align-items: center;
     }
     .article-closing h2 {
       font-size: 17.5px;
       font-weight: 800;
       color: #1B2A4A;
-      margin-top: 0;
-      margin-bottom: 12px;
+      margin: 0 0 12px;
       letter-spacing: -0.018em;
       line-height: 1.2;
     }
@@ -214,17 +212,16 @@
       hyphens: auto;
     }
     .article-closing__media {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 4px;
+      margin-top: 28px;
+      border-radius: 16px;
+      overflow: hidden;
+      line-height: 0;
+      box-shadow: 0 12px 40px -8px rgba(27,42,74,0.15);
     }
     .article-closing__image {
       width: 100%;
       display: block;
-      border-radius: 12px;
-      transform: rotate(2.5deg);
-      box-shadow: 0 20px 56px -12px rgba(27,42,74,0.18);
+      border-radius: 16px;
     }
 
     /* Bottom back link */
@@ -239,8 +236,6 @@
     @media (max-width: 640px) {
       .article-title { font-size: 21px; }
       .article-body { padding: 40px 0 56px; }
-      .article-closing { grid-template-columns: 1fr; gap: 24px; }
-      .article-closing__image { transform: none; box-shadow: 0 10px 28px -6px rgba(27,42,74,0.14); }
     }
   </style>
 </head>
@@ -285,8 +280,6 @@
         Retour au blog
       </a>
 
-      <span class="article-category">Organisation &amp; Systèmes</span>
-
       <h1 class="article-title">Pourquoi ton entreprise devient chaotique quand elle commence à grandir</h1>
 
       <div class="article-author">
@@ -295,6 +288,7 @@
           <span class="article-author__name">Shawn Diakite</span>
           <p class="article-meta">17 mai 2026&nbsp;&nbsp;·&nbsp;&nbsp;7 min de lecture</p>
         </div>
+        <span class="article-category">Organisation &amp; Systèmes</span>
       </div>
 
       <hr class="article-divider" />
@@ -344,10 +338,6 @@
 
         <p>Et puis vient la dépendance. Tout passe par toi, ou revient à toi, ou attend ta validation. Pas parce que les autres ne veulent pas agir, mais parce que rien n'est suffisamment structuré pour exister sans contexte. Sans toi comme contexte vivant.</p>
 
-        <figure class="article-schema">
-          <img src="Article/schema_line.svg" alt="Progression de la complexité vers la structure" loading="lazy">
-        </figure>
-
         <h2>Le vrai problème n'est pas l'organisation</h2>
 
         <p>C'est une confusion que je rencontre très régulièrement. Quand une entreprise devient chaotique, le réflexe est d'ajouter : plus d'outils, plus de process, plus de templates, plus d'automatisations. Alors on installe, on configure, on forme. Et rien ne change vraiment.</p>
@@ -357,6 +347,10 @@
         <p>L'organisation, c'est ce que tu fais. La structure, c'est ce qui permet que ça tienne sans toi.</p>
 
         <p>Imagine un restaurant où chaque cuisinier connaît les recettes par coeur mais où aucune n'est jamais écrite. Tant que les mêmes personnes sont là, ça tourne. Le jour où l'un d'eux part, une partie du restaurant part avec lui. Ce n'est pas un problème de cuisine. C'est un problème d'architecture.</p>
+
+        <figure class="article-schema">
+          <img src="Article/schema_article_chaos_1.svg" alt="Schéma : organisation vs structure" loading="lazy">
+        </figure>
 
         <h2>Un outil ne sauve pas une absence de structure, il la digitalise</h2>
 
@@ -386,15 +380,14 @@
 
         <p>Une entreprise qui tient par sa structure n'est pas une entreprise rigide. C'est une entreprise qui peut enfin grandir sans que chaque palier de croissance se transforme en crise.</p>
 
-        <!-- SECTION FINALE — grille 50/50, image inclinée -->
+        <!-- SECTION FINALE -->
         <div class="article-closing">
-          <div class="article-closing__text">
-            <h2>Une entreprise ne devient pas chaotique par hasard</h2>
+          <h2>Une entreprise ne devient pas chaotique par hasard</h2>
 
-            <p>Elle devient chaotique à un moment précis. Quand la croissance dépasse la capacité du système à absorber cette croissance. Et ce moment-là est trompeur parce que tout continue de fonctionner, mais tout devient plus lourd, plus lent, plus mental, plus dépendant.</p>
+          <p>Elle devient chaotique à un moment précis. Quand la croissance dépasse la capacité du système à absorber cette croissance. Et ce moment-là est trompeur parce que tout continue de fonctionner, mais tout devient plus lourd, plus lent, plus mental, plus dépendant.</p>
 
-            <p>À un moment, improviser coûte plus cher que structurer. La question n'est pas de savoir si tu vas atteindre ce seuil. C'est de savoir si tu l'auras anticipé ou subi. Les entreprises qui franchissent ce cap sans casse ne sont pas celles qui ont trouvé le bon outil. Ce sont celles qui ont arrêté de traiter la structure comme une contrainte et commencé à la traiter comme un avantage concurrentiel.</p>
-          </div>
+          <p>À un moment, improviser coûte plus cher que structurer. La question n'est pas de savoir si tu vas atteindre ce seuil. C'est de savoir si tu l'auras anticipé ou subi. Les entreprises qui franchissent ce cap sans casse ne sont pas celles qui ont trouvé le bon outil. Ce sont celles qui ont arrêté de traiter la structure comme une contrainte et commencé à la traiter comme un avantage concurrentiel.</p>
+
           <div class="article-closing__media">
             <img class="article-closing__image" src="Article/banner_warm.svg" alt="Illustration de conclusion de l'article" loading="lazy" />
           </div>
