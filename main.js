@@ -1,5 +1,5 @@
 // Deekay Consulting — main.js
-// Sticky nav, hamburger, smooth-scroll, scroll reveal
+// Sticky nav, hamburger, smooth-scroll, scroll reveal, pain-point particles
 
 (() => {
   const nav = document.querySelector('.nav');
@@ -62,4 +62,55 @@
     items.forEach(el => el.classList.add('is-visible'));
   }
 
+})();
+
+// Pain-points floating particles
+(() => {
+  const canvas = document.querySelector('.pain-particles');
+  if (!canvas) return;
+  const wrap = canvas.parentElement;
+  const ctx = canvas.getContext('2d');
+  const COUNT = 50;
+  let W = 0, H = 0;
+  const pts = [];
+
+  function mkPt(startY) {
+    return {
+      x: Math.random() * W,
+      y: startY !== undefined ? startY : Math.random() * H,
+      r: Math.random() * 1.8 + 0.5,
+      vx: (Math.random() - 0.5) * 0.22,
+      vy: -(Math.random() * 0.32 + 0.08),
+      a: Math.random() * 0.22 + 0.04,
+    };
+  }
+
+  function resize() {
+    W = canvas.width = wrap.offsetWidth;
+    H = canvas.height = wrap.offsetHeight;
+  }
+
+  resize();
+  for (let i = 0; i < COUNT; i++) pts.push(mkPt());
+
+  const ro = new ResizeObserver(resize);
+  ro.observe(wrap);
+
+  function tick() {
+    ctx.clearRect(0, 0, W, H);
+    for (const p of pts) {
+      p.x += p.vx;
+      p.y += p.vy;
+      if (p.y + p.r < 0) Object.assign(p, mkPt(H + p.r));
+      if (p.x + p.r < 0) p.x = W + p.r;
+      if (p.x - p.r > W) p.x = -p.r;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(168,197,218,${p.a})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(tick);
+  }
+
+  tick();
 })();

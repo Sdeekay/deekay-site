@@ -564,8 +564,8 @@ p { margin: 0; text-wrap: pretty; }
 .avis-section { background: #F1F3F7; padding: 64px 0; }
 .avis-section__title { font-family: var(--font-sans); font-style: italic; font-weight: 800; font-size: clamp(1.4rem, 2.2vw, 1.9rem); color: #1F304D; line-height: 1.15; letter-spacing: -0.02em; margin: 0 0 40px; text-align: center; }
 .avis-section__title em { color: inherit; }
-.avis-grid { display: flex; flex-wrap: wrap; gap: 1.25rem; align-items: flex-start; justify-content: center; }
-.avis-card { max-width: 340px; flex: 0 0 340px; background: #FFFFFF; border-radius: 16px; border: 1px solid rgba(31, 48, 77, 0.06); box-shadow: 0 2px 12px rgba(31, 48, 77, 0.07); padding: 1.25rem; display: flex; flex-direction: column; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
+.avis-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: start; }
+.avis-card { background: #FFFFFF; border-radius: 16px; border: 1px solid rgba(31, 48, 77, 0.06); box-shadow: 0 2px 12px rgba(31, 48, 77, 0.07); padding: 1.25rem; display: flex; flex-direction: column; transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease; }
 .avis-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(31, 48, 77, 0.15); border-color: rgba(191, 215, 234, 0.6); }
 .avis-card__quote { font-family: var(--font-serif); font-size: 52px; line-height: 0.7; color: var(--accent); display: block; margin-bottom: 10px; user-select: none; }
 .avis-card__body { display: flex; flex-direction: column; }
@@ -587,8 +587,8 @@ p { margin: 0; text-wrap: pretty; }
 .avis-card__avatar-fallback { width: 100%; height: 100%; background: var(--accent); color: var(--navy); font-weight: 700; font-size: 18px; align-items: center; justify-content: center; border-radius: 50%; }
 .avis-card__name { font-size: 14px; font-weight: 700; color: #1F304D; margin: 0 0 2px; }
 .avis-card__role { font-size: 12px; color: #6B7280; margin: 0; line-height: 1.4; }
-@media (max-width: 760px) { .avis-card { flex: 1 1 280px; max-width: 100%; } }
-@media (max-width: 600px) { .avis-section { padding: 64px 0; } }
+@media (max-width: 900px) { .avis-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .avis-grid { grid-template-columns: 1fr; } .avis-section { padding: 64px 0; } }
 
 /* ── Pages légales & FAQ ── */
 
@@ -814,6 +814,46 @@ p { margin: 0; text-wrap: pretty; }
 .avis-modal__text p { margin-bottom: 14px; }
 .avis-modal__text p:last-child { margin-bottom: 0; }
 @media (max-width: 580px) { .avis-modal { padding: 40px 24px 32px; } }
+
+/* ── SECTION DIVIDERS ── */
+
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 40px 24px;
+}
+.section-divider--dark {
+  background: var(--navy);
+}
+.section-divider--light {
+  background: #F1F3F7;
+}
+.section-divider__line {
+  height: 1px;
+  width: 120px;
+  border-radius: 2px;
+}
+.section-divider--dark .section-divider__line {
+  background: linear-gradient(90deg, transparent, rgba(168,197,218,0.35) 50%, transparent);
+}
+.section-divider--light .section-divider__line {
+  background: linear-gradient(90deg, transparent, rgba(27,42,74,0.18) 50%, transparent);
+}
+.section-divider__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.section-divider--dark .section-divider__dot {
+  background: rgba(168,197,218,0.45);
+  box-shadow: 0 0 6px rgba(168,197,218,0.25);
+}
+.section-divider--light .section-divider__dot {
+  background: rgba(27,42,74,0.22);
+}
 
 /* ── OFFRES SECTION ── */
 
@@ -1619,6 +1659,17 @@ a.offre-carte { cursor: pointer; }
 .pain-points-wrap {
   padding: 80px 0 64px;
   background: var(--navy);
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.pain-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .pain-points {
@@ -1626,6 +1677,8 @@ a.offre-carte { cursor: pointer; }
   grid-template-columns: 1fr 1.25fr;
   gap: 32px;
   align-items: start;
+  position: relative;
+  z-index: 1;
 }
 
 .pain-points__left {
@@ -1705,13 +1758,47 @@ a.offre-carte { cursor: pointer; }
   color: rgba(245,245,242,0.68);
   line-height: 1.75;
 }
+.pain-points__bridge-wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 64px;
+  gap: 20px;
+}
+.pain-points__bridge-accent {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--accent);
+}
+.pain-points__bridge-accent::before,
+.pain-points__bridge-accent::after {
+  content: '';
+  width: 36px;
+  height: 1.5px;
+  background: var(--accent);
+  border-radius: 2px;
+  opacity: 0.6;
+}
+.pain-points__bridge-accent-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.9;
+}
 .pain-points__bridge {
   text-align: center;
-  margin: 56px auto 0;
-  max-width: 500px;
-  font-size: 17px;
-  color: rgba(245,245,242,0.55);
+  margin: 0 auto;
+  max-width: 600px;
+  font-size: clamp(19px, 2.2vw, 24px);
+  font-weight: 700;
+  color: var(--white);
   font-style: italic;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
 }
 
 .pain-modal-overlay {

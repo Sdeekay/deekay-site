@@ -171,6 +171,7 @@
 
   <!-- PAIN POINTS -->
   <div class="container pain-points-wrap">
+    <canvas class="pain-particles" aria-hidden="true"></canvas>
     <div class="pain-points" id="painPoints">
       <div class="pain-points__left">
         <button class="pain-card is-active" data-pain="0" type="button">
@@ -205,7 +206,18 @@
         </div>
       </div>
     </div>
-    <p class="pain-points__bridge">C&rsquo;est votre quotidien&nbsp;? Vous êtes exactement au bon endroit.</p>
+    <div class="pain-points__bridge-wrap">
+      <div class="pain-points__bridge-accent" aria-hidden="true">
+        <span class="pain-points__bridge-accent-dot"></span>
+      </div>
+      <p class="pain-points__bridge">C&rsquo;est votre quotidien&nbsp;? Vous êtes exactement au bon endroit.</p>
+    </div>
+  </div>
+
+  <div class="section-divider section-divider--dark" aria-hidden="true">
+    <div class="section-divider__line"></div>
+    <div class="section-divider__dot"></div>
+    <div class="section-divider__line"></div>
   </div>
 
     <div class="offres-chemin-wrap">
@@ -640,6 +652,12 @@
       </div>
     </div>
   </section>
+
+  <div class="section-divider section-divider--light" aria-hidden="true">
+    <div class="section-divider__line"></div>
+    <div class="section-divider__dot"></div>
+    <div class="section-divider__line"></div>
+  </div>
 
   <!-- AVIS -->
   <section class="avis-section">
