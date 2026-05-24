@@ -809,7 +809,7 @@ p { margin: 0; text-wrap: pretty; }
 /* ── OFFRES SECTION ── */
 
 .offres-section {
-  background: #FFFFFF;
+  background: transparent;
   padding: 0;
 }
 
@@ -1104,6 +1104,7 @@ p { margin: 0; text-wrap: pretty; }
   display: inline-flex;
   align-items: center;
   white-space: nowrap;
+  will-change: transform;
   animation: marquee-scroll 32s linear infinite;
 }
 
@@ -1124,8 +1125,8 @@ p { margin: 0; text-wrap: pretty; }
 }
 
 @keyframes marquee-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 /* Badge "Offre phare" */
