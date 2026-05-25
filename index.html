@@ -425,6 +425,10 @@
           <span class="offre-carte__cta">Discuter de mon projet <span class="arrow">→</span></span>
         </a>
         </div><!-- /offres-cta-grid -->
+        <a href="article-chaos-entreprise.html" class="services-blog-link">
+          <span class="services-blog-link__text">Tu veux comprendre d'où vient le chaos avant qu'on s'en occupe&nbsp;? J'en parle en détail ici</span>
+          <span class="services-blog-link__arrow" aria-hidden="true">→</span>
+        </a>
       </div><!-- /container -->
     </div><!-- /offres-cta-band -->
 
@@ -930,18 +934,22 @@
     var pains = [
       {
         title: "J'ai encore essayé un nouvel outil.",
+        titleHtml: "J'ai encore essayé un <span class=\"pain-panel__hl\">nouvel outil.</span>",
         body: "Notion, Trello, Monday, les carnets, les applis de productivité. J'en ai testé au moins cinq. Chaque fois je me dis que c'est le bon. Deux semaines plus tard je suis revenu à mes vieilles habitudes. Le problème c'est pas l'outil. C'est que personne ne l'a configuré pour moi."
       },
       {
         title: "Sans moi, rien n'avance.",
+        titleHtml: "Sans moi, <span class=\"pain-panel__hl\">rien n'avance.</span>",
         body: "Les projets aboutissent, les clients sont contents, les délais sont tenus. Mais c'est moi qui porte tout. Les validations, les accès, les décisions, les arbitrages. Mon équipe est compétente mais le moindre blocage remonte jusqu'à moi. Tout repose sur ma présence, ma disponibilité, ma mémoire et ma validation parce qu'il n'y a aucun système qui tourne sans moi dans la boucle."
       },
       {
         title: "Je cherche des choses que j'ai déjà.",
+        titleHtml: "Je cherche des choses que <span class=\"pain-panel__hl\">j'ai déjà.</span>",
         body: "Le devis que j'ai envoyé il y a trois semaines. Je l'ai fait, je sais que je l'ai fait. Il est dans mes mails, ou dans Drive, ou dans le dossier du mois dernier. Je passe huit minutes à le retrouver. Huit minutes pour quelque chose que j'ai déjà produit. Ça arrive deux ou trois fois par jour. Multiplié par cinq ans d'activité, je préfère ne pas calculer."
       },
       {
         title: "Ma journée commence déjà en retard.",
+        titleHtml: "Ma journée commence <span class=\"pain-panel__hl\">déjà en retard.</span>",
         body: "J'ouvre ma liste de tâches le lundi matin. Il y en a vingt-trois. Certaines datent de la semaine dernière. Trois sont urgentes mais je ne sais plus lesquelles. Je passe la première heure à trier, à prioriser, à comprendre où j'en suis et la seconde à tout expliquer à mon équipe. Avant même d'avoir produit quoi que ce soit, je suis déjà à la traîne."
       }
     ];
@@ -964,7 +972,7 @@
       }
       var delay = animate ? 180 : 0;
       setTimeout(function() {
-        panelTitle.textContent = pains[idx].title;
+        panelTitle.innerHTML = pains[idx].titleHtml || pains[idx].title;
         panelBody.textContent = pains[idx].body;
         panel.style.opacity = '1';
         panel.style.transform = 'translateY(0)';
@@ -980,7 +988,7 @@
       card.addEventListener('click', function() {
         var idx = parseInt(card.getAttribute('data-pain'), 10);
         if (isMobile()) {
-          if (modalTitle) modalTitle.textContent = pains[idx].title;
+          if (modalTitle) modalTitle.innerHTML = pains[idx].titleHtml || pains[idx].title;
           if (modalBody) modalBody.textContent = pains[idx].body;
           if (overlay) { overlay.classList.add('is-open'); document.body.style.overflow = 'hidden'; }
         } else {

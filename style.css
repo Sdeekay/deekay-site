@@ -1058,6 +1058,39 @@ p { margin: 0; text-wrap: pretty; }
   box-shadow: none;
 }
 
+.services-blog-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 18px 24px;
+  background: var(--white);
+  border-radius: 14px;
+  text-decoration: none;
+  color: var(--navy);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.services-blog-link:hover {
+  box-shadow: 0 8px 28px -6px rgba(27,42,74,0.14);
+  transform: translateY(-2px);
+}
+.services-blog-link__arrow {
+  flex-shrink: 0;
+  opacity: 0;
+  transform: translateX(-6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  font-size: 18px;
+  color: var(--navy);
+}
+.services-blog-link:hover .services-blog-link__arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 /* Infographies du chemin */
 /* Illustration avant/après — bloc diagnostic */
 /* Avant/Après diagnostic — deux images côte à côte sans encadré */
@@ -1766,6 +1799,7 @@ a.offre-carte { cursor: pointer; }
   letter-spacing: -0.01em;
   line-height: 1.3;
 }
+.pain-panel__hl { color: var(--accent); }
 .pain-panel__body {
   font-size: 16px;
   color: rgba(245,245,242,0.68);
