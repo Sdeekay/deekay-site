@@ -1741,27 +1741,55 @@ a.offre-carte { cursor: pointer; }
   border-radius: var(--radius-md);
   background: linear-gradient(160deg, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0.03) 100%);
   border: 1px solid rgba(168,197,218,0.14);
+  border-left: 3px solid transparent;
   color: rgba(245,245,242,0.55);
   cursor: pointer;
   transition: background var(--t-fast) var(--ease), border-color var(--t-fast) var(--ease), color var(--t-fast) var(--ease), box-shadow var(--t-fast) var(--ease);
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
   gap: 12px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  position: relative;
 }
 .pain-card:hover {
   background: linear-gradient(160deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.05) 100%);
   color: rgba(245,245,242,0.80);
   border-color: rgba(168,197,218,0.28);
+  border-left-color: rgba(168,197,218,0.5);
   box-shadow: 0 8px 28px rgba(11,20,38,0.20);
 }
 .pain-card.is-active {
   background: linear-gradient(160deg, rgba(168,197,218,0.15) 0%, rgba(168,197,218,0.06) 100%);
   border-color: rgba(168,197,218,0.50);
+  border-left-color: var(--accent);
   color: var(--white);
   box-shadow: 0 8px 32px rgba(11,20,38,0.25);
+}
+
+@keyframes pain-chevron-nudge {
+  0%, 100% { transform: translateX(0); opacity: 0.5; }
+  50%       { transform: translateX(3px); opacity: 1; }
+}
+.pain-card__chevron {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: 16px;
+  color: rgba(168,197,218,0.4);
+  animation: pain-chevron-nudge 1.6s ease-in-out infinite;
+  transition: color var(--t-fast) var(--ease), transform var(--t-fast) var(--ease);
+  line-height: 1;
+}
+.pain-card:hover .pain-card__chevron {
+  color: rgba(168,197,218,0.8);
+  animation: none;
+  transform: translateX(4px);
+}
+.pain-card.is-active .pain-card__chevron {
+  color: var(--accent);
+  animation: none;
+  transform: translateX(4px);
 }
 .pain-card__icon {
   flex-shrink: 0;
@@ -1780,6 +1808,7 @@ a.offre-carte { cursor: pointer; }
   background: rgba(168,197,218,0.22);
   color: var(--accent);
 }
+.pain-card__body { display: flex; flex-direction: column; gap: 12px; flex: 1; min-width: 0; }
 .pain-card__title { font-size: 14px; font-weight: 600; line-height: 1.45; }
 
 .pain-points__right { position: sticky; top: 100px; }
