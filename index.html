@@ -105,6 +105,28 @@
       font-family: var(--font-sans);
       font-weight: 800;
     }
+
+    /* ── Click affordance on service cards ── */
+    @keyframes arrow-nudge {
+      0%, 100% { transform: translateX(0); }
+      50%       { transform: translateX(4px); }
+    }
+    .offre-carte .arrow {
+      display: inline-block;
+      animation: arrow-nudge 1.4s ease-in-out infinite;
+    }
+    .offre-carte {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .offre-carte:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px -8px rgba(27,42,74,0.22);
+    }
+    .offre-carte:hover .arrow {
+      animation: none;
+      transform: translateX(5px);
+      transition: transform 0.2s ease;
+    }
   </style>
 </head>
 <body>
