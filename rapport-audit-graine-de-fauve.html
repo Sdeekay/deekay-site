@@ -6,69 +6,54 @@
   <title>Audit Phase 1 — Graine de Fauve</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    /* ── Variables ── */
     :root {
-      --bg:        #0F1E35;
-      --bg-dark:   #04243B;
-      --accent:    #3C8CA0;
-      --accent-lt: #6DB8CC;
-      --accent-xt: rgba(60,140,160,.15);
-      --white:     #FFFFFF;
-      --offwhite:  #E8EFF5;
-      --muted:     #8CA8BC;
-      --border:    rgba(60,140,160,.25);
-      --radius:    10px;
+      --navy:    #0F1E35;
+      --accent:  #3C8CA0;
+      --accent-bg: #EEF6F8;
+      --accent-border: #B8D9E1;
+      --text:    #1A2333;
+      --muted:   #6B7C93;
+      --rule:    #E2E8EF;
+      --bg:      #FFFFFF;
       --font-sans: "Inter", system-ui, sans-serif;
-      --font-serif:"DM Serif Display", Georgia, serif;
+      --font-serif: "DM Serif Display", Georgia, serif;
     }
 
-    /* ── Reset ── */
     *, *::before, *::after { box-sizing: border-box; }
     html { -webkit-text-size-adjust: 100%; }
+
     body {
       margin: 0;
       font-family: var(--font-sans);
       font-size: 14px;
-      line-height: 1.65;
-      color: var(--offwhite);
-      background: var(--bg);
+      line-height: 1.7;
+      color: var(--text);
+      background: #fff;
       -webkit-font-smoothing: antialiased;
     }
-    h1,h2,h3,h4 { margin: 0; font-weight: 800; line-height: 1.1; letter-spacing: -.02em; }
+
+    h1, h2, h3, h4 { margin: 0; line-height: 1.15; }
     p { margin: 0; }
     table { border-collapse: collapse; width: 100%; }
 
-    /* ── Layout ── */
+    /* ── Page wrapper ── */
     .page {
-      max-width: 820px;
+      max-width: 740px;
       margin: 0 auto;
-      padding: 56px 48px;
+      padding: 72px 48px 96px;
     }
 
     /* ── Cover ── */
     .cover {
-      background: var(--bg-dark);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 56px 48px 48px;
+      padding-bottom: 56px;
+      border-bottom: 2px solid var(--navy);
       margin-bottom: 56px;
-      position: relative;
-      overflow: hidden;
     }
-    .cover::before {
-      content: "";
-      position: absolute;
-      top: -60px; right: -60px;
-      width: 280px; height: 280px;
-      background: radial-gradient(circle, rgba(60,140,160,.22) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
-    }
-    .cover-label {
+    .cover-eyebrow {
       font-size: 11px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: .14em;
       text-transform: uppercase;
       color: var(--accent);
@@ -76,1015 +61,822 @@
     }
     .cover h1 {
       font-family: var(--font-serif);
-      font-size: 42px;
+      font-size: 40px;
       font-weight: 400;
-      color: var(--white);
-      margin-bottom: 8px;
+      color: var(--navy);
+      margin-bottom: 6px;
     }
-    .cover h1 em {
-      font-style: italic;
-      color: var(--accent-lt);
-    }
-    .cover-sub {
-      font-size: 15px;
+    .cover h1 em { font-style: italic; }
+    .cover-intro {
+      font-size: 14px;
       color: var(--muted);
-      margin-bottom: 40px;
+      max-width: 540px;
+      margin-bottom: 36px;
+      line-height: 1.65;
     }
     .cover-meta {
       display: flex;
-      gap: 32px;
+      gap: 40px;
       flex-wrap: wrap;
     }
-    .cover-meta-item { display: flex; flex-direction: column; gap: 2px; }
-    .cover-meta-item .label {
+    .meta-item { display: flex; flex-direction: column; gap: 2px; }
+    .meta-label {
       font-size: 10px;
-      font-weight: 700;
+      font-weight: 600;
       letter-spacing: .12em;
       text-transform: uppercase;
       color: var(--muted);
     }
-    .cover-meta-item .value {
+    .meta-value {
       font-size: 13px;
       font-weight: 600;
-      color: var(--offwhite);
+      color: var(--navy);
+    }
+
+    /* ── Section spacing ── */
+    .section { margin-bottom: 56px; }
+
+    /* ── Section heading ── */
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 10px;
+      margin-bottom: 24px;
+    }
+    .section-heading h2 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--navy);
+    }
+    .section-heading .score-pill {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--accent);
+      white-space: nowrap;
+    }
+
+    /* ── H3 ── */
+    h3 {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    /* ── Standalone page-level heading (e.g. "Score global") ── */
+    .page-h2 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 400;
+      color: var(--navy);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 10px;
+      margin-bottom: 24px;
+    }
+
+    /* ── Prose ── */
+    .prose p { font-size: 14px; color: var(--text); line-height: 1.75; }
+    .prose p + p { margin-top: 14px; }
+    .prose strong { font-weight: 600; color: var(--navy); }
+
+    /* ── Sub-label (État des lieux / Analyse) ── */
+    .sub-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+
+    /* ── Callout (accent band) ── */
+    .callout {
+      background: var(--accent-bg);
+      border-left: 3px solid var(--accent);
+      padding: 14px 18px;
+      margin-top: 16px;
+      border-radius: 0 4px 4px 0;
+    }
+    .callout p { font-size: 13px; color: var(--text); line-height: 1.65; }
+
+    /* ── Divider ── */
+    hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+
+    /* ── Tables ── */
+    .tbl {
+      width: 100%;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      overflow: hidden;
+      margin-bottom: 24px;
+    }
+    .tbl th {
+      background: #F5F7FA;
+      padding: 9px 14px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: left;
+      border-bottom: 1px solid var(--rule);
+    }
+    .tbl td {
+      padding: 10px 14px;
+      font-size: 13px;
+      color: var(--text);
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }
+    .tbl tr:last-child td { border-bottom: none; }
+    .tbl .td-score {
+      font-weight: 700;
+      color: var(--accent);
+      white-space: nowrap;
+      width: 60px;
+      text-align: right;
+    }
+    .tbl .td-num {
+      font-weight: 700;
+      color: var(--navy);
+      width: 36px;
+      text-align: center;
+    }
+    .tbl tr.row-active td {
+      background: var(--accent-bg);
+    }
+    .tbl tr.row-active td:first-child {
+      border-left: 3px solid var(--accent);
+      padding-left: 11px;
+    }
+    .tbl .td-note {
+      width: 42px;
+      font-weight: 700;
+      color: var(--accent);
+      text-align: center;
     }
 
     /* ── Score hero ── */
     .score-hero {
-      background: var(--bg-dark);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 40px 48px;
-      margin-bottom: 48px;
       display: flex;
       align-items: center;
-      gap: 48px;
+      gap: 36px;
+      padding: 28px 0;
+      margin-bottom: 24px;
     }
-    .score-circle {
+    .score-ring {
       flex-shrink: 0;
-      width: 110px; height: 110px;
+      width: 88px; height: 88px;
       border-radius: 50%;
-      border: 3px solid var(--accent);
+      border: 2px solid var(--accent);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      background: var(--accent-xt);
+      background: var(--accent-bg);
     }
-    .score-circle .num {
-      font-family: var(--font-serif);
-      font-size: 38px;
-      font-weight: 400;
-      color: var(--white);
-      line-height: 1;
-    }
-    .score-circle .denom {
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 500;
-    }
-    .score-text h2 {
-      font-family: var(--font-serif);
-      font-size: 24px;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 8px;
-    }
-    .score-text p { color: var(--muted); font-size: 13px; max-width: 460px; }
-    .score-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 12px;
-      background: var(--accent-xt);
-      border: 1px solid var(--accent);
-      border-radius: 999px;
-      padding: 4px 14px;
+    .score-ring .n { font-family: var(--font-serif); font-size: 30px; color: var(--navy); line-height: 1; }
+    .score-ring .d { font-size: 11px; color: var(--muted); font-weight: 500; }
+    .score-desc { flex: 1; }
+    .score-desc p { font-size: 14px; color: var(--text); margin-bottom: 8px; }
+    .badge {
+      display: inline-block;
+      background: var(--accent-bg);
+      border: 1px solid var(--accent-border);
+      border-radius: 99px;
+      padding: 3px 12px;
       font-size: 11px;
       font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      color: var(--accent-lt);
-    }
-
-    /* ── Scale table ── */
-    .scale-table {
-      margin-bottom: 56px;
-    }
-    .scale-table table td {
-      padding: 10px 16px;
-      font-size: 13px;
-      border-bottom: 1px solid rgba(255,255,255,.06);
-    }
-    .scale-table table tr:last-child td { border-bottom: none; }
-    .scale-table table tr td:first-child {
-      font-weight: 700;
-      color: var(--accent-lt);
-      white-space: nowrap;
-      width: 80px;
-    }
-    .scale-table table tr.active td {
-      background: var(--accent-xt);
-    }
-    .scale-table table tr.active td:first-child {
-      border-left: 3px solid var(--accent);
-      padding-left: 13px;
-    }
-
-    /* ── Section ── */
-    .section {
-      margin-bottom: 56px;
-    }
-    .section-header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 24px;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-    .section-header h2 {
-      font-family: var(--font-serif);
-      font-size: 26px;
-      font-weight: 400;
-      color: var(--white);
-    }
-    .section-score {
-      flex-shrink: 0;
-      background: var(--accent-xt);
-      border: 1px solid var(--accent);
-      border-radius: 8px;
-      padding: 6px 14px;
-      font-size: 18px;
-      font-weight: 800;
-      color: var(--accent-lt);
-      font-family: var(--font-serif);
-    }
-
-    /* ── Score grid (axes) ── */
-    .axes-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 10px;
-      margin-bottom: 28px;
-    }
-    .axis-card {
-      background: var(--bg-dark);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: var(--radius);
-      padding: 14px 16px;
-    }
-    .axis-card .axis-name {
-      font-size: 11px;
-      color: var(--muted);
-      margin-bottom: 8px;
-      line-height: 1.3;
-      font-weight: 500;
-    }
-    .axis-card .axis-score {
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--white);
-    }
-    .axis-card .axis-score span {
-      font-size: 12px;
-      font-weight: 400;
-      color: var(--muted);
-    }
-    .axis-card .bar-track {
-      margin-top: 8px;
-      height: 4px;
-      background: rgba(255,255,255,.08);
-      border-radius: 99px;
-      overflow: hidden;
-    }
-    .axis-card .bar-fill {
-      height: 100%;
-      background: var(--accent);
-      border-radius: 99px;
-    }
-
-    /* ── Text blocks ── */
-    .block {
-      background: var(--bg-dark);
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius: var(--radius);
-      padding: 24px 28px;
-      margin-bottom: 16px;
-    }
-    .block-label {
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .12em;
+      letter-spacing: .06em;
       text-transform: uppercase;
       color: var(--accent);
-      margin-bottom: 12px;
-    }
-    .block p, .block li {
-      font-size: 13px;
-      color: var(--offwhite);
-      line-height: 1.7;
-    }
-    .block ul { margin: 0; padding-left: 18px; }
-    .block li { margin-bottom: 6px; }
-    .block .highlight {
-      border-left: 3px solid var(--accent);
-      padding-left: 16px;
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 13px;
-      font-style: italic;
     }
 
-    /* ── Priority table ── */
-    .priority-table {
-      background: var(--bg-dark);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
+    /* ── Axes grid (score cards) ── */
+    .axes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 10px;
       margin-bottom: 32px;
     }
-    .priority-table table th {
-      background: rgba(60,140,160,.12);
-      padding: 10px 16px;
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--accent-lt);
-      text-align: left;
-    }
-    .priority-table table td {
+    .axis-card {
+      border: 1px solid var(--rule);
+      border-radius: 6px;
       padding: 14px 16px;
-      font-size: 13px;
-      border-bottom: 1px solid rgba(255,255,255,.05);
-      vertical-align: top;
-      color: var(--offwhite);
+      background: #FAFBFC;
     }
-    .priority-table table tr:last-child td { border-bottom: none; }
-    .priority-table .num-cell {
-      width: 48px;
-      text-align: center;
-      font-weight: 800;
-      color: var(--accent-lt);
-      font-size: 16px;
-    }
-
-    /* ── Roadmap ── */
-    .roadmap-item {
-      background: var(--bg-dark);
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius: var(--radius);
-      padding: 20px 24px;
-      margin-bottom: 12px;
-      display: grid;
-      grid-template-columns: 1fr 1.4fr;
-      gap: 24px;
-      align-items: start;
-    }
-    .roadmap-axe {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--offwhite);
-      line-height: 1.35;
-    }
-    .roadmap-desc {
+    .axis-card .ax-name {
       font-size: 12px;
       color: var(--muted);
-      line-height: 1.65;
+      margin-bottom: 8px;
+      line-height: 1.35;
     }
+    .axis-card .ax-score {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .axis-card .ax-score span { font-size: 12px; font-weight: 400; color: var(--muted); }
+    .bar { margin-top: 8px; height: 3px; background: var(--rule); border-radius: 99px; }
+    .bar-fill { height: 100%; background: var(--accent); border-radius: 99px; }
 
-    /* ── Divider ── */
-    .divider {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 48px 0;
+    /* ── Roadmap two-col rows ── */
+    .roadmap-row {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 24px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: start;
     }
+    .roadmap-row:last-child { border-bottom: none; }
+    .roadmap-axe { font-size: 13px; font-weight: 600; color: var(--navy); line-height: 1.45; }
+    .roadmap-desc { font-size: 13px; color: var(--muted); line-height: 1.65; }
 
-    /* ── Section title standalone ── */
-    .section-title {
-      font-family: var(--font-serif);
-      font-size: 22px;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 20px;
-    }
-
-    /* ── Annexe barème ── */
-    .bareme-block {
-      margin-bottom: 32px;
-    }
-    .bareme-block h4 {
+    /* ── Annexe sub-heading ── */
+    .annexe-bloc { margin-bottom: 28px; }
+    .annexe-bloc h4 {
       font-size: 12px;
       font-weight: 700;
       letter-spacing: .08em;
       text-transform: uppercase;
-      color: var(--accent-lt);
+      color: var(--navy);
       margin-bottom: 10px;
     }
-    .bareme-block table td {
-      padding: 8px 14px;
-      font-size: 12px;
-      border-bottom: 1px solid rgba(255,255,255,.05);
-      color: var(--offwhite);
-    }
-    .bareme-block table tr:last-child td { border-bottom: none; }
-    .bareme-block table td:first-child {
-      width: 42px;
-      font-weight: 700;
-      color: var(--accent-lt);
-      text-align: center;
-    }
-    .bareme-block table {
-      background: var(--bg-dark);
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
+    .annexe-bloc p { font-size: 13px; color: var(--muted); margin-bottom: 10px; line-height: 1.65; }
 
     /* ── Footer ── */
     .footer {
-      margin-top: 64px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
+      margin-top: 72px;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 8px;
     }
     .footer-brand {
       font-size: 11px;
-      font-weight: 800;
+      font-weight: 700;
       letter-spacing: .14em;
       text-transform: uppercase;
       color: var(--accent);
     }
-    .footer-text {
-      font-size: 11px;
-      color: var(--muted);
-    }
+    .footer-note { font-size: 11px; color: var(--muted); }
 
     /* ── Print ── */
     @media print {
-      @page {
-        size: A4;
-        margin: 18mm 16mm;
-      }
-      body {
-        background: #0F1E35 !important;
+      @page { size: A4; margin: 18mm 16mm; }
+      body { font-size: 12px; background: #fff; }
+      .page { max-width: 100%; padding: 0; }
+      a { text-decoration: none; color: inherit; }
+      .tbl, .score-hero, .axes-grid, .roadmap-row, .callout {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
-        color-adjust: exact;
-        font-size: 12px;
-      }
-      .page {
-        max-width: 100%;
-        padding: 0;
-      }
-      .cover, .score-hero, .block, .priority-table,
-      .roadmap-item, .axis-card, .bareme-block table {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
-        break-inside: avoid;
       }
       .cover { page-break-after: always; }
-      .section { break-inside: avoid; }
+      .section, .annexe-bloc, .tbl { break-inside: avoid; }
+      .score-ring, .badge, .tbl .row-active td, .callout, .axis-card, .bar-fill {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
     }
   </style>
 </head>
 <body>
 <div class="page">
 
-  <!-- ── COVER ── -->
+  <!-- COVER -->
   <div class="cover">
-    <div class="cover-label">Deekay Consulting — Mission Phase 1</div>
+    <div class="cover-eyebrow">Deekay Consulting — Mission Phase 1</div>
     <h1>Audit organisationnel<br><em>Graine de Fauve</em></h1>
-    <p class="cover-sub">Restitution des conclusions de l'audit mené en Phase 1. Entretien présentiel avec Marion Vetticoz.</p>
+    <p class="cover-intro">Ce document restitue les conclusions de l'audit de l'organisation interne de Graine de Fauve, conduit en Phase 1 de la mission. Il s'appuie sur un entretien mené en présentiel à l'agence avec Marion Vetticoz. Son objectif est de poser un diagnostic clair de l'organisation actuelle pour orienter la construction du workspace en Phase 2.</p>
     <div class="cover-meta">
-      <div class="cover-meta-item">
-        <span class="label">Client</span>
-        <span class="value">Graine de Fauve</span>
+      <div class="meta-item">
+        <span class="meta-label">Client</span>
+        <span class="meta-value">Graine de Fauve</span>
       </div>
-      <div class="cover-meta-item">
-        <span class="label">Interlocutrice</span>
-        <span class="value">Marion Vetticoz, fondatrice</span>
+      <div class="meta-item">
+        <span class="meta-label">Interlocutrice</span>
+        <span class="meta-value">Marion Vetticoz, fondatrice</span>
       </div>
-      <div class="cover-meta-item">
-        <span class="label">Phase</span>
-        <span class="value">Phase 1 — Diagnostic</span>
+      <div class="meta-item">
+        <span class="meta-label">Phase</span>
+        <span class="meta-value">Phase 1 — Diagnostic</span>
       </div>
-      <div class="cover-meta-item">
-        <span class="label">Suite</span>
-        <span class="value">Phase 2 — Construction du workspace</span>
+      <div class="meta-item">
+        <span class="meta-label">Suite</span>
+        <span class="meta-value">Phase 2 — Construction du workspace</span>
       </div>
     </div>
   </div>
 
-  <!-- ── L'AGENCE ── -->
+  <!-- L'AGENCE AUJOURD'HUI -->
   <div class="section">
-    <div class="section-header">
-      <h2>L'agence aujourd'hui</h2>
-    </div>
-
-    <div class="block">
+    <div class="section-heading"><h2>L'agence aujourd'hui</h2></div>
+    <div class="prose">
       <p>Graine de Fauve est une agence créative basée à Bordeaux. Elle accompagne une vingtaine de clients en simultané sur des missions de stratégie de contenu, de production photo et vidéo, et de gestion des réseaux sociaux. L'équipe tourne entre quatre et six personnes selon les périodes : des stagiaires et alternants sur la partie créa, un prestataire vidéo régulier, et Eva qui rejoint prochainement en tant que directrice artistique. Marion Vetticoz en est la fondatrice et dirige seule l'agence.</p>
     </div>
 
-    <div class="block">
-      <div class="block-label">Côté équipe</div>
-      <p>La répartition des tâches est assurée par Marion. Les rôles sont définis au fil des missions selon les compétences de chacun. Les stagiaires et alternants travaillent sur leurs propres machines. L'onboarding des nouveaux collaborateurs repose sur des explications orales. La communication interne passe par deux groupes WhatsApp distincts. Il n'existe pas de document de référence partagé.</p>
+    <br>
+    <div class="sub-label">Côté équipe</div>
+    <div class="prose">
+      <p>La répartition des tâches est assurée par Marion. Les rôles sont définis au fil des missions selon les compétences de chacun. Les stagiaires et alternants travaillent sur leurs propres machines. L'onboarding des nouveaux collaborateurs repose sur des explications orales. La communication interne passe par deux groupes WhatsApp distincts, un pour Alex et les alternants, un pour les stagiaires. Il n'existe pas de document de référence partagé.</p>
+      <p>L'agence fait également appel à des prestataires externes selon les missions. Ces profils interviennent de façon ponctuelle sur des périmètres définis.</p>
     </div>
 
-    <div class="block">
-      <div class="block-label">Côté clients</div>
+    <br>
+    <div class="sub-label">Côté clients</div>
+    <div class="prose">
       <p>Les informations clients sont gérées par Marion et distribuées selon les besoins. Les clients communiquent par WhatsApp, mail ou téléphone selon leurs habitudes. Les contenus sont produits par l'équipe, validés en interne par Marion, puis soumis au client via un Google Slides partagé. Les vidéos transitent par des liens Dropbox séparés. Une fois les contenus validés, Marion les centralise sur Slack dans des canaux organisés par client.</p>
-      <div class="highlight">Marion est l'interlocutrice principale de chaque client et le point de passage central entre l'équipe et les clients. Cet audit pose le diagnostic de ce qui repose sur elle seule, pour que la Phase 2 puisse le traduire en système.</div>
+      <p>Marion est l'interlocutrice principale de chaque client et le point de passage central entre l'équipe et les clients. Cet audit pose le diagnostic de ce qui repose sur elle seule, pour que la Phase 2 puisse le traduire en système.</p>
     </div>
   </div>
 
-  <!-- ── SCORE GLOBAL ── -->
-  <div class="score-hero">
-    <div class="score-circle">
-      <span class="num">37</span>
-      <span class="denom">/100</span>
+  <!-- SCORE GLOBAL -->
+  <div class="section">
+    <div class="section-heading"><h2>Score global : 37/100</h2></div>
+
+    <div class="score-hero">
+      <div class="score-ring">
+        <span class="n">37</span>
+        <span class="d">/100</span>
+      </div>
+      <div class="score-desc">
+        <p>43 points obtenus sur 115, convertis sur 100 pour faciliter la lecture.</p>
+        <span class="badge">Organisation en transition</span>
+      </div>
     </div>
-    <div class="score-text">
-      <h2>Score global</h2>
-      <p>43 points obtenus sur 115, convertis sur 100 pour faciliter la lecture.</p>
-      <div class="score-badge">Organisation en transition</div>
-    </div>
+
+    <table class="tbl">
+      <thead><tr><th>Score</th><th>Lecture</th></tr></thead>
+      <tbody>
+        <tr><td>0 à 25</td><td>Organisation critique : blocages structurels majeurs, risque opérationnel immédiat</td></tr>
+        <tr class="row-active"><td>26 à 50</td><td>Organisation en transition : fonctionnement possible mais non scalable, dépendance forte à une personne clé</td></tr>
+        <tr><td>51 à 75</td><td>Organisation partiellement structurée : des systèmes en place, des angles morts à combler</td></tr>
+        <tr><td>76 à 100</td><td>Organisation mature : structure solide, ajustements ponctuels suffisants</td></tr>
+      </tbody>
+    </table>
+
+    <div class="prose"><p>Graine de Fauve se situe en transition.</p></div>
   </div>
 
-  <div class="scale-table">
-    <table>
-      <tr>
-        <td>0 – 25</td>
-        <td>Organisation critique : blocages structurels majeurs, risque opérationnel immédiat</td>
-      </tr>
-      <tr class="active">
-        <td>26 – 50</td>
-        <td>Organisation en transition : fonctionnement possible mais non scalable, dépendance forte à une personne clé</td>
-      </tr>
-      <tr>
-        <td>51 – 75</td>
-        <td>Organisation partiellement structurée : des systèmes en place, des angles morts à combler</td>
-      </tr>
-      <tr>
-        <td>76 – 100</td>
-        <td>Organisation mature : structure solide, ajustements ponctuels suffisants</td>
-      </tr>
+  <!-- GRILLE D'AUDIT SYNTHÉTISÉE -->
+  <div class="section">
+    <div class="section-heading"><h2>Grille d'audit synthétisée</h2></div>
+
+    <p style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:12px;">Pilotage quotidien — 10/25</p>
+    <table class="tbl">
+      <thead><tr><th>Axe</th><th style="text-align:right">Score</th></tr></thead>
+      <tbody>
+        <tr><td>Clarté de la priorisation quotidienne</td><td class="td-score">2/5</td></tr>
+        <tr><td>Existence d'un système de suivi des tâches</td><td class="td-score">2/5</td></tr>
+        <tr><td>Gestion du temps et des urgences</td><td class="td-score">1/5</td></tr>
+        <tr><td>Usage des appareils</td><td class="td-score">4/5</td></tr>
+        <tr><td>Score global outils</td><td class="td-score">1/5</td></tr>
+      </tbody>
+    </table>
+
+    <p style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:12px;">Suivi des projets clients — 18/55</p>
+    <table class="tbl">
+      <thead><tr><th>Axe</th><th style="text-align:right">Score</th></tr></thead>
+      <tbody>
+        <tr><td>Comment la mission démarre</td><td class="td-score">2/5</td></tr>
+        <tr><td>Comment le travail est organisé et suivi</td><td class="td-score">1/5</td></tr>
+        <tr><td>Comment les contenus sont produits et par qui</td><td class="td-score">2/5</td></tr>
+        <tr><td>Comment les contenus sont soumis à validation</td><td class="td-score">2/5</td></tr>
+        <tr><td>Comment les retours sont intégrés</td><td class="td-score">1/5</td></tr>
+        <tr><td>Comment la mission se termine</td><td class="td-score">2/5</td></tr>
+        <tr><td>Organisation par client</td><td class="td-score">2/5</td></tr>
+        <tr><td>Canal de communication principal</td><td class="td-score">1/5</td></tr>
+        <tr><td>Traçabilité des échanges et décisions</td><td class="td-score">1/5</td></tr>
+        <tr><td>Processus de validation des contenus</td><td class="td-score">2/5</td></tr>
+        <tr><td>Clôture des missions</td><td class="td-score">2/5</td></tr>
+      </tbody>
+    </table>
+
+    <p style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:12px;">Fonctionnement de l'équipe — 11/30</p>
+    <table class="tbl">
+      <thead><tr><th>Axe</th><th style="text-align:right">Score</th></tr></thead>
+      <tbody>
+        <tr><td>Clarté des rôles et responsabilités</td><td class="td-score">2/5</td></tr>
+        <tr><td>Qualité du briefing entrant</td><td class="td-score">1/5</td></tr>
+        <tr><td>Suivi des tâches déléguées</td><td class="td-score">2/5</td></tr>
+        <tr><td>Onboarding des nouveaux</td><td class="td-score">2/5</td></tr>
+        <tr><td>Communication interne</td><td class="td-score">2/5</td></tr>
+        <tr><td>Rapport à la délégation et à la charge</td><td class="td-score">2/5</td></tr>
+      </tbody>
+    </table>
+
+    <p style="font-size:13px;font-weight:600;color:var(--navy);margin-bottom:12px;">Vision de l'environnement de travail — 4/5</p>
+    <table class="tbl">
+      <thead><tr><th>Axe</th><th style="text-align:right">Score</th></tr></thead>
+      <tbody>
+        <tr><td>Clarté de la vision de l'environnement de travail</td><td class="td-score">4/5</td></tr>
+      </tbody>
     </table>
   </div>
 
-  <!-- ── PILOTAGE QUOTIDIEN ── -->
+  <!-- LECTURE DE LA GRILLE -->
   <div class="section">
-    <div class="section-header">
-      <h2>Pilotage quotidien</h2>
-      <div class="section-score">10 / 25</div>
-    </div>
+    <div class="section-heading"><h2>Lecture de la grille</h2></div>
 
-    <div class="axes-grid">
-      <div class="axis-card">
-        <div class="axis-name">Clarté de la priorisation quotidienne</div>
-        <div class="axis-score">2 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Existence d'un système de suivi des tâches</div>
-        <div class="axis-score">2 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Gestion du temps et des urgences</div>
-        <div class="axis-score">1 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Usage des appareils</div>
-        <div class="axis-score">4 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:80%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Score global outils</div>
-        <div class="axis-score">1 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
-      </div>
-    </div>
+    <!-- Pilotage quotidien -->
+    <h3>Pilotage quotidien — 10/25</h3>
 
-    <div class="block">
-      <div class="block-label">État des lieux</div>
+    <div class="sub-label">État des lieux</div>
+    <div class="prose">
       <p>Marion pilote son quotidien seule, sans système partagé ni cadre temporel fixe. Ses journées sont gouvernées par les imprévus. Elle traite tout comme urgent, sans méthode pour distinguer l'urgence réelle de l'urgence perçue.</p>
-      <br>
       <p>Son seul outil de suivi : des notes dans son iPhone, une par semaine, avec des tâches sous forme de mémos cochés manuellement. Aucun de ces éléments n'est visible par l'équipe.</p>
-      <br>
-      <p>Les appareils sont utilisés avec clarté. La friction est dans l'outillage global : Slack, Drive, Dropbox, Canva et WhatsApp fonctionnent en silos non connectés. Le niveau d'outillage est celui d'une solo-entrepreneuse, pas d'une agence de plusieurs personnes.</p>
+      <p>Marion exprime l'intention d'instaurer une réunion d'équipe le lundi pour aligner le pôle com et le pôle vidéo, et de réserver le vendredi aux prospects. Ce sont des orientations identifiées, pas des pratiques en place.</p>
+      <p>Les appareils sont utilisés avec clarté : chaque appareil a un rôle défini dans le flux de travail de Marion. La friction est dans l'outillage global : Slack, Drive, Dropbox, Canva et WhatsApp fonctionnent en silos non connectés. Aucun ne forme un système cohérent et transmissible. Le niveau d'outillage est celui d'une solo-entrepreneuse, pas d'une agence de plusieurs personnes.</p>
     </div>
 
-    <div class="block">
-      <div class="block-label">Analyse</div>
+    <br>
+    <div class="sub-label">Analyse</div>
+    <div class="prose">
       <p>Le score de 10/25 traduit une organisation personnelle qui fonctionne pour une seule personne et s'effondre dès qu'une équipe entre dans l'équation. Marion en a conscience. Elle dit elle-même que ce n'est pas viable.</p>
-      <div class="highlight">Le point critique est la gestion du temps et des urgences : absence de priorisation formelle (1/5) combinée à un outillage fragmenté (1/5). Quand Marion est indisponible, le système s'arrête.</div>
-    </div>
-  </div>
-
-  <!-- ── SUIVI PROJETS CLIENTS ── -->
-  <div class="section">
-    <div class="section-header">
-      <h2>Suivi des projets clients</h2>
-      <div class="section-score">18 / 55</div>
+      <div class="callout"><p>Le point critique est la gestion du temps et des urgences : absence de priorisation formelle (1/5) combinée à un outillage fragmenté (1/5). Quand Marion est indisponible, le système s'arrête. L'organisation de l'agence ne tient pas sans elle.</p></div>
     </div>
 
-    <div class="axes-grid">
-      <div class="axis-card">
-        <div class="axis-name">Comment la mission démarre</div>
-        <div class="axis-score">2 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Organisation et suivi du travail</div>
-        <div class="axis-score">1 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Production des contenus et par qui</div>
-        <div class="axis-score">2 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Soumission à validation</div>
-        <div class="axis-score">2 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Intégration des retours</div>
-        <div class="axis-score">1 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Clôture de la mission</div>
-        <div class="axis-score">2 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Organisation par client</div>
-        <div class="axis-score">2 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Canal de communication principal</div>
-        <div class="axis-score">1 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Traçabilité des échanges et décisions</div>
-        <div class="axis-score">1 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Processus de validation des contenus</div>
-        <div class="axis-score">2 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Clôture des missions</div>
-        <div class="axis-score">2 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
-      </div>
-    </div>
+    <hr>
 
-    <div class="block">
-      <div class="block-label">État des lieux</div>
-      <p>Le circuit de production d'un contenu réseaux sociaux se déroule en plusieurs passes. Marion valide à deux reprises en interne, puis le client accède à un Google Slides, valide ou fait des retours, puis Marion repasse une troisième fois.</p>
-      <br>
-      <p>Les visuels doivent être importés un par un dans le Slides, sans copier-coller possible. Les vidéos ne s'intègrent pas : ce sont des liens Dropbox ouverts séparément. Le Canva utilisé est le compte personnel de Marion, mélangé avec ses propres fichiers.</p>
-      <br>
+    <!-- Suivi des projets clients -->
+    <h3>Suivi des projets clients — 18/55</h3>
+
+    <div class="sub-label">État des lieux</div>
+    <div class="prose">
+      <p>Le circuit de production d'un contenu réseaux sociaux se déroule en plusieurs passes. L'équipe crée les visuels sur Illustrator ou Canva à partir du brief client. Marion valide la grille visuelle. Une fois validée, l'équipe exporte, rédige les textes, Marion valide à nouveau. Le client accède ensuite à un Google Slides, valide ou fait des retours. Marion repasse une troisième fois pour traiter ces retours.</p>
+      <p>Les visuels doivent être importés un par un dans le Slides, sans copier-coller possible. Les carrousels sont fastidieux à gérer. Les vidéos ne s'intègrent pas : ce sont des liens Dropbox que le client doit ouvrir séparément.</p>
+      <p>Une fois les contenus validés, Marion télécharge les visuels et les centralise sur Slack, dans des canaux organisés par client. C'est depuis là qu'elle gère la publication sur les réseaux sociaux.</p>
+      <p>Le Canva utilisé aujourd'hui est le compte personnel de Marion, mélangé avec ses propres fichiers.</p>
+      <p>La mission démarre par un call, un devis, puis un mail de cadrage listant les informations nécessaires. Les codes d'accès aux réseaux sociaux arrivent par WhatsApp ou à l'oral et peuvent se perdre. Il n'y a pas de template standardisé.</p>
       <p>La mission se termine quand les livrables sont envoyés. Pas de rituel de clôture, pas d'archive structurée, pas de résumé.</p>
     </div>
 
-    <div class="block">
-      <div class="block-label">Analyse</div>
+    <br>
+    <div class="sub-label">Analyse</div>
+    <div class="prose">
       <p>Le score de 18/55 reflète un flux de production qui existe mais qui n'est ni tracé, ni standardisé, ni transmissible. Chaque projet avance parce que Marion maintient le fil en tête. Pas parce qu'un système le porte.</p>
-      <div class="highlight">Les deux axes à 1/5 pointent le même problème central : Marion est le seul point de coordination. Si elle est indisponible, personne ne sait où en est le projet.</div>
-    </div>
-  </div>
-
-  <!-- ── FONCTIONNEMENT ÉQUIPE ── -->
-  <div class="section">
-    <div class="section-header">
-      <h2>Fonctionnement de l'équipe</h2>
-      <div class="section-score">11 / 30</div>
+      <div class="callout"><p>Les deux axes à 1/5 pointent le même problème central : Marion est le seul point de coordination. L'organisation et le suivi du travail reposent entièrement sur elle. La traçabilité des échanges n'existe pas. Si elle est indisponible, personne ne sait où en est le projet.</p></div>
     </div>
 
-    <div class="axes-grid">
-      <div class="axis-card">
-        <div class="axis-name">Clarté des rôles et responsabilités</div>
-        <div class="axis-score">2 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Qualité du briefing entrant</div>
-        <div class="axis-score">1 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:20%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Suivi des tâches déléguées</div>
-        <div class="axis-score">2 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Onboarding des nouveaux</div>
-        <div class="axis-score">2 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Communication interne</div>
-        <div class="axis-score">2 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
-      </div>
-      <div class="axis-card">
-        <div class="axis-name">Rapport à la délégation et à la charge</div>
-        <div class="axis-score">2 <span>/ 5</span></div>
-        <div class="bar-track"><div class="bar-fill" style="width:40%"></div></div>
-      </div>
+    <hr>
+
+    <!-- Fonctionnement de l'équipe -->
+    <h3>Fonctionnement de l'équipe — 11/30</h3>
+
+    <div class="sub-label">État des lieux</div>
+    <div class="prose">
+      <p>Les rôles de l'équipe se définissent au fil de la mission selon les compétences observées. Il n'y a pas de périmètre défini en amont. Marion distribue les tâches oralement, chaque matin. Quand elle n'est pas disponible, il n'y a pas de briefing.</p>
+      <p>Marion suit le travail produit en fin de journée quand elle y pense. Il lui arrive de ne pas y penser. Il n'existe pas de système de remontée automatique. Elle relance à l'oral.</p>
+      <p>L'onboarding repose entièrement sur sa disponibilité. Quelques explications orales au démarrage, rien de formalisé. Les informations de base ne sont pas consignées par écrit.</p>
+      <p>La communication interne passe par deux groupes WhatsApp distincts : un pour Alex et les alternants, un pour les stagiaires. Marion a une réserve consciente sur l'adoption d'un outil supplémentaire : elle ne veut pas créer un double canal si tout le monde ne suit pas.</p>
+      <p>Marion délègue la création de contenu et la gestion des réseaux sociaux. Elle repasse systématiquement derrière le travail rendu. Elle prépare les scripts et les boards vidéo, ce qu'elle reconnaît elle-même comme hors de son rôle.</p>
     </div>
 
-    <div class="block">
-      <div class="block-label">État des lieux</div>
-      <p>Les rôles de l'équipe se définissent au fil de la mission. Marion distribue les tâches oralement, chaque matin. Quand elle n'est pas disponible, il n'y a pas de briefing.</p>
-      <br>
-      <p>L'onboarding repose entièrement sur sa disponibilité : quelques explications orales au démarrage, rien de formalisé. Marion délègue la création de contenu et la gestion des réseaux sociaux, mais repasse systématiquement derrière le travail rendu.</p>
-    </div>
-
-    <div class="block">
-      <div class="block-label">Analyse</div>
+    <br>
+    <div class="sub-label">Analyse</div>
+    <div class="prose">
       <p>Le score de 11/30 traduit une équipe qui fonctionne par dépendance directe à Marion, pas par autonomie structurée.</p>
-      <div class="highlight">Le briefing inexistant (1/5) est le point le plus critique. Sans système de répartition des tâches, ce qui n'est pas dit le matin n'existe pas.</div>
-    </div>
-  </div>
-
-  <!-- ── VISION ── -->
-  <div class="section">
-    <div class="section-header">
-      <h2>Vision de l'environnement de travail</h2>
-      <div class="section-score">4 / 5</div>
+      <div class="callout">
+        <p>Le briefing inexistant (1/5) est le point le plus critique. Sans système de répartition des tâches, chaque membre travaille dans le périmètre que Marion définit verbalement. Le risque est que ce qui n'est pas dit le matin n'existe pas.</p>
+        <p style="margin-top:10px;">Les autres axes à 2/5 pointent des pratiques qui existent mais ne tiennent que si Marion est présente et disponible : le suivi des tâches, la clarté des rôles, l'onboarding. Aucun ne fonctionne sans elle.</p>
+      </div>
     </div>
 
-    <div class="block">
-      <div class="block-label">État des lieux</div>
-      <p>Marion a une vision claire et articulée de ce qu'elle attend d'un environnement de travail structuré. Elle s'appuie sur des références concrètes et a formulé des contraintes de design explicites : cartes, couleurs, icônes, éléments cliquables plutôt que tableaux denses ou texte brut.</p>
-      <br>
+    <hr>
+
+    <!-- Vision -->
+    <h3>Vision de l'environnement de travail — 4/5</h3>
+
+    <div class="sub-label">État des lieux</div>
+    <div class="prose">
+      <p>Marion a une vision claire et articulée de ce qu'elle attend d'un environnement de travail structuré. Elle s'appuie sur des références concrètes observées dans d'autres contextes professionnels. Elle a également en tête des contre-exemples et sait précisément ce qu'elle ne veut pas. Elle a formulé des contraintes de design explicites : cartes, couleurs, icônes, éléments cliquables plutôt que tableaux denses ou texte brut.</p>
       <p>Deux zones restent à préciser : les périmètres d'accès exacts par profil, et la gestion des missions ponctuelles par rapport aux missions récurrentes.</p>
     </div>
 
-    <div class="block">
-      <div class="block-label">Analyse</div>
-      <p>Le 4/5 est le seul score positif de cet audit. Il porte sur le futur, pas sur l'existant. Marion sait ce qu'elle veut. Elle a des références, des contre-exemples, des contraintes formulées.</p>
-      <div class="highlight">Ce score ne doit pas masquer le reste. Une vision claire ne compense pas l'absence de système en place. Il indique que Marion est prête à changer. Pas que le changement est déjà amorcé.</div>
+    <br>
+    <div class="sub-label">Analyse</div>
+    <div class="prose">
+      <p>Le 4/5 est le seul score positif de cet audit. Il porte sur le futur, pas sur l'existant.</p>
+      <p>Marion sait ce qu'elle veut. Elle a des références, des contre-exemples, des contraintes formulées. Ce n'est pas de l'improvisation.</p>
+      <div class="callout"><p>Ce score ne doit pas masquer le reste. Une vision claire ne compense pas l'absence de système en place. Il indique que Marion est prête à changer. Pas que le changement est déjà amorcé.</p></div>
     </div>
   </div>
 
-  <!-- ── AXES PRIORITAIRES ── -->
+  <!-- AXES PRIORITAIRES -->
   <div class="section">
-    <div class="section-header">
-      <h2>Axes prioritaires</h2>
+    <div class="section-heading"><h2>Axes prioritaires</h2></div>
+
+    <div class="prose" style="margin-bottom:20px;">
+      <p>Les axes suivants sont classés selon trois critères : leur impact direct sur la charge de Marion, leur caractère bloquant pour l'équipe en son absence, et l'urgence calendaire. Les premiers axes sont ceux dont l'absence de résolution empêche le reste de fonctionner.</p>
     </div>
 
-    <div class="priority-table">
-      <table>
-        <thead>
-          <tr>
-            <th class="num-cell">#</th>
-            <th>Axe</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="num-cell">1</td>
-            <td>Désintermédiation de Marion dans le flux de tâches équipe</td>
-          </tr>
-          <tr>
-            <td class="num-cell">2</td>
-            <td>Centralisation des informations clients</td>
-          </tr>
-          <tr>
-            <td class="num-cell">3</td>
-            <td>Structuration du circuit de validation des contenus</td>
-          </tr>
-          <tr>
-            <td class="num-cell">4</td>
-            <td>Wiki d'onboarding</td>
-          </tr>
-          <tr>
-            <td class="num-cell">5</td>
-            <td>Coordination entre le pôle com et le pôle vidéo</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <table class="tbl" style="margin-bottom:32px;">
+      <thead><tr><th style="width:60px">Priorité</th><th>Axe</th></tr></thead>
+      <tbody>
+        <tr><td class="td-num">1</td><td>Désintermédiation de Marion dans le flux de tâches équipe</td></tr>
+        <tr><td class="td-num">2</td><td>Centralisation des informations clients</td></tr>
+        <tr><td class="td-num">3</td><td>Structuration du circuit de validation des contenus</td></tr>
+        <tr><td class="td-num">4</td><td>Wiki d'onboarding</td></tr>
+        <tr><td class="td-num">5</td><td>Coordination entre le pôle com et le pôle vidéo</td></tr>
+      </tbody>
+    </table>
 
-    <div class="block">
-      <div class="block-label">1 — Désintermédiation de Marion dans le flux de tâches</div>
+    <div class="prose">
+      <p><strong>1. Désintermédiation de Marion dans le flux de tâches équipe</strong></p>
       <p>C'est la source principale de perte de temps et de charge mentale. Marion est aujourd'hui le seul point de distribution des tâches. Sans elle, l'équipe ne sait pas quoi faire. Chaque membre doit pouvoir accéder à son plan de travail de façon autonome, et Marion doit être informée de l'avancement sans avoir à le demander.</p>
-    </div>
 
-    <div class="block">
-      <div class="block-label">2 — Centralisation des informations clients</div>
+      <p style="margin-top:20px;"><strong>2. Centralisation des informations clients</strong></p>
       <p>Les codes d'accès, les briefs validés, les chartes graphiques et les statuts de publication sont aujourd'hui dispersés entre des outils qui ne communiquent pas, ou stockés dans la mémoire de Marion. L'équipe ne peut pas travailler de façon autonome sur un client sans passer par elle.</p>
-    </div>
 
-    <div class="block">
-      <div class="block-label">3 — Structuration du circuit de validation des contenus</div>
+      <p style="margin-top:20px;"><strong>3. Structuration du circuit de validation des contenus</strong></p>
       <p>Le circuit actuel fait repasser les mêmes contenus plusieurs fois par Marion, sans traçabilité entre les versions. Un système de statuts clairs, accessible à l'équipe et au client, doit remplacer les allers-retours manuels entre Google Slides, Dropbox et WhatsApp.</p>
-    </div>
 
-    <div class="block">
-      <div class="block-label">4 — Wiki d'onboarding</div>
-      <p>L'agence accueille régulièrement de nouveaux collaborateurs. Chaque nouvel arrivant dépend aujourd'hui de la disponibilité de Marion pour comprendre comment l'agence fonctionne. Un support écrit de référence est la condition minimale pour que l'onboarding ne repose plus sur elle.</p>
-    </div>
+      <p style="margin-top:20px;"><strong>4. Wiki d'onboarding</strong></p>
+      <p>L'agence accueille régulièrement de nouveaux collaborateurs : stagiaires en rotation, prestataires ponctuels, et de nouveaux profils prévus à la rentrée. Chaque nouvel arrivant dépend aujourd'hui de la disponibilité de Marion pour comprendre comment l'agence fonctionne. Un support écrit de référence est la condition minimale pour que l'onboarding ne repose plus sur elle.</p>
 
-    <div class="block">
-      <div class="block-label">5 — Coordination entre le pôle com et le pôle vidéo</div>
+      <p style="margin-top:20px;"><strong>5. Coordination entre le pôle com et le pôle vidéo</strong></p>
       <p>Des tournages peuvent être planifiés sans que l'équipe com en soit informée. La friction sur les dates de shooting est le symptôme le plus visible de l'absence d'un agenda partagé.</p>
     </div>
   </div>
 
-  <!-- ── ROADMAP PHASE 2 ── -->
+  <!-- LA SUITE -->
   <div class="section">
-    <div class="section-header">
-      <h2>Roadmap Phase 2</h2>
+    <div class="section-heading"><h2>La suite</h2></div>
+
+    <div class="prose" style="margin-bottom:20px;">
+      <p>L'audit est terminé. Il pose le diagnostic de l'organisation actuelle de Graine de Fauve et identifie les axes sur lesquels agir en priorité. La Phase 2 traduit ces axes en système. Voici la roadmap proposée.</p>
     </div>
 
-    <div class="roadmap-item">
-      <div class="roadmap-axe">Désintermédiation de Marion dans le flux de tâches</div>
-      <div class="roadmap-desc">Une base de données de tâches avec une vue filtrée par membre d'équipe. Chaque membre voit ses tâches de la semaine, met à jour les statuts au fil de l'avancement. Marion dispose d'une vue consolidée de l'avancement de toute l'équipe.</div>
-    </div>
-    <div class="roadmap-item">
-      <div class="roadmap-axe">Centralisation des informations clients</div>
-      <div class="roadmap-desc">Une base clients avec une page par client : codes d'accès, brief validé, charte graphique, contacts. Accessible à toute l'équipe sans passer par Marion.</div>
-    </div>
-    <div class="roadmap-item">
-      <div class="roadmap-axe">Structuration du circuit de validation des contenus</div>
-      <div class="roadmap-desc">Une base de publications par client avec un système de statuts : idée, à produire, prête, soumise au client, validée, archivée. Une vue calendrier pour l'équipe, une vue filtrée pour le client en accès invité.</div>
-    </div>
-    <div class="roadmap-item">
-      <div class="roadmap-axe">Wiki d'onboarding</div>
-      <div class="roadmap-desc">Un espace de pages statiques : présentation de l'agence, outils utilisés, process par type de mission, informations pratiques. Consultable sans formation préalable.</div>
-    </div>
-    <div class="roadmap-item">
-      <div class="roadmap-axe">Coordination entre le pôle com et le pôle vidéo</div>
-      <div class="roadmap-desc">Une base de dates de tournage et de shooting partagée entre Marion et Alex, avec les statuts de préparation associés. La connexion à Google Calendar sera évaluée en modélisation.</div>
+    <div style="border:1px solid var(--rule);border-radius:6px;overflow:hidden;">
+      <div class="roadmap-row" style="padding:16px 16px;border-bottom:1px solid var(--rule);">
+        <div class="roadmap-axe">Désintermédiation de Marion dans le flux de tâches</div>
+        <div class="roadmap-desc">Une base de données de tâches avec une vue filtrée par membre d'équipe. Chaque membre voit ses tâches de la semaine, met à jour les statuts au fil de l'avancement. Marion dispose d'une vue consolidée de l'avancement de toute l'équipe.</div>
+      </div>
+      <div class="roadmap-row" style="padding:16px 16px;border-bottom:1px solid var(--rule);">
+        <div class="roadmap-axe">Centralisation des informations clients</div>
+        <div class="roadmap-desc">Une base clients avec une page par client : codes d'accès, brief validé, charte graphique, contacts. Accessible à toute l'équipe sans passer par Marion.</div>
+      </div>
+      <div class="roadmap-row" style="padding:16px 16px;border-bottom:1px solid var(--rule);">
+        <div class="roadmap-axe">Structuration du circuit de validation des contenus</div>
+        <div class="roadmap-desc">Une base de publications par client avec un système de statuts : idée, à produire, prête, soumise au client, validée, archivée. Une vue calendrier pour l'équipe, une vue filtrée pour le client en accès invité.</div>
+      </div>
+      <div class="roadmap-row" style="padding:16px 16px;border-bottom:1px solid var(--rule);">
+        <div class="roadmap-axe">Wiki d'onboarding</div>
+        <div class="roadmap-desc">Un espace de pages statiques : présentation de l'agence, outils utilisés, process par type de mission, informations pratiques. Consultable sans formation préalable.</div>
+      </div>
+      <div class="roadmap-row" style="padding:16px 16px;">
+        <div class="roadmap-axe">Coordination entre le pôle com et le pôle vidéo</div>
+        <div class="roadmap-desc">Une base de dates de tournage et de shooting partagée entre Marion et Alex, avec les statuts de préparation associés. La connexion à Google Calendar sera évaluée en modélisation.</div>
+      </div>
     </div>
   </div>
 
-  <hr class="divider" />
+  <hr>
 
-  <!-- ── ANNEXE ── -->
+  <!-- ANNEXE -->
   <div class="section">
-    <div class="section-header">
-      <h2>Annexe — Barème de notation</h2>
-    </div>
+    <div class="section-heading"><h2>Annexe — Barème de notation</h2></div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:36px;line-height:1.65;">L'audit s'appuie sur une grille de 23 axes répartis en quatre blocs. Chaque axe est noté de 1 à 5 selon les barèmes suivants.</p>
 
-    <p style="font-size:13px;color:var(--muted);margin-bottom:32px;">L'audit s'appuie sur une grille de 23 axes répartis en quatre blocs. Chaque axe est noté de 1 à 5 selon les barèmes suivants.</p>
+    <!-- 1. Pilotage -->
+    <h3 style="margin-bottom:20px;">1. Pilotage quotidien</h3>
 
-    <!-- Pilotage -->
-    <div class="section-title">1. Pilotage quotidien</div>
-
-    <div class="bareme-block">
+    <div class="annexe-bloc">
       <h4>A) Clarté de la priorisation quotidienne</h4>
-      <table><tbody>
-        <tr><td>1</td><td>Pas de plan, elle réagit au flux dès le matin</td></tr>
-        <tr><td>2</td><td>Une liste mentale ou un brouillon, rarement suivi</td></tr>
-        <tr><td>3</td><td>Une routine existe mais sans support outil</td></tr>
-        <tr><td>4</td><td>Un système fonctionnel, appliqué la plupart des jours</td></tr>
-        <tr><td>5</td><td>Elle commence chaque journée avec une intention claire et un outil qui la soutient</td></tr>
+      <table class="tbl"><thead><tr><th>Note</th><th>Signification</th></tr></thead><tbody>
+        <tr><td class="td-note">1</td><td>Pas de plan, elle réagit au flux dès le matin</td></tr>
+        <tr><td class="td-note">2</td><td>Une liste mentale ou un brouillon, rarement suivi</td></tr>
+        <tr><td class="td-note">3</td><td>Une routine existe mais sans support outil</td></tr>
+        <tr><td class="td-note">4</td><td>Un système fonctionnel, appliqué la plupart des jours</td></tr>
+        <tr><td class="td-note">5</td><td>Elle commence chaque journée avec une intention claire et un outil qui la soutient</td></tr>
       </tbody></table>
     </div>
 
-    <div class="bareme-block">
+    <div class="annexe-bloc">
       <h4>B) Existence d'un système de suivi des tâches</h4>
-      <table><tbody>
-        <tr><td>1</td><td>Aucun système, tout est dans la tête</td></tr>
-        <tr><td>2</td><td>Un outil existe, rarement à jour</td></tr>
-        <tr><td>3</td><td>Un suivi partiel, des tâches tombent parfois dans les oubliettes</td></tr>
-        <tr><td>4</td><td>Un suivi fiable avec quelques angles morts</td></tr>
-        <tr><td>5</td><td>Le suivi est complet, consultable par quelqu'un d'autre</td></tr>
+      <table class="tbl"><thead><tr><th>Note</th><th>Signification</th></tr></thead><tbody>
+        <tr><td class="td-note">1</td><td>Aucun système, tout est dans la tête</td></tr>
+        <tr><td class="td-note">2</td><td>Un outil existe, rarement à jour</td></tr>
+        <tr><td class="td-note">3</td><td>Un suivi partiel, des tâches tombent parfois dans les oubliettes</td></tr>
+        <tr><td class="td-note">4</td><td>Un suivi fiable avec quelques angles morts</td></tr>
+        <tr><td class="td-note">5</td><td>Le suivi est complet, consultable par quelqu'un d'autre</td></tr>
       </tbody></table>
     </div>
 
-    <div class="bareme-block">
+    <div class="annexe-bloc">
       <h4>C) Gestion du temps et des urgences</h4>
-      <table><tbody>
-        <tr><td>1</td><td>Les urgences dictent la journée, pas de buffer prévu</td></tr>
-        <tr><td>2</td><td>Quelques réflexes récurrents, rien de structuré</td></tr>
-        <tr><td>3</td><td>Une gestion qui tient en conditions normales, craque sous charge</td></tr>
-        <tr><td>4</td><td>Les urgences sont absorbées sans désorganiser le reste</td></tr>
-        <tr><td>5</td><td>Un protocole clair, les urgences sont anticipées ou traitées sans débordement</td></tr>
+      <table class="tbl"><thead><tr><th>Note</th><th>Signification</th></tr></thead><tbody>
+        <tr><td class="td-note">1</td><td>Les urgences dictent la journée, pas de buffer prévu</td></tr>
+        <tr><td class="td-note">2</td><td>Quelques réflexes récurrents, rien de structuré</td></tr>
+        <tr><td class="td-note">3</td><td>Une gestion qui tient en conditions normales, craque sous charge</td></tr>
+        <tr><td class="td-note">4</td><td>Les urgences sont absorbées sans désorganiser le reste</td></tr>
+        <tr><td class="td-note">5</td><td>Un protocole clair, les urgences sont anticipées ou traitées sans débordement</td></tr>
       </tbody></table>
     </div>
 
-    <div class="bareme-block">
+    <div class="annexe-bloc">
       <h4>D) Usage des appareils</h4>
-      <table><tbody>
-        <tr><td>1</td><td>Usage indifférencié, elle prend ce qui est là</td></tr>
-        <tr><td>2</td><td>Un appareil préféré mais sans logique d'usage consciente</td></tr>
-        <tr><td>3</td><td>Une logique d'usage qui tient, avec des débordements</td></tr>
-        <tr><td>4</td><td>Chaque appareil a un rôle clair dans son flux de travail</td></tr>
-        <tr><td>5</td><td>Les appareils sont intégrés dans un système cohérent et délibéré</td></tr>
+      <table class="tbl"><thead><tr><th>Note</th><th>Signification</th></tr></thead><tbody>
+        <tr><td class="td-note">1</td><td>Usage indifférencié, elle prend ce qui est là</td></tr>
+        <tr><td class="td-note">2</td><td>Un appareil préféré mais sans logique d'usage consciente</td></tr>
+        <tr><td class="td-note">3</td><td>Une logique d'usage qui tient, avec des débordements</td></tr>
+        <tr><td class="td-note">4</td><td>Chaque appareil a un rôle clair dans son flux de travail</td></tr>
+        <tr><td class="td-note">5</td><td>Les appareils sont intégrés dans un système cohérent et délibéré</td></tr>
       </tbody></table>
     </div>
 
-    <div class="bareme-block">
+    <div class="annexe-bloc">
       <h4>E) Score global outils</h4>
-      <table><tbody>
-        <tr><td>1</td><td>L'outil est ouvert mais sous-exploité ou contourné</td></tr>
-        <tr><td>2</td><td>Usage partiel, des fonctions clés ignorées</td></tr>
-        <tr><td>3</td><td>Usage correct, des frictions récurrentes</td></tr>
-        <tr><td>4</td><td>Usage fluide, quelques angles morts</td></tr>
-        <tr><td>5</td><td>Usage maîtrisé, intégré dans le flux de travail sans friction</td></tr>
+      <table class="tbl"><thead><tr><th>Note</th><th>Signification</th></tr></thead><tbody>
+        <tr><td class="td-note">1</td><td>L'outil est ouvert mais sous-exploité ou contourné</td></tr>
+        <tr><td class="td-note">2</td><td>Usage partiel, des fonctions clés ignorées</td></tr>
+        <tr><td class="td-note">3</td><td>Usage correct, des frictions récurrentes</td></tr>
+        <tr><td class="td-note">4</td><td>Usage fluide, quelques angles morts</td></tr>
+        <tr><td class="td-note">5</td><td>Usage maîtrisé, intégré dans le flux de travail sans friction</td></tr>
       </tbody></table>
     </div>
 
-    <!-- Suivi projets -->
-    <div class="section-title" style="margin-top:36px;">2. Suivi des projets clients</div>
+    <!-- 2. Suivi projets -->
+    <h3 style="margin-bottom:20px;margin-top:36px;">2. Suivi des projets clients</h3>
 
-    <div class="bareme-block">
-      <h4>A) Flux de projet (axes A1 à A6)</h4>
-      <table><tbody>
-        <tr><td>1</td><td>Chaque étape est improvisée, rien n'est reproductible</td></tr>
-        <tr><td>2</td><td>Des réflexes existent sur certaines étapes, les autres varient</td></tr>
-        <tr><td>3</td><td>Un flux partiel qui tient sur les gros projets, absent sur les petits</td></tr>
-        <tr><td>4</td><td>Un flux complet et reproductible, avec quelques zones grises</td></tr>
-        <tr><td>5</td><td>Le flux est documenté, stable, transmissible à un tiers</td></tr>
+    <div class="annexe-bloc">
+      <h4>A) Flux de projet — axes A1 à A6</h4>
+      <p>Ce barème s'applique aux six étapes du flux de projet : démarrage de la mission, organisation et suivi du travail, production des contenus, soumission à validation, intégration des retours, clôture de la mission.</p>
+      <table class="tbl"><thead><tr><th>Note</th><th>Signification</th></tr></thead><tbody>
+        <tr><td class="td-note">1</td><td>Chaque étape est improvisée, rien n'est reproductible</td></tr>
+        <tr><td class="td-note">2</td><td>Des réflexes existent sur certaines étapes, les autres varient</td></tr>
+        <tr><td class="td-note">3</td><td>Un flux partiel qui tient sur les gros projets, absent sur les petits</td></tr>
+        <tr><td class="td-note">4</td><td>Un flux complet et reproductible, avec quelques zones grises</td></tr>
+        <tr><td class="td-note">5</td><td>Le flux est documenté, stable, transmissible à un tiers</td></tr>
       </tbody></table>
     </div>
 
-    <div class="bareme-block">
+    <div class="annexe-bloc">
       <h4>B) Organisation par client</h4>
-      <table><tbody>
-        <tr><td>1</td><td>Pas de logique, chaque client est rangé différemment ou pas rangé</td></tr>
-        <tr><td>2</td><td>Une logique personnelle de Marion, non transmissible</td></tr>
-        <tr><td>3</td><td>Une organisation partielle, connue d'elle seule</td></tr>
-        <tr><td>4</td><td>Une structure claire par client, accessible à l'équipe</td></tr>
-        <tr><td>5</td><td>Une organisation documentée, stable, reproductible à chaque nouveau client</td></tr>
+      <table class="tbl"><thead><tr><th>Note</th><th>Signification</th></tr></thead><tbody>
+        <tr><td class="td-note">1</td><td>Pas de logique, chaque client est rangé différemment ou pas rangé</td></tr>
+        <tr><td class="td-note">2</td><td>Une logique personnelle de Marion, non transmissible</td></tr>
+        <tr><td class="td-note">3</td><td>Une organisation partielle, connue d'elle seule</td></tr>
+        <tr><td class="td-note">4</td><td>Une structure claire par client, accessible à l'équipe</td></tr>
+        <tr><td class="td-note">5</td><td>Une organisation documentée, stable, reproductible à chaque nouveau client</td></tr>
       </tbody></table>
     </div>
 
-    <div class="bareme-block">
+    <div class="annexe-bloc">
       <h4>C) Canal de communication principal</h4>
-      <table><tbody>
-        <tr><td>1</td><td>Tout canal selon ce qui arrange le client (WhatsApp, email, appel)</td></tr>
-        <tr><td>2</td><td>Un canal préféré mais non tenu</td></tr>
-        <tr><td>3</td><td>Un canal principal avec des fuites régulières</td></tr>
-        <tr><td>4</td><td>Un canal principal respecté, les clients savent où aller</td></tr>
-        <tr><td>5</td><td>Un canal unique, structuré, et le client ne relance jamais</td></tr>
+      <table class="tbl"><thead><tr><th>Note</th><th>Signification</th></tr></thead><tbody>
+        <tr><td class="td-note">1</td><td>Tout canal selon ce qui arrange le client (WhatsApp, email, appel)</td></tr>
+        <tr><td class="td-note">2</td><td>Un canal préféré mais non tenu</td></tr>
+        <tr><td class="td-note">3</td><td>Un canal principal avec des fuites régulières</td></tr>
+        <tr><td class="td-note">4</td><td>Un canal principal respecté, les clients savent où aller</td></tr>
+        <tr><td class="td-note">5</td><td>Un canal unique, structuré, et le client ne relance jamais</td></tr>
       </tbody></table>
     </div>
 
-    <div class="bareme-block">
+    <div class="annexe-bloc">
       <h4>D) Traçabilité des échanges et décisions</h4>
-      <table><tbody>
-        <tr><td>1</td><td>Rien n'est tracé, tout est dans la mémoire de Marion</td></tr>
-        <tr><td>2</td><td>Quelques emails conservés, pas de logique d'archivage</td></tr>
-        <tr><td>3</td><td>Une traçabilité partielle sur les échanges importants</td></tr>
-        <tr><td>4</td><td>Les décisions clés sont tracées et retrouvables</td></tr>
-        <tr><td>5</td><td>Tout échange décisionnel est tracé, classé, accessible sans chercher</td></tr>
+      <table class="tbl"><thead><tr><th>Note</th><th>Signification</th></tr></thead><tbody>
+        <tr><td class="td-note">1</td><td>Rien n'est tracé, tout est dans la mémoire de Marion</td></tr>
+        <tr><td class="td-note">2</td><td>Quelques emails conservés, pas de logique d'archivage</td></tr>
+        <tr><td class="td-note">3</td><td>Une traçabilité partielle sur les échanges importants</td></tr>
+        <tr><td class="td-note">4</td><td>Les décisions clés sont tracées et retrouvables</td></tr>
+        <tr><td class="td-note">5</td><td>Tout échange décisionnel est tracé, classé, accessible sans chercher</td></tr>
       </tbody></table>
     </div>
 
-    <div class="bareme-block">
+    <div class="annexe-bloc">
       <h4>E) Processus de validation des contenus</h4>
-      <table><tbody>
-        <tr><td>1</td><td>Les retours arrivent par tous les canaux, Marion rassemble manuellement</td></tr>
-        <tr><td>2</td><td>Un outil existe mais les retours débordent dessus</td></tr>
-        <tr><td>3</td><td>Une centralisation partielle, des retours tombent encore par oral ou email</td></tr>
-        <tr><td>4</td><td>Les retours sont centralisés et traçables</td></tr>
-        <tr><td>5</td><td>Les retours sont centralisés, versionnés, le client peut suivre l'avancement</td></tr>
+      <table class="tbl"><thead><tr><th>Note</th><th>Signification</th></tr></thead><tbody>
+        <tr><td class="td-note">1</td><td>Les retours arrivent par tous les canaux, Marion rassemble manuellement</td></tr>
+        <tr><td class="td-note">2</td><td>Un outil existe mais les retours débordent dessus</td></tr>
+        <tr><td class="td-note">3</td><td>Une centralisation partielle, des retours tombent encore par oral ou email</td></tr>
+        <tr><td class="td-note">4</td><td>Les retours sont centralisés et traçables</td></tr>
+        <tr><td class="td-note">5</td><td>Les retours sont centralisés, versionnés, le client peut suivre l'avancement</td></tr>
       </tbody></table>
     </div>
 
-    <div class="bareme-block">
+    <div class="annexe-bloc">
       <h4>F) Clôture des missions</h4>
-      <table><tbody>
-        <tr><td>1</td><td>La mission s'arrête quand le livrable est envoyé, sans rituel de clôture</td></tr>
-        <tr><td>2</td><td>Quelques éléments récurrents (email de fin, facture) mais non structurés</td></tr>
-        <tr><td>3</td><td>Une clôture partielle selon les clients</td></tr>
-        <tr><td>4</td><td>Un protocole de clôture systématique</td></tr>
-        <tr><td>5</td><td>La clôture est documentée, produit une archive propre et alimente le CRM</td></tr>
+      <table class="tbl"><thead><tr><th>Note</th><th>Signification</th></tr></thead><tbody>
+        <tr><td class="td-note">1</td><td>La mission s'arrête quand le livrable est envoyé, sans rituel de clôture</td></tr>
+        <tr><td class="td-note">2</td><td>Quelques éléments récurrents (email de fin, facture) mais non structurés</td></tr>
+        <tr><td class="td-note">3</td><td>Une clôture partielle selon les clients</td></tr>
+        <tr><td class="td-note">4</td><td>Un protocole de clôture systématique</td></tr>
+        <tr><td class="td-note">5</td><td>La clôture est documentée, produit une archive propre et alimente le CRM</td></tr>
       </tbody></table>
     </div>
 
-    <!-- Équipe -->
-    <div class="section-title" style="margin-top:36px;">3. Fonctionnement de l'équipe</div>
+    <!-- 3. Équipe -->
+    <h3 style="margin-bottom:20px;margin-top:36px;">3. Fonctionnement de l'équipe</h3>
 
-    <div class="bareme-block">
+    <div class="annexe-bloc">
       <h4>A) Clarté des rôles et responsabilités</h4>
-      <table><tbody>
-        <tr><td>1</td><td>Les rôles ne sont pas définis, chacun fait ce qui se présente</td></tr>
-        <tr><td>2</td><td>Des rôles implicites existent, non écrits, non partagés</td></tr>
-        <tr><td>3</td><td>Des rôles définis à l'oral, inégalement compris</td></tr>
-        <tr><td>4</td><td>Des rôles clairs, connus de tous, avec quelques zones grises</td></tr>
-        <tr><td>5</td><td>Des rôles documentés, stables, compris et appropriés par chaque membre</td></tr>
+      <table class="tbl"><thead><tr><th>Note</th><th>Signification</th></tr></thead><tbody>
+        <tr><td class="td-note">1</td><td>Les rôles ne sont pas définis, chacun fait ce qui se présente</td></tr>
+        <tr><td class="td-note">2</td><td>Des rôles implicites existent, non écrits, non partagés</td></tr>
+        <tr><td class="td-note">3</td><td>Des rôles définis à l'oral, inégalement compris</td></tr>
+        <tr><td class="td-note">4</td><td>Des rôles clairs, connus de tous, avec quelques zones grises</td></tr>
+        <tr><td class="td-note">5</td><td>Des rôles documentés, stables, compris et appropriés par chaque membre</td></tr>
       </tbody></table>
     </div>
 
-    <div class="bareme-block">
+    <div class="annexe-bloc">
       <h4>B) Qualité du briefing entrant</h4>
-      <table><tbody>
-        <tr><td>1</td><td>Marion dit ce qu'il faut faire au moment où il faut le faire</td></tr>
-        <tr><td>2</td><td>Des briefs oraux, incomplets, qui génèrent des questions</td></tr>
-        <tr><td>3</td><td>Des briefs écrits sur les gros projets, absents sur les petits</td></tr>
-        <tr><td>4</td><td>Un brief structuré systématique avec les infos nécessaires à l'exécution</td></tr>
-        <tr><td>5</td><td>Le brief est standardisé, compréhensible sans question, tracé quelque part</td></tr>
+      <table class="tbl"><thead><tr><th>Note</th><th>Signification</th></tr></thead><tbody>
+        <tr><td class="td-note">1</td><td>Marion dit ce qu'il faut faire au moment où il faut le faire</td></tr>
+        <tr><td class="td-note">2</td><td>Des briefs oraux, incomplets, qui génèrent des questions</td></tr>
+        <tr><td class="td-note">3</td><td>Des briefs écrits sur les gros projets, absents sur les petits</td></tr>
+        <tr><td class="td-note">4</td><td>Un brief structuré systématique avec les infos nécessaires à l'exécution</td></tr>
+        <tr><td class="td-note">5</td><td>Le brief est standardisé, compréhensible sans question, tracé quelque part</td></tr>
       </tbody></table>
     </div>
 
-    <div class="bareme-block">
+    <div class="annexe-bloc">
       <h4>C) Suivi des tâches déléguées</h4>
-      <table><tbody>
-        <tr><td>1</td><td>Marion ne sait pas où en sont les tâches qu'elle a confiées sans demander</td></tr>
-        <tr><td>2</td><td>Elle relance à l'oral régulièrement</td></tr>
-        <tr><td>3</td><td>Un suivi partiel sur certains projets</td></tr>
-        <tr><td>4</td><td>Un système de suivi fiable, Marion n'a pas besoin de relancer</td></tr>
-        <tr><td>5</td><td>Le suivi est automatique, visible dans un outil partagé, sans friction</td></tr>
+      <table class="tbl"><thead><tr><th>Note</th><th>Signification</th></tr></thead><tbody>
+        <tr><td class="td-note">1</td><td>Marion ne sait pas où en sont les tâches qu'elle a confiées sans demander</td></tr>
+        <tr><td class="td-note">2</td><td>Elle relance à l'oral régulièrement</td></tr>
+        <tr><td class="td-note">3</td><td>Un suivi partiel sur certains projets</td></tr>
+        <tr><td class="td-note">4</td><td>Un système de suivi fiable, Marion n'a pas besoin de relancer</td></tr>
+        <tr><td class="td-note">5</td><td>Le suivi est automatique, visible dans un outil partagé, sans friction</td></tr>
       </tbody></table>
     </div>
 
-    <div class="bareme-block">
+    <div class="annexe-bloc">
       <h4>D) Onboarding des nouveaux</h4>
-      <table><tbody>
-        <tr><td>1</td><td>Pas de protocole, le nouvel arrivant apprend par observation</td></tr>
-        <tr><td>2</td><td>Quelques explications orales au démarrage, rien d'écrit</td></tr>
-        <tr><td>3</td><td>Un onboarding partiel, inégal selon qui arrive et quand</td></tr>
-        <tr><td>4</td><td>Un protocole d'intégration avec des repères clairs sur les outils et méthodes</td></tr>
-        <tr><td>5</td><td>Un wiki d'onboarding complet, autonome, actualisé</td></tr>
+      <table class="tbl"><thead><tr><th>Note</th><th>Signification</th></tr></thead><tbody>
+        <tr><td class="td-note">1</td><td>Pas de protocole, le nouvel arrivant apprend par observation</td></tr>
+        <tr><td class="td-note">2</td><td>Quelques explications orales au démarrage, rien d'écrit</td></tr>
+        <tr><td class="td-note">3</td><td>Un onboarding partiel, inégal selon qui arrive et quand</td></tr>
+        <tr><td class="td-note">4</td><td>Un protocole d'intégration avec des repères clairs sur les outils et méthodes</td></tr>
+        <tr><td class="td-note">5</td><td>Un wiki d'onboarding complet, autonome, actualisé</td></tr>
       </tbody></table>
     </div>
 
-    <div class="bareme-block">
+    <div class="annexe-bloc">
       <h4>E) Communication interne</h4>
-      <table><tbody>
-        <tr><td>1</td><td>Tout passe par Marion, les membres ne se coordonnent pas entre eux</td></tr>
-        <tr><td>2</td><td>Quelques échanges directs, mais Marion reste le point de passage principal</td></tr>
-        <tr><td>3</td><td>Une communication directe existe, Marion est sollicitée en arbitre</td></tr>
-        <tr><td>4</td><td>L'équipe se coordonne, Marion intervient sur les sujets qui le nécessitent vraiment</td></tr>
-        <tr><td>5</td><td>La communication interne est fluide, structurée, Marion n'est pas le hub</td></tr>
+      <table class="tbl"><thead><tr><th>Note</th><th>Signification</th></tr></thead><tbody>
+        <tr><td class="td-note">1</td><td>Tout passe par Marion, les membres ne se coordonnent pas entre eux</td></tr>
+        <tr><td class="td-note">2</td><td>Quelques échanges directs, mais Marion reste le point de passage principal</td></tr>
+        <tr><td class="td-note">3</td><td>Une communication directe existe, Marion est sollicitée en arbitre</td></tr>
+        <tr><td class="td-note">4</td><td>L'équipe se coordonne, Marion intervient sur les sujets qui le nécessitent vraiment</td></tr>
+        <tr><td class="td-note">5</td><td>La communication interne est fluide, structurée, Marion n'est pas le hub</td></tr>
       </tbody></table>
     </div>
 
-    <div class="bareme-block">
+    <div class="annexe-bloc">
       <h4>F) Rapport à la délégation et à la charge</h4>
-      <table><tbody>
-        <tr><td>1</td><td>Marion absorbe tout, rien n'est délégué en pratique même si elle dit le contraire</td></tr>
-        <tr><td>2</td><td>Quelques délégations effectives mais Marion repasse systématiquement derrière</td></tr>
-        <tr><td>3</td><td>La délégation existe sur certains périmètres, Marion lâche partiellement</td></tr>
-        <tr><td>4</td><td>La délégation est réelle sur la majorité des tâches opérationnelles</td></tr>
-        <tr><td>5</td><td>La délégation est structurée, chaque rôle est autonome sur son périmètre</td></tr>
+      <table class="tbl"><thead><tr><th>Note</th><th>Signification</th></tr></thead><tbody>
+        <tr><td class="td-note">1</td><td>Marion absorbe tout, rien n'est délégué en pratique même si elle dit le contraire</td></tr>
+        <tr><td class="td-note">2</td><td>Quelques délégations effectives mais Marion repasse systématiquement derrière</td></tr>
+        <tr><td class="td-note">3</td><td>La délégation existe sur certains périmètres, Marion lâche partiellement</td></tr>
+        <tr><td class="td-note">4</td><td>La délégation est réelle sur la majorité des tâches opérationnelles, Marion intervient sur les sujets qui le nécessitent</td></tr>
+        <tr><td class="td-note">5</td><td>La délégation est structurée, chaque rôle est autonome sur son périmètre, Marion pilote sans exécuter</td></tr>
       </tbody></table>
     </div>
 
-    <!-- Vision -->
-    <div class="section-title" style="margin-top:36px;">4. Vision de l'environnement de travail</div>
+    <!-- 4. Vision -->
+    <h3 style="margin-bottom:20px;margin-top:36px;">4. Vision de l'environnement de travail</h3>
 
-    <div class="bareme-block">
+    <div class="annexe-bloc">
       <h4>A) Clarté de la vision de l'environnement de travail</h4>
-      <table><tbody>
-        <tr><td>1</td><td>Aucune vision, Marion ne sait pas ce qu'elle veut</td></tr>
-        <tr><td>2</td><td>Des intuitions vagues, pas de structure articulée</td></tr>
-        <tr><td>3</td><td>Une vision partielle sur certains espaces, des angles morts sur d'autres</td></tr>
-        <tr><td>4</td><td>Une vision claire sur l'essentiel, quelques zones à préciser en modélisation</td></tr>
-        <tr><td>5</td><td>Une vision précise, structurée, avec des références concrètes et des contre-modèles identifiés</td></tr>
+      <table class="tbl"><thead><tr><th>Note</th><th>Signification</th></tr></thead><tbody>
+        <tr><td class="td-note">1</td><td>Aucune vision, Marion ne sait pas ce qu'elle veut</td></tr>
+        <tr><td class="td-note">2</td><td>Des intuitions vagues, pas de structure articulée</td></tr>
+        <tr><td class="td-note">3</td><td>Une vision partielle sur certains espaces, des angles morts sur d'autres</td></tr>
+        <tr><td class="td-note">4</td><td>Une vision claire sur l'essentiel, quelques zones à préciser en modélisation</td></tr>
+        <tr><td class="td-note">5</td><td>Une vision précise, structurée, avec des références concrètes et des contre-modèles identifiés</td></tr>
       </tbody></table>
     </div>
 
-    <!-- Score global annexe -->
-    <div class="section-title" style="margin-top:36px;">Calcul du score global</div>
-    <div class="priority-table">
-      <table>
-        <thead>
-          <tr>
-            <th>Bloc</th>
-            <th>Axes notés</th>
-            <th>Score max</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Pilotage quotidien</td><td>5</td><td>25</td></tr>
-          <tr><td>Suivi des projets clients</td><td>11</td><td>55</td></tr>
-          <tr><td>Fonctionnement de l'équipe</td><td>6</td><td>30</td></tr>
-          <tr><td>Vision de l'environnement de travail</td><td>1</td><td>5</td></tr>
-          <tr style="font-weight:700;"><td>Total</td><td>23</td><td>115</td></tr>
-        </tbody>
-      </table>
-    </div>
-
+    <!-- Calcul du score global -->
+    <h3 style="margin-bottom:20px;margin-top:36px;">Calcul du score global</h3>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:12px;line-height:1.65;">Le score brut est la somme des notes obtenues sur l'ensemble des axes notés. Il est ensuite converti sur 100 pour faciliter la lecture.</p>
+    <table class="tbl">
+      <thead><tr><th>Bloc</th><th>Axes notés</th><th>Score max</th></tr></thead>
+      <tbody>
+        <tr><td>Pilotage quotidien</td><td>5</td><td>25</td></tr>
+        <tr><td>Suivi des projets clients</td><td>11</td><td>55</td></tr>
+        <tr><td>Fonctionnement de l'équipe</td><td>6</td><td>30</td></tr>
+        <tr><td>Vision de l'environnement de travail</td><td>1</td><td>5</td></tr>
+        <tr style="font-weight:700;"><td>Total</td><td>23</td><td>115</td></tr>
+      </tbody>
+    </table>
   </div>
 
-  <!-- ── FOOTER ── -->
+  <!-- FOOTER -->
   <div class="footer">
     <span class="footer-brand">Deekay Consulting</span>
-    <span class="footer-text">Audit Phase 1 — Graine de Fauve — Confidentiel</span>
+    <span class="footer-note">Audit Phase 1 — Graine de Fauve — Confidentiel</span>
   </div>
 
 </div>
