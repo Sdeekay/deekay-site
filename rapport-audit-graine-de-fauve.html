@@ -330,19 +330,39 @@
     }
     .footer-note { font-size: 11px; color: var(--muted); }
 
+    /* ── Justified text ── */
+    .prose p, .callout p, .roadmap-desc, .cover-intro, .annexe-bloc p {
+      text-align: justify;
+    }
+
     /* ── Print ── */
     @media print {
-      @page { size: A4; margin: 18mm 16mm; }
+      @page {
+        size: A4;
+        margin: 18mm 16mm;
+        /* Suppress browser-injected header (date/url) and footer (filename/page) */
+        @top-left   { content: ""; }
+        @top-center { content: ""; }
+        @top-right  { content: ""; }
+        @bottom-left   { content: ""; }
+        @bottom-center { content: ""; }
+        @bottom-right  { content: ""; }
+      }
       body { font-size: 12px; background: #fff; }
       .page { max-width: 100%; padding: 0; }
       a { text-decoration: none; color: inherit; }
-      .tbl, .score-hero, .axes-grid, .roadmap-row, .callout {
+      .tbl, .score-hero, .callout {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
       .cover { page-break-after: always; }
-      .section, .annexe-bloc, .tbl { break-inside: avoid; }
-      .score-ring, .badge, .tbl .row-active td, .callout, .axis-card, .bar-fill {
+      /* Keep heading with its content — never orphan a title at bottom of page */
+      h2, h3, h4 { break-after: avoid; }
+      .sub-label { break-after: avoid; }
+      .section { break-inside: avoid; }
+      .annexe-bloc { break-inside: avoid; }
+      .tbl { break-inside: avoid; }
+      .score-ring, .badge, .tbl .row-active td, .callout, .bar-fill {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
@@ -356,7 +376,7 @@
   <div class="cover">
     <div class="cover-eyebrow">Deekay Consulting — Mission Phase 1</div>
     <h1>Audit organisationnel<br><em>Graine de Fauve</em></h1>
-    <p class="cover-intro">Ce document restitue les conclusions de l'audit de l'organisation interne de Graine de Fauve, conduit en Phase 1 de la mission. Il s'appuie sur un entretien mené en présentiel à l'agence avec Marion Vetticoz. Son objectif est de poser un diagnostic clair de l'organisation actuelle pour orienter la construction du workspace en Phase 2.</p>
+    <p class="cover-intro">Ce document restitue les conclusions de l'audit de l'organisation interne de Graine de Fauve, conduit en Phase 1 de la mission. Il s'appuie sur un entretien mené en présentiel à l'agence avec Marion Vetticoz. Son objectif est de poser un diagnostic clair de l'organisation actuelle pour orienter la modélisation du workspace en Phase 2.</p>
     <div class="cover-meta">
       <div class="meta-item">
         <span class="meta-label">Client</span>
@@ -372,7 +392,7 @@
       </div>
       <div class="meta-item">
         <span class="meta-label">Suite</span>
-        <span class="meta-value">Phase 2 — Construction du workspace</span>
+        <span class="meta-value">Phase 2 — Modélisation du workspace</span>
       </div>
     </div>
   </div>
@@ -381,7 +401,7 @@
   <div class="section">
     <div class="section-heading"><h2>L'agence aujourd'hui</h2></div>
     <div class="prose">
-      <p>Graine de Fauve est une agence créative basée à Bordeaux. Elle accompagne une vingtaine de clients en simultané sur des missions de stratégie de contenu, de production photo et vidéo, et de gestion des réseaux sociaux. L'équipe tourne entre quatre et six personnes selon les périodes : des stagiaires et alternants sur la partie créa, un prestataire vidéo régulier, et Eva qui rejoint prochainement en tant que directrice artistique. Marion Vetticoz en est la fondatrice et dirige seule l'agence.</p>
+      <p>Graine de Fauve est une agence créative basée à Bordeaux. Elle accompagne une vingtaine de clients en simultané sur des missions de stratégie de contenu, de production photo et vidéo, et de gestion des réseaux sociaux. L'équipe tourne entre quatre et six personnes selon les périodes. Marion Vetticoz en est la fondatrice et dirige seule l'agence.</p>
     </div>
 
     <br>
@@ -494,7 +514,7 @@
     <div class="prose">
       <p>Marion pilote son quotidien seule, sans système partagé ni cadre temporel fixe. Ses journées sont gouvernées par les imprévus. Elle traite tout comme urgent, sans méthode pour distinguer l'urgence réelle de l'urgence perçue.</p>
       <p>Son seul outil de suivi : des notes dans son iPhone, une par semaine, avec des tâches sous forme de mémos cochés manuellement. Aucun de ces éléments n'est visible par l'équipe.</p>
-      <p>Marion exprime l'intention d'instaurer une réunion d'équipe le lundi pour aligner le pôle com et le pôle vidéo, et de réserver le vendredi aux prospects. Ce sont des orientations identifiées, pas des pratiques en place.</p>
+      <p>Marion exprime l'intention d'instaurer une réunion d'équipe le lundi pour aligner le pôle communicationmunication et le pôle vidéo, et de réserver le vendredi aux prospects. Ce sont des orientations identifiées, pas des pratiques en place.</p>
       <p>Les appareils sont utilisés avec clarté : chaque appareil a un rôle défini dans le flux de travail de Marion. La friction est dans l'outillage global : Slack, Drive, Dropbox, Canva et WhatsApp fonctionnent en silos non connectés. Aucun ne forme un système cohérent et transmissible. Le niveau d'outillage est celui d'une solo-entrepreneuse, pas d'une agence de plusieurs personnes.</p>
     </div>
 
@@ -559,14 +579,12 @@
     <div class="sub-label">État des lieux</div>
     <div class="prose">
       <p>Marion a une vision claire et articulée de ce qu'elle attend d'un environnement de travail structuré. Elle s'appuie sur des références concrètes observées dans d'autres contextes professionnels. Elle a également en tête des contre-exemples et sait précisément ce qu'elle ne veut pas. Elle a formulé des contraintes de design explicites : cartes, couleurs, icônes, éléments cliquables plutôt que tableaux denses ou texte brut.</p>
-      <p>Deux zones restent à préciser : les périmètres d'accès exacts par profil, et la gestion des missions ponctuelles par rapport aux missions récurrentes.</p>
     </div>
 
     <br>
     <div class="sub-label">Analyse</div>
     <div class="prose">
       <p>Le 4/5 est le seul score positif de cet audit. Il porte sur le futur, pas sur l'existant.</p>
-      <p>Marion sait ce qu'elle veut. Elle a des références, des contre-exemples, des contraintes formulées. Ce n'est pas de l'improvisation.</p>
       <div class="callout"><p>Ce score ne doit pas masquer le reste. Une vision claire ne compense pas l'absence de système en place. Il indique que Marion est prête à changer. Pas que le changement est déjà amorcé.</p></div>
     </div>
   </div>
@@ -586,7 +604,7 @@
         <tr><td class="td-num">2</td><td>Centralisation des informations clients</td></tr>
         <tr><td class="td-num">3</td><td>Structuration du circuit de validation des contenus</td></tr>
         <tr><td class="td-num">4</td><td>Wiki d'onboarding</td></tr>
-        <tr><td class="td-num">5</td><td>Coordination entre le pôle com et le pôle vidéo</td></tr>
+        <tr><td class="td-num">5</td><td>Coordination entre le pôle communication et le pôle vidéo</td></tr>
       </tbody>
     </table>
 
@@ -603,7 +621,7 @@
       <p style="margin-top:20px;"><strong>4. Wiki d'onboarding</strong></p>
       <p>L'agence accueille régulièrement de nouveaux collaborateurs : stagiaires en rotation, prestataires ponctuels, et de nouveaux profils prévus à la rentrée. Chaque nouvel arrivant dépend aujourd'hui de la disponibilité de Marion pour comprendre comment l'agence fonctionne. Un support écrit de référence est la condition minimale pour que l'onboarding ne repose plus sur elle.</p>
 
-      <p style="margin-top:20px;"><strong>5. Coordination entre le pôle com et le pôle vidéo</strong></p>
+      <p style="margin-top:20px;"><strong>5. Coordination entre le pôle communication et le pôle vidéo</strong></p>
       <p>Des tournages peuvent être planifiés sans que l'équipe com en soit informée. La friction sur les dates de shooting est le symptôme le plus visible de l'absence d'un agenda partagé.</p>
     </div>
   </div>
@@ -634,7 +652,7 @@
         <div class="roadmap-desc">Un espace de pages statiques : présentation de l'agence, outils utilisés, process par type de mission, informations pratiques. Consultable sans formation préalable.</div>
       </div>
       <div class="roadmap-row" style="padding:16px 16px;">
-        <div class="roadmap-axe">Coordination entre le pôle com et le pôle vidéo</div>
+        <div class="roadmap-axe">Coordination entre le pôle communication et le pôle vidéo</div>
         <div class="roadmap-desc">Une base de dates de tournage et de shooting partagée entre Marion et Alex, avec les statuts de préparation associés. La connexion à Google Calendar sera évaluée en modélisation.</div>
       </div>
     </div>
