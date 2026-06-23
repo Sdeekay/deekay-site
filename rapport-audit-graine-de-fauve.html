@@ -340,12 +340,11 @@
       @page {
         size: A4;
         margin: 18mm 16mm;
-        /* Suppress browser-injected header (date/url) and footer (filename/page) */
         @top-left   { content: ""; }
         @top-center { content: ""; }
         @top-right  { content: ""; }
         @bottom-left   { content: ""; }
-        @bottom-center { content: ""; }
+        @bottom-center { content: counter(page); font-family: "Inter", sans-serif; font-size: 10px; color: #6B7C93; }
         @bottom-right  { content: ""; }
       }
       body { font-size: 12px; background: #fff; }
@@ -550,7 +549,7 @@
     <hr>
 
     <!-- Fonctionnement de l'équipe -->
-    <h3>Fonctionnement de l'équipe — 11/30</h3>
+    <h3 style="break-before: page;">Fonctionnement de l'équipe — 11/30</h3>
 
     <div class="sub-label">État des lieux</div>
     <div class="prose">
@@ -584,7 +583,7 @@
     <br>
     <div class="sub-label">Analyse</div>
     <div class="prose">
-      <p>Le 4/5 est le seul score positif de cet audit. Il porte sur le futur, pas sur l'existant.</p>
+      <p>Le 4/5 est le score le plus élevé de cette grille. Il reflète le pragmatisme de Marion : elle mesure lucidement la situation actuelle et sait précisément vers quoi elle veut faire évoluer l'agence.</p>
       <div class="callout"><p>Ce score ne doit pas masquer le reste. Une vision claire ne compense pas l'absence de système en place. Il indique que Marion est prête à changer. Pas que le changement est déjà amorcé.</p></div>
     </div>
   </div>
