@@ -330,6 +330,65 @@
     }
     .footer-note { font-size: 11px; color: var(--muted); }
 
+    /* ── Section score progress bars (Lecture de la grille) ── */
+    .section-score-bar {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 10px 0 24px;
+    }
+    .section-score-bar .ssb-label {
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+      min-width: 52px;
+    }
+    .section-score-bar .ssb-track {
+      flex: 1;
+      height: 6px;
+      background: #E8EFF5;
+      border-radius: 99px;
+      overflow: hidden;
+    }
+    .section-score-bar .ssb-fill {
+      height: 100%;
+      border-radius: 99px;
+    }
+    .section-score-bar .ssb-pct {
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    /* ── Per-section color accents ── */
+    /* Pilotage — amber */
+    .accent-amber h3 { border-left: 4px solid #E8A838; padding-left: 12px; }
+    .accent-amber .ssb-label { color: #B07A18; }
+    .accent-amber .ssb-fill  { background: #E8A838; }
+    .accent-amber .sub-label { color: #B07A18; }
+    .accent-amber .callout   { background: #FEF9EC; border-left-color: #E8A838; }
+
+    /* Suivi projets — teal (accent existant) */
+    .accent-teal h3 { border-left: 4px solid var(--accent); padding-left: 12px; }
+    .accent-teal .ssb-label { color: #1F6E82; }
+    .accent-teal .ssb-fill  { background: var(--accent); }
+    .accent-teal .sub-label { color: #1F6E82; }
+    .accent-teal .callout   { background: #EEF6F8; border-left-color: var(--accent); }
+
+    /* Fonctionnement équipe — violet */
+    .accent-violet h3 { border-left: 4px solid #7C6BC4; padding-left: 12px; }
+    .accent-violet .ssb-label { color: #5B4EA0; }
+    .accent-violet .ssb-fill  { background: #7C6BC4; }
+    .accent-violet .sub-label { color: #5B4EA0; }
+    .accent-violet .callout   { background: #F3F1FB; border-left-color: #7C6BC4; }
+
+    /* Vision — sage vert */
+    .accent-sage h3 { border-left: 4px solid #4DA882; padding-left: 12px; }
+    .accent-sage .ssb-label { color: #2F7A5B; }
+    .accent-sage .ssb-fill  { background: #4DA882; }
+    .accent-sage .sub-label { color: #2F7A5B; }
+    .accent-sage .callout   { background: #EDFAF4; border-left-color: #4DA882; }
+
     /* ── Justified text ── */
     .prose p, .callout p, .roadmap-desc, .cover-intro, .annexe-bloc p {
       text-align: justify;
@@ -361,7 +420,10 @@
       .section { break-inside: avoid; }
       .annexe-bloc { break-inside: avoid; }
       .tbl { break-inside: avoid; }
-      .score-ring, .badge, .tbl .row-active td, .callout, .bar-fill {
+      .score-ring, .badge, .tbl .row-active td, .callout, .bar-fill,
+      .ssb-fill, .ssb-track,
+      .accent-amber h3, .accent-teal h3, .accent-violet h3, .accent-sage h3,
+      .accent-amber .callout, .accent-teal .callout, .accent-violet .callout, .accent-sage .callout {
         -webkit-print-color-adjust: exact;
         print-color-adjust: exact;
       }
@@ -507,13 +569,19 @@
     <div class="section-heading"><h2>Lecture de la grille</h2></div>
 
     <!-- Pilotage quotidien -->
+    <div class="accent-amber">
     <h3>Pilotage quotidien — 10/25</h3>
+    <div class="section-score-bar">
+      <span class="ssb-label">10 / 25</span>
+      <div class="ssb-track"><div class="ssb-fill" style="width:40%"></div></div>
+      <span class="ssb-pct">40 %</span>
+    </div>
 
     <div class="sub-label">État des lieux</div>
     <div class="prose">
       <p>Marion pilote son quotidien seule, sans système partagé ni cadre temporel fixe. Ses journées sont gouvernées par les imprévus. Elle traite tout comme urgent, sans méthode pour distinguer l'urgence réelle de l'urgence perçue.</p>
       <p>Son seul outil de suivi : des notes dans son iPhone, une par semaine, avec des tâches sous forme de mémos cochés manuellement. Aucun de ces éléments n'est visible par l'équipe.</p>
-      <p>Marion exprime l'intention d'instaurer une réunion d'équipe le lundi pour aligner le pôle communicationmunication et le pôle vidéo, et de réserver le vendredi aux prospects. Ce sont des orientations identifiées, pas des pratiques en place.</p>
+      <p>Marion exprime l'intention d'instaurer une réunion d'équipe le lundi pour aligner le pôle communication et le pôle vidéo, et de réserver le vendredi aux prospects. Ce sont des orientations identifiées, pas des pratiques en place.</p>
       <p>Les appareils sont utilisés avec clarté : chaque appareil a un rôle défini dans le flux de travail de Marion. La friction est dans l'outillage global : Slack, Drive, Dropbox, Canva et WhatsApp fonctionnent en silos non connectés. Aucun ne forme un système cohérent et transmissible. Le niveau d'outillage est celui d'une solo-entrepreneuse, pas d'une agence de plusieurs personnes.</p>
     </div>
 
@@ -523,11 +591,18 @@
       <p>Le score de 10/25 traduit une organisation personnelle qui fonctionne pour une seule personne et s'effondre dès qu'une équipe entre dans l'équation. Marion en a conscience. Elle dit elle-même que ce n'est pas viable.</p>
       <div class="callout"><p>Le point critique est la gestion du temps et des urgences : absence de priorisation formelle (1/5) combinée à un outillage fragmenté (1/5). Quand Marion est indisponible, le système s'arrête. L'organisation de l'agence ne tient pas sans elle.</p></div>
     </div>
+    </div><!-- /accent-amber -->
 
     <hr>
 
     <!-- Suivi des projets clients -->
-    <h3>Suivi des projets clients — 18/55</h3>
+    <div class="accent-teal">
+    <h3 style="break-before: page;">Suivi des projets clients — 18/55</h3>
+    <div class="section-score-bar">
+      <span class="ssb-label">18 / 55</span>
+      <div class="ssb-track"><div class="ssb-fill" style="width:33%"></div></div>
+      <span class="ssb-pct">33 %</span>
+    </div>
 
     <div class="sub-label">État des lieux</div>
     <div class="prose">
@@ -545,11 +620,18 @@
       <p>Le score de 18/55 reflète un flux de production qui existe mais qui n'est ni tracé, ni standardisé, ni transmissible. Chaque projet avance parce que Marion maintient le fil en tête. Pas parce qu'un système le porte.</p>
       <div class="callout"><p>Les deux axes à 1/5 pointent le même problème central : Marion est le seul point de coordination. L'organisation et le suivi du travail reposent entièrement sur elle. La traçabilité des échanges n'existe pas. Si elle est indisponible, personne ne sait où en est le projet.</p></div>
     </div>
+    </div><!-- /accent-teal -->
 
     <hr>
 
     <!-- Fonctionnement de l'équipe -->
+    <div class="accent-violet">
     <h3 style="break-before: page;">Fonctionnement de l'équipe — 11/30</h3>
+    <div class="section-score-bar">
+      <span class="ssb-label">11 / 30</span>
+      <div class="ssb-track"><div class="ssb-fill" style="width:37%"></div></div>
+      <span class="ssb-pct">37 %</span>
+    </div>
 
     <div class="sub-label">État des lieux</div>
     <div class="prose">
@@ -569,11 +651,18 @@
         <p style="margin-top:10px;">Les autres axes à 2/5 pointent des pratiques qui existent mais ne tiennent que si Marion est présente et disponible : le suivi des tâches, la clarté des rôles, l'onboarding. Aucun ne fonctionne sans elle.</p>
       </div>
     </div>
+    </div><!-- /accent-violet -->
 
     <hr>
 
     <!-- Vision -->
-    <h3>Vision de l'environnement de travail — 4/5</h3>
+    <div class="accent-sage">
+    <h3 style="break-before: page;">Vision de l'environnement de travail — 4/5</h3>
+    <div class="section-score-bar">
+      <span class="ssb-label">4 / 5</span>
+      <div class="ssb-track"><div class="ssb-fill" style="width:80%"></div></div>
+      <span class="ssb-pct">80 %</span>
+    </div>
 
     <div class="sub-label">État des lieux</div>
     <div class="prose">
@@ -586,6 +675,7 @@
       <p>Le 4/5 est le score le plus élevé de cette grille. Il reflète le pragmatisme de Marion : elle mesure lucidement la situation actuelle et sait précisément vers quoi elle veut faire évoluer l'agence.</p>
       <div class="callout"><p>Ce score ne doit pas masquer le reste. Une vision claire ne compense pas l'absence de système en place. Il indique que Marion est prête à changer. Pas que le changement est déjà amorcé.</p></div>
     </div>
+    </div><!-- /accent-sage -->
   </div>
 
   <!-- AXES PRIORITAIRES -->
