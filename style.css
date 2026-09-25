@@ -468,6 +468,9 @@ p { margin: 0; text-wrap: pretty; }
 .form-group-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 @media (max-width: 480px) { .form-group-row { grid-template-columns: 1fr; } }
 .form-mention { font-size: 12px; color: rgba(27, 42, 74, 0.5); line-height: 1.6; margin-top: -10px; margin-bottom: 16px; }
+.form-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-error { display: none; font-size: 13px; color: #b3261e; background: rgba(179, 38, 30, 0.06); border: 1px solid rgba(179, 38, 30, 0.2); border-radius: 10px; padding: 12px 16px; margin: 16px 0 0; line-height: 1.6; }
+.form-error.visible { display: block; }
 .other-input { display: none; margin-top: 10px; }
 .other-input.visible { display: block; }
 .skip-link { display: block; text-align: center; margin-top: 16px; font-size: 13px; color: rgba(27, 42, 74, 0.5); text-decoration: underline; cursor: pointer; background: none; border: none; width: 100%; transition: color 0.2s; font-family: var(--font-sans); }
