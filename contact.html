@@ -208,6 +208,14 @@
             </div>
 
             <!-- Navigation -->
+            <!-- Honeypot anti-spam : invisible pour les humains -->
+            <div class="form-hp" aria-hidden="true">
+              <label for="website">Site web</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+            </div>
+
+            <p class="form-error" id="formError" role="alert"></p>
+
             <div class="form-nav">
               <button type="button" class="btn-prev" id="btnPrev" disabled>
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
@@ -338,6 +346,7 @@
     var formSuccess = document.getElementById('formSuccess');
     var successName = document.getElementById('successName');
     var skipBudget = document.getElementById('skipBudget');
+    var formError = document.getElementById('formError');
 
     var current = 0;
     var rgpdWrap = document.getElementById('rgpdWrap');
@@ -464,11 +473,39 @@
       if (current < 3) {
         goTo(current + 1);
       } else {
-        formWrap.style.display = 'none';
-        formSuccess.classList.add('active');
-        successName.textContent = data.prenom || 'vous';
+        submit();
       }
     });
+
+    function submit() {
+      var label = btnNext.innerHTML;
+      btnNext.disabled = true;
+      btnPrev.disabled = true;
+      btnNext.textContent = 'Envoi en cours...';
+      formError.classList.remove('visible');
+
+      var payload = {};
+      for (var k in data) payload[k] = data[k];
+      payload.website = document.getElementById('website').value;
+
+      fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+        .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); })
+        .then(function () {
+          formWrap.style.display = 'none';
+          formSuccess.classList.add('active');
+          successName.textContent = data.prenom || 'vous';
+        })
+        .catch(function () {
+          formError.textContent = "Oups, l'envoi n'a pas fonctionné. Réessayez dans un instant ou écrivez-moi directement par email.";
+          formError.classList.add('visible');
+          btnNext.innerHTML = label;
+          updateNav();
+        });
+    }
 
     // Init
     renderStepper();
